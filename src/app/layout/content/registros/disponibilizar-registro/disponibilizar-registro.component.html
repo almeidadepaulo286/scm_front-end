@@ -1,0 +1,47 @@
+<div class="d-flex justify-content-between mb-3">
+    <h1 class="page-heading">{{title}}</h1>
+    <div class="text-right">
+        <botao-voltar></botao-voltar>
+    </div>
+</div>
+
+<form [formGroup]="formDispRegistro" (ngSubmit)="onSubmit()" class="row">
+    <div class="col-12 col-md-12 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h6>Dados da Cessão</h6>
+                <hr>
+                <p class="mini-text">* Campos obrigatórios.</p>
+
+                <div formGroupName="contrato">
+                    <div class="form-row">
+                        <div class="form-group col-12 col-md-3">
+                            <label for="periodo_disponibilidade_cessao">Carteira a ser cedida*:</label>
+                            <select class="form-control form-control-sm" formControlName="carteira">
+                                <ng-container *ngFor="let item of carteiras">
+                                    <option value="{{item}}">{{item}}</option>
+                                </ng-container>
+                            </select>
+                        </div>
+                        <div class="form-group col-12 col-md-3">
+                            <label for="cnpj_cessionaria">CNPJ cessionária*:</label>
+                            <input type="text" class="form-control form-control-sm" mask="00.000.000/0000-00" name="cnpj_cessionaria"
+                                id="cnpj_cessionaria" formControlName="cnpj_cessionaria" required>
+                        </div>
+
+                        <div class="form-group col-12 col-md-3">
+                            <label for="codigo_termo_cessao">Cód. termo cessao*:</label> <input type="text" class="form-control form-control-sm"
+                                name="codigo_termo_cessao" maxlength="50" id="codigo_termo_cessao" formControlName="codigo_termo_cessao"
+                                required>
+                        </div>
+                        <div class="form-group col-12 text-danger" *ngIf="!validaForm"><small>Preencha todos os campos</small></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <button type="submit" class="btn btn-info btn-sm btn-acao mt-2">Disponibilizar todas as parcelas da carteira</button>
+            </div>
+        </div>
+    </div>
+</form>

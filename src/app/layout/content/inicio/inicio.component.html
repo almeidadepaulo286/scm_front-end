@@ -1,0 +1,226 @@
+<div class="d-flex justify-content-between mb-3">
+    <h1 class="page-heading">{{title}}</h1>
+</div>
+
+<!-- filtro -->
+<form class="row" *ngIf="userPermissionOperacao" [formGroup]="painelFiltro">
+    <div class="col-12 mb-5">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-left">
+                    <small><strong>Filtros:</strong></small>
+                </div>
+                <div class="form-row">
+                    <div class="col-12 mb-2">
+                        <label for="cnpjDetentor">CNPJ Detentor:</label>
+                        <div class="row">
+                            <div class="col-12 col-sm-4 col-md-3">
+                                <input type="text" class="form-control form-control-sm" mask="00.000.000/0000-00" name="cnpjDetentor" id="cnpjDetentor" formControlName="cnpjDetentor">
+                            </div>
+                            <div class="col-12 col-sm-8 col-md-9">
+                                <button type="button" class="btn btn-sm btn-light mr-2" type="submit" (click)="limparFiltro()">
+                                    Limpar Filtros
+                                </button>
+                                <button type="button" class="btn btn-sm btn-info" (click)="filtrar()">
+                                    Aplicar Filtros
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<ng-container *ngIf="values">
+    <div class="row mb-3">
+        <div class="col-12">
+            <h2 class="h5">Registros</h2>
+        </div>
+        <div class="col-12 col-md-4 col-xl-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <small class="text-aqua-blue">Contratos Recebidos <b>Dia</b></small>
+                    <p class="text-uppercase h4 mb-0">{{values.contratosRecebidosDia}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-xl-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <small class="text-aqua-blue">Contratos Recebidos <b>Mês</b></small>
+                    <p class="text-uppercase h4 mb-0">{{values.contratosRecebidosMes}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-xl-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <small class="text-aqua-blue">Contratos Recebidos <b>Total Ativos</b></small>
+                    <p class="text-uppercase h4 mb-0">{{values.totalContratosRecebidos}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12"></div>
+
+        <div class="col-12 col-md-4 col-xl-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <small class="text-aqua-blue">Parcelas Recebidas <b>Dia</b></small>
+                    <p class="text-uppercase h4 mb-0">{{values.parcelasRecebidosDia}}</p>
+                    <p class="text-secondary mt-2 mb-0"><small><b>{{values.valorParcelasRecebidasDia | formatCurrency}}</b></small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-xl-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <small class="text-aqua-blue">Parcelas Recebidas <b>Mês</b></small>
+                    <p class="text-uppercase h4 mb-0">{{values.parcelasRecebidosMes}}</p>
+                    <p class="text-secondary mt-2 mb-0"><small><b>{{values.valorParcelasRecebidasMes | formatCurrency}}</b></small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-xl-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <small class="text-aqua-blue">Parcelas Recebidas <b>Total Ativos</b></small>
+                    <p class="text-uppercase h4 mb-0">{{values.totalParcelasRecebidos}}</p>
+                    <p class="text-secondary mt-2 mb-0"><small><b>{{values.valorParcelasRecebidasTotal | formatCurrency}}</b></small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row mb-3">
+        <div class="col-12">
+            <h2 class="h5">Cessões</h2>
+        </div>
+        <div class="col-12 col-md-4 col-xl-4 mb-2">
+            <div class="card">
+                <div class="card-body">
+                    <small class="text-aqua-blue">Total Processadas <b>Dia</b></small>
+                    <p class="text-uppercase h4 mb-0">{{values.cessoesProcessadosDia}}</p>
+                    <p class="text-secondary mt-2 mb-0"><small><b>{{values.valorCessoesProcessadasDia | formatCurrency}}</b></small></p>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <small class="text-aqua-blue">Parcelas Cedidas</small>
+                        <small><b>{{values.parcelasOfertadasDia}}</b></small>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <small class="text-aqua-blue">Parcelas Adquiridas</small>
+                        <small><b>{{values.parcelasLiberadasDia}}</b></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-xl-4 mb-2">
+            <div class="card">
+                <div class="card-body">
+                    <small class="text-aqua-blue">Total Processadas <b>Mês</b></small>
+                    <p class="text-uppercase h4 mb-0">{{values.cessoesProcessadosMes}}</p>
+                    <p class="text-secondary mt-2 mb-0"><small><b>{{values.valorCessoesProcessadasMes | formatCurrency}}</b></small></p>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <small class="text-aqua-blue">Parcelas Cedidas</small>
+                        <small><b>{{values.parcelasOfertadasMes}}</b></small>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <small class="text-aqua-blue">Parcelas Adquiridas</small>
+                        <small><b>{{values.parcelasLiberadasMes}}</b></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-xl-4 mb-2">
+            <div class="card">
+                <div class="card-body">
+                    <small class="text-aqua-blue">Canceladas <b>Mês</b></small>
+                    <p class="text-uppercase h4 mb-0">{{values.cessoesProcessadosDia}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row mb-3">
+        <div class="col-12 col-md-8">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="h5">Atualização</h2>
+                </div>
+                <div class="col-12 col-md-6 mb-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <small class="text-aqua-blue">Total Processadas <b>Dia</b></small>
+                            <p class="text-uppercase h4 mb-0">{{values.qtdeParcelasAtualizadasDia}}</p>
+                            <p class="text-secondary mt-2 mb-0"><small><b>{{values.valorParcelasAtualizadasDia | formatCurrency}}</b></small></p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 mb-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <small class="text-aqua-blue">Total Processadas <b>Mês</b></small>
+                            <p class="text-uppercase h4 mb-0">{{values.qtdeParcelasAtualizadasMes}}</p>
+                            <p class="text-secondary mt-2 mb-0"><small><b>{{values.valorParcelasAtualizadasMes | formatCurrency}}</b></small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="h5">Conciliação</h2>
+                </div>
+                <div class="col-12 mb-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <small class="text-aqua-blue">Carteira conciliada pela última vez há</small>
+                            <p class="h4 mb-0">{{values.qtdeDiasUltimaConciliacao}} <small>dias</small></p>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row mb-3">
+        <div class="col-12">
+            <h2 class="h5">Arquivos</h2>
+        </div>
+        <div class="col-12 col-md-4 col-xl-4 mb-2">
+            <div class="card">
+                <div class="card-body">
+                    <small class="text-aqua-blue">Total <b>Recebidos</b></small>
+                    <p class="text-uppercase h4 mb-0">0</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-xl-4 mb-2">
+            <div class="card">
+                <div class="card-body">
+                    <small class="text-aqua-blue">Total <b>Processados</b></small>
+                    <p class="text-uppercase h4 mb-0">0</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-xl-4 mb-2">
+            <div class="card">
+                <div class="card-body">
+                    <small class="text-aqua-blue">Parados</small>
+                    <p class="text-uppercase h4 mb-0">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

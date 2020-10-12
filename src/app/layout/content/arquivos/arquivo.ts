@@ -1,0 +1,55 @@
+export class Arquivo {
+    id: number;
+    sequencialDoArquivo: String;
+    tipoSolicitacaoDeRegistro: number;
+    dataDeEmissaoDoMovimento: String;
+    dataInicioDeVigencia: String;
+    dataTerminoDeVigencia: String;
+    numeroDeApolice: number;
+    numeroDoEndosso: number;
+    numeroDoEndossoAssociado: number;
+    numeroDoRegistroDoProdutoSUSEP: number;
+    grupoDoSeguro: number;
+    grupoDoSeguroDescricao: String;
+    ramoDoSeguro: number;
+    ramoDoSeguroDescricao: String;
+    codigoDaCobertura: number;
+    nome: {
+       razaoSocialSegurado: String;
+       razaoSocialTomador: String
+    };
+    cpf: {
+       cnpjSegurado: String;
+       cnpjTomador: String;
+    };
+    tipoEntidadeSegurado: number;
+    limiteMaximoDeGarantiaLMG: number;
+    codigoDeMoeda: number;
+    cotacaoMoeda: number;
+    premioEmitidoBRL: number;
+    premioEmitidoMoeda: number;
+    custoDeAquisicao: number;
+    custoDeEmissaoDaApolice: number;
+    impostoSobreOperacoesFinanceirasIOF: number;
+    fracionamento: number;
+    situacao: number;
+    contratoDoObjetoSegurado: String;
+    tipoEntidadeTomador: number;
+    totalTomadoresDoGrupoEconomico: number;
+    tipoCosseguro: number;
+    codigoSusepCosegurador: number;
+    percentualDeCoseguro: number;
+    importanciaSeguradaCosseguro: number;
+    premioCosseguro: number;
+    totalCosseguradores: number;
+    tipoResseguro: number;
+    contratoDeResseguro: number;
+    totalContratosDeResseguro: number;
+    codigoSusepRessegurador: number;
+    totalResseguradores: number;
+    percentualdeResseguro: number;
+    importanciaSeguradaResseguro: number;
+    premioResseguro: number;
+    codigoSusepBroker: number;
+    totalBroker: number
+  }

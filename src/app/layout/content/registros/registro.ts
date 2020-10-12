@@ -1,0 +1,48 @@
+import { Parcelas } from './parcelas';
+import { Garantias } from './garantias';
+import { Credores } from './credores';
+import { Devedores } from './devedores';
+
+export class Registro {
+    id_registro: number;
+    protocolo: String;
+    carteira: String;
+    status: String;
+    bloqueado: String;
+    finalizado: String;
+    publico: String;
+    ativo: String;
+    id_operacao: String;
+    originador_cnpj: String;
+    credor_detentor: String;          
+    garantidor_tipo_pessoa: String;
+    garantidor_numero_documento: String;
+    garantidor_cep: String;
+    beneficiario_tipo_pessoa: String;
+    beneficiario_numero_documento: String;
+    beneficiario_banco_credito: String;
+    beneficiario_agencia_credito: String;
+    beneficiario_conta_corrente_credito: String;
+    codigo_modalidade_operacao_credito: String;
+    codigo_sub: String;
+    codigo_contrato_operacao_credito: String;
+    data_contrato: String;
+    data_contrato_sistema_IF: String;
+    valor_total_credito: String;
+    valor_liquido_credito: String;
+    indexacao: String;
+    taxa_juros_operacao: String;
+    quantidade_parcela_contratada: String;
+    data_inclusao: String;
+    data_alteracao: String;
+    usuario_criacao: String;
+    data_registro: String;
+    indicador_consistente: String;
+    indicador_neutro: String;
+    indicador_alerta: String;
+    indicador_critico: String;
+    garantias: Garantias[];
+    parcelas: Parcelas[];
+    credores: Credores[];
+    devedores: Devedores[];
+}

@@ -1,0 +1,2496 @@
+/* line 2, app/assets/stylesheets/admin/access_logs/content.sass */
+.access-logs #main {
+  margin-top: 100px;
+}
+
+/* line 5, app/assets/stylesheets/admin/access_logs/content.sass */
+.access-logs #main .top-filter .jarviswidget {
+  margin-bottom: 0 !important;
+}
+
+/* line 7, app/assets/stylesheets/admin/access_logs/content.sass */
+.access-logs #main .top-filter .body-color {
+  background-color: #F0F0F0 !important;
+  border: none !important;
+}
+
+/* line 10, app/assets/stylesheets/admin/access_logs/content.sass */
+.access-logs #main .top-filter .filter-button {
+  padding: 6px 20px;
+  margin: 23px 5px;
+  border: none;
+  font-weight: 600;
+}
+
+/* line 15, app/assets/stylesheets/admin/access_logs/content.sass */
+.access-logs #main .top-filter .clear-button {
+  background-color: #d7d7d7;
+  color: #333;
+  letter-spacing: 0.5px;
+}
+
+/* line 19, app/assets/stylesheets/admin/access_logs/content.sass */
+.access-logs #main .top-filter .clear-button:hover {
+  background-color: #bdbdbd;
+}
+
+/* line 21, app/assets/stylesheets/admin/access_logs/content.sass */
+.access-logs #main .top-filter .label-checkbox {
+  margin-top: -23px;
+}
+
+/* line 24, app/assets/stylesheets/admin/access_logs/content.sass */
+.access-logs #main .access-logs-listing .operation-error {
+  background-color: #fbe8ea !important;
+}
+
+/* line 27, app/assets/stylesheets/admin/access_logs/content.sass */
+.access-logs #main .access-logs-listing .table-header th {
+  text-align: center;
+  background-color: #d7d7d7;
+}
+
+/* line 30, app/assets/stylesheets/admin/access_logs/content.sass */
+.access-logs #main .access-logs-listing .table-body {
+  background-color: #fff;
+  border-color: #d7d7d7;
+  text-align: center;
+}
+
+/* line 35, app/assets/stylesheets/admin/access_logs/content.sass */
+.access-logs #main .access-logs-listing .access-log-type span {
+  opacity: 0.6;
+  min-width: 40px;
+  display: inline-block;
+  padding: 4px 6px;
+  margin: 3px 3px;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  color: #333;
+  background-color: #A9A9A9;
+  border-top-right-radius: 2em;
+  border-bottom-right-radius: 2em;
+  border-top-left-radius: 2em;
+  border-bottom-left-radius: 2em;
+}
+
+/* line 50, app/assets/stylesheets/admin/access_logs/content.sass */
+.access-logs #main .access-logs-listing .access-log-profile {
+  color: #A9A9A9;
+}
+
+/* line 53, app/assets/stylesheets/admin/access_logs/content.sass */
+.access-logs #main .access-logs-listing .access-log-details a {
+  color: #A9A9A9;
+}
+
+/* line 2, app/assets/stylesheets/admin/access_logs/header.sass */
+.access-logs #header > :first-child {
+  width: 100%;
+  display: block;
+  float: initial;
+}
+
+/* line 6, app/assets/stylesheets/admin/access_logs/header.sass */
+.access-logs #header > div {
+  display: block;
+  float: initial;
+  width: 100%;
+}
+
+/* line 10, app/assets/stylesheets/admin/access_logs/header.sass */
+.access-logs header {
+  padding: 0 20px;
+}
+
+/* line 13, app/assets/stylesheets/admin/access_logs/header.sass */
+.access-logs header .menu a.access-logs-header-link {
+  height: 100%;
+  padding: 5px 10px;
+  text-align: center;
+  color: white;
+}
+
+/* line 18, app/assets/stylesheets/admin/access_logs/header.sass */
+.access-logs header .menu a.access-logs-header-link:hover {
+  color: #1f77b2;
+  background-color: rgba(31, 119, 178, 0.1);
+}
+
+/* line 21, app/assets/stylesheets/admin/access_logs/header.sass */
+.access-logs header .menu a.current {
+  color: #1f77b2;
+  background-color: rgba(31, 119, 178, 0.1);
+}
+
+/* line 24, app/assets/stylesheets/admin/access_logs/header.sass */
+.access-logs header .menu .access-logs-header-symbol {
+  font-size: 23px;
+}
+
+/* line 26, app/assets/stylesheets/admin/access_logs/header.sass */
+.access-logs header .menu .access-logs-header-info {
+  font-size: 12px;
+}
+
+/* line 28, app/assets/stylesheets/admin/access_logs/header.sass */
+.access-logs header .submenu {
+  height: 40px !important;
+  background-color: #d6d6d6;
+  position: fixed;
+  color: #0c2035;
+}
+
+/* line 33, app/assets/stylesheets/admin/access_logs/header.sass */
+.access-logs header .submenu .submenu-title {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 20px;
+  color: #0c2035;
+}
+
+/* line 38, app/assets/stylesheets/admin/access_logs/header.sass */
+.access-logs header .submenu .submenu-access-widget {
+  display: inline-block;
+  color: #5d5d5d;
+  padding: 3px 10px;
+}
+
+/* line 42, app/assets/stylesheets/admin/access_logs/header.sass */
+.access-logs header .submenu .submenu-access-widget .user-name {
+  text-align: right;
+  font-weight: bold;
+}
+
+/* line 45, app/assets/stylesheets/admin/access_logs/header.sass */
+.access-logs header .submenu .submenu-access-widget .access-at {
+  font-size: 11px;
+}
+
+/* line 47, app/assets/stylesheets/admin/access_logs/header.sass */
+.access-logs header .submenu .submenu-access-widget .profile-icon {
+  margin-left: 15px;
+}
+
+/* line 48, app/assets/stylesheets/admin/access_logs/header.sass */
+.access-logs header .submenu .submenu-access-widget .profile-icon .fa-circle-thin {
+  color: #a4a4a4;
+}
+
+/* line 52, app/assets/stylesheets/admin/access_logs/header.sass */
+.access-logs header .submenu .submenu-access-widget .profile-icon .supervisor-symbol {
+  color: #0070BF;
+}
+
+/* line 54, app/assets/stylesheets/admin/access_logs/header.sass */
+.access-logs header .submenu .submenu-access-widget .profile-icon .operator-symbol {
+  color: #eea40c;
+}
+
+/* line 2, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.access-logs .left-filter {
+  box-shadow: 1px 1px 0 1px #d7d7d7;
+  margin: 0;
+  width: 200px;
+  top: 0;
+  left: -205px;
+  position: absolute;
+  background-color: #F0F0F0;
+  padding: 15px;
+}
+
+/* line 11, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.access-logs .left-filter .title {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid #d7d7d7;
+  color: #767676;
+}
+
+/* line 17, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.access-logs .left-filter .content {
+  padding: 10px 0;
+}
+
+/* line 19, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.access-logs .left-filter .content .item-title {
+  color: #333;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* line 23, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.access-logs .left-filter .content .item-content {
+  padding: 5px 0;
+}
+
+/* line 25, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.access-logs .left-filter .content .item-content label {
+  margin: 0;
+}
+
+/* line 27, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.access-logs .left-filter .content .item-content > div, .access-logs .left-filter .content label, .access-logs .left-filter .content i {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* line 34, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.access-logs .left-filter .content .user-type .item-content {
+  text-align: center;
+  margin: 5px 0;
+}
+
+/* line 37, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.access-logs .left-filter .content .user-type .item-content input {
+  display: none;
+}
+
+/* line 39, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.access-logs .left-filter .content .user-type .item-content label {
+  min-width: 45px;
+  display: inline-block;
+  padding: 4px 6px;
+  margin: 3px 3px;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  color: #A9A9A9;
+  background-color: #fff;
+  border-top-right-radius: 2em;
+  border-bottom-right-radius: 2em;
+  border-top-left-radius: 2em;
+  border-bottom-left-radius: 2em;
+}
+
+/* line 53, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.access-logs .left-filter .content .user-type .item-content input[type=radio]:checked + label {
+  color: #fff;
+  background-color: #1f77b2;
+}
+
+/* line 57, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.access-logs .left-filter .content .user-profile .item-content {
+  text-align: center;
+  margin: 5px 0;
+}
+
+/* line 60, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.access-logs .left-filter .content .user-profile .item-content input {
+  display: none;
+}
+
+/* line 62, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.access-logs .left-filter .content .user-profile .item-content label {
+  min-width: 69px;
+  padding: 1px 5px;
+  text-align: center;
+  display: inline-block;
+  color: #A9A9A9;
+}
+
+/* line 68, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.access-logs .left-filter .content .user-profile .item-content label i {
+  min-width: 40px;
+  min-heigh: 40px;
+  font-size: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+/* line 75, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.access-logs .left-filter .content .user-profile .item-content label label {
+  display: block;
+  font-size: 12px;
+}
+
+/* line 79, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.access-logs .left-filter .content .user-profile .item-content input[type=radio]:checked + label i {
+  color: #fff;
+  background-color: #1f77b2;
+}
+
+/* line 82, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.access-logs .left-filter .content .user-profile .item-content input[type=radio]:checked + label label {
+  color: #1f77b2 !important;
+}
+
+/* line 84, app/assets/stylesheets/admin/access_logs/left_filter.sass */
+.clear {
+  clear: both;
+}
+
+/* line 2, app/assets/stylesheets/admin/agent_registration/participations.sass */
+.admin-agent-direct-participations-controller .chosen-container {
+  height: 34px !important;
+  margin-top: 5px !important;
+}
+
+/* line 6, app/assets/stylesheets/admin/agent_registration/participations.sass */
+.admin-agent-direct-participations-controller .chosen-container-multi .chosen-choices {
+  height: 100% !important;
+}
+
+/* line 9, app/assets/stylesheets/admin/agent_registration/participations.sass */
+.admin-agent-direct-participations-controller .chosen-container-multi .chosen-choices .search-field {
+  padding-left: 12px;
+  padding-top: 2px;
+}
+
+/* line 13, app/assets/stylesheets/admin/agent_registration/participations.sass */
+.admin-agent-direct-participations-controller .chosen-container-multi .chosen-choices li.search-choice {
+  margin: 5px 0px 5px 5px;
+}
+
+/* line 19, app/assets/stylesheets/admin/agent_registration/participations.sass */
+.admin-agent-direct-participations-controller.index-action .confirmation-modal .warning-text span {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+/* line 22, app/assets/stylesheets/admin/agent_registration/participations.sass */
+.admin-agent-direct-participations-controller.index-action .confirmation-modal .warning-text i {
+  margin-right: 0;
+}
+
+/* line 24, app/assets/stylesheets/admin/agent_registration/participations.sass */
+.admin-agent-direct-participations-controller.index-action .confirmation-modal .warning-text h4, .admin-agent-direct-participations-controller.index-action .confirmation-modal .warning-text h5, .admin-agent-direct-participations-controller.index-action .confirmation-modal .warning-text h6 {
+  display: inline-block;
+}
+
+/* line 26, app/assets/stylesheets/admin/agent_registration/participations.sass */
+.admin-agent-direct-participations-controller.index-action .confirmation-modal p {
+  font-size: 1.3em;
+  margin: 15px;
+}
+
+/* line 30, app/assets/stylesheets/admin/agent_registration/participations.sass */
+.admin-agent-direct-participations-controller .representative-badge {
+  background-color: #3276b1;
+}
+
+/* line 3, app/assets/stylesheets/admin/agents/show.sass */
+.admin-agents-controller.show-action .title-card .show-header {
+  display: inline-block;
+}
+
+/* line 5, app/assets/stylesheets/admin/agents/show.sass */
+.admin-agents-controller.show-action .title-card .subtitle {
+  margin-top: 2px;
+}
+
+/* line 9, app/assets/stylesheets/admin/agents/show.sass */
+.admin-agents-controller.show-action .button-bar .btn:not(:first-child) {
+  margin-left: 7px;
+}
+
+/* line 1, app/assets/stylesheets/admin/custom.sass */
+.btn-edit, .btn-detail, .btn-delete {
+  font-weight: bold;
+}
+
+/* line 4, app/assets/stylesheets/admin/custom.sass */
+.btn-edit .btn-detail {
+  color: #3d5ea0;
+}
+
+/* line 7, app/assets/stylesheets/admin/custom.sass */
+.btn-delete {
+  color: #ed5766;
+}
+
+/* line 10, app/assets/stylesheets/admin/custom.sass */
+.text-bold {
+  font-weight: bold;
+}
+
+/* line 13, app/assets/stylesheets/admin/custom.sass */
+.text-black {
+  color: black;
+}
+
+/* line 16, app/assets/stylesheets/admin/custom.sass */
+.calc {
+  font-weight: bold;
+}
+
+/* line 19, app/assets/stylesheets/admin/custom.sass */
+.bold {
+  font-weight: bold;
+}
+
+/* line 22, app/assets/stylesheets/admin/custom.sass */
+.nav > li.active > a {
+  background-color: #395795;
+}
+
+/* line 25, app/assets/stylesheets/admin/custom.sass */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* line 28, app/assets/stylesheets/admin/custom.sass */
+.logout-bar {
+  padding-top: 8px;
+}
+
+/* line 31, app/assets/stylesheets/admin/custom.sass */
+.logout-info {
+  color: white;
+  padding-right: 10px;
+}
+
+/* line 35, app/assets/stylesheets/admin/custom.sass */
+.logout-circle {
+  color: #7e7e84;
+}
+
+/* line 38, app/assets/stylesheets/admin/custom.sass */
+.logout-symbol {
+  color: white;
+}
+
+/* line 41, app/assets/stylesheets/admin/custom.sass */
+.separator {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #fff;
+}
+
+/* line 45, app/assets/stylesheets/admin/custom.sass */
+.popup {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 4;
+}
+
+/* line 50, app/assets/stylesheets/admin/custom.sass */
+.popup .jarviswidget {
+  margin: 0;
+}
+
+/* line 52, app/assets/stylesheets/admin/custom.sass */
+.popup header {
+  background-color: #0c2035;
+  color: white;
+}
+
+/* line 55, app/assets/stylesheets/admin/custom.sass */
+.popup header a {
+  color: white;
+}
+
+/* line 58, app/assets/stylesheets/admin/custom.sass */
+.title-popup {
+  margin-left: 10px;
+  top: -3px;
+  position: relative;
+}
+
+/* line 1, app/assets/stylesheets/admin/custom_colors.sass */
+.bgcolor-cercDarkBlue {
+  background-color: #0c2035 !important;
+}
+
+/* line 3, app/assets/stylesheets/admin/custom_colors.sass */
+.bgcolor-cercDarkGreyBlue {
+  background-color: #7e7e84 !important;
+}
+
+/* line 5, app/assets/stylesheets/admin/custom_colors.sass */
+.bgcolor-cercGreyBlue {
+  background-color: #d6d6d6 !important;
+}
+
+/* line 7, app/assets/stylesheets/admin/custom_colors.sass */
+.bgcolor-cercBlue {
+  background-color: #0070BF !important;
+}
+
+/* line 9, app/assets/stylesheets/admin/custom_colors.sass */
+.bgcolor-cercLightBlue {
+  background-color: #1f77b2 !important;
+}
+
+/* line 11, app/assets/stylesheets/admin/custom_colors.sass */
+.bgcolor-cercLighterBlue {
+  background-color: #f0f0f0 !important;
+}
+
+/* line 13, app/assets/stylesheets/admin/custom_colors.sass */
+.bgcolor-cercDarkGrey {
+  background-color: #333 !important;
+}
+
+/* line 15, app/assets/stylesheets/admin/custom_colors.sass */
+.bgcolor-cercGrey {
+  background-color: #A9A9A9 !important;
+}
+
+/* line 17, app/assets/stylesheets/admin/custom_colors.sass */
+.bgcolor-cercLightGrey {
+  background-color: #F0F0F0 !important;
+}
+
+/* line 19, app/assets/stylesheets/admin/custom_colors.sass */
+.bgcolor-cercRed {
+  background-color: #d51c2f !important;
+}
+
+/* line 21, app/assets/stylesheets/admin/custom_colors.sass */
+.bgcolor-cercYellow {
+  background-color: #eea40c !important;
+}
+
+/* line 23, app/assets/stylesheets/admin/custom_colors.sass */
+.bgcolor-cercGreen {
+  background-color: #25bf4d !important;
+}
+
+/* line 26, app/assets/stylesheets/admin/custom_colors.sass */
+.txt-color-cercWhite {
+  color: #FFF;
+}
+
+/* line 28, app/assets/stylesheets/admin/custom_colors.sass */
+.txt-color-cercDarkBlue {
+  color: #0c2035;
+}
+
+/* line 30, app/assets/stylesheets/admin/custom_colors.sass */
+.txt-color-cercDarkGreyBlue {
+  color: #7e7e84;
+}
+
+/* line 32, app/assets/stylesheets/admin/custom_colors.sass */
+.txt-color-cercGreyBlue {
+  color: #d6d6d6;
+}
+
+/* line 34, app/assets/stylesheets/admin/custom_colors.sass */
+.txt-color-cercBlue {
+  color: #0070BF;
+}
+
+/* line 36, app/assets/stylesheets/admin/custom_colors.sass */
+.txt-color-cercLightBlue, .neutral-color-icon {
+  color: #1f77b2;
+}
+
+/* line 38, app/assets/stylesheets/admin/custom_colors.sass */
+.txt-color-cercLighterBlue {
+  color: #f0f0f0;
+}
+
+/* line 40, app/assets/stylesheets/admin/custom_colors.sass */
+.txt-color-cercDarkGrey {
+  color: #333;
+}
+
+/* line 42, app/assets/stylesheets/admin/custom_colors.sass */
+.txt-color-cercGrey {
+  color: #A9A9A9;
+}
+
+/* line 44, app/assets/stylesheets/admin/custom_colors.sass */
+.txt-color-cercLightGrey {
+  color: #F0F0F0;
+}
+
+/* line 46, app/assets/stylesheets/admin/custom_colors.sass */
+.txt-color-cercRed, .restrictive-color-icon {
+  color: #d51c2f;
+}
+
+/* line 48, app/assets/stylesheets/admin/custom_colors.sass */
+.txt-color-cercYellow, .negative-color-icon {
+  color: #eea40c;
+}
+
+/* line 50, app/assets/stylesheets/admin/custom_colors.sass */
+.txt-color-cercGreen, .positive-color-icon {
+  color: #25bf4d;
+}
+
+/* line 3, app/assets/stylesheets/admin/form.sass */
+/*.new-action form header, .edit-action form header, .create-action form header, .update-action form header {
+  font-weight: lighter;
+  font-size: 20px;
+  color: #AAA;
+  margin-bottom: 10px;
+}*/
+
+/* line 3, app/assets/stylesheets/admin/integra_layouts.sass */
+.admin-file-layouts-controller form .checkbox-multiple-lines-label-position, .admin-payment-layouts-controller form .checkbox-multiple-lines-label-position {
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+/* line 7, app/assets/stylesheets/admin/integra_layouts.sass */
+.admin-file-layouts-controller form .checkbox-header-batch-label-position, .admin-payment-layouts-controller form .checkbox-header-batch-label-position {
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+/* line 11, app/assets/stylesheets/admin/integra_layouts.sass */
+.admin-file-layouts-controller form .chosen-container-multi .chosen-choices, .admin-payment-layouts-controller form .chosen-container-multi .chosen-choices {
+  padding: 2px 6px;
+  box-shadow: none;
+  background: #ffffff;
+  border-radius: 0;
+}
+
+/* line 18, app/assets/stylesheets/admin/integra_layouts.sass */
+.admin-file-layouts-controller .info-section .form-group .control-label, .admin-payment-layouts-controller .info-section .form-group .control-label {
+  font-weight: bold;
+}
+
+/* line 20, app/assets/stylesheets/admin/integra_layouts.sass */
+.admin-file-layouts-controller .start-end-info-row, .admin-payment-layouts-controller .start-end-info-row {
+  border-top: 1px solid #DDDDDD;
+  padding-top: 2%;
+}
+
+/* line 1, app/assets/stylesheets/admin/loader.scss */
+header .loader {
+  float: right;
+  margin-top: 14px;
+  margin-left: 10px;
+  margin-right: -120px;
+  transition: all 0.2s linear 0.3s;
+}
+
+/* line 8, app/assets/stylesheets/admin/loader.scss */
+header .loader.active {
+  margin-right: 10px;
+  transition: all linear 0.3s;
+}
+
+/* line 14, app/assets/stylesheets/admin/loader.scss */
+.loader {
+  height: 30px;
+  opacity: 0.8;
+}
+
+/* line 18, app/assets/stylesheets/admin/loader.scss */
+.loader span {
+  display: inline-block;
+  animation: pulse 0.4s alternate infinite ease-in-out;
+}
+
+/* line 22, app/assets/stylesheets/admin/loader.scss */
+.loader span:first-child {
+  margin-right: 2px;
+}
+
+/* line 26, app/assets/stylesheets/admin/loader.scss */
+.loader span img {
+  height: 20px;
+}
+
+/* line 30, app/assets/stylesheets/admin/loader.scss */
+.loader span:nth-child(odd) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+  to {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+/* line 2, app/assets/stylesheets/admin/nfe_validation_batches.sass */
+.admin-nfe-validation-batches-controller .processing-badge {
+  margin-right: 6px;
+  min-width: 28px;
+}
+
+/* line 6, app/assets/stylesheets/admin/nfe_validation_batches.sass */
+.admin-nfe-validation-batches-controller .processing-group {
+  width: 180px;
+}
+
+/* line 1, app/assets/stylesheets/admin/sessions/new.sass */
+.admin-sessions-controller.new-action,
+.admin-sessions-controller.create-action,
+.sessions-controller.create-action,
+body.public-layout {
+  background-image: url(assets/images/background-cerc.png);
+  min-height: 100vh;
+}
+
+/* line 8, app/assets/stylesheets/admin/sessions/new.sass */
+.admin-sessions-controller.new-action .main,
+.admin-sessions-controller.create-action .main,
+.sessions-controller.create-action .main,
+body.public-layout .main {
+  padding-top: 21px;
+}
+
+/* line 11, app/assets/stylesheets/admin/sessions/new.sass */
+.admin-sessions-controller.new-action .description,
+.admin-sessions-controller.create-action .description,
+.sessions-controller.create-action .description,
+body.public-layout .description {
+  color: white;
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+/* line 16, app/assets/stylesheets/admin/sessions/new.sass */
+.admin-sessions-controller.new-action .description p,
+.admin-sessions-controller.create-action .description p,
+.sessions-controller.create-action .description p,
+body.public-layout .description p {
+  margin-bottom: 30px;
+}
+
+/* line 19, app/assets/stylesheets/admin/sessions/new.sass */
+.admin-sessions-controller.new-action .description p.margin-bottom-0,
+.admin-sessions-controller.create-action .description p.margin-bottom-0,
+.sessions-controller.create-action .description p.margin-bottom-0,
+body.public-layout .description p.margin-bottom-0 {
+  margin-bottom: 0;
+}
+
+/* line 22, app/assets/stylesheets/admin/sessions/new.sass */
+.admin-sessions-controller.new-action .description a,
+.admin-sessions-controller.create-action .description a,
+.sessions-controller.create-action .description a,
+body.public-layout .description a {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* line 28, app/assets/stylesheets/admin/sessions/new.sass */
+.admin-sessions-controller.new-action img.cerc-icon,
+.admin-sessions-controller.create-action img.cerc-icon,
+.sessions-controller.create-action img.cerc-icon,
+body.public-layout img.cerc-icon {
+  width: 32px;
+}
+
+/* line 31, app/assets/stylesheets/admin/sessions/new.sass */
+.admin-sessions-controller.new-action header,
+.admin-sessions-controller.create-action header,
+.sessions-controller.create-action header,
+body.public-layout header {
+  padding: 15px 20px;
+  color: white;
+  background: #7e7e84;
+  margin: 0;
+  border-radius: 10px 10px 0 0;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* line 40, app/assets/stylesheets/admin/sessions/new.sass */
+.admin-sessions-controller.new-action fieldset,
+.admin-sessions-controller.create-action fieldset,
+.sessions-controller.create-action fieldset,
+body.public-layout fieldset {
+  padding: 25px 15px;
+  border-radius: 0 0 10px 10px;
+}
+
+/* line 44, app/assets/stylesheets/admin/sessions/new.sass */
+.admin-sessions-controller.new-action label,
+.admin-sessions-controller.create-action label,
+.sessions-controller.create-action label,
+body.public-layout label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #001c30;
+  display: block;
+}
+
+/* line 50, app/assets/stylesheets/admin/sessions/new.sass */
+.admin-sessions-controller.new-action input,
+.admin-sessions-controller.create-action input,
+.sessions-controller.create-action input,
+body.public-layout input {
+  border-color: #CCC;
+  border-radius: 3px;
+}
+
+/* line 55, app/assets/stylesheets/admin/sessions/new.sass */
+.admin-sessions-controller.new-action a.forget-link,
+.admin-sessions-controller.create-action a.forget-link,
+.sessions-controller.create-action a.forget-link,
+body.public-layout a.forget-link {
+  color: #7e7e84;
+  font-style: italic;
+  font-weight: bold;
+  text-decoration: underline;
+  padding-top: 8px;
+}
+
+/* line 62, app/assets/stylesheets/admin/sessions/new.sass */
+.admin-sessions-controller.new-action .cerc-btn-primary,
+.admin-sessions-controller.create-action .cerc-btn-primary,
+.sessions-controller.create-action .cerc-btn-primary,
+body.public-layout .cerc-btn-primary {
+  background-color: #001c30;
+  padding: 8px 20px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* line 1, app/assets/stylesheets/portal/custom.sass */
+.blue-icon {
+  color: #3276b1;
+}
+
+/* line 4, app/assets/stylesheets/portal/custom.sass */
+.gray-icon {
+  color: #A9A9A9;
+}
+
+/* line 7, app/assets/stylesheets/portal/custom.sass */
+.app-name-label {
+  margin-bottom: 20px;
+}
+
+/* line 2, app/assets/stylesheets/portal/feed_export_request/show.sass */
+.portal-feed-export-requests-controller.show-action .download-file {
+  position: absolute;
+  top: 25px;
+  left: -310px;
+}
+
+/* line 7, app/assets/stylesheets/portal/feed_export_request/show.sass */
+.portal-feed-export-requests-controller.show-action .form-wrapper .widget-body {
+  border-radius: 6px;
+  min-height: 380px;
+  padding: 30px;
+}
+
+/* line 11, app/assets/stylesheets/portal/feed_export_request/show.sass */
+.portal-feed-export-requests-controller.show-action .form-wrapper label, .portal-feed-export-requests-controller.show-action .form-wrapper span {
+  font-weight: bold;
+}
+
+/* line 13, app/assets/stylesheets/portal/feed_export_request/show.sass */
+.portal-feed-export-requests-controller.show-action .form-wrapper label {
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+/* line 16, app/assets/stylesheets/portal/feed_export_request/show.sass */
+.portal-feed-export-requests-controller.show-action .form-wrapper .inline-block.pull-right input {
+  font-weight: bold;
+}
+
+/* line 18, app/assets/stylesheets/portal/feed_export_request/show.sass */
+.portal-feed-export-requests-controller.show-action .form-wrapper .input {
+  position: relative;
+}
+
+/* line 20, app/assets/stylesheets/portal/feed_export_request/show.sass */
+.portal-feed-export-requests-controller.show-action .form-wrapper .input input {
+  border-radius: 6px;
+  width: 100%;
+  background-color: #EEEEEE;
+}
+
+/* line 24, app/assets/stylesheets/portal/feed_export_request/show.sass */
+.portal-feed-export-requests-controller.show-action .form-wrapper .date-picker {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: block;
+  height: 20px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-top: 4px;
+  padding-left: 4px;
+  border-left: 1px solid #bdbdbd;
+}
+
+/* line 36, app/assets/stylesheets/portal/feed_export_request/show.sass */
+.portal-feed-export-requests-controller.show-action .form-group span.help-block:first-letter {
+  text-transform: uppercase;
+}
+
+/* line 39, app/assets/stylesheets/portal/feed_export_request/show.sass */
+.portal-feed-export-requests-controller.show-action .row .row.display-area {
+  padding-top: 40px;
+  border-top: 1px solid #999999;
+}
+
+/* line 43, app/assets/stylesheets/portal/feed_export_request/show.sass */
+.portal-feed-export-requests-controller.show-action .row .row.display-area .text-center .download-link {
+  margin-top: 50px;
+}
+
+/* line 45, app/assets/stylesheets/portal/feed_export_request/show.sass */
+.portal-feed-export-requests-controller.show-action .row .row.display-area .text-center .disabled {
+  color: #ffffff;
+}
+
+/* line 3, app/assets/stylesheets/portal/feeds/index.sass */
+.portal-feeds-controller.register-action .download-button,
+.portal-feeds-controller.avaliacao-action .download-button {
+  margin: 18px 0;
+  margin-right: 20px;
+}
+
+/* line 2, app/assets/stylesheets/portal/nfe_duplicata_registrations/index.sass */
+.portal-nfe-duplicata-registrations-controller.index-action th.pedido-registro {
+  min-width: 152px;
+}
+
+/* line 2, app/assets/stylesheets/components/access_management.sass */
+.modal.access-management .modal-body {
+  font-size: 1.1em;
+}
+
+/* line 4, app/assets/stylesheets/components/access_management.sass */
+.modal.access-management .modal-body input[type="radio"] {
+  margin: 3px 0px 0px -20px;
+}
+
+/* line 6, app/assets/stylesheets/components/access_management.sass */
+.modal.access-management .modal-body .description {
+  margin-top: 20px;
+}
+
+/* line 2, app/assets/stylesheets/components/agent_card.sass */
+.agent-card .title {
+  font-size: 22px;
+}
+
+/* line 4, app/assets/stylesheets/components/agent_card.sass */
+.agent-card .subtitle {
+  margin: 15px 0 0 0;
+  font-size: 18px;
+}
+
+/* line 1, app/assets/stylesheets/components/badge.sass */
+.badge {
+  font-weight: normal;
+  text-align: center;
+  background-color: #A9A9A9;
+}
+
+/* line 6, app/assets/stylesheets/components/badge.sass */
+.badge.refused-count {
+  background-color: #e7a734;
+}
+
+/* line 9, app/assets/stylesheets/components/badge.sass */
+.badge.finished-count {
+  background-color: #abcb52;
+}
+
+/* line 12, app/assets/stylesheets/components/badge.sass */
+.badge.error-count {
+  background-color: #dd7556;
+}
+
+/* line 15, app/assets/stylesheets/components/badge.sass */
+.badge.consistent {
+  background-color: #25bf4d;
+}
+
+/* line 18, app/assets/stylesheets/components/badge.sass */
+.badge.neutral {
+  background-color: #1f77b2;
+}
+
+/* line 21, app/assets/stylesheets/components/badge.sass */
+.badge.warning {
+  background-color: #eea40c;
+}
+
+/* line 24, app/assets/stylesheets/components/badge.sass */
+.badge.critical {
+  background-color: #d51c2f;
+}
+
+/* line 27, app/assets/stylesheets/components/badge.sass */
+.badge.refused-count, .badge.finished-count, .badge.error-count {
+  color: black;
+}
+
+/* line 32, app/assets/stylesheets/components/badge.sass */
+.badge.consistent, .badge.neutral, .badge.warning, .badge.critical {
+  color: #FFF;
+  font-weight: bold;
+}
+
+/* line 39, app/assets/stylesheets/components/badge.sass */
+.smart-form .badge {
+  padding: 3px 7px;
+}
+
+/* line 1, app/assets/stylesheets/components/buttons.sass */
+.button-float-right {
+  float: right;
+  margin-right: 20px;
+}
+
+/* line 2, app/assets/stylesheets/components/cnpj_participant.sass */
+.cnpj-participant-container .data-row {
+  border-bottom: 1px solid #f0f0f0;
+  padding-top: 10px;
+}
+
+/* line 5, app/assets/stylesheets/components/cnpj_participant.sass */
+.cnpj-participant-container .data-row:first-child {
+  padding: 0;
+}
+
+/* line 7, app/assets/stylesheets/components/cnpj_participant.sass */
+.cnpj-participant-container .data-row:last-child {
+  border-bottom: none;
+}
+
+/* line 11, app/assets/stylesheets/components/cnpj_participant.sass */
+.cnpj-participant-container .participant-data .header {
+  font-weight: bold;
+}
+
+/* line 1, app/assets/stylesheets/components/copy_key.sass */
+.key-action {
+  cursor: pointer;
+}
+
+/* line 3, app/assets/stylesheets/components/copy_key.sass */
+.key-action input.key {
+  position: fixed;
+  top: -1000px;
+  left: -1000px;
+}
+
+/* line 2, app/assets/stylesheets/components/cpf_participant.sass */
+.cpf-participant-container .data-row {
+  border-bottom: 1px solid #f0f0f0;
+  padding-top: 10px;
+}
+
+/* line 5, app/assets/stylesheets/components/cpf_participant.sass */
+.cpf-participant-container .data-row:first-child {
+  padding: 0;
+}
+
+/* line 7, app/assets/stylesheets/components/cpf_participant.sass */
+.cpf-participant-container .data-row:last-child {
+  border-bottom: none;
+}
+
+/* line 11, app/assets/stylesheets/components/cpf_participant.sass */
+.cpf-participant-container .participant-data .header {
+  font-weight: bold;
+}
+
+/* line 2, app/assets/stylesheets/components/dfe.sass */
+.dfe-container.tabs-left ul {
+  margin-right: 0;
+}
+
+/* line 7, app/assets/stylesheets/components/dfe.sass */
+.dfe-container.tabs-left .tab-content .tab-pane .well {
+  border-left-width: 0;
+  overflow: auto;
+}
+
+/* line 11, app/assets/stylesheets/components/dfe.sass */
+.dfe-container.tabs-left .tab-content .tab-pane .well h4 {
+  border-bottom: 1px solid #777;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+/* line 16, app/assets/stylesheets/components/dfe.sass */
+.dfe-container.tabs-left .tab-content .tab-pane .well .row {
+  padding-top: 10px;
+}
+
+/* line 19, app/assets/stylesheets/components/dfe.sass */
+.dfe-container.tabs-left .collapse-num {
+  margin-left: 2px;
+}
+
+/* line 2, app/assets/stylesheets/components/file_upload.sass */
+.button-wrapper button {
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+/* line 5, app/assets/stylesheets/components/file_upload.sass */
+.file-uploader {
+  margin-bottom: 10px;
+}
+
+/* line 7, app/assets/stylesheets/components/file_upload.sass */
+.file-uploader input {
+  display: inline;
+  width: 70%;
+  border-bottom: 1px solid #bdbdbd;
+  border-top: 1px solid #bdbdbd;
+}
+
+/* line 12, app/assets/stylesheets/components/file_upload.sass */
+.file-uploader .upload-container {
+  overflow-y: scroll;
+  max-height: 150px;
+  border: 1px solid #dddddd;
+}
+
+/* line 18, app/assets/stylesheets/components/file_upload.sass */
+.file-uploader .upload-container .js-upload-box .placeholder * {
+  display: block;
+  text-align: center;
+  color: #A9A9A9;
+}
+
+/* line 22, app/assets/stylesheets/components/file_upload.sass */
+.file-uploader .upload-container.highlight {
+  border: 2px dashed #91c9ea;
+}
+
+/* line 26, app/assets/stylesheets/components/file_upload.sass */
+.file-uploader .upload-container.highlight .js-upload-box .placeholder * {
+  color: #91c9ea;
+}
+
+/* line 28, app/assets/stylesheets/components/file_upload.sass */
+.file-uploader .file-track {
+  font-size: 12px;
+  display: inline-block;
+  margin: 3px;
+  border-radius: 7px;
+  padding: 4px 10px;
+}
+
+/* line 34, app/assets/stylesheets/components/file_upload.sass */
+.file-uploader .file-track.status-pending {
+  background-color: #A9A9A9;
+}
+
+/* line 36, app/assets/stylesheets/components/file_upload.sass */
+.file-uploader .file-track.status-success {
+  background-color: #1f77b2;
+}
+
+/* line 38, app/assets/stylesheets/components/file_upload.sass */
+.file-uploader .file-track.status-error {
+  background-color: #d51c2f;
+}
+
+/* line 40, app/assets/stylesheets/components/file_upload.sass */
+.file-uploader .file-track .upload-status {
+  margin-right: 5px;
+}
+
+/* line 42, app/assets/stylesheets/components/file_upload.sass */
+.file-uploader .file-track .btn-destroy {
+  color: white;
+  margin-left: 5px;
+  background-color: #333;
+  padding: 2px 4px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* line 2, app/assets/stylesheets/components/filter.sass */
+.filter a.chosen-single {
+  border-radius: 0;
+}
+
+/* line 4, app/assets/stylesheets/components/filter.sass */
+.filter .filter-label {
+  margin-left: 13px;
+}
+
+/* line 6, app/assets/stylesheets/components/filter.sass */
+.filter .clear-button-space {
+  margin-right: 5px;
+}
+
+/* line 2, app/assets/stylesheets/components/form.sass */
+.form .form-actions-vertical-align {
+  margin: 23px 0px 15px;
+}
+
+/* line 4, app/assets/stylesheets/components/form.sass */
+.form a.chosen-single.chosen-default {
+  border-radius: 0;
+  line-height: 32px;
+}
+
+/* line 2, app/assets/stylesheets/components/header.sass */
+#header .operator-role {
+  color: #eea40c;
+}
+
+/* line 4, app/assets/stylesheets/components/header.sass */
+#header .supervisor-role {
+  color: #1f77b2;
+}
+
+/* line 1, app/assets/stylesheets/components/icons.sass */
+.icon-green {
+  color: #10ca9d;
+}
+
+/* line 3, app/assets/stylesheets/components/icons.sass */
+.text-green {
+  color: #10ca9d;
+}
+
+/* line 5, app/assets/stylesheets/components/icons.sass */
+.text-red {
+  color: #ed5766;
+}
+
+/* line 7, app/assets/stylesheets/components/icons.sass */
+.icon-gray {
+  color: #c8c8c8;
+}
+
+/* line 9, app/assets/stylesheets/components/icons.sass */
+.icon-red {
+  color: #ed5766;
+}
+
+/* line 11, app/assets/stylesheets/components/icons.sass */
+.fa-fw {
+  margin-right: 5px;
+}
+
+/* line 13, app/assets/stylesheets/components/icons.sass */
+.neutral-color-icon {
+  color: #1f77b2;
+}
+
+/* line 15, app/assets/stylesheets/components/icons.sass */
+.positive-color-icon {
+  color: #709c73;
+}
+
+/* line 17, app/assets/stylesheets/components/icons.sass */
+.negative-color-icon {
+  color: #cc9119;
+}
+
+/* line 19, app/assets/stylesheets/components/icons.sass */
+.restrictive-color-icon {
+  color: #af1827;
+}
+
+/* line 21, app/assets/stylesheets/components/icons.sass */
+.fa-xml {
+  width: 24px;
+  font-size: 0.8em;
+  margin-left: 5px;
+  margin-top: -5px;
+}
+
+/* line 26, app/assets/stylesheets/components/icons.sass */
+.fa-xml .fa-xml-text {
+  margin-top: 0.5em;
+  font-size: 70%;
+}
+
+/* line 2, app/assets/stylesheets/components/impact_filter.sass */
+.impact-filter label {
+  width: 25%;
+  font-size: 18px;
+  padding: 2px;
+}
+
+/* line 7, app/assets/stylesheets/components/impact_filter.sass */
+.impact-filter .consistent {
+  color: #25bf4d;
+}
+
+/* line 10, app/assets/stylesheets/components/impact_filter.sass */
+.impact-filter .neutral {
+  color: #1f77b2;
+}
+
+/* line 13, app/assets/stylesheets/components/impact_filter.sass */
+.impact-filter .warning {
+  color: #eea40c;
+}
+
+/* line 16, app/assets/stylesheets/components/impact_filter.sass */
+.impact-filter .critical {
+  color: #d51c2f;
+}
+
+/* line 2, app/assets/stylesheets/components/impacts_summary.sass */
+.dimension-summary.grey-well {
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: #F0F0F0;
+}
+
+/* line 7, app/assets/stylesheets/components/impacts_summary.sass */
+.dimension-summary .header {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* line 11, app/assets/stylesheets/components/impacts_summary.sass */
+.dimension-summary .badge {
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: bold;
+}
+
+/* line 1, app/assets/stylesheets/components/inputs.sass */
+.input-group.date:not(.date-only), .input-group.time {
+  float: left;
+  padding: 0 15px;
+}
+
+/* line 5, app/assets/stylesheets/components/inputs.sass */
+.input-group.datepicker {
+  padding: 0;
+  border-radius: 0;
+}
+
+/* line 9, app/assets/stylesheets/components/inputs.sass */
+.datepicker.datepicker-dropdown.dropdown-menu {
+  margin-left: 15px;
+}
+
+/* line 1, app/assets/stylesheets/components/labels.sass */
+span.label {
+  display: inline-block;
+  padding: 4px 15px;
+  border-radius: 15px;
+  min-width: 80px;
+  text-align: center;
+  margin-top: 3px;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 17px;
+}
+
+/* line 11, app/assets/stylesheets/components/labels.sass */
+span.label.neutral {
+  color: #7e7e84;
+  background-color: #d6d6d6;
+}
+
+/* line 14, app/assets/stylesheets/components/labels.sass */
+span.label.positive {
+  color: #25bf4d;
+}
+
+/* line 16, app/assets/stylesheets/components/labels.sass */
+span.label.negative {
+  color: #d51c2f;
+}
+
+/* line 3, app/assets/stylesheets/components/logout.sass */
+.logout-bar .logout-info .user-name {
+  font-weight: bold;
+  text-align: right;
+}
+
+/* line 6, app/assets/stylesheets/components/logout.sass */
+.logout-bar .logout-info .access-at {
+  font-size: 10px;
+}
+
+/* line 3, app/assets/stylesheets/components/recebivel_data.sass */
+.recebivel-container .recebivel-data .white-well {
+  height: 80px;
+  padding: 10px;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+/* line 9, app/assets/stylesheets/components/recebivel_data.sass */
+.recebivel-container .recebivel-data .white-well p.text {
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+/* line 12, app/assets/stylesheets/components/recebivel_data.sass */
+.recebivel-container .recebivel-data .white-well p.title {
+  font-weight: bold;
+  margin: 0;
+}
+
+/* line 15, app/assets/stylesheets/components/recebivel_data.sass */
+.recebivel-container .recebivel-data .white-well p.tags-title {
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 30px;
+  margin: 0;
+}
+
+/* line 21, app/assets/stylesheets/components/recebivel_data.sass */
+.recebivel-container .recebivel-data .white-well.small {
+  height: 50px;
+}
+
+/* line 2, app/assets/stylesheets/components/recebivel_situation.sass */
+.recebivel-situation .header {
+  font-size: 14px;
+}
+
+/* line 4, app/assets/stylesheets/components/recebivel_situation.sass */
+.recebivel-situation .data {
+  font-weight: bold;
+}
+
+/* line 2, app/assets/stylesheets/components/register_updates_modal.sass */
+.register-update-show .title {
+  font-weight: 600;
+  font-size: 15px;
+  margin: 0;
+  margin-top: 10px;
+  color: #171717;
+}
+
+/* line 9, app/assets/stylesheets/components/register_updates_modal.sass */
+.register-update-show .text {
+  font-weight: 600;
+  font-size: 14px;
+  color: #7e7e84;
+}
+
+/* line 14, app/assets/stylesheets/components/register_updates_modal.sass */
+.register-update-show .boxed {
+  background-color: #F0F0F0;
+  border-radius: 5px;
+  padding: 6px 0;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/* line 21, app/assets/stylesheets/components/register_updates_modal.sass */
+.register-update-show .dashed-line {
+  border-top: 2px dashed #ffffff;
+  margin: 0;
+}
+
+/* line 3, app/assets/stylesheets/components/registration-data.sass */
+.registration-container .registration-data .white-well {
+  height: 80px;
+  padding: 10px;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+/* line 9, app/assets/stylesheets/components/registration-data.sass */
+.registration-container .registration-data .white-well p.text {
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+/* line 12, app/assets/stylesheets/components/registration-data.sass */
+.registration-container .registration-data .white-well p.title {
+  font-weight: bold;
+  margin: 0;
+}
+
+/* line 15, app/assets/stylesheets/components/registration-data.sass */
+.registration-container .registration-data .white-well p.tags-title {
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 30px;
+  margin: 0;
+}
+
+/* line 21, app/assets/stylesheets/components/registration-data.sass */
+.registration-container .registration-data .white-well.small {
+  height: 50px;
+}
+
+/* line 1, app/assets/stylesheets/components/role_badge_widget.sass */
+.role-badge {
+  margin-right: 5px;
+}
+
+/* line 3, app/assets/stylesheets/components/role_badge_widget.sass */
+.role-badge.consultant {
+  background-color: #999;
+}
+
+/* line 5, app/assets/stylesheets/components/role_badge_widget.sass */
+.role-badge.custodian {
+  background-color: #999;
+}
+
+/* line 7, app/assets/stylesheets/components/role_badge_widget.sass */
+.role-badge.manager {
+  background-color: #999;
+}
+
+/* line 1, app/assets/stylesheets/components/switch.sass */
+.switch {
+  vertical-align: bottom;
+  margin-right: 10px;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 27px;
+}
+
+/* line 8, app/assets/stylesheets/components/switch.sass */
+.switch input {
+  display: none;
+}
+
+/* line 11, app/assets/stylesheets/components/switch.sass */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/* line 21, app/assets/stylesheets/components/switch.sass */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/* line 33, app/assets/stylesheets/components/switch.sass */
+.switch input:checked + .slider {
+  background-color: #2196F3;
+}
+
+/* line 35, app/assets/stylesheets/components/switch.sass */
+.switch input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+/* line 37, app/assets/stylesheets/components/switch.sass */
+.switch input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* line 42, app/assets/stylesheets/components/switch.sass */
+.slider.round {
+  border-radius: 34px;
+}
+
+/* line 44, app/assets/stylesheets/components/switch.sass */
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* line 6, app/assets/stylesheets/components/tab_container.sass */
+.tab-container ul.nav.nav-tabs li.active a {
+  background-color: #ffffff;
+  font-weight: bold;
+}
+
+/* line 10, app/assets/stylesheets/components/tab_container.sass */
+.tab-container table {
+  background-color: #ffffff;
+}
+
+/* line 12, app/assets/stylesheets/components/tab_container.sass */
+.tab-container table th {
+  background-color: #d6d6d6;
+}
+
+/* line 14, app/assets/stylesheets/components/tab_container.sass */
+.tab-container table .fa {
+  font-size: 20px;
+  margin: 5px 0 0;
+}
+
+/* line 1, app/assets/stylesheets/components/table.sass */
+.table {
+  background-color: #FFF;
+}
+
+/* line 5, app/assets/stylesheets/components/table.sass */
+.table thead tr {
+  background-image: none;
+  background-color: #d6d6d6;
+}
+
+/* line 9, app/assets/stylesheets/components/table.sass */
+.table thead .checkbox {
+  height: 19px;
+}
+
+/* line 12, app/assets/stylesheets/components/table.sass */
+.table .action-cell {
+  text-align: center;
+}
+
+/* line 14, app/assets/stylesheets/components/table.sass */
+.table .action-cell a {
+  font-size: 15px;
+}
+
+/* line 17, app/assets/stylesheets/components/table.sass */
+.table .categories-cell {
+  min-width: 120px;
+  padding: 10px 0px 0px 0px !important;
+  text-align: center;
+}
+
+/* line 22, app/assets/stylesheets/components/table.sass */
+.table .date-cell {
+  width: 95px;
+}
+
+/* line 25, app/assets/stylesheets/components/table.sass */
+.table .datetime-cell {
+  width: 125px;
+}
+
+/* line 28, app/assets/stylesheets/components/table.sass */
+.table .nfe-key-cell {
+  width: 70px;
+  font-size: 15px;
+}
+
+/* line 32, app/assets/stylesheets/components/table.sass */
+.table .processed-cell {
+  min-width: 95px;
+}
+
+/* line 35, app/assets/stylesheets/components/table.sass */
+.table .result-cell {
+  width: 42px;
+  font-size: 15px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* line 41, app/assets/stylesheets/components/table.sass */
+.table .result-cell .fa {
+  font-size: 1.5em;
+}
+
+/* line 44, app/assets/stylesheets/components/table.sass */
+.table .registration-status-cell {
+  width: 122px;
+}
+
+/* line 47, app/assets/stylesheets/components/table.sass */
+.table .stripe {
+  background-color: #f9f9f9;
+}
+
+/* line 1, app/assets/stylesheets/components/utility.sass */
+.empty-label {
+  margin-bottom: 23px;
+}
+
+/* line 4, app/assets/stylesheets/components/utility.sass */
+hr.cerc {
+  border-top: 1px solid #474544;
+}
+
+/* line 7, app/assets/stylesheets/components/utility.sass */
+.row.margin-vertical {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* line 3, app/assets/stylesheets/components/validation_data.sass */
+.validation-container .validation-data .white-well {
+  height: 80px;
+  padding: 10px;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+/* line 9, app/assets/stylesheets/components/validation_data.sass */
+.validation-container .validation-data .white-well p.text {
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+/* line 12, app/assets/stylesheets/components/validation_data.sass */
+.validation-container .validation-data .white-well p.title {
+  font-weight: bold;
+  margin: 0;
+}
+
+/* line 15, app/assets/stylesheets/components/validation_data.sass */
+.validation-container .validation-data .white-well p.tags-title {
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 30px;
+  margin: 0;
+}
+
+/* line 21, app/assets/stylesheets/components/validation_data.sass */
+.validation-container .validation-data .white-well.small {
+  height: 50px;
+}
+
+/* line 1, app/assets/stylesheets/components/widget.sass */
+.show-on-loading {
+  display: none;
+}
+
+/* line 4, app/assets/stylesheets/components/widget.sass */
+.hide-on-loading {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 2s linear;
+}
+
+/* line 9, app/assets/stylesheets/components/widget.sass */
+.widget-loading {
+  position: relative;
+}
+
+/* line 12, app/assets/stylesheets/components/widget.sass */
+.widget-loading .hide-on-loading {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+
+/* line 17, app/assets/stylesheets/components/widget.sass */
+.widget-loading .show-on-loading {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* line 24, app/assets/stylesheets/components/widget.sass */
+.btn-cerc {
+  background: #7e7e84;
+  color: white;
+  border: 1px #7e7e84 solid;
+}
+
+/* line 30, app/assets/stylesheets/components/widget.sass */
+.well-lg.text-center {
+  box-shadow: none;
+  border: none;
+}
+
+/* line 1, app/assets/stylesheets/widgets/access_logs_subtitles.sass */
+.access-logs-subtitles.pull-left {
+  margin-top: -33px;
+  font-size: 13px;
+}
+
+/* line 3, app/assets/stylesheets/widgets/access_logs_subtitles.sass */
+.access-logs-subtitles.pull-left div {
+  display: inline-block;
+}
+
+/* line 7, app/assets/stylesheets/widgets/access_logs_subtitles.sass */
+.access-logs-subtitles.pull-left .error-subtitle {
+  margin: 0 5px;
+}
+
+/* line 9, app/assets/stylesheets/widgets/access_logs_subtitles.sass */
+.access-logs-subtitles.pull-left .error-subtitle .error-square {
+  background-color: #fbe8ea;
+  width: 45px;
+  height: 13px;
+  border: 1px solid #d7d7d7;
+}
+
+/* line 14, app/assets/stylesheets/widgets/access_logs_subtitles.sass */
+.access-logs-subtitles.pull-left .success-subtitle {
+  margin: 0 5px;
+}
+
+/* line 16, app/assets/stylesheets/widgets/access_logs_subtitles.sass */
+.access-logs-subtitles.pull-left .success-subtitle .success-square {
+  background-color: #fff;
+  width: 45px;
+  height: 13px;
+  border: 1px solid #d7d7d7;
+}
+
+/* line 21, app/assets/stylesheets/widgets/access_logs_subtitles.sass */
+.clearfix {
+  clear: both;
+}
+
+/* line 2, app/assets/stylesheets/widgets/pagination.sass */
+ul.pagination a {
+  user-select: none;
+}
+
+/* line 6, app/assets/stylesheets/widgets/pagination.sass */
+ul.pagination li.active span {
+  border-color: #dddddd;
+}
+
+/* line 9, app/assets/stylesheets/widgets/pagination.sass */
+ul.pagination li.active.active:hover span {
+  border-color: #dddddd;
+}
+
+/* line 13, app/assets/stylesheets/widgets/pagination.sass */
+ul.pagination li.disabled a {
+  pointer-events: none;
+}
+
+/* line 1, app/assets/stylesheets/layouts/_main/header.sass */
+#header {
+  background-color: #001c30;
+  background-image: none;
+}
+
+/* line 4, app/assets/stylesheets/layouts/_main/header.sass */
+span.vertical-center {
+  margin-top: 7px;
+}
+
+/* line 3, app/assets/stylesheets/layouts/nfe_duplicata_registrations.sass */
+.admin-nfe-duplicata-registrations-controller.show-action h2 {
+  font-weight: normal;
+}
+
+/* line 6, app/assets/stylesheets/layouts/nfe_duplicata_registrations.sass */
+.admin-nfe-duplicata-registrations-controller .validation-impact {
+  text-align: center;
+}
+
+/* line 3, app/assets/stylesheets/layouts/nfe_validations.sass */
+.admin-nfe-validations-controller.show-action h2 {
+  font-weight: normal;
+}
+
+/* line 6, app/assets/stylesheets/layouts/nfe_validations.sass */
+.admin-nfe-validations-controller .validation-impact {
+  text-align: center;
+}
+
+/* line 1, app/assets/stylesheets/layouts/show_for.sass */
+.title-card {
+  padding: 0 15px;
+}
+
+/* line 4, app/assets/stylesheets/layouts/show_for.sass */
+.title-card .show-header {
+  font-size: 20px;
+}
+
+/* line 7, app/assets/stylesheets/layouts/show_for.sass */
+.data-card {
+  width: 270px;
+  padding: 20px 15px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* line 13, app/assets/stylesheets/layouts/show_for.sass */
+.data-card .title-card {
+  padding: 0;
+}
+
+/* line 16, app/assets/stylesheets/layouts/show_for.sass */
+.data-card .title-card .show-title {
+  font-size: 20px;
+}
+
+/* line 19, app/assets/stylesheets/layouts/show_for.sass */
+.data-card .title-card .show-header {
+  font-size: 15px;
+  padding: 10px 0;
+}
+
+/* line 23, app/assets/stylesheets/layouts/show_for.sass */
+.data-card .show-card {
+  background-color: white;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.05);
+  padding: 20px 15px;
+  border-radius: 5px;
+}
+
+/* line 30, app/assets/stylesheets/layouts/show_for.sass */
+.data-card .show-card .show-reverse-weight .attributes-wrapper {
+  font-weight: bold;
+}
+
+/* line 32, app/assets/stylesheets/layouts/show_for.sass */
+.data-card .show-card .show-reverse-weight .attributes-wrapper .attribute-title {
+  font-weight: normal;
+}
+
+/* line 1, app/assets/stylesheets/passwords/edit.sass */
+.admin-passwords-controller.edit-action {
+  background-image: url(assets/images/background-cerc.png);
+  min-height: 100vh;
+}
+
+/* line 5, app/assets/stylesheets/passwords/edit.sass */
+.admin-passwords-controller.edit-action .main {
+  padding-top: 21px;
+}
+
+/* line 8, app/assets/stylesheets/passwords/edit.sass */
+.admin-passwords-controller.edit-action .description {
+  color: white;
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+/* line 13, app/assets/stylesheets/passwords/edit.sass */
+.admin-passwords-controller.edit-action .description p {
+  margin-bottom: 30px;
+}
+
+/* line 16, app/assets/stylesheets/passwords/edit.sass */
+.admin-passwords-controller.edit-action .description p.margin-bottom-0 {
+  margin-bottom: 0;
+}
+
+/* line 19, app/assets/stylesheets/passwords/edit.sass */
+.admin-passwords-controller.edit-action .description a {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* line 25, app/assets/stylesheets/passwords/edit.sass */
+.admin-passwords-controller.edit-action img.cerc-icon {
+  width: 32px;
+}
+
+/* line 28, app/assets/stylesheets/passwords/edit.sass */
+.admin-passwords-controller.edit-action header {
+  padding: 15px 20px;
+  color: white;
+  background: #7e7e84;
+  margin: 0;
+  border-radius: 10px 10px 0 0;
+  font-weight: 600;
+}
+
+/* line 36, app/assets/stylesheets/passwords/edit.sass */
+.admin-passwords-controller.edit-action fieldset {
+  padding: 25px 15px;
+  border-radius: 0 0 10px 10px;
+}
+
+/* line 40, app/assets/stylesheets/passwords/edit.sass */
+.admin-passwords-controller.edit-action label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #001c30;
+  display: block;
+}
+
+/* line 46, app/assets/stylesheets/passwords/edit.sass */
+.admin-passwords-controller.edit-action input {
+  border-color: #CCC;
+  border-radius: 3px;
+}
+
+/* line 51, app/assets/stylesheets/passwords/edit.sass */
+.admin-passwords-controller.edit-action a.forget-link {
+  color: #7e7e84;
+  font-style: italic;
+  font-weight: bold;
+  text-decoration: underline;
+  padding-top: 8px;
+}
+
+/* line 58, app/assets/stylesheets/passwords/edit.sass */
+.admin-passwords-controller.edit-action .cerc-btn-primary {
+  background-color: #001c30;
+  padding: 8px 20px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* line 1, app/assets/stylesheets/passwords/new.sass */
+.admin-passwords-controller.new-action {
+  min-height: 100vh;
+}
+
+/* line 5, app/assets/stylesheets/passwords/new.sass */
+.admin-passwords-controller.new-action .main {
+  padding-top: 21px;
+}
+
+/* line 8, app/assets/stylesheets/passwords/new.sass */
+.admin-passwords-controller.new-action .description {
+  color: white;
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+/* line 13, app/assets/stylesheets/passwords/new.sass */
+.admin-passwords-controller.new-action .description p {
+  margin-bottom: 30px;
+}
+
+/* line 16, app/assets/stylesheets/passwords/new.sass */
+.admin-passwords-controller.new-action .description p.margin-bottom-0 {
+  margin-bottom: 0;
+}
+
+/* line 19, app/assets/stylesheets/passwords/new.sass */
+.admin-passwords-controller.new-action .description a {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* line 25, app/assets/stylesheets/passwords/new.sass */
+.admin-passwords-controller.new-action img.cerc-icon {
+  width: 32px;
+}
+
+/* line 28, app/assets/stylesheets/passwords/new.sass */
+.admin-passwords-controller.new-action header {
+  padding: 15px 20px;
+  color: white;
+  background: #7e7e84;
+  margin: 0;
+  border-radius: 10px 10px 0 0;
+  font-weight: 600;
+}
+
+/* line 36, app/assets/stylesheets/passwords/new.sass */
+.admin-passwords-controller.new-action fieldset {
+  padding: 25px 15px;
+  border-radius: 0 0 10px 10px;
+}
+
+/* line 40, app/assets/stylesheets/passwords/new.sass */
+.admin-passwords-controller.new-action label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #001c30;
+  display: block;
+}
+
+/* line 46, app/assets/stylesheets/passwords/new.sass */
+.admin-passwords-controller.new-action input {
+  border-color: #CCC;
+  border-radius: 3px;
+}
+
+/* line 51, app/assets/stylesheets/passwords/new.sass */
+.admin-passwords-controller.new-action a.forget-link {
+  color: #7e7e84;
+  font-style: italic;
+  font-weight: bold;
+  text-decoration: underline;
+  padding-top: 8px;
+}
+
+/* line 58, app/assets/stylesheets/passwords/new.sass */
+.admin-passwords-controller.new-action .cerc-btn-primary {
+  background-color: #001c30;
+  padding: 8px 20px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* line 1, app/assets/stylesheets/structures/_home.sass */
+#home-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media only screen and (min-width: 1050px) and (min-height: 570px) {
+  /* line 12, app/assets/stylesheets/structures/_home.sass */
+  #home {
+    display: flex !important;
+  }
+}
+
+/* line 15, app/assets/stylesheets/structures/_home.sass */
+#home {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* line 22, app/assets/stylesheets/structures/_home.sass */
+#home .h5_home {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+/* line 26, app/assets/stylesheets/structures/_home.sass */
+#home .diagram {
+  align-self: center;
+  position: relative;
+  width: 808px;
+  height: 506px;
+  margin: 0 auto;
+}
+
+/* line 34, app/assets/stylesheets/structures/_home.sass */
+#home a[class^='box-'] {
+  position: absolute;
+  text-align: center;
+  display: inline-block;
+}
+
+/* line 39, app/assets/stylesheets/structures/_home.sass */
+#home a[class^='circle-'] {
+  position: absolute;
+  border-radius: 50%;
+  background-color: none;
+  display: block;
+}
+
+/* line 45, app/assets/stylesheets/structures/_home.sass */
+#home .box-validations {
+  color: white;
+  left: -5px;
+  top: 215px;
+}
+
+/* line 50, app/assets/stylesheets/structures/_home.sass */
+#home .box-records {
+  color: white;
+  left: 344px;
+  top: 15px;
+}
+
+/* line 55, app/assets/stylesheets/structures/_home.sass */
+#home .box-file-integration {
+  color: white;
+  width: 76px;
+  left: 519px;
+  top: 386px;
+}
+
+/* line 61, app/assets/stylesheets/structures/_home.sass */
+#home .box-dashboard {
+  color: white;
+  width: 74px;
+  left: 684px;
+  top: 207px;
+}
+
+/* line 67, app/assets/stylesheets/structures/_home.sass */
+#home .box-documents {
+  color: darkgray;
+  left: 498px;
+  top: 186px;
+}
+
+/* line 72, app/assets/stylesheets/structures/_home.sass */
+#home .box-reports {
+  color: darkgray;
+  left: 148px;
+  top: 392px;
+}
+
+/* line 77, app/assets/stylesheets/structures/_home.sass */
+#home .box-validations-update {
+  color: darkgray;
+  width: 120px;
+  left: 38px;
+  top: 2px;
+}
+
+/* line 83, app/assets/stylesheets/structures/_home.sass */
+#home .box-records-update {
+  color: darkgray;
+  width: 106px;
+  left: 547px;
+  top: 4px;
+}
+
+/* line 89, app/assets/stylesheets/structures/_home.sass */
+#home .box-conciliation {
+  color: darkgray;
+  left: 323px;
+  top: 468px;
+}
+
+/* line 94, app/assets/stylesheets/structures/_home.sass */
+#home .circle-validations {
+  width: 66px;
+  height: 66px;
+  top: 195px;
+  left: 96px;
+}
+
+/* line 100, app/assets/stylesheets/structures/_home.sass */
+#home .circle-records {
+  width: 66px;
+  height: 66px;
+  top: 51px;
+  left: 350px;
+}
+
+/* line 106, app/assets/stylesheets/structures/_home.sass */
+#home .circle-file-integration {
+  width: 66px;
+  height: 66px;
+  top: 386px;
+  left: 444px;
+}
+
+/* line 112, app/assets/stylesheets/structures/_home.sass */
+#home .circle-documents {
+  width: 34px;
+  height: 34px;
+  top: 182px;
+  left: 455px;
+}
+
+/* line 118, app/assets/stylesheets/structures/_home.sass */
+#home .circle-conciliation {
+  width: 26px;
+  height: 26px;
+  top: 433px;
+  left: 361px;
+}
+
+/* line 124, app/assets/stylesheets/structures/_home.sass */
+#home .circle-reports {
+  width: 42px;
+  height: 42px;
+  top: 342px;
+  left: 171px;
+}
+
+/* line 130, app/assets/stylesheets/structures/_home.sass */
+#home .circle-validations-update {
+  width: 34px;
+  height: 34px;
+  top: 9px;
+  left: 162px;
+}
+
+/* line 136, app/assets/stylesheets/structures/_home.sass */
+#home .circle-records-update {
+  width: 34px;
+  height: 34px;
+  top: 13px;
+  left: 504px;
+}
+
+/* line 142, app/assets/stylesheets/structures/_home.sass */
+#home .tooltip > .tooltip-inner {
+  background-color: #0c2035;
+  font-size: 11px;
+  text-align: center;
+  width: 200px;
+}
+
+/* line 2, app/assets/stylesheets/structures/_smart_admin_custom.scss */
+.row-equal {
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 5, app/assets/stylesheets/structures/_smart_admin_custom.scss */
+.row-equal .well {
+  width: 100%;
+}
+
+/* line 8, app/assets/stylesheets/structures/_smart_admin_custom.scss */
+.row-equal .button-box {
+  margin-top: 10px;
+}
+
+/* line 13, app/assets/stylesheets/structures/_smart_admin_custom.scss */
+.row-equal > [class^="col-"] {
+  display: flex;
+}
+
+/* line 18, app/assets/stylesheets/structures/_smart_admin_custom.scss */
+.txt-color-cerc-grey {
+  color: #A9A9A9;
+}
+
+/* line 22, app/assets/stylesheets/structures/_smart_admin_custom.scss */
+.txt-color-white {
+  color: #FFFFFF;
+}
+
+/* line 27, app/assets/stylesheets/structures/_smart_admin_custom.scss */
+.bg-color-cerc-blue {
+  background-color: #0070BF;
+}
+
+/* line 31, app/assets/stylesheets/structures/_smart_admin_custom.scss */
+.bg-color-cerc-white {
+  background-color: #fff;
+}
+
+/* line 37, app/assets/stylesheets/structures/_smart_admin_custom.scss */
+.list-well li {
+  padding-bottom: 10px;
+}
+
+/* line 41, app/assets/stylesheets/structures/_smart_admin_custom.scss */
+.list-well li:last-child {
+  padding-bottom: 0;
+}
+
+/* line 47, app/assets/stylesheets/structures/_smart_admin_custom.scss */
+.shadow-box-1 {
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+/* line 18, app/assets/stylesheets/application.sass */
+.processing-pending {
+  background-color: #e7a734;
+  font-weight: normal;
+  color: black;
+}
+
+/* line 23, app/assets/stylesheets/application.sass */
+.processing-started {
+  background-color: #76a1cd;
+  font-weight: normal;
+  color: black;
+}
+
+/* line 28, app/assets/stylesheets/application.sass */
+.processing-failed {
+  background-color: #dd7556;
+  font-weight: normal;
+  color: black;
+}
+
+/* line 33, app/assets/stylesheets/application.sass */
+.processing-finished {
+  background-color: #abcb52;
+  font-weight: normal;
+  color: black;
+}
+
+/* line 40, app/assets/stylesheets/application.sass */
+.input-sm,
+.input-lg,
+.input-xs,
+.form-control {
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+/* line 49, app/assets/stylesheets/application.sass */
+.disabled {
+  color: #555555;
+}
+
+/* line 51, app/assets/stylesheets/application.sass */
+.control-label {
+  color: #333333;
+}
+
+/* line 55, app/assets/stylesheets/application.sass */
+.clickable {
+  cursor: pointer;
+}
+
+/* line 57, app/assets/stylesheets/application.sass */
+.middle-vertical-aligned {
+  vertical-align: middle !important;
+}
+
+/* line 59, app/assets/stylesheets/application.sass */
+.disabled {
+  cursor: not-allowed;
+}
+
+/* line 61, app/assets/stylesheets/application.sass */
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 69, app/assets/stylesheets/application.sass */
+.table.smart-form {
+  color: #333333;
+}
+
+/* line 72, app/assets/stylesheets/application.sass */
+.margin-top {
+  margin-top: 18px;
+}
+
+/* line 78, app/assets/stylesheets/application.sass */
+.mtf {
+  margin-top: 0 !important;
+}
+
+/* line 82, app/assets/stylesheets/application.sass */
+#left-panel {
+  width: 260px;
+  background-image: linear-gradient(to right, #003044 93%, #00263A 100%);
+}
+
+/* line 85, app/assets/stylesheets/application.sass */
+#left-panel nav ul li ul {
+  background-image: linear-gradient(to right, #003044 93%, #00263A 100%);
+}
+
+/* line 87, app/assets/stylesheets/application.sass */
+#left-panel nav ul li a {
+  color: #ffffff;
+}
+
+/* line 89, app/assets/stylesheets/application.sass */
+#left-panel nav ul li a:hover {
+  background: #0070c0;
+}
+
+/* line 91, app/assets/stylesheets/application.sass */
+#left-panel nav ul li a:active {
+  background: #0070c0 !important;
+}
+
+/* line 94, app/assets/stylesheets/application.sass */
+#main {
+  margin-left: 260px;
+}

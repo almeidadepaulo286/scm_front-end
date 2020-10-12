@@ -1,0 +1,18 @@
+.badge{
+    padding: 5px;
+    min-width: 20px;
+    height: 20px;
+    color: white;
+}
+
+.valorAte{
+    padding: 35px 0px 0px 0px;
+    margin: 0;
+    border-radius: 0;
+}
+
+.table td, .table th {
+    font-size: .8em;
+    cursor: pointer;
+    padding: .8rem .5rem .3rem .5rem;
+}

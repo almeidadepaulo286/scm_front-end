@@ -1,0 +1,91 @@
+.progressbar {
+    margin: 15px 0 50px 0;
+    counter-reset: step;
+}
+.progressbar li {
+    list-style-type: none;
+    width: 31%;
+    float: left;
+    font-size: 16px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    color: #999;
+}
+.progressbar li:before {
+    width: 15px;
+    height: 15px;
+    content: '';
+    line-height: 30px;
+    border: 2px solid #ddd;
+    background-color: #ddd;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    transition: all .8s;
+}
+.progressbar li:after {
+    width: 100%;
+    height: 2px;
+    content: '';
+    position: absolute;
+    background-color: #ddd;
+    top: 7px;
+    left: -50%;
+    z-index: -1;
+    transition: all .8s;
+}
+.progressbar li:first-child:after {
+    content: none;
+}
+.progressbar li.active {
+    font-weight: bold;
+    color: #559db7;
+}
+.progressbar li.active:before {
+    border-color: #559db7;
+    background-color: #559db7;
+    transition: all .8s;
+}
+.progressbar li.active:after {
+    background-color: #559db7;
+    transition: all .8s;
+}
+
+.btn.btn-download-file{
+    border: 1px dashed #ddd !important;
+}
+
+/* Formatacao da barra de progresso do fluxo de status da cessao quando ofertada para o usuario. */
+.bs-wizard {margin-top: 5px;}
+.bs-wizard > .bs-wizard-step {padding: 0; position: relative;}
+.bs-wizard > .bs-wizard-step .bs-wizard-stepnum {color: #292929; font-size: 13px; font-weight: 400; margin-bottom: 5px;}
+.bs-wizard > .bs-wizard-step > .bs-wizard-dot {position: absolute; width: 30px; height: 30px; display: block; top: 45px; left: 50%; margin-top: -15px; margin-left: -15px; border-radius: 50%;} 
+.bs-wizard > .bs-wizard-step > .bs-wizard-dot:after {content: ' '; width: 14px; height: 14px; border-radius: 50px; position: absolute; top: 8px; left: 8px;} 
+.bs-wizard > .bs-wizard-step > .progress {position: relative; border-radius: 0px; height: 8px; box-shadow: none; margin: 20px 0; background-color: #dddddd;}
+.bs-wizard > .bs-wizard-step > .progress > .progress-bar {width:0px; box-shadow: none;}
+.bs-wizard > .bs-wizard-step.complete > .progress > .progress-bar {width:100%;}
+.bs-wizard > .bs-wizard-step.active > .progress > .progress-bar {width:50%;}
+.bs-wizard > .bs-wizard-step:first-child.active > .progress > .progress-bar {width:0%;}
+.bs-wizard > .bs-wizard-step:last-child.active > .progress > .progress-bar {width: 100%;}
+.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot {background-color: #dddddd;}
+.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot:after {opacity: 0;}
+.bs-wizard > .bs-wizard-step:first-child > .progress {left: 50%; width: 50%;}
+.bs-wizard > .bs-wizard-step:last-child > .progress {width: 50%;}
+.bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot {pointer-events: none;}
+/* Cessao Pendente ou Concluida */
+.bs-wizard.cs-concluida > .bs-wizard-step > .bs-wizard-dot {background: #c8e689;} 
+.bs-wizard.cs-concluida > .bs-wizard-step.disabled > .bs-wizard-dot {background-color: #dddddd;}
+.bs-wizard.cs-concluida > .bs-wizard-step > .bs-wizard-dot:after {background: #96C72D;} 
+.bs-wizard.cs-concluida > .bs-wizard-step > .progress > .progress-bar {background: #c8e689;}
+/* Cessao Suspensa */
+.bs-wizard.cs-suspensa > .bs-wizard-step > .bs-wizard-dot {background: #fbe8aa;} 
+.bs-wizard.cs-suspensa > .bs-wizard-step.disabled > .bs-wizard-dot {background-color: #dddddd;}
+.bs-wizard.cs-suspensa > .bs-wizard-step > .bs-wizard-dot:after {background: #fbbd19;} 
+.bs-wizard.cs-suspensa > .bs-wizard-step > .progress > .progress-bar {background: #fbe8aa;}
+/* Cessao Cancelada */
+.bs-wizard.cs-cancelada > .bs-wizard-step > .bs-wizard-dot {background: #FFB4BA;} 
+.bs-wizard.cs-cancelada > .bs-wizard-step.disabled > .bs-wizard-dot {background-color: #dddddd;}
+.bs-wizard.cs-cancelada > .bs-wizard-step > .bs-wizard-dot:after {background: #E60014;} 
+.bs-wizard.cs-cancelada > .bs-wizard-step > .progress > .progress-bar {background: #FFB4BA;}

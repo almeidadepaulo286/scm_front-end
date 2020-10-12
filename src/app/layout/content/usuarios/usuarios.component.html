@@ -1,0 +1,94 @@
+<div class="d-flex justify-content-between mb-3">
+    <h1 class="page-heading">{{title}}</h1>
+    <div class="text-right">
+        <botao-novo routerLink="/usuarios/criar-usuario"></botao-novo>
+    </div>
+</div>
+<!-- <form>
+    <div class="row">
+        <div class="col-12 col-sm-5 col-md-4 col-lg-3 mb-3">
+            <input #search class="search form-control form-control-sm" id="inputBusca" type="text" placeholder="Digite sua busca" (keydown.enter)="onSearch(search.value)">
+        </div>
+    </div>
+</form> -->
+
+<!-- Form -->
+<form class="row" [formGroup]="usuarioFiltro" (ngSubmit)="onSubmit()">
+    <div class="col-12 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-left">
+                    <small><strong>Filtros:</strong></small>
+                </div>
+                <div class="form-row">
+                    <div class="col-12 col-sm-4 col-md-3 mb-2 mb-md-0">
+                        <label for="nome">Nome:</label>
+                        <input type="text" class="form-control form-control-sm" formControlName="nome">
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-2 mb-2 mb-md-0">
+                        <label for="documento">CPF:</label>
+                        <input type="text" class="form-control form-control-sm" formControlName="documento" mask="000.000.000-00" >
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-2 mb-2 mb-md-0">
+                        <label for="perfil">Perfil:</label>
+                        <select class="form-control form-control-sm" name="perfil" id="perfil" formControlName="perfil">
+                            <option value="5">Operação</option>
+                            <option value="8">Cedente</option>
+                            <option value="9">Cessionário</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-2 mb-2 mb-md-0">
+                        <label for="ativo">Status:</label>
+                        <select class="form-control form-control-sm" name="ativo" id="ativo" formControlName="ativo">
+                            <option value=""></option>
+                            <option value="1">Ativo</option>
+                            <option value="0">Inativo</option>
+                        </select>
+                    </div>
+                    <div class="col text-right">
+                        <label>&nbsp;</label>
+                        <div class="">
+                            <button type="button" class="btn btn-sm btn-light mr-2" type="submit" (click)="limpaForm(); $event.preventDefault()">
+                                Limpar Filtros
+                            </button>
+                            <button type="button" class="btn btn-sm btn-info" (click)="filtrar()">
+                                Aplicar Filtros
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Tabela -->
+<div class="card">
+    <small *ngIf="resultadoVazio" class="p-3">Nenhum resultado encontrado</small>
+    <table *ngIf="!resultadoVazio" class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr class="">
+                <th class="" *ngFor="let head of headElements" scope="col"><b>{{ head }}</b></th>
+            </tr>
+        </thead>
+        <tbody class="">
+            <tr *ngFor="let usuario of data" routerLink="/usuarios/editar-usuario/{{usuario.id}}">
+                <td>{{usuario.nome}}</td>
+                <td>{{usuario.cpf | mask:"000.000.000-00"}}</td>
+                <td>{{usuario.email}}</td>
+                <td>
+                    <span *ngFor="let perfil of usuario.perfis">
+                        {{perfil.nome}}
+                    </span>
+                </td>
+                <td *ngIf="usuario.ativo == 1">Ativo</td>
+                <td class="text-secondary" *ngIf="usuario.ativo == 0">Inativo</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div  class="row">
+    <nav class="p-3">
+        <pagination [boundaryLinks]="true" [totalItems]="totalRegistros" [(ngModel)]="page" [itemsPerPage]="20" [maxSize]="10" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;" (pageChanged)="pageChanged($event)"></pagination>
+    </nav>
+</div>

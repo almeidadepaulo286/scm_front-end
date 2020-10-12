@@ -1,0 +1,228 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+	<h1 class="page-heading">{{title}}</h1>
+	<div class="text-right">
+		<botao-voltar></botao-voltar>
+	</div>
+</div>
+
+<div *ngIf="solicitacaoRegistro" class="registro row">
+	<div class="col-12">
+		<div class="row mb-3">
+			<div class="col-12 col-lg-15 mb-3">
+				<div class="row">
+					<div class="col-12 mb-3">
+						<div class="card">
+							<div class="card-body">
+								<h6>Solicitação do Registro</h6>
+								<div class="row">
+									<div class="col-12 mb-3">
+										<small
+											class="text-secondary">Protocolo:</small><br>{{solicitacaoRegistro.protocolo}}
+									</div>
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+										<small
+											class="text-secondary">Solicitante:</small><br>{{solicitacaoRegistro.solicitante}}
+									</div>
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+										<small class="text-secondary">Tipo de
+											evento:</small><br>{{solicitacaoRegistro.tipo_evento}}
+									</div>
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+										<small class="text-secondary">Data do
+											evento:</small><br>{{solicitacaoRegistro.data_evento | date:'dd/MM/yyyy'}}
+									</div>
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+										<small class="text-secondary">CNPJ originador:</small><br>
+										{{solicitacaoRegistro.solicitacao.agentes.originador_cnpj |  cpfCnpj }}
+									</div>
+								</div>
+
+								<hr>
+								
+								<div class="row">
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+										<div class="mb-2">
+											<small class="text-secondary">Cód. modalidade operação:</small><br>
+											{{solicitacaoRegistro.solicitacao.contrato_valores.codigo_modalidade_operacao_credito}}
+										</div>
+									</div>
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+										<div class="mb-2">
+											<small class="text-secondary">Cód. contrato:</small><br>
+											{{solicitacaoRegistro.solicitacao.contrato_valores.codigo_contrato_operacao_credito}}
+										</div>
+									</div>
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+										<div class="mb-2">
+											<small class="text-secondary">Valor total crédito:</small><br>{{solicitacaoRegistro.solicitacao.contrato_valores.valor_total_credito
+											| currency:'BRL'}}
+										</div>
+									</div>
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+										<div class="mb-2">
+											<small class="text-secondary">Valor líquido crédito:</small><br>
+											{{solicitacaoRegistro.solicitacao.contrato_valores.valor_liquido_credito | currency:'BRL'}}
+										</div>
+									</div>
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+										<div class="mb-2">
+											<small class="text-secondary">Indexacao:</small><br>
+											{{solicitacaoRegistro.solicitacao.contrato_valores.indexacao}}
+										</div>
+									</div>
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+										<div class="mb-2">
+											<small class="text-secondary">Taxa juros operação:</small><br>
+											{{solicitacaoRegistro.solicitacao.contrato_valores.taxa_juros_operacao}}%
+										</div>
+									</div>
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+										<div class="mb-2">
+											<small class="text-secondary">Qtd. parcelas
+												contratadas:</small><br>
+											{{solicitacaoRegistro.solicitacao.contrato_valores.quantidade_parcela_contratada}}
+										</div>
+									</div>
+								</div>
+
+								<hr>
+
+								<div class="row">
+									<div class="col-12 col-sm-6">
+										<small class="text-secondary">Garantidor</small>
+										<div>
+											<div class="py-1 px-2 mb-1 alert-info" *ngIf="solicitacaoRegistro.solicitacao.agentes.garantidor_tipo_pessoa == '1'">
+												<small class="mr-4"><b>Tipo Pessoa:</b> Física</small>
+												<small><b>Documento: </b>
+													<span>{{ solicitacaoRegistro.solicitacao.agentes.garantidor_numero_documento | cpfCnpj }}</span></small>
+											</div>
+											<div class="py-1 px-2 mb-1 alert-info" *ngIf="solicitacaoRegistro.solicitacao.agentes.garantidor_tipo_pessoa == '2'">
+												<small class="mr-4"><b>Tipo Pessoa:</b> Jurídica</small>
+												<small><b>Documento: </b>
+													<span>{{ solicitacaoRegistro.solicitacao.agentes.garantidor_numero_documento | cpfCnpj }}</span></small>
+											</div>
+										</div>
+									</div>
+									<div class="col-12 col-sm-6">
+										<small class="text-secondary">Beneficiário</small>
+										<div>
+											<div class="py-1 px-2 mb-1 alert-info" *ngIf="solicitacaoRegistro.solicitacao.agentes.beneficiario_tipo_pessoa == '1'">
+												<small class="mr-4"><b>Tipo Pessoa:</b> Física</small>
+												<small><b>Documento: </b>
+													<span>{{ solicitacaoRegistro.solicitacao.agentes.beneficiario_numero_documento | cpfCnpj }}</span></small>
+											</div>
+											<div class="py-1 px-2 mb-1 alert-info" *ngIf="solicitacaoRegistro.solicitacao.agentes.beneficiario_tipo_pessoa == '2'">
+												<small class="mr-4"><b>Tipo Pessoa:</b> Jurídica</small>
+												<small><b>Documento: </b>
+													<span>{{ solicitacaoRegistro.solicitacao.agentes.beneficiario_numero_documento | cpfCnpj }}</span></small>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<hr>
+
+								<div class="row">
+									<div class="col-12 col-sm-6">
+										<small class="text-secondary">Credores</small>
+										<div *ngFor="let credor of solicitacaoRegistro.solicitacao.agentes.credores; let i=index">
+											<div class="py-1 px-2 mb-1 alert-info"
+												*ngIf="credor.credor_tipo_pessoa == '1'">
+												<small class="mr-4"><b>Tipo Pessoa:</b> Física</small>
+												<small><b>Documento: </b>
+													<span>{{ credor.credor_numero_documento | cpfCnpj }}</span></small>
+											</div>
+											<div class="py-1 px-2 mb-1 alert-info" *ngIf="credor.credor_tipo_pessoa == '2'">
+												<small class="mr-4"><b>Tipo Pessoa:</b> Jurídica</small>
+												<small><b>Documento: </b>
+													<span>{{ credor.credor_numero_documento | cpfCnpj }}</span></small>
+											</div>
+										</div>
+									</div>
+									<div class="col-12 col-sm-6">
+										<small class="text-secondary">Devedores</small>
+										<div *ngFor="let devedor of solicitacaoRegistro.solicitacao.agentes.devedores; let i=index">
+											<div class="py-1 px-2 mb-1 alert-info" *ngIf="devedor.devedor_tipo_pessoa == '1'">
+												<small class="mr-4"><b>Tipo Pessoa:</b> Física</small>
+												<small><b>Documento: </b>
+													<span>{{ devedor.devedor_numero_documento | cpfCnpj }}</span></small>
+											</div>
+											<div class="py-1 px-2 mb-1 alert-info" *ngIf="devedor.devedor_tipo_pessoa == '2'">
+												<small class="mr-4"><b>Tipo Pessoa:</b> Jurídica</small>
+												<small><b>Documento: </b>
+													<span>{{ devedor.devedor_numero_documento | cpfCnpj }}</span></small>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<br />
+
+						<div class="card">
+							<div class="card-body">
+								<h6>Garantias</h6>
+								<!-- Tabela Solicitacoes-->
+								<div class="table-responsive card">
+									<table class="table table-striped table-bordered">
+										<thead>
+											<tr>
+												<th *ngFor="let head of headGarantias" scope="col" style="cursor: unset !important"><b>{{ head }}</b></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr *ngFor="let garantia of solicitacaoRegistro.solicitacao.garantias">
+												<td class="text-nowrap" style="cursor: unset !important">
+													{{garantia.tipo_garantia}}
+												</td>
+												<td class="text-nowrap" style="cursor: unset !important">
+													{{garantia.garantia_valor_bem_originacao | currency:'BRL'}}
+												</td>
+												<td class="text-nowrap" style="cursor: unset !important">
+													{{garantia.garantia_placa}}
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<br />
+
+						<div class="card">
+							<div class="card-body">
+								<h6>Parcelas</h6>
+								<!-- Tabela Solicitacoes-->
+								<div class="table-responsive card">
+									<table class="table table-striped table-bordered">
+										<thead>
+											<tr>
+												<th *ngFor="let head of headParcelas" scope="col" style="cursor: unset !important"><b>{{head }}</b></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr *ngFor="let parcela of solicitacaoRegistro.solicitacao.parcelas">
+												<td class="text-nowrap" style="cursor: unset !important">
+													{{parcela.numero_parcela}}
+												</td>
+												<td class="text-nowrap" style="cursor: unset !important">
+													{{parcela.valor_parcela | currency:'BRL'}}
+												</td>
+												<td class="text-nowrap" style="cursor: unset !important">
+													{{parcela.data_vencimento_parcela | date:'dd/MM/yyyy'}}
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

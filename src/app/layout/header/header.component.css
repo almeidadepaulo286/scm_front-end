@@ -1,0 +1,58 @@
+.navbar{
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+} 
+.dropdown-menu{
+  padding: .4rem 0;
+  font-size: 13px;
+}
+.dropdown-item{
+  padding: .25rem 1rem;
+}
+.dropdown-item i{
+  opacity: .5;
+}
+fa-icon{
+  height: 55px;
+  width: auto;;
+}
+.nav-link{
+  padding-left: 0px !important; 
+  padding-right: 0px !important;
+  margin-left: 5px; 
+}
+
+/* :host .navbar {
+  background-color: #001c30;
+}
+:host .navbar .navbar-brand {
+  color: #fff;
+}
+:host .navbar .nav-item > a {
+  color: #999;
+}
+:host .navbar .nav-item > a:hover {
+  color: #fff;
+}
+:host .messages {
+  width: 300px;
+}
+:host .messages .media {
+  border-bottom: 1px solid #ddd;
+  padding: 5px 10px;
+}
+:host .messages .media:last-child {
+  border-bottom: none;
+}
+:host .messages .media-body h5 {
+  font-size: 13px;
+  font-weight: 600;
+}
+:host .messages .media-body .small {
+  margin: 0;
+}
+:host .messages .media-body .last {
+  font-size: 12px;
+  margin: 0;
+} */

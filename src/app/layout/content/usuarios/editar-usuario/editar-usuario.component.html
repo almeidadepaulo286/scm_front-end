@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-between mb-3">
+	<h1 class="page-heading">{{title}}</h1>
+	<div class="text-right">
+		<botao-voltar></botao-voltar>
+	</div>
+</div>
+
+<form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()" class="row">
+	<div class="col-12 col-md-6 mb-3">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="">Dados</h6>
+				<p class="mini-text">Para cadastrar um novo usuário, preencha todos os campos abaixo</p>
+				<hr>
+				<div class="form-row">
+					<div class="form-group col-12">
+						<label for="nome">Nome</label>
+						<input type="text" class="form-control form-control-sm" id="nome" formControlName="nome">
+					</div>
+					<div class="form-group col-12">
+						<label for="cpf">CPF</label>
+						<input mask="000.000.000-00" class="form-control form-control-sm" id="cpf" [formControl]="usuarioForm.controls['cpf']">
+					</div>
+					<div class="form-group col-12">
+						<label for="email">Email</label>
+						<input type="email" class="form-control form-control-sm" id="email" formControlName="email">
+					</div>
+
+					<div class="form-group col-12">
+						<label>Situação do usuário</label><br>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="ativo" value="1" formControlName="ativo" [checked]="usuarioForm.value.ativo === 1">
+							<label class="form-check-label" for="ativo">Ativo</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="ativo" value="0" formControlName="ativo" [checked]="usuarioForm.value.ativo === 0">
+							<label class="form-check-label" for="ativo">Inativo</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12 col-md-6 mb-3">
+		<div class="card">
+			<div class="card-body">
+				<h6>Perfil</h6>
+				<p class="mini-text">Defina um perfil para o usuário</p>
+				<hr>
+				<select class="form-control form-control-sm" name="perfilId" id="perfilId" formControlName="perfis">
+					<ng-container *ngFor="let item of listaPerfis">
+						<option value="{{item.perfil_id}}">{{item.nome}}</option>
+					</ng-container>
+				</select>
+			</div>
+		</div>
+		<div class="card mt-3">
+			<div class="card-body">
+				<h6>Agente vinculado</h6>
+				<p class="mini-text">Defina uma empresa</p>
+				<hr>
+				<div class="mb-3">
+					<select class="form-control form-control-sm" name="status" id="status" formControlName="empresa_id">
+						<ng-container *ngFor="let item of listaAgentes">
+							<option value="{{item.id}}">{{item.razao_social_abreviada}} - {{item.cnpj | mask: '00.000.000/0000-00'}}</option>
+						</ng-container>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12">
+		<button class="btn btn-primary btn-acao mr-2" type="submit" [disabled]="!usuarioForm.valid">Atualizar</button>
+		<!-- <button class="btn btn-light text-secondary" (click)="limpaForm(); $event.preventDefault()">Limpar</button> -->
+	</div>
+</form>

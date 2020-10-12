@@ -1,0 +1,9 @@
+.card .card-body div{
+    font-weight: bold;
+}
+.card .card-body div small{
+    font-weight: normal;
+}
+.card .card-body div fa-icon{
+    font-weight: normal;
+}

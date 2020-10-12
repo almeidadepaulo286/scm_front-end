@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-md navbar-light">
+    <button class="btn btn-link" id="menu-toggle">
+            <fa-icon class="text-dark" [icon]="faBars"></fa-icon> 
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown" ngbDropdown display="dynamic">
+                <a href="javascript:void(0)" class="nav-link text-dark text-capitalize mt-1 ml-3" ngbDropdownToggle>
+                    Olá, <b>{{usuario}}!</b>
+                </a>
+                <div class="dropdown-menu dropdown" ngbDropdownMenu>
+                    <a class="dropdown-item" routerLink="/alterar-senha">
+                        Alterar senha
+                    </a>
+                    <!-- <div class="dropdown-divider"></div> -->
+                    <a class="dropdown-item" [routerLink]="['/login']" (click)="onLoggedout()">
+                        {{ 'Sair' }}
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

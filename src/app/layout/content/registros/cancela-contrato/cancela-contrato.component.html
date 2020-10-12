@@ -1,0 +1,117 @@
+<div class="d-flex justify-content-between mb-3">
+    <h1 class="page-heading">{{title}}</h1>
+    <div class="text-right">
+        <botao-voltar class="mr-2"></botao-voltar>
+    </div>
+</div>
+
+<!-- filtro -->
+<form class="row" [formGroup]="registrosFiltro">
+    <div class="col-12 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-left">
+                    <small><strong>Filtros:</strong></small>
+                </div>
+                <div class="form-row">
+                    <div class="col-12 col-sm-4 col-md-2 mb-2">
+                        <label for="cnpjOriginador">CNPJ Originador:</label>
+                        <input type="text" class="form-control form-control-sm" mask="00.000.000/0000-00" name="cnpjOriginador" id="cnpjOriginador" formControlName="cnpjOriginador">
+                    </div>
+                    <!-- <div class="col-12 col-sm-4 col-md-2 mb-2">
+                        <label for="cnpjCredor">CNPJ Credor:</label>
+                        <input type="text" class="form-control form-control-sm" mask="00.000.000/0000-00" name="cnpjCredor" id="cnpjCredor" formControlName="cnpjCredor">
+                    </div> -->
+                    <div class="col-12 col-sm-4 col-md-2 mb-2">
+                        <label for="dataIni">Data Inicial:</label>
+                        <input type="date" class="form-control form-control-sm" name="dataIni" id="dataIni" formControlName="dataIni">
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-2 mb-2">
+                        <label for="dataFim">Data Final:</label>
+                        <input type="date" class="form-control form-control-sm" name="dataFim" id="dataFim" formControlName="dataFim">
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-2 mb-2">
+                        <label for="carteira">Carteira:</label> <select class="form-control form-control-sm" name="carteira" id="carteira" formControlName="carteira" required>
+                            <ng-container *ngFor="let item of carteiras">
+                                <option value="{{item}}">{{item}}</option>
+                            </ng-container>
+                        </select>
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-4 mb-2">
+                        <label for="protocolo">Contrato:</label>
+                        <input type="text" class="form-control form-control-sm" name="contrato" id="contrato" formControlName="contrato">
+                    </div>
+
+                    <div class="col-12 text-right">
+                        <button type="button" class="btn btn-sm btn-light mr-2" type="submit" (click)="limparClick()">
+                            Limpar Filtros
+                        </button>
+                        <button type="button" class="btn btn-sm btn-info" (click)="filtrarClick()">
+                            Aplicar Filtros
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Tabela -->
+<div class="table-responsive card">
+    <small *ngIf="registroVazio" class="p-3">Nenhum resultado encontrado</small>
+    <table *ngIf="!registroVazio" class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr class=""> 
+                <th class="" *ngFor="let head of headElements" scope="col"><b>{{ head }}</b></th>
+            </tr>
+        </thead>
+        <tbody class="">
+            <tr *ngFor="let registro of registros">
+                    <td class="text-nowrap">{{registro.originador_cnpj | mask:"00.000.000/0000-00"}}</td>
+                    <td class="text-nowrap">{{registro.ativo}}</td>
+                    <td class="text-nowrap">{{registro.carteira}}</td>
+                    <td class="text-nowrap">{{registro.data_contrato | date:'dd/MM/yyyy'}}</td>
+                    <td class="text-nowrap">{{registro.codigo_contrato_operacao_credito}}</td>
+                    <td class="text-nowrap">{{registro.valor_total_credito  | formatCurrency}}</td>
+                    <td class="text-right">
+                        <button class="btn btn-sm btn-danger mb-2" *ngIf="registro.status != 'cancelado'" (click)="openModal(template, registro.codigo_contrato_operacao_credito)">Cancelar</button>
+                        <button class="btn btn-sm btn-secondary mb-2" disabled *ngIf="registro.status == 'cancelado'">Cancelado</button>
+                    </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="!registroVazio" class="row">
+    <nav class="p-3">
+        <ul class="pagination mb-1">
+            <pagination [boundaryLinks]="true" [totalItems]="totalRegistros" [(ngModel)]="page" [itemsPerPage]="20" [maxSize]="10" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;" (pageChanged)="pageChanged($event)"></pagination>
+        </ul>
+    </nav>
+</div>
+
+<!-- Modal -->
+<ng-template #template>
+    <div class="modal-body text-center">
+
+        <p>Razão do Cancelamento</p>
+        <form [formGroup]="formRazaoCancelamento" autocomplete="off">
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Descreva a razão do cancelamento abaixo:</label>
+                <input class="form-control" id="exampleFormControlinput1" formControlName="razao_cancelamento" rows="3">
+                <small *ngIf="emptyForm" class="text-danger">É preciso definir uma razão</small>
+            </div>
+        </form>
+        <hr>
+        <button type="button" class="btn btn-default mr-2" (click)="confirm()">Confirmar</button>
+        <button type="button" class="btn btn-primary" (click)="decline()">Fechar</button>
+    </div>
+</ng-template>
+
+
+
+
+
+
+
+
+

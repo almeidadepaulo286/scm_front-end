@@ -1,0 +1,265 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+	<h1 class="page-heading">{{title}}</h1>
+	<div class="text-right">
+		<botao-voltar></botao-voltar>
+		<a class="btn btn-sm btn-primary btn-acao ml-2" routerLink="/registros/retificacao/{{btn_id_registro}}/{{btn_protocolo}}">
+			<fa-icon [icon]="faPen"></fa-icon>
+			Alterar
+		</a>
+	</div>
+</div>
+
+<div *ngIf="registro" class="registro row">
+	<!-- <div class="col-12 col-sm-6 col-md-1"><small class="text-secondary">id:</small><br> registro.id</div> -->
+	<div class="col-12">
+		<div class="row mb-3">
+			<div class="col-12 col-lg-15 mb-3">
+				<!--aqui coloca 8 no lugar de 10 pras colunas da direita-->
+				<div class="row">
+					<div class="col-12 mb-3">
+						<div class="card mb-3">
+							<div class="card-body">
+								<h6>Registro</h6>
+								<div class="row">
+									<div class="col-12 col-sm-3 col-md-2 mb-2">
+										<small class="text-secondary">CNPJ
+											Originador:</small><br>{{registro.agentes.originador_cnpj | mask:'99.999.999/9999-99'}}
+									</div>
+
+									<div class="col-12 col-sm-2 col-md-1 mb-2">
+										<small class="text-secondary">Status:</small><br>{{registro.agentes.status}}
+									</div>
+									<div class="col-12 col-sm-3 col-md-2 mb-2">
+										<small class="text-secondary">Credor detentor:</small><br>{{registro.agentes.detentor_cnpj | cpfCnpj}}
+									</div>
+									<div class="col-12 col-sm-3 col-md-2 mb-2">
+										<small class="text-secondary">ID operação:</small><br>{{registro.id}}
+									</div>
+								</div>
+
+								<hr>
+								
+								<div class="row">
+									<div class="col-12 mb-2">
+										<div class="mb-2">
+											<small class="text-secondary">Protocolo:</small><br>{{registro.protocolo}}
+										</div>
+									</div>
+
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+										<div class="mb-2">
+											<small class="text-secondary">Cód. modalidade operação:</small><br>
+											{{registro.contrato_valores.codigo_modalidade_operacao_credito}}
+										</div>
+									</div>
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+										<div class="mb-2">
+											<small class="text-secondary">Cód. contrato:</small><br>
+											{{registro.contrato_valores.codigo_contrato_operacao_credito}}
+										</div>
+									</div>
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+										<div class="mb-2">
+											<small class="text-secondary">Valor total crédito:</small><br>{{registro.contrato_valores.valor_total_credito | formatCurrency}}
+										</div>
+									</div>
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+										<div class="mb-2">
+											<small class="text-secondary">Valor líquido crédito:</small><br>{{registro.contrato_valores.valor_liquido_credito | formatCurrency}}
+										</div>
+									</div>
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+										<div class="mb-2">
+											<small class="text-secondary">Data contrato:</small><br>{{registro.contrato_valores.data_contrato_sistema_IF | date:'dd/MM/yyyy'}}
+										</div>
+									</div>
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+										<div class="mb-2">
+											<small class="text-secondary">Indexacao:</small><br>{{registro.contrato_valores.indexacao }}
+											<!-- <small class="text-secondary">Indexacao:</small><br>{{registro.contrato_valores.indexacao | indexacao }} -->
+										</div>
+									</div>
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+
+										<div class="mb-2">
+											<small class="text-secondary">Taxa juros operação:</small><br>{{registro.contrato_valores.taxa_juros_operacao}}%
+										</div>
+									</div>
+									<div class="col-12 col-sm-4 col-md-3 mb-4">
+
+										<div class="mb-2">
+											<small class="text-secondary">Qtd. parcelas contratadas:</small><br>{{registro.contrato_valores.quantidade_parcela_contratada}}
+										</div>
+									</div>
+								</div>
+
+								<hr>
+
+								<div class="row">
+									<div class="col-12 col-sm-6">
+										<small class="text-secondary">Garantidor</small>
+										<div>
+											<div class="py-1 px-2 mb-1 alert-info" *ngIf="registro.agentes.garantidor_tipo_pessoa == 1">
+												<small class="mr-4"><b>Tipo Pessoa:</b> Física</small>
+												<small><b>Documento: </b>
+													<span>{{ registro.agentes.garantidor_numero_documento | mask:'999.999.999-99'}}</span></small>
+											</div>
+											<div class="py-1 px-2 mb-1 alert-info" *ngIf="registro.agentes.garantidor_tipo_pessoa == 2">
+												<small class="mr-4"><b>Tipo Pessoa:</b> Jurídica</small>
+												<small><b>Documento: </b>
+													<span>{{ registro.agentes.garantidor_numero_documento | mask:'99.999.999/9999-99'}}</span></small>
+											</div>
+										</div>
+									</div>
+									<div class="col-12 col-sm-6">
+										<small class="text-secondary">Beneficiário</small>
+										<div>
+											<div class="py-1 px-2 mb-1 alert-info" *ngIf="registro.agentes.beneficiario_tipo_pessoa == '1'">
+												<small class="mr-4"><b>Tipo Pessoa:</b> Física</small>
+												<small><b>Documento: </b>
+													<span>{{ registro.agentes.beneficiario_numero_documento | mask:'999.999.999-99'}}</span></small>
+											</div>
+											<div class="py-1 px-2 mb-1 alert-info" *ngIf="registro.agentes.beneficiario_tipo_pessoa == '2'">
+												<small class="mr-4"><b>Tipo Pessoa:</b> Jurídica</small>
+												<small><b>Documento: </b>
+													<span>{{ registro.agentes.beneficiario_numero_documento | mask:'99.999.999/9999-99'}}</span></small>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<hr>
+
+								<div class="row">
+									<div class="col-12 col-sm-6">
+										<small class="text-secondary">Credores</small>
+										<div *ngFor="let credor of registro.agentes.credores; let i=index">
+											<div class="py-1 px-2 mb-1 alert-info" *ngIf="credor.credor_tipo_pessoa == 1">
+												<small class="mr-4"><b>Tipo Pessoa:</b> Física
+													&emsp;&emsp;&emsp;</small>
+												<small><b>Documento: </b>
+													<span>{{ credor.credor_numero_documento | mask:'999.999.999-99'}}</span></small>
+											</div>
+											<div class="py-1 px-2 mb-1 alert-info" *ngIf="credor.credor_tipo_pessoa == 2">
+												<small class="mr-4"><b>Tipo Pessoa:</b> Jurídica</small>
+												<small><b>Documento: </b>
+													<span>{{ credor.credor_numero_documento | mask:'99.999.999/9999-99'}}</span></small>
+											</div>
+										</div>
+									</div>
+									<div class="col-12 col-sm-6">
+										<small class="text-secondary">Devedores</small>
+										<div *ngFor="let devedor of registro.agentes.devedores; let i=index">
+											<div class="py-1 px-2 mb-1 alert-info" *ngIf="devedor.devedor_tipo_pessoa == 1">
+												<small class="mr-4"><b>Tipo Pessoa:</b> Física</small>
+												<small><b>Documento: </b>
+													<span>{{ devedor.devedor_numero_documento | mask:'999.999.999-99'}}</span></small>
+											</div>
+											<div class="py-1 px-2 mb-1 alert-info" *ngIf="devedor.devedor_tipo_pessoa == 2">
+												<small class="mr-4"><b>Tipo Pessoa:</b> Jurídica</small>
+												<small><b>Documento: </b>
+													<span>{{ devedor.devedor_numero_documento | mask:'99.999.999/9999-99'}}</span></small>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card mb-3">
+							<div class="card-body">
+								<h6>Garantias</h6>
+								<!-- Tabela Solicitacoes-->
+								<div class="table-responsive card">
+									<table class="table table-striped table-bordered">
+										<thead>
+											<tr>
+												<th *ngFor="let head of headGarantias" scope="col"
+													style="cursor: unset !important"><b>{{head }}</b></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr *ngFor="let garantia of registro.garantias">
+												<td class="text-nowrap" style="cursor: unset !important">
+													{{garantia.tipo_garantia}}</td>
+												<td class="text-nowrap" style="cursor: unset !important">
+													{{garantia.documento_bem_garantia}}</td>
+												<td class="text-nowrap" style="cursor: unset !important">
+													{{garantia.documento_detentor | cpfCnpj}}</td>
+												<td class="text-nowrap" style="cursor: unset !important">
+													{{garantia.garantia_valor_bem_originacao | formatCurrency}}</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<div class="card mb-3">
+							<div class="card-body">
+								<h6>Parcelas</h6>
+								<!-- Tabela Solicitacoes-->
+								<div class="table-responsive card">
+									<table class="table table-striped table-bordered">
+										<thead>
+											<tr>
+												<th *ngFor="let head of headParcelas" scope="col"
+													style="cursor: unset !important"><b>{{head }}</b></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr *ngFor="let parcela of registro.parcelas">
+												<td class="text-nowrap" style="cursor: unset !important">{{parcela.numero_parcela}}</td>
+												<td class="text-nowrap" style="cursor: unset !important">{{parcela.id_registro_parcela}}</td>
+												<td class="text-nowrap" style="cursor: unset !important">{{parcela.valor_parcela | formatCurrency}}</td>
+												<td class="text-nowrap" style="cursor: unset !important">{{parcela.data_vencimento_parcela | date:'dd/MM/yyyy'}}</td>
+												<td class="text-nowrap" style="cursor: unset !important">
+													<span *ngIf="parcela.status == 1">Em Aberto</span>
+													<span *ngIf="parcela.status == 2">Paga</span>
+													<span *ngIf="parcela.status == 3">Parcialmente Pago</span>
+													<span *ngIf="parcela.status == 4">Portabilidade</span>
+													<span *ngIf="parcela.status == 5">Prejuízo</span>
+													<span *ngIf="parcela.status == 6">Cancelada</span>
+													<span *ngIf="parcela.status == 7">Bloqueada</span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-body">
+								<h6>Solicitações</h6>
+								<!-- Tabela Solicitacoes-->
+								<div class="table-responsive card">
+									<table class="table table-striped table-bordered table-hover">
+										<thead>
+											<tr class="">
+												<th class="" *ngFor="let head of headElements" scope="col">
+													<b>{{head }}</b>
+												</th>
+											</tr>
+										</thead>
+										<tbody class="">
+											<tr *ngFor="let solicitacao of solicitacoesRegistro"
+												routerLink="/solicitacoes-registro/detalhes/{{solicitacao.id}}">
+												<td class="text-nowrap">{{solicitacao.protocolo}}</td>
+												<td class="text-nowrap">{{solicitacao.solicitante | cpfCnpj}}</td>
+												<td class="text-nowrap">{{solicitacao.data_evento | date:'dd/MM/yyyy'}}
+												</td>
+												<td class="text-nowrap">{{solicitacao.tipo_evento}}</td>
+												<td class="text-nowrap">{{solicitacao.status}}</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

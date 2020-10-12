@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-image: linear-gradient(to right top, #eee, #d5d5d5, #dedede, #e8e8e8, #f1f1f1);
+  font-family: 'Open Sans', sans-serif;
+  background-image: url('../../assets/images/circular-background.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+
+/* Apresentacao */
+.content-apresentacao{
+  background-color: #001c30;
+
+}
+.apresentacao p{
+  font-weight: 300;
+  font-size: 1.3rem;
+  line-height: 1.9rem;
+  color: #8d99a2;
+}
+.voltar-site{
+  position: absolute;
+  bottom: 30px;
+}
+
+/* Form */
+.form-signin {
+  background: #fff;
+}
+.form-bg{
+  padding: 100px 25px;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 14px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Buttons */
+.btn{
+  border-radius: 4px;
+  border: none;
+}
+.btn-primary {
+  color: #fff;
+  background-color:#001c30;
+}
+.btn-primary:hover {
+  background-color:#01111d;
+}
+.btn-primary.btn-acao {
+  background-color:#18ae93;
+
+}
+.btn-primary.btn-acao:hover {
+  background-color:#0f967d;
+}
+.btn-outline-acao{
+  border:1px solid #18ae93 !important;
+  color: #18ae93;
+}
+.btn-outline-acao:hover{
+  background: #18ae93 !important;
+  color: #fff;
+}
+
+/* Backgrounds & Colors */
+.bg-dark-blue{
+  background-color:#001c30;
+}
+.bg-aqua-blue{
+  background: #18ae93;
+}
+.text-aqua-blue{
+  color: #18ae93;
+}
+
+@media (max-width: 992px) {
+  body{
+    background-image: url('../../assets/images/circular-background.jpg');
+    background-position: top left;
+    background-size: contain;
+  } 
+  .content-apresentacao{
+    background-image: none;
+    background: none;
+  }
+  .form-signin {
+    background: none;
+  }
+  .form-bg{
+    background: #fff;
+    padding: 75px 25px;
+  }
+  .bg-dark-blue{
+    background: none;
+  }
+  .apresentacao{
+    text-align: center;
+  }
+  .apresentacao p{
+    display: none;
+  }
+}

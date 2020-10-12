@@ -1,0 +1,19 @@
+/* Ngx Dropzone */
+ngx-dropzone {
+    height: 180px;
+    text-align: center;
+    font-size: 17px !important;
+    /* background: #e6f4f9 !important; */
+    border: 1px dashed #cdcdcd !important;
+    color: #001c30 !important;
+}
+
+ngx-dropzone {
+    height: 300px;
+    background: none;
+}
+
+.card-dash-ver-todos{
+    cursor: pointer;
+    color: #ccc;
+}

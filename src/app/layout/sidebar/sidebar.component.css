@@ -1,0 +1,28 @@
+#sidebar-wrapper .list-group-item{
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 13px;
+}
+#sidebar-wrapper .list-group-item:hover{
+  background: #18ae93;
+}
+#sidebar-wrapper .sub-list-group-item{
+  /* padding-left: 60px; */
+  padding-right: 0;
+  font-size: 13px;
+}
+#sidebar-wrapper .bg-opacity{
+  background: rgba(255, 255, 255, .04)
+}
+
+/* Icons */
+fa-icon{
+  opacity: .4;
+  width: 30px;
+  text-align: center
+}
+
+.link-active{
+  background: #01111d !important;
+}

@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+	<h1 class="page-heading">{{title}}</h1>
+	<div class="text-right">
+		<botao-editar></botao-editar>
+		<botao-voltar></botao-voltar>
+	</div>
+</div>
+
+<div *ngIf="usuario" class="registro row">
+	<!-- <div class="col-12 col-sm-6 col-md-1"><small class="text-secondary">id:</small><br> {{registro.id}}</div> -->
+	<div class="col-12">
+		<div class="row mb-3">
+			<div class="col-12 mb-3">
+				<div class="row">
+					<div class="col-12 mb-3">
+						<div class="card">
+							<div class="card-body">
+								<h6>Usuário</h6>
+								<div class="">
+									<div class="mb-2 mr-lg-5"><small class="text-secondary">Nome:</small><br>{{usuario.nome}} {{usuario.sobrenome}}</div>
+									<div class="mb-2 mr-lg-5"><small class="text-secondary">CPF:</small><br>{{usuario.documento}}</div>
+									<div class="mb-2 mr-lg-5"><small class="text-secondary">E-mail:</small><br>{{usuario.email}}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
