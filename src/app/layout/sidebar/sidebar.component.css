@@ -1,11 +1,11 @@
 #sidebar-wrapper .list-group-item{
   border: 0;
   background: transparent;
-  color: #fff;
+  color: #707070;
   font-size: 13px;
 }
 #sidebar-wrapper .list-group-item:hover{
-  background: #18ae93;
+  background: #d0d0d0;
 }
 #sidebar-wrapper .sub-list-group-item{
   /* padding-left: 60px; */
@@ -25,4 +25,9 @@ fa-icon{
 
 .link-active{
   background: #01111d !important;
+}
+
+/* Backgrounds & Colors */
+.bg-light-gray {
+  background-color:#f0f0f0;
 }

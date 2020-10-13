@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Usuario } from '../../_models';
-import { faBell, faPlus, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faOutdent, faIndent, faBars, faUser } from '@fortawesome/free-solid-svg-icons';
 import * as $ from 'jquery';
 
 @Component({
@@ -13,9 +13,11 @@ export class HeaderComponent implements OnInit {
     public pushRightClass: string;
 
     usuario: string;
-    faBell = faBell;
-    faPlus = faPlus;
+    faOutdent = faOutdent;
+    faIndent = faIndent;
     faBars = faBars;
+    faUser = faUser;
+    sidebarIsOpen = false;
 
     constructor(public router: Router) {
     }
@@ -32,6 +34,11 @@ export class HeaderComponent implements OnInit {
             });
         });
     }
+
+    toggleIcon() {
+        this.sidebarIsOpen = ! this.sidebarIsOpen;
+    }
+
 
     rltAndLtr() {
         const dom: any = document.querySelector('body');

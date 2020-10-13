@@ -2,6 +2,7 @@ import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../_services/authentication.service';
 import * as $ from "jquery";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-login-page',
@@ -16,34 +17,29 @@ export class LoginPageComponent implements OnInit, AfterContentInit {
     public displayAlert:boolean = false;
     public mensagemAlert:string;
 
-    constructor(public router: Router, public authenticationService: AuthenticationService){}
+    constructor(public router: Router, public authenticationService: AuthenticationService, private toastr: ToastrService){}
 
-    ngOnInit() {}
+    ngOnInit() {
+        // inicializacao qualquer...
+    }
 
     ngAfterContentInit() {
         // VMasker(document.querySelector("#agent_user_cpf")).maskPattern("999.999.999-99");
     }
 
     onLoggedin() {
-        //FIXME this.authenticationService.login(this.documento,this.senha, this);
-        //DELME this.authenticationService.login("71425166237","123456789", this);
-        this.authenticationService.loginMock(this.name, this.password, this);
+        // obrigatorio fornecer usuario e senha:
+        if (this.name && this.password) {
+            //FIXME this.authenticationService.login(this.documento,this.senha, this);
+            //DELME this.authenticationService.login("71425166237","123456789", this);
+            this.authenticationService.loginMock(this.name, this.password, this);
+
+        } else {
+            this.toastr.warning('Digite seu usuário e senha para prosseguir...');
+        }
     }
 
     onLogout(){
         this.authenticationService.logout();
-    }
-
-    showAlert(mensagem:string){
-        this.displayAlert = true;
-        this.mensagemAlert = mensagem;
-        $("#alerta").addClass('show');
-        $("#alerta").css('opacity',"1");
-        setTimeout(function() { $("#alerta").fadeTo( 5000 , 0, function(){this.displayAlert=false}.bind(this)); }.bind(this), 200);
-    }
-
-    fecharAlert(){
-        $("#alerta").css('opacity','0');
-        this.displayAlert=false;
     }
 }

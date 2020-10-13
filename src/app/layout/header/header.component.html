@@ -1,12 +1,31 @@
-<nav class="navbar navbar-expand-md navbar-light">
-    <button class="btn btn-link" id="menu-toggle">
-            <fa-icon class="text-dark" [icon]="faBars"></fa-icon> 
+<nav class="navbar navbar-expand-md">
+    <button class="btn btn-link" id="menu-toggle" (click)="toggleIcon()" tabindex="-1">
+            <fa-icon *ngIf="sidebarIsOpen" class="text-light" [icon]="faIndent"></fa-icon> 
+            <fa-icon *ngIf="! sidebarIsOpen" class="text-light" [icon]="faOutdent"></fa-icon> 
     </button>
+    <a class="navbar-brand" [routerLink]="['/inicio']" tabindex="-1">
+        <img src="assets/images/scm-header.png" alt="">
+    </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item dropdown" ngbDropdown display="dynamic">
-                <a href="javascript:void(0)" class="nav-link text-dark text-capitalize mt-1 ml-3" ngbDropdownToggle>
-                    Olá, <b>{{usuario}}!</b>
+                <a href="javascript:void(0)" class="nav-link text-light text-capitalize mt-1 ml-3" ngbDropdownToggle>
+                    <b>005948774</b>
+                </a>
+                <div class="dropdown-menu dropdown" ngbDropdownMenu>
+                    <a class="dropdown-item" routerLink="/alterar-senha">
+                        Alterar senha
+                    </a>
+                    <!-- <div class="dropdown-divider"></div> -->
+                    <a class="dropdown-item" [routerLink]="['/login']" (click)="onLoggedout()">
+                        {{ 'Sair' }}
+                    </a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown" ngbDropdown display="dynamic">
+                <a href="javascript:void(0)" class="nav-link text-light text-capitalize mt-1 ml-3" ngbDropdownToggle>
+                    <fa-icon class="text-light" [icon]="faUser"></fa-icon>
                 </a>
                 <div class="dropdown-menu dropdown" ngbDropdownMenu>
                     <a class="dropdown-item" routerLink="/alterar-senha">
