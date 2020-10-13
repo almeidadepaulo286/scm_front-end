@@ -9,7 +9,6 @@ import { ResponseEntity } from 'app/_models/ResponseEntity';
 import { environment } from '../../environments/environment';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
 
