@@ -55,14 +55,14 @@ import { BotaoVoltarComponent } from './_components/botao-voltar/botao-voltar.co
 import { BotaoNotificacoesComponent } from './_components/botao-notificacoes/botao-notificacoes.component';
 import { BotaoEditarComponent } from './_components/botao-editar/botao-editar.component';
 
-// Usuários
+// Usuarios
 import { UsuariosComponent } from './layout/content/usuarios/usuarios.component';
 import { CriarUsuarioComponent } from './layout/content/usuarios/criar-usuario/criar-usuario.component';
 import { EditarUsuarioComponent } from './layout/content/usuarios/editar-usuario/editar-usuario.component';
 import { DetalhesDoUsuarioComponent } from './layout/content/usuarios/detalhes-do-usuario/detalhes-do-usuario.component';
 import { UsuarioService } from './_services/usuario.service';
 
-// Usuário
+// Usuario
 import { AlterarSenhaComponent } from './layout/content/alterar-senha/alterar-senha.component';
 
 // Conciliacao
@@ -84,7 +84,7 @@ import { ConsultarComponent } from './layout/content/arquivos/consultar/consulta
 import { ImportarComponent } from './layout/content/arquivos/importar/importar.component';
 import { ArquivosComponent } from './layout/content/arquivos/arquivos.component';
 
-// Mascara de formulário
+// Mascara de formulario
 import { NgxMaskModule } from 'ngx-mask';
 
 // Dropzone File Upload
@@ -156,7 +156,7 @@ import { ListaTitulosBancariosComponent } from './layout/content/cedulas/consult
     DetalhesDoUsuarioComponent,
     EditarUsuarioComponent,
 
-    // Usuário
+    // Usuario
     AlterarSenhaComponent,
 
     // Login
@@ -196,7 +196,7 @@ import { ListaTitulosBancariosComponent } from './layout/content/cedulas/consult
     ImportarComponent,
     DetalhesDoArquivoComponent,
 
-    // Botões
+    // Botoes
     BotaoNovoComponent,
     BotaoVoltarComponent,
     BotaoNotificacoesComponent,

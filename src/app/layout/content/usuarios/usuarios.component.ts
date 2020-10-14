@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { faPencilAlt, faUnlockAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 // Icone
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
@@ -23,6 +24,9 @@ export class UsuariosComponent implements OnInit {
 
 	// Icone
 	faFilter = faFilter;
+	faPencilAlt = faPencilAlt;
+	faUnlockAlt = faUnlockAlt;
+	faTrashAlt = faTrashAlt;
 
 	// Filtro
 	filterShow = true;
@@ -37,6 +41,7 @@ export class UsuariosComponent implements OnInit {
 		'E-mail',
 		'Perfil',
 		'Status',
+		'Opções'
 	];
 
 	// Form Filtro
@@ -121,5 +126,17 @@ export class UsuariosComponent implements OnInit {
 		// } else {
 		// 	this.getRegistros();
 		// }
+	}
+
+	resetarSenha(usuarioId : number) {
+
+	}
+
+	editarUsuario(usuarioId : number) {
+		this.router.navigateByUrl("/usuarios/editar-usuario/" + usuarioId);
+	}
+
+	excluirUsuario(usuarioId : number) {
+
 	}
 }

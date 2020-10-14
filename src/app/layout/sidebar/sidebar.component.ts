@@ -3,7 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Menu, Usuario } from '../../_models';
 import { AuthenticationService } from '../../_services/authentication.service';
 
-import { faFolderOpen, faUser, faUserFriends, faFileUpload, faColumns, faList, faTasks, faCheckSquare, faChartBar, faBan, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faBook, faWrench, faFileAlt, faMoneyBillAlt, faCogs, faUserFriends, faFileUpload, faColumns, faTasks, faCheckSquare, faChartBar, faBan, faUsers } from '@fortawesome/free-solid-svg-icons';
 import {faMoneyBill} from '@fortawesome/free-solid-svg-icons/faMoneyBill';
 
 
@@ -16,12 +16,16 @@ import {faMoneyBill} from '@fortawesome/free-solid-svg-icons/faMoneyBill';
 export class SidebarComponent implements OnInit {
 
     // Icones
-    faFolderOpen = faFolderOpen;
     faUser = faUser;
+    faBook = faBook;
+    faWrench = faWrench;
+    faFileAlt = faFileAlt;
+    faMoneyBillAlt = faMoneyBillAlt;
+    faCogs = faCogs;
+
     faUserFriends = faUserFriends;
     faFileUpload = faFileUpload;
     faColumns = faColumns;
-    faList = faList;
     faMoney = faMoneyBill;
     faTasks = faTasks;
     faCheckSquare = faCheckSquare;

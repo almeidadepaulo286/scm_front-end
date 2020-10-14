@@ -1,12 +1,14 @@
 import './local.service';
 import { Injectable } from '@angular/core';
 import {Usuario} from "../_models/usuario";
-import {Observable} from "rxjs/index";
+import {Observable, of} from "rxjs/index";
 import {ApiResponse} from "../_models/api.response";
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { LocalService } from '../_services/local.service';
 import { ResponseEntity } from 'app/_models/ResponseEntity';
 import { environment } from '../../environments/environment';
+//FIXME Mock da API
+import * as dados from 'app/data/usuario.json';
 
 @Injectable()
 export class UsuarioService {
@@ -49,9 +51,11 @@ export class UsuarioService {
       params = params.append('page', page)
       params = params.append('pageSize', pageSize)
 
-      return this.http.get<any>(
-        `${this.baseNewUser}listar-por-filtro/`, { params: params }
-      )
+      //FIXME Mock da API
+      // return this.http.get<any>(
+      //   `${this.baseNewUser}listar-por-filtro/`, { params: params }
+      // )
+      return of((dados as any).default);
     }
 
     listarPerfis():Observable<any>{

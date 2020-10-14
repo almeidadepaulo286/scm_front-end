@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Usuario } from '../../_models';
 import { faOutdent, faIndent, faBars, faUser } from '@fortawesome/free-solid-svg-icons';
-import * as $ from 'jquery';
+
+// Instancia global do jQuery:
+let $ = jQuery;
 
 @Component({
     selector: 'app-header',

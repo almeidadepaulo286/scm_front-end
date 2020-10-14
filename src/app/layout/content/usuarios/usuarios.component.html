@@ -65,14 +65,14 @@
 <!-- Tabela -->
 <div class="card">
     <small *ngIf="resultadoVazio" class="p-3">Nenhum resultado encontrado</small>
-    <table *ngIf="!resultadoVazio" class="table table-striped table-bordered table-hover">
+    <table *ngIf="!resultadoVazio" class="table table-striped table-bordered">
         <thead>
             <tr class="">
                 <th class="" *ngFor="let head of headElements" scope="col"><b>{{ head }}</b></th>
             </tr>
         </thead>
         <tbody class="">
-            <tr *ngFor="let usuario of data" routerLink="/usuarios/editar-usuario/{{usuario.id}}">
+            <tr *ngFor="let usuario of data">
                 <td>{{usuario.nome}}</td>
                 <td>{{usuario.cpf | mask:"000.000.000-00"}}</td>
                 <td>{{usuario.email}}</td>
@@ -81,8 +81,20 @@
                         {{perfil.nome}}
                     </span>
                 </td>
-                <td *ngIf="usuario.ativo == 1">Ativo</td>
-                <td class="text-secondary" *ngIf="usuario.ativo == 0">Inativo</td>
+                <td *ngIf="usuario.ativo == true">Ativo</td>
+                <td *ngIf="usuario.ativo == false" class="text-secondary">Inativo</td>
+                
+                <td class="td-opcoes">
+                    <button class="btn" id="btn-editar" (click)="editarUsuario(usuario.usuarioId)" tabindex="-1" title="Editar Usuário">
+                        <fa-icon class="text-info" [icon]="faPencilAlt"></fa-icon>
+                    </button>
+                    <button class="btn" id="btn-resetar" (click)="resetarSenha(usuario.usuarioId)" tabindex="-1" title="Resetar Senha">
+                        <fa-icon class="text-success" [icon]="faUnlockAlt"></fa-icon>
+                    </button>
+                    <button class="btn" id="btn-excluir" (click)="excluirUsuario(usuario.usuarioId)" tabindex="-1" title="Excluir Usuário">
+                        <fa-icon class="text-danger" [icon]="faTrashAlt"></fa-icon>
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>

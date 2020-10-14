@@ -23,11 +23,39 @@ fa-icon{
   text-align: center
 }
 
-.link-active{
-  background: #01111d !important;
+.link-active {
+  color: #d0d0d0 !important;
+  background: #707070 !important;
+}
+
+.link-active fa-icon {
+  opacity: 1;
 }
 
 /* Backgrounds & Colors */
 .bg-light-gray {
   background-color:#f0f0f0;
+}
+
+/* Copyright */
+.logo-isi-engenharia {
+  position: fixed;
+  bottom: 0;
+  margin-left: 20px;
+  z-index: 1;
+  filter: invert(50%);
+  min-width: 250px;
+}
+
+.logo-isi-engenharia .img-logo-isi {
+  width: 50px;
+  float: left;
+}
+
+.logo-isi-engenharia .texto-logo-isi {
+  float: left;
+  width: 130px;
+  margin-left: 10px;
+  color: #fff;
+  font-size: 13px;
 }

@@ -4,7 +4,6 @@ import { DashboardService } from '../../../_services/dashboard.service';
 import { FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
 	selector: 'inicio',
 	templateUrl: './inicio.component.html',
@@ -12,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class InicioComponent implements OnInit {
 
-	title = 'Painel de Operações';
+	title = 'Meu Dashboard';
 	userPermissionOperacao: boolean = false;
 	values;
 	valuesIfError: any = {

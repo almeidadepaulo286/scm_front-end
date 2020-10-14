@@ -15,6 +15,7 @@ export class Usuario {
     empresas?: Empresa[];
     empresa?: any;
     token?: string;
+    ativo:boolean;
     isEditable?:boolean;
     isVisible?:boolean;
 }

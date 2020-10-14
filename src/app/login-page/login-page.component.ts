@@ -1,8 +1,8 @@
 import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../_services/authentication.service';
-import * as $ from "jquery";
 import { ToastrService } from 'ngx-toastr';
+import * as $ from "jquery";
 
 @Component({
     selector: 'app-login-page',

@@ -2,148 +2,102 @@
     <div class="list-group list-group-flush">
         <!-- <img class="my-4 ml-4" src="../../assets/images/cerc-logo.png" alt="" width="100"> -->
 
-        <!-- INICIO MOCK -->
+        <!-- INICIO MENU -->
         <div class="" id="headingTwo">
+            <!-- Painel de Operações -->
             <div class="mb-0">
-                <!-- Painel de Operações -->
-                <div class="accordion" id="accordionConciliacao">
-                    <a class="list-group-item list-group-item-action" routerLink="/painel-de-operacoes">
-                        <fa-icon [icon]="faChartBar"></fa-icon>&nbsp;
-                        Painel de Operações
+                <!-- Implantação -->
+                <div class="accordion" id="accordionImplantacao">
+                    <a routerLink="/inicio" routerLinkActive="link-active"
+                       class="list-group-item list-group-item-action">
+                        <fa-icon [icon]="faBook"></fa-icon>&nbsp;
+                        Implantação
                     </a>
                 </div>
 
-                <!-- Registros -->
-                <div class="accordion" id="accordionRegistros">
+                <!-- PCP -->
+                <div class="accordion" id="accordionPCP">
                     <a class="list-group-item list-group-item-action" data-toggle="collapse"
-                        data-target="#collapseRegistros" aria-expanded="false" aria-controls="collapseRegistros">
-                        <fa-icon [icon]="faList"></fa-icon>&nbsp;
-                        Registros
+                        data-target="#collapsePCP" aria-expanded="false" aria-controls="collapsePCP">
+                        <fa-icon [icon]="faWrench"></fa-icon>&nbsp;
+                        PCP
                     </a>
-                    <div id="collapseRegistros" class="collapse bg-opacity" aria-labelledby="headingRegistros"
-                        data-parent="#accordionRegistros">
-                        <a routerLink="/registros" routerLinkActive="link-active"
-                            class="list-group-item list-group-item-action sub-list-group-item">
-                            <span class="ml-3">Consultar Registros</span>
+                    <div id="collapsePCP" class="collapse bg-opacity" aria-labelledby="headingPCP"
+                        data-parent="#accordionPCP">
+                        <a routerLink="/inicio" routerLinkActive="link-active"
+                           class="list-group-item list-group-item-action sub-list-group-item">
+                            <span class="ml-3">Item Menu 1</span>
                         </a>
                     </div>
-                    <!-- RND_SPRINT_1_0040: Eliminacao do menu de inclusao por ser possivel incluir a partir da tela de consulta de registros. -->
-                    <!-- <div id="collapseRegistros" class="collapse bg-opacity" aria-labelledby="headingRegistros"
-                        data-parent="#accordionRegistros">
-                        <a routerLink="/incluir-solicitacao-registro" routerLinkActive="link-active"
-                            class="list-group-item list-group-item-action sub-list-group-item">
-                            <span class="ml-3">Incluir Registro</span>
-                        </a>
-                    </div> -->
-                    <div id="collapseRegistros" class="collapse bg-opacity" aria-labelledby="headingRegistros"
-                        data-parent="#accordionRegistros">
-                        <a routerLink="/arquivos/importar" routerLinkActive="link-active"
-                            class="list-group-item list-group-item-action sub-list-group-item">
-                            <span class="ml-3">Upload de Registro</span>
+                    <div id="collapsePCP" class="collapse bg-opacity" aria-labelledby="headingPCP"
+                        data-parent="#accordionPCP">
+                        <a routerLink="/inicio" routerLinkActive="link-active"
+                           class="list-group-item list-group-item-action sub-list-group-item">
+                            <span class="ml-3">Item Menu 2</span>
                         </a>
                     </div>
-                    <div id="collapseRegistros" class="collapse bg-opacity" aria-labelledby="headingRegistros"
-                        data-parent="#accordionRegistros">
-                        <a routerLink="/arquivos/consultar" routerLinkActive="link-active"
-                            class="list-group-item list-group-item-action sub-list-group-item">
-                            <span class="ml-3">Consultar Arquivos</span>
+                    <div id="collapsePCP" class="collapse bg-opacity" aria-labelledby="headingPCP"
+                        data-parent="#accordionPCP">
+                        <a routerLink="/inicio" routerLinkActive="link-active"
+                           class="list-group-item list-group-item-action sub-list-group-item">
+                            <span class="ml-3">Item Menu 3</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Cessao -->
-                <div class="accordion" id="accordionCessao">
+                <!-- Controle de Qualidade -->
+                <div class="accordion" id="accordionControleQualidade">
                     <a class="list-group-item list-group-item-action" data-toggle="collapse"
-                        data-target="#collapseCessao" aria-expanded="false" aria-controls="collapseRegistros">
-                        <fa-icon [icon]="faList"></fa-icon>&nbsp;
-                        Cessão
+                        data-target="#collapseControleQualidade" aria-expanded="false" aria-controls="collapseControleQualidade">
+                        <fa-icon [icon]="faFileAlt"></fa-icon>&nbsp;
+                        Controle Qualidade
                     </a>
-                    <div id="collapseCessao" class="collapse bg-opacity" aria-labelledby="headingRegistros"
-                        data-parent="#accordionCessao">
-                        <a routerLink="/consultar-cessao" routerLinkActive="link-active"
-                            class="list-group-item list-group-item-action sub-list-group-item">
-                            <span class="ml-3">Consultar Cessões</span>
-                        </a>
-                    </div>
-                    <!-- RND_SPRINT_1_0040: Eliminacao do menu de inclusao por ser possivel incluir a partir da tela de consulta de cessoes. -->
-                    <!-- <div id="collapseCessao" class="collapse bg-opacity" aria-labelledby="headingRegistros"
-                        data-parent="#accordionCessao">
-                        <a routerLink="/disponibilizar-registros" routerLinkActive="link-active"
-                            class="list-group-item list-group-item-action sub-list-group-item">
-                            <span class="ml-3">Incluir Cessão</span>
-                        </a>
-                    </div> -->
-                </div>
-
-                <!-- Atualização -->
-                <div class="accordion" id="accordionConciliacao">
-                    <a class="list-group-item list-group-item-action" routerLink="/atualizacao">
-                        <fa-icon [icon]="faCheckSquare"></fa-icon>&nbsp;
-                        Atualização
-                    </a>
-                </div>
-
-                <!-- Conciliação -->
-                <div class="accordion" id="accordionConciliacao">
-                    <a class="list-group-item list-group-item-action" routerLink="/conciliacao">
-                        <fa-icon [icon]="faTasks"></fa-icon>&nbsp;
-                        Conciliação
-                    </a>
-                </div>
-
-                <!-- Cancelamento -->
-                <div class="accordion" id="accordionContrato">
-                    <a class="list-group-item list-group-item-action" data-toggle="collapse"
-                        data-target="#collapseContrato" aria-expanded="false" aria-controls="collapseRegistros">
-                        <fa-icon [icon]="faBan"></fa-icon>&nbsp;
-                        Cancelamento
-                    </a>
-                    <div id="collapseContrato" class="collapse bg-opacity" aria-labelledby="headingRegistros"
-                        data-parent="#accordionContrato">
-                        <a routerLink="/cancelar-cessao" routerLinkActive="link-active"
-                            class="list-group-item list-group-item-action sub-list-group-item">
-                            <span class="ml-3">Cancelar Cessão</span>
-                        </a>
-                    </div>
-                    <div id="collapseContrato" class="collapse bg-opacity" aria-labelledby="headingRegistros"
-                        data-parent="#accordionContrato">
-                        <a routerLink="/cancelar-contrato" routerLinkActive="link-active"
-                            class="list-group-item list-group-item-action sub-list-group-item">
-                            <span class="ml-3">Cancelar Contrato</span>
+                    <div id="collapseControleQualidade" class="collapse bg-opacity" aria-labelledby="headingControleQualidade"
+                        data-parent="#accordionControleQualidade">
+                        <a routerLink="/inicio" routerLinkActive="link-active"
+                           class="list-group-item list-group-item-action sub-list-group-item">
+                            <span class="ml-3">Item Menu 1</span>
                         </a>
                     </div>
                 </div>
 
-                <a class="list-group-item list-group-item-action" *ngIf="userPermissionCedenteCessionario"
-                    routerLink="/billing">
-                    <fa-icon [icon]="faMoney"></fa-icon>&nbsp;
-                    Faturamento
-                </a>
+                <!-- Medição -->
+                <div class="accordion" id="accordionMedicao">
+                    <a routerLink="/inicio" routerLinkActive="link-active" 
+                       class="list-group-item list-group-item-action">
+                        <fa-icon [icon]="faMoneyBillAlt"></fa-icon>&nbsp;
+                        Medição
+                    </a>
+                </div>
 
-                <!-- Cancelamento -->
-                <div class="accordion" id="accordionUsuario">
-                    <a class="list-group-item list-group-item-action" data-toggle="collapse"
-                        data-target="#collapseUsuario" aria-expanded="false" aria-controls="collapseRegistros">
+                <!-- Usuários -->
+                <div class="accordion" id="accordionUsuarios">
+                    <a routerLink="/usuarios" routerLinkActive="link-active" 
+                       class="list-group-item list-group-item-action">
                         <fa-icon [icon]="faUsers"></fa-icon>&nbsp;
                         Usuários
                     </a>
-                    <div id="collapseUsuario" class="collapse bg-opacity" aria-labelledby="headingRegistros"
-                        data-parent="#accordionUsuario">
-                        <a routerLink="/usuarios" routerLinkActive="link-active"
-                            class="list-group-item list-group-item-action sub-list-group-item">
-                            <span class="ml-3">Consultar Usuários</span>
-                        </a>
-                    </div>
-                    <div id="collapseUsuario" class="collapse bg-opacity" aria-labelledby="headingRegistros"
-                        data-parent="#accordionUsuario">
-                        <a routerLink="/usuarios/criar-usuario" routerLinkActive="link-active"
-                            class="list-group-item list-group-item-action sub-list-group-item">
-                            <span class="ml-3">Novo Usuário</span>
-                        </a>
-                    </div>
+                </div>
+
+                <!-- Configuração -->
+                <div class="accordion" id="accordionConfiguracao">
+                    <a routerLink="/inicio" routerLinkActive="link-active" 
+                       class="list-group-item list-group-item-action">
+                        <fa-icon [icon]="faCogs"></fa-icon>&nbsp;
+                        Configuração
+                    </a>
                 </div>
             </div>
         </div>
-        <!-- FIM MOCK -->
+        <!-- FIM MENU -->
+
+        <!-- INICIO COPYRIGHT -->
+        <div class="logo-isi-engenharia">
+            <img class="img-logo-isi" src="/assets/images/isiengenharia_logo.png" alt="IsiEngenharia">
+            <div class="texto-logo-isi">
+                © ISI Engenharia 2020 - SCM (Vr. [POC] 01/11/2020)
+            </div>
+        </div>
+        <!-- FIM COPYRIGHT -->
     </div>
 </div>

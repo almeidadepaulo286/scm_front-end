@@ -16,6 +16,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
+import { LaddaModule } from 'angular2-ladda';
+
 @NgModule({
   exports: [
     MatSidenavModule,
@@ -32,6 +34,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatExpansionModule,
     MatCheckboxModule,
     MatMenuModule,
+    LaddaModule
   ]
 })
 export class MaterialModule {}

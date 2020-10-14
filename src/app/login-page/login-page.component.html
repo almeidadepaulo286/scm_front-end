@@ -26,11 +26,21 @@
 							<input type="checkbox" value="remember-me"><small> Manter conectado</small>
 						</label>
 					</div>
-					<button class="btn btn-lg btn-danger btn-block mb-3" type="submit" (click)="onLoggedin()"><small>Acessar</small></button>
+					<button type="submit" class="btn btn-lg btn-danger btn-block mb-3"
+							tabindex="0"  (click)="onLoggedin()">
+						<small>Acessar</small>
+					</button>
 
-					<p><a href="#" class="text-danger">Esqueci minha senha</a></p>
+					<p><a href="#" class="btn-forget-pass text-danger">Esqueci minha senha</a></p>
 				</form>
 			</div>
+		</div>
+	</div>
+	
+	<!-- Rodape -->
+	<div class="login-footer">
+		<div class="text-copyright text-center">
+			© ISI Engenharia 2020 - SCM &nbsp;(Vr. [POC] &nbsp;01/11/2020)
 		</div>
 	</div>
 </body>

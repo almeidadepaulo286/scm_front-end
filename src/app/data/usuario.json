@@ -1,0 +1,57 @@
+{
+"content":[
+      {
+         "id":73,
+         "nome":"CERC Homologação",
+         "cpf":"71425166237",
+         "data_atualizacao":"2020-08-28T13:01:41.947",
+         "data_criacao":"2020-08-28T13:01:41.753",
+         "email":"paulo.almeida@elo.inf.br",
+         "perfil":"ROLE_ADMIN",
+         "senha":"$2a$10$.Op7Ab0VaZJrafvdXYNTWOUNQSxf/L0NgLh9fVHJZKecQuqc9Ureu",
+         "cnpj":32997490000139,
+         "empresa_id":7,
+         "perfis":[
+            {
+               "perfilId":5,
+               "nome":"Operação",
+               "ativo":1
+            }
+         ],
+         "ativo":1
+      },
+      {
+         "id":4,
+         "nome":"CERC_USER",
+         "cpf":"42494548004",
+         "data_atualizacao":"2019-10-15T16:51:18",
+         "data_criacao":"2019-08-07T17:00:25",
+         "email":"teste@cerc.inf.br",
+         "perfil":"ROLE_ADMIN",
+         "senha":"$2a$10$.Op7Ab0VaZJrafvdXYNTWOUNQSxf/L0NgLh9fVHJZKecQuqc9Ureu",
+         "cnpj":32997490000139,
+         "empresa_id":7,
+         "perfis":[
+            {
+               "perfilId":9,
+               "nome":"Cessionaria",
+               "ativo":1
+            }
+         ],
+         "ativo":1
+      }
+   ],
+   "totalPages":1,
+   "totalElements":2,
+   "last":true,
+   "number":0,
+   "sort":{
+      "sorted":false,
+      "unsorted":true,
+      "empty":true
+   },
+   "size":20,
+   "numberOfElements":2,
+   "first":true,
+   "empty":false
+}
