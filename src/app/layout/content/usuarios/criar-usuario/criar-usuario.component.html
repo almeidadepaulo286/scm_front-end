@@ -19,8 +19,8 @@
 							required>
 					</div>
 					<div class="form-group col-12">
-						<label for="cpf">CPF</label>
-						<input type="text" mask="000.000.000-00" class="form-control form-control-sm" id="cpf" formControlName="cpf" required>
+						<label for="login">Login</label>
+						<input type="text" class="form-control form-control-sm" id="login" formControlName="login" required>
 					</div>
 					<div class="form-group col-12">
 						<label for="email">Email</label>
@@ -53,20 +53,6 @@
 						<option value="{{perfilItem.perfil_id}}">{{perfilItem.nome}}</option>
 					</ng-container>
 				</select>
-			</div>
-		</div>
-		<div class="card mt-3">
-			<div class="card-body">
-				<h6>Agente vinculado</h6>
-				<p class="mini-text">Defina um agente vinculado</p>
-				<hr>
-				<div class="mb-3">
-					<select class="form-control form-control-sm" name="empresa_id" id="empresa_id" formControlName="empresa_id" (change)="setCnpjEmpresa($event.target.value)">
-						<ng-container *ngFor="let item of listaEmpresas">
-							<option value="{{item.id}}">{{item.razao_social_abreviada}} - {{item.cnpj | mask: '00.000.000/0000-00'}}</option>
-						</ng-container>
-					</select>
-				</div>
 			</div>
 		</div>
 	</div>

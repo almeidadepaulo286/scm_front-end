@@ -55,6 +55,12 @@ import { BotaoVoltarComponent } from './_components/botao-voltar/botao-voltar.co
 import { BotaoNotificacoesComponent } from './_components/botao-notificacoes/botao-notificacoes.component';
 import { BotaoEditarComponent } from './_components/botao-editar/botao-editar.component';
 
+// Atividades de Controle
+import { AtividadesComponent } from './layout/content/atividades/atividades.component';
+import { CriarAtividadeComponent } from './layout/content/atividades/criar-atividade/criar-atividade.component';
+import { EditarAtividadeComponent } from './layout/content/atividades/editar-atividade/editar-atividade.component';
+import { AtividadeService } from './_services/atividade.service';
+
 // Usuarios
 import { UsuariosComponent } from './layout/content/usuarios/usuarios.component';
 import { CriarUsuarioComponent } from './layout/content/usuarios/criar-usuario/criar-usuario.component';
@@ -150,6 +156,12 @@ import { ListaTitulosBancariosComponent } from './layout/content/cedulas/consult
     // App
     AppComponent,
     BillingComponent,
+
+    // Atividades de Controle
+    AtividadesComponent,
+    CriarAtividadeComponent,
+    EditarAtividadeComponent,
+
     // Usuarios
     UsuariosComponent,
     CriarUsuarioComponent,
@@ -238,6 +250,7 @@ import { ListaTitulosBancariosComponent } from './layout/content/cedulas/consult
     LoaderService,
     HttpClientModule,
     LocalService,
+    AtividadeService,
     UsuarioService,
     AuthenticationService,
     FaturamentoService,

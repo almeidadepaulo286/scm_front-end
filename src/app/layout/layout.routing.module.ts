@@ -39,6 +39,11 @@ import { CancelaContratoComponent } from './content/registros/cancela-contrato/c
 import { DetalhesCessaoComponent } from './content/registros/detalhes-da-cessao/detalhes-da-cessao.component';
 import { BillingComponent } from './content/faturamento/billing.component';
 
+// Atividades de Controle
+import { AtividadesComponent } from './content/atividades/atividades.component';
+import { CriarAtividadeComponent } from './content/atividades/criar-atividade/criar-atividade.component';
+import { EditarAtividadeComponent } from './content/atividades/editar-atividade/editar-atividade.component';
+
 // Usuarios
 import { UsuariosComponent } from './content/usuarios/usuarios.component';
 import { CriarUsuarioComponent } from './content/usuarios/criar-usuario/criar-usuario.component';
@@ -66,52 +71,57 @@ const routes: Routes = [
         path : '',
         component: LayoutComponent,
         children : [
-            {path : 'painel-de-operacoes',  component: InicioComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
+            {path : 'painel-de-operacoes',  component: InicioComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
             {path : 'billing',  component: BillingComponent, canActivate: [AuthGuard], data: { perfis: [5] }},
 
+            // Atividades de Controle
+            {path : 'atividades',  component: AtividadesComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
+            {path : 'atividades/criar-atividade',  component: CriarAtividadeComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
+            {path : 'atividades/editar-atividade/:id',  component: EditarAtividadeComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
+
             // Usuários
-            {path : 'usuarios',  component: UsuariosComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
-            {path : 'usuarios/criar-usuario',  component: CriarUsuarioComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
-            {path : 'usuarios/editar-usuario/:id',  component: EditarUsuarioComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
-            // {path : 'usuarios/detalhes/:id',  component: DetalhesDoUsuarioComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
+            {path : 'usuarios',  component: UsuariosComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
+            {path : 'usuarios/criar-usuario',  component: CriarUsuarioComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
+            {path : 'usuarios/editar-usuario/:id',  component: EditarUsuarioComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
+            // {path : 'usuarios/detalhes/:id',  component: DetalhesDoUsuarioComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
 
             // Usuário
-            {path : 'alterar-senha',  component: AlterarSenhaComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
+            {path : 'alterar-senha',  component: AlterarSenhaComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
 
             // Conciliacao
-            {path : 'conciliacao',  component: ConciliacaoComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
+            {path : 'conciliacao',  component: ConciliacaoComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
 
             // Atualização
-            {path : 'atualizacao',  component: AtualizacaoComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
+            {path : 'atualizacao',  component: AtualizacaoComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
 
             // Registros
-            {path : 'registros',  component: RegistrosComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
-            {path : 'incluir-solicitacao-registro',  component: IncluirSolicitacaoRegistroComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
-            {path : 'registros/detalhes/:id/:protocolo',  component: DetalhesDoRegistroComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
-            {path : 'solicitacoes-registro/detalhes/:id',  component: DetalhesDaSolicitacaoComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
+            {path : 'registros',  component: RegistrosComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
+            {path : 'incluir-solicitacao-registro',  component: IncluirSolicitacaoRegistroComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
+            {path : 'registros/detalhes/:id/:protocolo',  component: DetalhesDoRegistroComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
+            {path : 'solicitacoes-registro/detalhes/:id',  component: DetalhesDaSolicitacaoComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
 
             // Retificação
-            {path : 'registros/retificacao/:id/:protocolo',  component: RetificacaoRegistroComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
+            {path : 'registros/retificacao/:id/:protocolo',  component: RetificacaoRegistroComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
 
             // Cessao
-            {path : 'disponibilizar-registros',  component: DisponibilizarRegistroComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
-            {path : 'consultar-cessao',  component: ListaCessaoComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
-            {path : 'cancelar-cessao',  component: CancelaCessaoComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
-            {path : 'cancelar-contrato',  component: CancelaContratoComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
-            {path : 'detalhes-cessao/:codtc/:codcoc/:id',  component: DetalhesCessaoComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
+            {path : 'disponibilizar-registros',  component: DisponibilizarRegistroComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
+            {path : 'consultar-cessao',  component: ListaCessaoComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
+            {path : 'cancelar-cessao',  component: CancelaCessaoComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
+            {path : 'cancelar-contrato',  component: CancelaContratoComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
+            {path : 'detalhes-cessao/:codtc/:codcoc/:id',  component: DetalhesCessaoComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
 
             // Arquivos
-            {path : 'arquivos/importar',  component: ImportarComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
-            {path : 'arquivos/consultar',  component: ConsultarComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
+            {path : 'arquivos/importar',  component: ImportarComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
+            {path : 'arquivos/consultar',  component: ConsultarComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
 
             // TEMPORARIOS
-            {path : 'consultar-cedulas',  component: ListaTitulosBancariosComponent, canActivate: [AuthGuard], data: { perfis: [5, 8, 9] }},
+            {path : 'consultar-cedulas',  component: ListaTitulosBancariosComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
 
             {
                 path: '**',
                 component: InicioComponent,
                 canActivate: [AuthGuard],
-                data: { perfis: [5, 8, 9] },
+                data: { perfis: [1, 2, 3] },
             },
         ]
     }

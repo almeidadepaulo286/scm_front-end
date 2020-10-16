@@ -4,15 +4,33 @@
 
         <!-- INICIO MENU -->
         <div class="" id="headingTwo">
-            <!-- Painel de Operações -->
+            <!-- Atividades de Controle -->
             <div class="mb-0">
                 <!-- Implantação -->
                 <div class="accordion" id="accordionImplantacao">
-                    <a routerLink="/inicio" routerLinkActive="link-active"
-                       class="list-group-item list-group-item-action">
+                    <a class="list-group-item list-group-item-action" data-toggle="collapse"
+                    data-target="#collapseImplantacao" aria-expanded="false" aria-controls="collapseImplantacao">
                         <fa-icon [icon]="faBook"></fa-icon>&nbsp;
                         Implantação
                     </a>
+                    <!-- Atividades de Controle -->
+                    <div id="collapseImplantacao" class="collapse bg-opacity" aria-labelledby="headingImplantacao"
+                        data-parent="#accordionImplantacao">
+                        <a routerLink="/atividades" routerLinkActive="link-active"
+                           class="list-group-item list-group-item-action sub-list-group-item">
+                           <fa-icon [icon]="faEdit"></fa-icon>&nbsp;
+                           <span class="ml-3">Atividades de Controle</span>
+                        </a>
+                    </div>
+                    <!-- Usuários -->
+                    <div id="collapseImplantacao" class="collapse bg-opacity" aria-labelledby="headingImplantacao"
+                        data-parent="#accordionImplantacao">
+                        <a routerLink="/usuarios" routerLinkActive="link-active"
+                           class="list-group-item list-group-item-action sub-list-group-item">
+                           <fa-icon [icon]="faUsers"></fa-icon>&nbsp;
+                           <span class="ml-3">Usuários</span>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- PCP -->
@@ -67,15 +85,6 @@
                        class="list-group-item list-group-item-action">
                         <fa-icon [icon]="faMoneyBillAlt"></fa-icon>&nbsp;
                         Medição
-                    </a>
-                </div>
-
-                <!-- Usuários -->
-                <div class="accordion" id="accordionUsuarios">
-                    <a routerLink="/usuarios" routerLinkActive="link-active" 
-                       class="list-group-item list-group-item-action">
-                        <fa-icon [icon]="faUsers"></fa-icon>&nbsp;
-                        Usuários
                     </a>
                 </div>
 

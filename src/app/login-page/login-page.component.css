@@ -57,8 +57,17 @@ body {
   vertical-align: middle;
 }
 
-.form-signin .btn-forget-pass {
+.form-signin .form-options {
+  margin: 0;
+}
+
+.form-signin .form-options .btn-forget-pass {
   text-decoration: underline;
+}
+
+.form-signin .form-options .btn-traducao {
+  margin-left: auto; 
+  margin-right: 0;
 }
 
 .login-footer {
@@ -67,8 +76,8 @@ body {
   width: 100%;
   height: 15%;
   bottom: 0;
-  background-color: #a50021;
-  opacity: 50%;
+  background-color: #09304a;
+  opacity: 0.6;
 }
 
 .login-footer .text-copyright {
@@ -76,6 +85,7 @@ body {
   font-size: 14px;
   font-weight: 500;
   vertical-align: text-top;
+  opacity: 1;
 }
 
 @media (max-width: 992px) {

@@ -1,21 +1,16 @@
 import { Perfil } from "./perfil";
 import { Menu } from "./menu";
-import { Empresa } from "./empresa";
 
 export class Usuario {
-    usuarioId: number;
+    id: number;
     nome: string;
-    sobrenome: string;
-    cpf: string;
-    cnpj: string;
+    login: string;
     email: string;
     password?: string;
     perfis?: Perfil[];
     menus?: Menu[];
-    empresas?: Empresa[];
-    empresa?: any;
     token?: string;
-    ativo:boolean;
+    ativo:number;
     isEditable?:boolean;
     isVisible?:boolean;
 }

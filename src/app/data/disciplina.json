@@ -1,0 +1,19 @@
+{
+    "content":[
+    {
+       "id":1,
+       "nome":"CIV - Civil",
+       "ativo":1
+    },
+    {
+       "id":2,
+       "nome":"ELE - Elétrica",
+       "ativo":1
+    },
+    {
+       "id":3,
+       "nome":"INS - Instrumentação",
+       "ativo":1
+    }
+ ]
+} 

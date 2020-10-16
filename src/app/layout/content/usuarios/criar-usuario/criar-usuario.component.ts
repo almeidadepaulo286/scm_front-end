@@ -15,12 +15,10 @@ export class CriarUsuarioComponent implements OnInit {
 
 	// Form
 	usuarioForm = this.fb.group({
-		cnpj: [''],
-		cpf: ['', Validators.required],
+		login: ['', Validators.required],
 		data_atualizacao: [''],
 		data_criacao: [''],
 		email: ['', Validators.required],
-		empresa_id: ['', Validators.required],
 		id: [''],
 		nome: ['', Validators.required],
 		perfilId: ['', Validators.required],
@@ -34,10 +32,6 @@ export class CriarUsuarioComponent implements OnInit {
 	// Select Perfis
 	listaPerfis;
 
-	// Lista Agentes Vinculados
-	listaEmpresas;
-	empresaSelecionada;
-
 	constructor(
 		private fb: FormBuilder,
 		private usuarioService: UsuarioService,
@@ -47,7 +41,6 @@ export class CriarUsuarioComponent implements OnInit {
 	ngOnInit() {
 		// console.log(this.usuarioForm);
 		this.listarPerfis()
-		this.listarAgentes()
 	}
 
 	// Cadastra Usuário
@@ -70,30 +63,12 @@ export class CriarUsuarioComponent implements OnInit {
 		)
 	}
 
-	// Lista Agentes Vinculados
-	listarAgentes(){
-		this.usuarioService.listarAgentes().subscribe(
-			res => {
-				this.listaEmpresas = res
-			},
-			err => this.toastr.error('Erro inesperado ao listar agentes, tente novamente mais tarde')
-		)
-	}
-
 	// Cria usuario
 	criarUsuario(){
-		let validCpf = ValidaDocumentoHelper.validarCPF(this.usuarioForm.value.cpf)
-		if(validCpf == false){
-			this.toastr.warning('Número do CPF não é válido')
-			return
-		}
-		this.usuarioForm.value.cnpj = this.empresaSelecionada
 		this.usuarioFormNew = {
 			nome: this.usuarioForm.value.nome,
-			cpf: this.usuarioForm.value.cpf,
+			login: this.usuarioForm.value.login,
 			email: this.usuarioForm.value.email,
-			cnpj: this.usuarioForm.value.cnpj,
-			empresa_id: this.usuarioForm.value.empresa_id,
 			perfis: [{
 				perfilId: this.usuarioForm.value.perfilId,
 			}],
@@ -106,14 +81,5 @@ export class CriarUsuarioComponent implements OnInit {
 			},
 			err => this.toastr.error('Não foi possível cadastrar o usuário, tente novamente mais tarde')
 		)
-	}
-
-	setCnpjEmpresa(id){
-		// console.log(this.listaEmpresas)
-		this.listaEmpresas.map((item) => {
-			if(item.id == id){
-				this.empresaSelecionada = item.cnpj
-			}
-		})
 	}
 }

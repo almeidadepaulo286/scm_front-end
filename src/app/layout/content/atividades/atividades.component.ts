@@ -7,20 +7,20 @@ import { faPencilAlt, faUnlockAlt, faTrashAlt } from '@fortawesome/free-solid-sv
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 
 // Servico
-import { UsuarioService } from 'app/_services/usuario.service';
-import { Usuario } from 'app/_models/usuario';
+import { AtividadeService } from 'app/_services/atividade.service';
+import { Atividade } from 'app/_models/atividade';
 
 @Component({
-	selector: 'usuarios',
-	templateUrl: './usuarios.component.html',
-	styleUrls: ['./usuarios.component.css']
+	selector: 'atividades',
+	templateUrl: './atividades.component.html',
+	styleUrls: ['./atividades.component.css']
 })
-export class UsuariosComponent implements OnInit {
+export class AtividadesComponent implements OnInit {
 
-	constructor(private usuarioService: UsuarioService, public router: Router, private fb: FormBuilder) {}
+	constructor(private atividadeService: AtividadeService, public router: Router, private fb: FormBuilder) {}
 
-	title = 'Usuários';
-	data: Usuario[];
+	title = 'Atividades de Controle';
+	data: Atividade[];
 
 	// Icone
 	faFilter = faFilter;
@@ -36,19 +36,17 @@ export class UsuariosComponent implements OnInit {
 
 	// Tabela Cabeçalho
 	headElements = [
-		'Nome',
-		'Login',
-		'E-mail',
-		'Perfil',
-		'Status'
+		'Código',
+		'Prefixo',
+		'Descrição',
+		'Disciplina'
 	];
 
 	// Form Filtro
-	usuarioFiltro = this.fb.group({
-		nome: [''],
-		login: [''],
-		perfil: [''],
-		ativo: ['']
+	atividadeFiltro = this.fb.group({
+		codigo: [''],
+		prefixo: [''],
+		disciplina: ['']
 	});
 
 	// Parametros e Paginacao
@@ -67,32 +65,30 @@ export class UsuariosComponent implements OnInit {
 		this.filtrar();	
 	}
 	
-	// Recupera lista de usuários
+	// Recupera lista de atividades de controle
 	filtrar(){
 		this.page = 0
-		this.getUsers()
+		this.getActivities()
 	}
 	
 	// Reseta formulário do filtro
 	limpaForm() {
-		this.usuarioFiltro.reset();
-		this.usuarioFiltro.value.ativo = "";
+		this.atividadeFiltro.reset();
+		this.atividadeFiltro.value.ativo = "";
 	}
 
 	ngOnInit() {
-		this.getUsers()
+		this.getActivities()
 	}
 
-	getUsers(){
-		this.filtroValues = this.usuarioFiltro.value
-		this.usuarioService.getUsuariosFiltered(
-			this.filtroValues.login,
-			'',
-			this.filtroValues.perfil,
-			this.filtroValues.nome,
+	getActivities(){
+		this.filtroValues = this.atividadeFiltro.value
+		this.atividadeService.getAtividadesFiltered(
+			this.filtroValues.codigo,
+			this.filtroValues.prefixo,
+			this.filtroValues.disciplina,
 			this.page,
-			this.pageSize,
-			this.usuarioFiltro.value.ativo
+			this.pageSize
 		).subscribe(
 			res => {
 				this.data = res.content
@@ -111,7 +107,7 @@ export class UsuariosComponent implements OnInit {
 	setPage(i, event: any) {
 		// event.preventDefault();
 		this.page = i - 1;
-		this.getUsers();
+		this.getActivities();
 		// if (this.filtro) {
 		// } else {
 		// 	this.getRegistros();
@@ -120,22 +116,22 @@ export class UsuariosComponent implements OnInit {
 
 	pageChanged(event: any): void {
 		this.page = event.page - 1;
-		this.getUsers();
+		this.getActivities();
 		// if (this.filtro) {
 		// } else {
 		// 	this.getRegistros();
 		// }
 	}
 
-	resetarSenha(usuarioId : number) {
+	resetarSenha(atividadeId : number) {
 
 	}
 
-	editarUsuario(usuarioId : number) {
-		this.router.navigateByUrl("/usuarios/editar-usuario/" + usuarioId);
+	editarAtividade(atividadeId : number) {
+		this.router.navigateByUrl("/atividades/editar-atividade/" + atividadeId);
 	}
 
-	excluirUsuario(usuarioId : number) {
+	excluirAtividade(atividadeId : number) {
 
 	}
 }

@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-between mb-3">
+	<h1 class="page-heading">{{title}}</h1>
+	<div class="text-right">
+		<botao-voltar></botao-voltar>
+	</div>
+</div>
+
+<form [formGroup]="atividadeForm" (ngSubmit)="onSubmit()" class="row">
+	<div class="col-12 col-md-6 mb-3">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="">Dados</h6>
+				<p class="mini-text">Para cadastrar uma nova atividade de controle, preencha todos os campos abaixo</p>
+				<hr>
+				<div class="form-row">
+					<div class="form-group col-12">
+						<label for="codigo">Código</label>
+						<input type="text" class="form-control form-control-sm" id="codigo" formControlName="codigo">
+					</div>
+					<div class="form-group col-12">
+						<label for="prefixo">Prefixo</label>
+						<input type="text" class="form-control form-control-sm" id="prefixo" formControlName="prefixo">
+					</div>
+					<div class="form-group col-12">
+						<label for="descricao">Descrição</label>
+						<input type="text" class="form-control form-control-sm" id="descricao" formControlName="descricao">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12 col-md-6 mb-3">
+		<div class="card">
+			<div class="card-body">
+				<h6>Disciplina</h6>
+				<p class="mini-text">Defina uma disciplina para a Atividade</p>
+				<hr>
+				<select class="form-control form-control-sm" name="disciplinaId" id="disciplinaId" formControlName="disciplinas">
+					<ng-container *ngFor="let item of listaDisciplinas">
+						<option value="{{item.id}}">{{item.nome}}</option>
+					</ng-container>
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class="col-12">
+		<button class="btn btn-primary btn-acao mr-2" type="submit" [disabled]="!atividadeForm.valid">Atualizar</button>
+		<!-- <button class="btn btn-light text-secondary" (click)="limpaForm(); $event.preventDefault()">Limpar</button> -->
+	</div>
+</form>

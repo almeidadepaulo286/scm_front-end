@@ -40,7 +40,7 @@ fa-icon{
 /* Copyright */
 .logo-isi-engenharia {
   position: fixed;
-  bottom: 0;
+  bottom: 8px;
   margin-left: 20px;
   z-index: 1;
   filter: invert(50%);

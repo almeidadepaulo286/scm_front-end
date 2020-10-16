@@ -41,13 +41,11 @@ export class AuthenticationService {
                     if(r.errors.length==0){
                         let usu = new Usuario();
 
-                        usu.cpf = u.data.cpf;
-                        usu.cnpj = u.data.cnpj;
+                        usu.login = u.data.login;
                         usu.email = u.data.email;
                         usu.nome = u.data.nome;
-                        usu.sobrenome = u.data.nome;
                         usu.perfis = u.data.perfis;
-                        localStorage.setItem('currentUser', JSON.stringify(usu, ['nome','sobrenome','cpf', 'cnpj','email','perfis', 'perfilId', 'empresas','empresaId','menus','menuId','posicao']));
+                        localStorage.setItem('currentUser', JSON.stringify(usu, ['nome','login','email','perfis', 'perfilId', 'menus','menuId','posicao']));
                         this.currentUserSubject.next(usu);
 
                         // GET LOCALSTORAGE PERFIL
@@ -94,20 +92,19 @@ export class AuthenticationService {
         localStorage.setItem('token', "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI3MTQyNTE2NjIzNyIsImNvbXBhbnlJZCI6IjMyOTk3NDkwMDAwMTM5Iiwicm9sZSI6IlJPTEVfQURNSU4iLCJjcmVhdGVkIjoxNjAyNTM0MDUzNDY2LCJleHAiOjE2MDI2MjA0NTN9.W0D3x5cfc3-QKotEcwpznFcxonHnU_uDnyHajl77E4HvJ7NFFB-hjM5oO71KZM6vuhMOjsgXSAUlWpFZ0dQGfg");
                 
         let usu = new Usuario();
-        usu.cpf = "71425166237";
-        usu.cnpj = "32997490000139";
+        usu.id = 1;
+        usu.login = "paulo.almeida";
         usu.email = "paulo.almeida@elo.inf.br";
-        usu.nome = "Paulo";
-        usu.sobrenome = "Almeida";
-        usu.perfis = [{perfilId:5, nome:"Operação", isEditable:true, isVisible:true}];
+        usu.nome = "Paulo Almeida";
+        usu.perfis = [{perfilId:1, nome:"Administração", isEditable:true, isVisible:true}];
 
-        localStorage.setItem('currentUser', JSON.stringify(usu, ['nome','sobrenome','cpf', 'cnpj','email','perfis', 'perfilId', 'empresas','empresaId','menus','menuId','posicao']));
+        localStorage.setItem('currentUser', JSON.stringify(usu, ['nome','login','email','perfis', 'perfilId', 'menus','menuId','posicao']));
         this.currentUserSubject.next(usu);
 
         // GET LOCALSTORAGE PERFIL
         const user = localStorage.getItem('currentUser');
         const permission = JSON.parse(user).perfis;
-
+ 
         this.router.navigate(['inicio']);
     }
 }

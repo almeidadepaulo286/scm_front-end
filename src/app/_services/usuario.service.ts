@@ -9,6 +9,7 @@ import { ResponseEntity } from 'app/_models/ResponseEntity';
 import { environment } from '../../environments/environment';
 //FIXME Mock da API
 import * as dados from 'app/data/usuario.json';
+import * as dadosPerfis from 'app/data/perfil.json';
 
 @Injectable()
 export class UsuarioService {
@@ -39,10 +40,10 @@ export class UsuarioService {
       return this.http.delete<ApiResponse>(this.baseUsuarioUrl + "/" + String(usuarioId));
     }
 
-    getUsuariosFiltered(cpf, email, idPerfil, nome, page, pageSize, ativo) : Observable<any>{
+    getUsuariosFiltered(login, email, idPerfil, nome, page, pageSize, ativo) : Observable<any>{
       let params = new HttpParams();
 
-      if(cpf){ params = params.append('cpf', cpf) }
+      if(login){ params = params.append('login', login) }
       if(email){ params = params.append('email', email) }
       if(idPerfil){ params = params.append('idPerfil', idPerfil) }
       if(nome){ params = params.append('nome', nome) }
@@ -59,15 +60,11 @@ export class UsuarioService {
     }
 
     listarPerfis():Observable<any>{
-      return this.http.get<any>(
-        `${this.baseNewUser}listar-perfis`
-      )
-    }
-
-    listarAgentes():Observable<any>{
-      return this.http.get<any>(
-        `${this.baseNewUser}listar-empresas`
-      )
+      //FIXME Mock da API
+      // return this.http.get<any>(
+      //   `${this.baseNewUser}listar-perfis`
+      // )
+      return of((dadosPerfis as any).default);
     }
 
     criarUsuario(formUsuario): Observable<any>{
@@ -78,9 +75,12 @@ export class UsuarioService {
     }
 
     getUserById(userId): Observable<any>{
-      return this.http.get<any>(
-        this.baseNewUser + userId
-      )
+      //FIXME Mock da API
+      // return this.http.get<any>(
+      //   this.baseNewUser + userId
+      // )
+
+      return of((dados as any).default.content[userId-1]);
     }
 
     updateUser(user): Observable<any>{

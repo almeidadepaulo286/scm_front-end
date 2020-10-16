@@ -133,6 +133,12 @@ h1, h2, h3, h4, h5, h6{
   /* cursor: pointer; */
   padding: .5rem .5rem 0 .5rem;
 }
+.table-hover td, .table-hover th{
+  font-size: .8em;
+  cursor: pointer;
+  padding: .5rem .5rem 0 .5rem;
+}
+
 .table th {
   border-top: 0;
   background: #dee2e6;
@@ -140,11 +146,10 @@ h1, h2, h3, h4, h5, h6{
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: rgba(0,0,0,.04);
 }
-/* .table-hover tbody tr:hover { 
-   background-color: #dee2e6; 
-  background-color: #18ae93;
+ .table-hover tbody tr:hover { 
+  background-color: #428bca;
   color: #fff;
-} */
+}
 .input-bordless{
   background: transparent;
 }

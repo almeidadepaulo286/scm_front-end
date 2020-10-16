@@ -18,10 +18,8 @@ export class EditarUsuarioComponent implements OnInit {
 	usuarioForm = this.fb.group({
 		id: [''],
 		nome: ['', Validators.required],
-		cpf: ['', Validators.required],
+		login: ['', Validators.required],
 		email: ['', Validators.required],
-		cnpj: ['', Validators.required],
-		empresa_id: [''],
 		perfis: ['', Validators.required],
 		ativo: ['', Validators.required],
 		data_atualizacao: [''],
@@ -34,9 +32,6 @@ export class EditarUsuarioComponent implements OnInit {
 	// Select Perfis
 	listaPerfis;
 
-	// Lista Agentes Vinculados
-	listaAgentes;
-
 	constructor(
 		private fb: FormBuilder,
 		private usuarioService: UsuarioService,
@@ -45,7 +40,6 @@ export class EditarUsuarioComponent implements OnInit {
 	) { }
 
 	ngOnInit() {
-		this.listarAgentes()
 		this.listarPerfis()
 		this.getUserById();
 	}
@@ -64,19 +58,9 @@ export class EditarUsuarioComponent implements OnInit {
 	listarPerfis() {
 		this.usuarioService.listarPerfis().subscribe(
 			res => {
-				this.listaPerfis = res
+				this.listaPerfis = res.content
 			},
 			err => this.toastr.error('Erro inesperado ao listar Perfis, tente novamente mais tarde')
-		)
-	}
-
-	// Lista Agentes Vinculados
-	listarAgentes() {
-		this.usuarioService.listarAgentes().subscribe(
-			res => {
-				this.listaAgentes = res
-			},
-			err => this.toastr.error('Erro inesperado ao listar agentes, tente novamente mais tarde')
 		)
 	}
 
@@ -85,10 +69,8 @@ export class EditarUsuarioComponent implements OnInit {
 		this.usuarioForm = this.fb.group({
 			id: [usuario.id],
 			nome: [usuario.nome, Validators.required],
-			cpf: [usuario.cpf, Validators.required],
+			login: [usuario.login, Validators.required],
 			email: [usuario.email, Validators.required],
-			cnpj: [usuario.cnpj, Validators.required],
-			empresa_id: [usuario.empresa_id],
 			perfis: [usuario.perfis[0].perfilId],
 			ativo: [usuario.ativo, Validators.required]
 			// data_atualizacao: [usuario.data_atualizacao],
@@ -115,11 +97,6 @@ export class EditarUsuarioComponent implements OnInit {
 
 	// Atualiza informações do usuário
 	updateUser(){
-		let validCpf = ValidaDocumentoHelper.validarCPF(this.usuarioForm.value.cpf)
-		if(validCpf == false){
-			this.toastr.warning('Número do CPF não é válido')
-			return
-		}
 		const perfil = this.usuarioForm.value.perfis
 		this.usuarioForm.value.perfis = [{perfilId: perfil}]
 		// console.log(this.usuarioForm.value)

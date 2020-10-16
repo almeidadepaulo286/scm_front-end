@@ -1,0 +1,19 @@
+{
+    "content":[
+    {
+       "perfil_id":1,
+       "nome":"Administração",
+       "ativo":1
+    },
+    {
+       "perfil_id":2,
+       "nome":"Gerência",
+       "ativo":1
+    },
+    {
+       "perfil_id":3,
+       "nome":"Operação",
+       "ativo":1
+    }
+ ]
+} 

@@ -51,3 +51,9 @@ testem.log
 Thumbs.db
 testedb.mv.db
 testedb.trace.db
+/src/app/layout/layout.component - Copia.css
+/src/app/layout/layout.component - Copia.html
+/src/app/layout/layout.component - Copia.ts
+/src/app/layout/sidebar/sidebar.component - Copia.css
+/src/app/layout/sidebar/sidebar.component - Copia.html
+/src/app/layout/sidebar/sidebar.component - Copia.ts
