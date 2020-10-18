@@ -61,13 +61,25 @@ body {
   margin: 0;
 }
 
-.form-signin .form-options .btn-forget-pass {
-  text-decoration: underline;
+.form-signin .form-options .checkbox label > input,
+.form-signin .form-options .checkbox label > small {
+  cursor: pointer;
 }
 
 .form-signin .form-options .btn-traducao {
+  cursor: pointer;
   margin-left: auto; 
   margin-right: 0;
+}
+.form-signin .form-options .btn-traducao .dropdown-menu li:hover {
+  background-color: #BBBBBB;
+}
+.form-signin .form-options .btn-traducao .dropdown-menu li.ativo {
+  background-color: #BAC2D0;
+}
+
+.form-signin .form-options .btn-forget-pass {
+  text-decoration: underline;
 }
 
 .login-footer {

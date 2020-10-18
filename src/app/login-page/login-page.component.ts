@@ -13,6 +13,7 @@ export class LoginPageComponent implements OnInit, AfterContentInit {
 
     name:string;
     password:string;
+    currentLanguage:string = 'pt';
 
     public displayAlert:boolean = false;
     public mensagemAlert:string;

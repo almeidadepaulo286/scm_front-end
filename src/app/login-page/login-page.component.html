@@ -31,9 +31,9 @@
 								    <img src="assets/images/idiomas.png" class="idiomas">
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
-                					<li class="dropdown-item"><img src="assets/images/icons/en.png" width="24" height="24"> &nbsp; English</li> 
-                					<li class="dropdown-item"><img src="assets/images/icons/es.png" width="24" height="24"> &nbsp; Español</li> 
-                					<li class="dropdown-item"><img src="assets/images/icons/pt.png" width="24" height="24"> &nbsp; Português (Brasil)</li> 
+                					<li class="dropdown-item" [ngClass]="{'ativo': currentLanguage == 'en'}"><img src="assets/images/icons/en.png" width="24" height="24"> &nbsp; English</li> 
+                					<li class="dropdown-item" [ngClass]="{'ativo': currentLanguage == 'es'}"><img src="assets/images/icons/es.png" width="24" height="24"> &nbsp; Español</li> 
+                					<li class="dropdown-item" [ngClass]="{'ativo': currentLanguage == 'pt'}"><img src="assets/images/icons/pt.png" width="24" height="24"> &nbsp; Português</li> 
 					            </ul> 
 							</div>
 					</div>
