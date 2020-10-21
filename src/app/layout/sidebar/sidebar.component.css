@@ -1,44 +1,389 @@
-#sidebar-wrapper .list-group-item{
-  border: 0;
-  background: transparent;
-  color: #707070;
-  font-size: 13px;
-}
-#sidebar-wrapper .list-group-item:hover{
-  background: #d0d0d0;
-}
-#sidebar-wrapper .sub-list-group-item{
-  /* padding-left: 60px; */
-  padding-right: 0;
-  font-size: 13px;
-}
-#sidebar-wrapper .bg-opacity{
-  background: rgba(255, 255, 255, .04)
+/* Sidebar */
+.page-sidebar {
+  width: 250px;
+  float: left;
+  position: relative;
+  z-index: 3;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
 }
 
+.page-sidebar.page-sidebar-minimized {
+  width: 52px;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+.page-sidebar.page-sidebar-fixed {
+  position: fixed;
+  background-color: #F4F4F4;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  height: 100%;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .page-sidebar.page-sidebar-minimized {
+      width: 0px;
+      -webkit-transition: all 200ms ease;
+      -moz-transition: all 200ms ease;
+      -ms-transition: all 200ms ease;
+      -o-transition: all 200ms ease;
+      transition: all 200ms ease;
+  }
+
+  .page-container .page-content,
+  .page-container.page-navigation-minimized .page-content {
+      margin-left: 0px;
+      -webkit-transition: all 200ms ease;
+      -moz-transition: all 200ms ease;
+      -ms-transition: all 200ms ease;
+      -o-transition: all 200ms ease;
+      transition: all 200ms ease;
+  }
+}
+
+/* NAVIGATION */
+/* NAVIGATION */
+.x-navigation,
+.x-navigation ul {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    float: left;
+    list-style: none;
+    display: block;
+    z-index: 3;
+}
+
+.x-navigation {
+	position: relative
+}
+
+.x-navigation {
+    background-color: #f4f4f4;
+}
+
+    .x-navigation li {
+        float: left;
+        display: block;
+        width: 100%;        
+        margin: 0px;
+        position: relative;
+    }
+
+        .x-navigation li > a {
+            display: block;
+            float: left;
+            width: 100%;
+            line-height: 20px;
+            color: #111111;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 10px 10px 10px 25px;
+            text-decoration: none;
+            vertical-align: middle;            
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+.x-navigation li > a .fa,
+.x-navigation li > a .glyphicon {
+    color: hsl(0, 0%, 53%);
+    text-align: center;
+    width: 20px;
+    font-size: 18px;
+    margin-right: 10px;
+    vertical-align: baseline;
+    -webkit-transition: color 200ms ease;
+    -moz-transition: color 200ms ease;
+    -ms-transition: color 200ms ease;
+    -o-transition: color 200ms ease;
+    transition: color 200ms ease;
+}
+
+.x-navigation li.active > a .fa,
+.x-navigation li.active > a .glyphicon {
+    color: #254a61;
+    -webkit-transition: color 200ms ease;
+    -moz-transition: color 200ms ease;
+    -ms-transition: color 200ms ease;
+    -o-transition: color 200ms ease;
+    transition: color 200ms ease;
+}
+
+.x-navigation li > a:hover {
+    background: #eaeaea;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+}
+
+.x-navigation li.active > a:hover {
+    background: #a2d6ff;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+}
+
+.x-navigation li > ul {
+    background: #f4f4f4;
+    max-height: 0px;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+    overflow: hidden;
+}
+
+    .x-navigation li > ul li > a {        
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+        padding: 10px 10px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+.x-navigation li.xn-openable:before {
+    position: absolute;
+    font-family: "FontAwesome";
+    content: "\f107";
+    font-size: 14px;
+    font-weight: 600;
+    width: 20px;
+    height: 20px;
+    color: hsl(0, 0%, 53%);
+    left: 7px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.x-navigation li.active.xn-openable:before {
+    content: "\f106";
+    color: #254a61;
+}
+
+.x-navigation li.active > a {    
+    background: #bfe3ff;
+    color: #254a61;
+    font-weight: 600;
+    border-radius: 0 20px 20px 0;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+}
+
+.x-navigation li.active > ul {
+    max-height: 1200px;
+}
+
+.x-navigation > li.xn-openable:before {
+    top: 10px;
+}
+
+.x-navigation > li > ul > li > a {
+    padding-left: 46px;    
+}
+.x-navigation > li > ul > li.xn-openable:before {
+    left: 15px
+}
+
+.x-navigation > li > ul > li > ul > li > a {
+    padding-left: 70px;
+}
+
+.x-navigation > li > ul > li > ul > li > ul > li > a {
+    padding-left: 70px;    
+}
+
+.x-navigation > li > ul > li > ul > li.xn-openable:before {
+    left: 50px
+}
+
+.x-navigation.x-navigation-minimized {
+    width: 50px;    
+    position: fixed;
+}
+
+    .x-navigation.x-navigation-minimized .xn-text {
+        display: none;
+    }
+
+    .x-navigation.x-navigation-minimized li {
+        width: auto;
+        position: relative;
+    }
+
+        .x-navigation.x-navigation-minimized li.active > ul {
+            display: block;
+        }
+
+        .x-navigation.x-navigation-minimized li ul {
+            top: 0px;
+            right: -260px;
+            -moz-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+            -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+        }
+
+            .x-navigation.x-navigation-minimized li ul:after {
+                right: 100%;
+                top: 23px;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-color: rgba(0, 0, 0, 0);
+                border-right-color: #254a61;
+                border-width: 5px;
+                margin-top: -5px;
+            }
+
+            .x-navigation.x-navigation-minimized li ul li > a {
+                padding-left: 30px !important;
+            }
+
+                .x-navigation.x-navigation-minimized li ul li > a:hover {
+                    padding-left: 30px !important;
+                }
+
+            .x-navigation.x-navigation-minimized li ul li.active > a {
+                padding-left: 30px !important;
+            }
+            .x-navigation.x-navigation-minimized > li > ul > li > ul > li.xn-openable:before {
+                left: 15px;
+            }
+
+    .x-navigation.x-navigation-minimized > li {
+        width: 100%;
+    }
+
+        .x-navigation.x-navigation-minimized > li > a {
+            padding: 10px 10px;
+            text-align: center;
+        }
+
+            .x-navigation.x-navigation-minimized > li > a .fa,
+            .x-navigation.x-navigation-minimized > li > a .glyphicon {
+                margin: 0px;
+            }
+
+        .x-navigation.x-navigation-minimized > li ul {
+            width: 250px;
+            position: absolute;
+            overflow: visible;
+            display: none;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+        }
+
+        .x-navigation.x-navigation-minimized > li li {
+            width: 100%;
+        }
+
+            .x-navigation.x-navigation-minimized > li li.xn-openable:before {
+                content: "\f105";
+            }
+
+            .x-navigation.x-navigation-minimized > li li.active.xn-openable:before {
+                content: "\f104";
+            }
+
+        .x-navigation.x-navigation-minimized > li.active:before,
+        .x-navigation.x-navigation-minimized > li.xn-openable:before {
+            display: none;
+        }
+
+
+.x-navigation.x-navigation-minimized > li li {
+    display: block;
+}
+
+.x-navigation.x-navigation-minimized .xn-text {
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.x-navigation .xn-openable ul:first-child {
+    margin-bottom: 100px;
+}
+
+.x-navigation-minimized .label-hide {
+  display: none !important;
+}
+
+.x-navigation li > a > span.icon-menu {
+    font-size: 20px;
+}
+
+.x-navigation li.font-icon {
+    padding-top: 2px;
+}
+
+@media only screen and (max-width: 800px) {
+    .x-navigation.x-navigation-minimized {
+        display: none;
+        -webkit-transition: all 200ms ease;
+        -moz-transition: all 200ms ease;
+        -ms-transition: all 200ms ease;
+        -o-transition: all 200ms ease;
+        transition: all 200ms ease;
+    }
+}
+/* END NAVIGATION */
+
+
 /* Icons */
-fa-icon{
+fa-icon {
   opacity: .4;
   width: 30px;
   text-align: center
 }
 
-.link-active {
-  color: #d0d0d0 !important;
-  background: #707070 !important;
-}
-
-.link-active fa-icon {
-  opacity: 1;
-}
-
-/* Backgrounds & Colors */
-.bg-light-gray {
-  background-color:#f0f0f0;
-}
 
 /* Copyright */
 .logo-isi-engenharia {
+  /*
+	position: absolute;
+	bottom: 1%;
+  */
   position: fixed;
   bottom: 8px;
   margin-left: 20px;
@@ -58,4 +403,20 @@ fa-icon{
   margin-left: 10px;
   color: #fff;
   font-size: 13px;
+}
+
+.page-sidebar-minimized .logo-isi-engenharia {
+  display: none !important;
+
+}
+
+@media only screen and (max-width: 800px) {
+  .logo-isi-engenharia {
+    display: none;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+  }
 }

@@ -71,11 +71,18 @@ body {
   margin-left: auto; 
   margin-right: 0;
 }
-.form-signin .form-options .btn-traducao .dropdown-menu li:hover {
-  background-color: #BBBBBB;
-}
+
 .form-signin .form-options .btn-traducao .dropdown-menu li.ativo {
-  background-color: #BAC2D0;
+  background-color: #BFE3FF;
+}
+.form-signin .form-options .btn-traducao .dropdown-menu li:active,
+.form-signin .form-options .btn-traducao .dropdown-menu li:hover,
+.form-signin .form-options .btn-traducao .dropdown-menu li:focus,
+.form-signin .form-options .btn-traducao .dropdown-menu li.ativo:active,
+.form-signin .form-options .btn-traducao .dropdown-menu li.ativo:hover,
+.form-signin .form-options .btn-traducao .dropdown-menu li.ativo:focus {
+  color: white; /* #212529 */
+  background-color: #007BFF;  /* #BFE3FF */
 }
 
 .form-signin .form-options .btn-forget-pass {

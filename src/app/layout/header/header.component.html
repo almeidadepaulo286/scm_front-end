@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md">
-    <button class="btn btn-link" id="menu-toggle" (click)="toggleIcon()" tabindex="-1">
-            <fa-icon *ngIf="sidebarIsOpen" class="text-light fa-lg" [icon]="faIndent"></fa-icon> 
-            <fa-icon *ngIf="! sidebarIsOpen" class="text-light fa-lg" [icon]="faOutdent"></fa-icon> 
+    <button id="menu-toggle" class="btn btn-link  x-navigation-minimize" (click)="toggleIcon()" tabindex="-1">
+        <fa-icon *ngIf="sidebarIsOpen" class="text-light fa-lg" [icon]="faIndent"></fa-icon> 
+        <fa-icon *ngIf="! sidebarIsOpen" class="text-light fa-lg" [icon]="faOutdent"></fa-icon> 
     </button>
     <a class="navbar-brand" [routerLink]="['/inicio']" tabindex="-1">
         <img src="assets/images/scm-header.png" alt="">
@@ -37,8 +37,9 @@
                         Alterar senha
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" [routerLink]="['/login']" (click)="onLoggedout()">
-                        {{ 'Sair' }}
+                    <a class="dropdown-item" data-toggle="modal" data-target="#mb-signout"> 
+                        <!-- [routerLink]="['/login']" (click)="onLoggedout()"> -->
+                        Sair
                     </a>
                 </div>
             </li>

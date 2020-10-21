@@ -1,112 +1,138 @@
-<div class="bg-light-gray" id="sidebar-wrapper" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
-    <div class="list-group list-group-flush">
-        <!-- <img class="my-4 ml-4" src="../../assets/images/cerc-logo.png" alt="" width="100"> -->
+<!-- ==========================================================================
+      MENU SIDE-BAR-NAV
+=========================================================================== -->
+<div id="sidebar-wrapper" class="page-sidebar page-sidebar-fixed scroll mCustomScrollbar _mCS_1 mCS-autoHide" style="overflow: visible; height: 191px; top: 60px">
 
-        <!-- INICIO MENU -->
-        <div class="" id="headingTwo">
-            <!-- Atividades de Controle -->
-            <div class="mb-0">
-                <!-- Implantação -->
-                <div class="accordion" id="accordionImplantacao">
-                    <a class="list-group-item list-group-item-action" data-toggle="collapse"
-                    data-target="#collapseImplantacao" aria-expanded="false" aria-controls="collapseImplantacao">
-                        <fa-icon [icon]="faBook"></fa-icon>&nbsp;
-                        Implantação
-                    </a>
-                    <!-- Atividades de Controle -->
-                    <div id="collapseImplantacao" class="collapse bg-opacity" aria-labelledby="headingImplantacao"
-                        data-parent="#accordionImplantacao">
-                        <a routerLink="/atividades" routerLinkActive="link-active"
-                           class="list-group-item list-group-item-action sub-list-group-item">
-                           <fa-icon [icon]="faEdit"></fa-icon>&nbsp;
-                           <span class="ml-3">Atividades de Controle</span>
-                        </a>
-                    </div>
-                    <!-- Usuários -->
-                    <div id="collapseImplantacao" class="collapse bg-opacity" aria-labelledby="headingImplantacao"
-                        data-parent="#accordionImplantacao">
-                        <a routerLink="/usuarios" routerLinkActive="link-active"
-                           class="list-group-item list-group-item-action sub-list-group-item">
-                           <fa-icon [icon]="faUsers"></fa-icon>&nbsp;
-                           <span class="ml-3">Usuários</span>
-                        </a>
-                    </div>
-                </div>
+  <div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" tabindex="0">
+    <div id="mCSB_1_container" class="mCSB_container" style="position: relative; top: 0; left: 0" dir="ltr">
 
-                <!-- PCP -->
-                <div class="accordion" id="accordionPCP">
-                    <a class="list-group-item list-group-item-action" data-toggle="collapse"
-                        data-target="#collapsePCP" aria-expanded="false" aria-controls="collapsePCP">
-                        <fa-icon [icon]="faWrench"></fa-icon>&nbsp;
-                        PCP
-                    </a>
-                    <div id="collapsePCP" class="collapse bg-opacity" aria-labelledby="headingPCP"
-                        data-parent="#accordionPCP">
-                        <a routerLink="/inicio" routerLinkActive="link-active"
-                           class="list-group-item list-group-item-action sub-list-group-item">
-                            <span class="ml-3">Item Menu 1</span>
-                        </a>
-                    </div>
-                    <div id="collapsePCP" class="collapse bg-opacity" aria-labelledby="headingPCP"
-                        data-parent="#accordionPCP">
-                        <a routerLink="/inicio" routerLinkActive="link-active"
-                           class="list-group-item list-group-item-action sub-list-group-item">
-                            <span class="ml-3">Item Menu 2</span>
-                        </a>
-                    </div>
-                    <div id="collapsePCP" class="collapse bg-opacity" aria-labelledby="headingPCP"
-                        data-parent="#accordionPCP">
-                        <a routerLink="/inicio" routerLinkActive="link-active"
-                           class="list-group-item list-group-item-action sub-list-group-item">
-                            <span class="ml-3">Item Menu 3</span>
-                        </a>
-                    </div>
-                </div>
+      <!-- INICIO MENU -->
+      <ul class="x-navigation x-navigation-sidebar">
+        <!-- Implantação -->
+        <li class="xn-openable">
+          <a id="menu-implantacao" href="#" data-toogle="tooltip" data-placement="top" title="Implantação">
+            <span class="fa fa-book"></span>
+            <span class="xn-text label-hide">Implantação</span>
+          </a>
+          <ul>
+            <li> <!-- Atividades de Controle -->
+              <a id="sub-menu-atividades" href="/atividades" data-toogle="tooltip" data-placement="top" title="Atividades de Controle">
+                <span class="xn-text">Atividades de Controle</span>
+              </a>
+            </li>
+            <li> <!-- Usuários -->
+              <a id="sub-menu-usuarios" href="/usuarios" data-toogle="tooltip" data-placement="top" title="Usuários">
+                <span class="xn-text">Usuários</span>
+              </a>
+            </li>
+          </ul>
+        </li>
 
-                <!-- Controle de Qualidade -->
-                <div class="accordion" id="accordionControleQualidade">
-                    <a class="list-group-item list-group-item-action" data-toggle="collapse"
-                        data-target="#collapseControleQualidade" aria-expanded="false" aria-controls="collapseControleQualidade">
-                        <fa-icon [icon]="faFileAlt"></fa-icon>&nbsp;
-                        Controle Qualidade
-                    </a>
-                    <div id="collapseControleQualidade" class="collapse bg-opacity" aria-labelledby="headingControleQualidade"
-                        data-parent="#accordionControleQualidade">
-                        <a routerLink="/inicio" routerLinkActive="link-active"
-                           class="list-group-item list-group-item-action sub-list-group-item">
-                            <span class="ml-3">Item Menu 1</span>
-                        </a>
-                    </div>
-                </div>
+        <!-- PCP -->
+        <li class="xn-openable">
+          <a id="menu-pcp" href="#" data-toogle="tooltip" data-placement="top" title="PCP">
+            <span class="fa fa-wrench"></span>
+            <span class="xn-text label-hide">PCP</span>
+          </a>
+          <ul>
+            <li>
+              <a id="sub-menu-item-menu-1" href="/inicio" data-toogle="tooltip" data-placement="top" title="Item Menu 1">
+                <span class="xn-text">Item Menu 1</span>
+              </a>
+            </li>
+            <li>
+              <a id="sub-menu-item-menu-2" href="/inicio" data-toogle="tooltip" data-placement="top" title="Item Menu 1">
+                <span class="xn-text">Item Menu 2</span>
+              </a>
+            </li>
+          </ul>
+        </li>
 
-                <!-- Medição -->
-                <div class="accordion" id="accordionMedicao">
-                    <a routerLink="/inicio" routerLinkActive="link-active" 
-                       class="list-group-item list-group-item-action">
-                        <fa-icon [icon]="faMoneyBillAlt"></fa-icon>&nbsp;
-                        Medição
-                    </a>
-                </div>
+        <!-- Controle de Qualidade -->
+        <li class="xn-openable">
+          <a id="menu-controle-qualidade" href="#" data-toogle="tooltip" data-placement="top" title="Controle de Qualidade">
+            <span class="fa fa-file-o"></span>
+            <span class="xn-text label-hide">Controle de Qualidade</span>
+          </a>
+          <ul>
+            <li>
+              <a id="sub-menu-item-menu-1" href="/inicio" data-toogle="tooltip" data-placement="top" title="Item Menu 1">
+                <span class="xn-text">Item Menu 1</span>
+              </a>
+            </li>
+          </ul>
+        </li>
 
-                <!-- Configuração -->
-                <div class="accordion" id="accordionConfiguracao">
-                    <a routerLink="/inicio" routerLinkActive="link-active" 
-                       class="list-group-item list-group-item-action">
-                        <fa-icon [icon]="faCogs"></fa-icon>&nbsp;
-                        Configuração
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- FIM MENU -->
+        <!-- Medição -->
+        <li>
+          <a id="menu-medicao" href="/inicio" data-toogle="tooltip" data-placement="top" title="Medição">
+            <span class="fa fa-money"></span>
+            <span class="xn-text label-hide">Medição</span></a>
+        </li>
 
-        <!-- INICIO COPYRIGHT -->
-        <div class="logo-isi-engenharia">
-            <img class="img-logo-isi" src="/assets/images/isiengenharia_logo.png" alt="IsiEngenharia">
-            <div class="texto-logo-isi">
-                © ISI Engenharia 2020 - SCM (Vr. [POC] 01/11/2020)
-            </div>
-        </div>
-        <!-- FIM COPYRIGHT -->
+        <!-- Implantação -->
+        <li class="xn-openable">
+          <a id="menu-implantacao" href="#" data-toogle="tooltip" data-placement="top" title="Implantação">
+            <span class="fa fa-book"></span>
+            <span class="xn-text label-hide">Implantação</span></a>
+          <ul>
+            <li> <!-- Atividades de Controle -->
+              <a id="sub-menu-atividades" href="/atividades" data-toogle="tooltip" data-placement="top" title="Atividades de Controle">
+                <span class="xn-text">Atividades de Controle</span>
+              </a>
+            </li>
+            <li> <!-- Usuários -->
+              <a id="sub-menu-usuarios" href="/usuarios" data-toogle="tooltip" data-placement="top" title="Usuários">
+                <span class="xn-text">Usuários</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Configurações -->
+        <li class="xn-openable">
+          <a href="#" id="menu-configuracoes" data-toogle="tooltip" data-placement="top" title="Configurações">
+            <span class="fa fa-cog"></span>
+            <span class="xn-text label-hide">Configurações</span></a>
+          <ul>
+            <li> <!-- Parâmetros -->
+              <a id="sub-menu-parametros" href="inicio" data-toogle="tooltip" data-placement="top" title="Parâmetros">
+                <span class="xn-text">Parâmetros</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <!-- FIM MENU -->
+
     </div>
+  </div>
+
+  <div id="mCSB_1_scrollbar_vertical"
+    class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: block">
+    <div class="mCSB_draggerContainer">
+      <div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="
+            position: absolute;
+            min-height: 50px;
+            height: 137px;
+            top: 0px;
+            display: block;
+            max-height: 200px;
+          " oncontextmenu="return false;">
+        <div class="mCSB_dragger_bar" style="line-height: 50px"></div>
+      </div>
+      <div class="mCSB_draggerRail"></div>
+    </div>
+  </div>
+
+  <!-- INICIO COPYRIGHT -->
+  <div class="logo-isi-engenharia">
+    <img class="img-logo-isi" src="/assets/images/isiengenharia_logo.png" alt="IsiEngenharia" />
+    <div class="text-color-white texto-logo-isi">
+      © ISI Engenharia Ltda. - 2020 <br/>
+      SCM (Vr. [POC] 01/11/2020)
+    </div>
+  </div>
+  <!-- FIM COPYRIGHT -->
+
 </div>

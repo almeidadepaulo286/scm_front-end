@@ -53,24 +53,26 @@
             ],
             "styles": [
 			  "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
 			  "./node_modules/ngx-toastr/toastr.css",
-              "./node_modules/font-awesome/css/font-awesome.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "./node_modules/primeicons/primeicons.css",
               "./node_modules/primeng/resources/themes/nova/theme.css",
               "./node_modules/primeng/resources/primeng.min.css",
-              "./node_modules/ladda/dist/ladda.min.css",
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/font-awesome/css/font-awesome.min.css",
               "./node_modules/fontsource-material-icons/base-400-normal.css",
               "./node_modules/fontsource-open-sans/400-normal.css",
               "./node_modules/fontsource-hind/400-normal.css",
+              "./node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css",
               "src/styles.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.slim.min.js",
               "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
               "./node_modules/@popperjs/core/dist/umd/popper.min.js",
-              "./node_modules/vanilla-masker/build/vanilla-masker.min.js"
+              "./node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js",
+              "./node_modules/vanilla-masker/build/vanilla-masker.min.js",
+              "src/assets/js/menu-sidebar.js"
             ]
           },
           "configurations": {

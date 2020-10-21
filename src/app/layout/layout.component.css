@@ -1,10 +1,130 @@
-.main-container {
-    margin-top: 56px;
-    margin-left: 235px;
-    padding: 25px;
-    -ms-overflow-x: hidden;
-    overflow-x: hidden;
-    overflow-y: scroll;
+/* PAGE CONTAINER */
+.page-container {
+    width: 100%;
+    float: left;
+    min-height: 100%;
     position: relative;
-    overflow: hidden;
 }
+
+.page-content {
+    min-height: 100%;
+    margin-left: 250px;
+    background: #fefefe;
+    position: relative;
+    zoom: 1;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+}
+
+.page-content {
+    min-width: 100vw;
+}
+
+.page-container.page-navigation-minimized .page-content {
+    margin-left: 50px;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+}
+
+.page-container.page-navigation-minimized .page-content {
+    margin-left: 50px;
+    z-index: 1;
+}
+
+@media (min-width: 768px) {
+    .page-content {
+        min-width: 0;
+        width: 100%;
+    }
+}
+/* END PAGE CONTAINER */
+
+
+/* message box */
+.message-box {
+    display: none;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.message-box.open {
+    display: block;
+}
+
+.message-box .mb-container {
+    position: absolute;
+    left: 0px;
+    top: 35%;
+    background: rgb(73, 112, 138) none repeat scroll 0 0;
+    background: rgba(73, 112, 138, 1) none repeat scroll 0 0;
+    padding: 20px;
+    width: 100%;
+    z-index: 9999999;
+}
+
+    .message-box .mb-container .mb-middle {
+        width: 50%;
+        left: 25%;
+        position: relative;
+        color: #FFF;
+    }
+
+        .message-box .mb-container .mb-middle .mb-title {
+            width: 100%;
+            float: left;
+            padding: 10px 0px 0px;
+            font-size: 31px;
+            font-weight: 400;
+            line-height: 36px;
+        }
+
+            .message-box .mb-container .mb-middle .mb-title .fa,
+            .message-box .mb-container .mb-middle .mb-title .glyphicon {
+                font-size: 38px;
+                float: left;
+                margin-right: 10px;
+            }
+
+        .message-box .mb-container .mb-middle .mb-content {
+            width: 100%;
+            float: left;
+            padding: 10px 0px 0px;
+        }
+
+            .message-box .mb-container .mb-middle .mb-content p {
+                margin-bottom: 0px;
+            }
+
+        .message-box .mb-container .mb-middle .mb-footer {
+            width: 100%;
+            float: left;
+            padding: 10px 0px;
+        }
+
+.message-box.message-box-warning .mb-container {
+    background: rgba(254, 162, 35, 0.9);
+}
+
+.message-box.message-box-danger .mb-container {
+    background: rgba(182, 70, 69, 0.9);
+}
+
+.message-box.message-box-info .mb-container {
+    background: rgba(63, 186, 228, 0.9);
+}
+
+.message-box.message-box-success .mb-container {
+    background: rgba(149, 183, 93, 0.9);
+}
+/* end message box */

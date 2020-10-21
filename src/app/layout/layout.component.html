@@ -1,9 +1,40 @@
 <app-header></app-header>
-<div class="d-flex page-container" id="wrapper">
+<div id="wrapper" class="page-container d-flex">
     <app-sidebar></app-sidebar>
-    <div id="page-content-wrapper">
+    <div id="page-content-wrapper" class="page-content">
         <div class="container-fluid p-4">
             <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+<!-- ==========================================================================
+       MESSAGE BOX
+     =========================================================================== -->
+<div id="mb-signout" class="modal message-box animated fadeIn" data-sound="alert">
+    <div class="mb-container">
+        <div class="mb-middle">
+            <div class="mb-title">
+                <h1 class="text-color-white">
+                <span class="fa fa-sign-out"></span>Sair
+                </h1>
+            </div>
+            <div class="mb-content">
+                <h2 class="text-color-white">
+                Tem certeza que deseja sair do sistema?
+                </h2>
+            </div>
+            <div class="mb-footer">
+                <div class="pull-right">
+                    <button class="btn btn-danger btn-lg font-lg" data-dismiss="modal" aria-label="Sim" (click)="logOut()">
+                        Sim
+                    </button>
+                    &nbsp;
+                    <button class="btn btn-primary btn-lg font-lg" data-dismiss="modal" aria-label="Não">
+                        Não
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
