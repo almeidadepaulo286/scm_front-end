@@ -64,6 +64,7 @@
               "./node_modules/fontsource-open-sans/400-normal.css",
               "./node_modules/fontsource-hind/400-normal.css",
               "./node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css",
+              "./node_modules/ladda/dist/ladda.min.css",
               "src/styles.css"
             ],
             "scripts": [

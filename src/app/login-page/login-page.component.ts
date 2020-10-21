@@ -2,7 +2,6 @@ import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../_services/authentication.service';
 import { ToastrService } from 'ngx-toastr';
-import * as $ from "jquery";
 
 @Component({
     selector: 'app-login-page',
@@ -14,6 +13,9 @@ export class LoginPageComponent implements OnInit, AfterContentInit {
     name:string;
     password:string;
     currentLanguage:string = 'pt';
+
+    // trigger-variable for Ladda
+    isLoggingIn: boolean = false;
 
     public displayAlert:boolean = false;
     public mensagemAlert:string;
@@ -28,14 +30,21 @@ export class LoginPageComponent implements OnInit, AfterContentInit {
         // VMasker(document.querySelector("#agent_user_cpf")).maskPattern("999.999.999-99");
     }
 
-    onLoggedin() {
+    onLoggingIn() {
+        this.isLoggingIn = true;
+        this.toastr.clear();
+
         // obrigatorio fornecer usuario e senha:
         if (this.name && this.password) {
             //FIXME this.authenticationService.login(this.documento,this.senha, this);
             //DELME this.authenticationService.login("71425166237","123456789", this);
-            this.authenticationService.loginMock(this.name, this.password, this);
+            setTimeout(() => {
+                this.isLoggingIn = false;
+                this.authenticationService.loginMock(this.name, this.password, this);
+            }, 2000);
 
         } else {
+            this.isLoggingIn = false;
             this.toastr.warning('Digite seu usuário e senha para prosseguir...');
         }
     }

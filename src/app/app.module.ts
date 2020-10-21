@@ -109,6 +109,9 @@ import { LoaderInterceptor } from 'app/_components/loader/loader.interceptor';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DetalhesDoArquivoComponent } from './layout/content/arquivos/detalhes/detalhes-do-arquivo.component';
 
+// Angular Ladda
+import { LaddaModule } from 'angular2-ladda';
+
 // Cessao
 import { ListaCessaoComponent } from './layout/content/registros/lista-cessao/lista-cessao.component';
 import { CancelaCessaoComponent } from './layout/content/registros/cancela-cessao/cancela-cessao.component';
@@ -243,7 +246,14 @@ import { ListaTitulosBancariosComponent } from './layout/content/cedulas/consult
     PaginationModule.forRoot(),
     NgxCurrencyModule,
     TableModule,
-    DropdownModule
+    DropdownModule,
+    // Angular Ladda
+    LaddaModule.forRoot({
+      style: "zoom-in",
+      spinnerSize: 40,
+      //spinnerColor: "red",
+      spinnerLines: 12
+  })
   ],
   bootstrap: [AppComponent],
   providers: [

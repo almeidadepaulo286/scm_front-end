@@ -38,9 +38,9 @@
 							</div>
 					</div>
 
-					<button type="submit" class="btn btn-lg btn-info btn-block mb-3"
-							tabindex="0"  (click)="onLoggedin()">
-						<small>Acessar</small>
+					<button type="submit" class="btn btn-login btn-info btn-block mb-3" tabindex="0" (click)="onLoggingIn()"
+					        [ladda]="isLoggingIn" data-color="blue" data-size="s" data-style="zoom-in">
+						Acessar
 					</button>
 
 					<p><a href="#" class="btn-forget-pass text-info">Esqueci minha senha</a></p>
