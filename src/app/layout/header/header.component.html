@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md">
     <button id="menu-toggle" class="btn btn-link  x-navigation-minimize" (click)="toggleIcon()" tabindex="-1">
-        <fa-icon *ngIf="sidebarIsOpen" class="text-light fa-lg" [icon]="faIndent"></fa-icon> 
-        <fa-icon *ngIf="! sidebarIsOpen" class="text-light fa-lg" [icon]="faOutdent"></fa-icon> 
+        <fa-icon *ngIf="sidebarIsMinimized" class="text-light fa-lg" [icon]="faIndent"></fa-icon> 
+        <fa-icon *ngIf="! sidebarIsMinimized" class="text-light fa-lg" [icon]="faOutdent"></fa-icon> 
     </button>
     <a class="navbar-brand" [routerLink]="['/inicio']" tabindex="-1">
         <img src="assets/images/scm-header.png" alt="">
