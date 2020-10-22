@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Usuario, Perfil } from '../_models';
 import { Router } from "@angular/router";
-import { LocalService } from '../_services/local.service';
 import { UsuarioService } from './usuario.service';
 import { ResponseEntity } from 'app/_models/ResponseEntity';
 import { environment } from '../../environments/environment';
@@ -16,9 +15,9 @@ export class AuthenticationService {
     public currentUser: Observable<Usuario>;
     documentoNumerico:number;
     
-    baseAuthUrl: string = environment.baseUrlUser+'auth';
+    baseAuthUrl: string = environment.baseUrl + 'scm/auth';
 	
-    constructor(private router: Router, private http: HttpClient, private usuarioService: UsuarioService, private localService: LocalService, private toastr: ToastrService) {
+    constructor(private router: Router, private http: HttpClient, private usuarioService: UsuarioService, private toastr: ToastrService) {
         this.currentUserSubject = new BehaviorSubject<Usuario>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
     }

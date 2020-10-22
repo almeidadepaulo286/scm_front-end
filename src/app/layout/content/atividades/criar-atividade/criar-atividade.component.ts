@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AtividadeService } from 'app/_services/atividade.service';
 import { ToastrService } from 'ngx-toastr';
-import { ValidaDocumentoHelper } from 'app/_helpers/validaDocumento';
 
 @Component({
 	selector: 'criar-atividade',

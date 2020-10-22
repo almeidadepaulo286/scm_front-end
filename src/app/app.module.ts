@@ -1,5 +1,4 @@
 import { SharedModule } from './shared/shared.module';
-import { FaturamentoService } from './_services/faturamento.service';
 
 // App
 import { AppRoutingModule } from './app-routing.module';
@@ -10,12 +9,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Pipes
-import { CpfCnpj } from 'app/pipes/cpfcnpj.component';
-import { TipoPessoa } from 'app/pipes/tipopessoa.component';
 import { FormatCurrencyPipe } from 'app/pipes/formatCurrency.pipe';
-import { StatusParcelaPipe } from 'app/pipes/statusParcela.component';
-import { StatusCessaoPipe } from 'app/pipes/statusCessao.pipe';
-import { IndexacaoPipe } from 'app/pipes/indexacao.pipe';
 
 // Form
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,7 +21,6 @@ import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 
 // Service
-import { LocalService } from './_services/local.service';
 import { TokenInterceptor } from "./_helpers/interceptor";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -64,31 +57,12 @@ import { AtividadeService } from './_services/atividade.service';
 // Usuarios
 import { UsuariosComponent } from './layout/content/usuarios/usuarios.component';
 import { CriarUsuarioComponent } from './layout/content/usuarios/criar-usuario/criar-usuario.component';
+import { DetalhesUsuarioComponent } from './layout/content/usuarios/detalhes-usuario/detalhes-usuario.component';
 import { EditarUsuarioComponent } from './layout/content/usuarios/editar-usuario/editar-usuario.component';
-import { DetalhesDoUsuarioComponent } from './layout/content/usuarios/detalhes-do-usuario/detalhes-do-usuario.component';
 import { UsuarioService } from './_services/usuario.service';
 
 // Usuario
 import { AlterarSenhaComponent } from './layout/content/alterar-senha/alterar-senha.component';
-
-// Conciliacao
-import { ConciliacaoComponent } from './layout/content/conciliacao/conciliacao.component';
-
-// Atualizacao
-import { AtualizacaoComponent } from './layout/content/atualizacao/atualizacao.component';
-
-// Registros
-import { RegistrosComponent } from './layout/content/registros/registros.component';
-import { DetalhesDoRegistroComponent } from './layout/content/registros/detalhes/detalhes-do-registro.component';
-import { DetalhesDaSolicitacaoComponent } from './layout/content/registros/detalhes-da-solicitacao/detalhes-da-solicitacao.component';
-import { IncluirSolicitacaoRegistroComponent } from './layout/content/registros/incluir-solicitacao-registro/incluir-solicitacao-registro.component';
-import { RetificacaoRegistroComponent } from './layout/content/registros/retificacao/retificacao.component';
-import { DisponibilizarRegistroComponent } from './layout/content/registros/disponibilizar-registro/disponibilizar-registro.component';
-
-// Arquivos
-import { ConsultarComponent } from './layout/content/arquivos/consultar/consultar.component';
-import { ImportarComponent } from './layout/content/arquivos/importar/importar.component';
-import { ArquivosComponent } from './layout/content/arquivos/arquivos.component';
 
 // Mascara de formulario
 import { NgxMaskModule } from 'ngx-mask';
@@ -107,16 +81,9 @@ import { LoaderInterceptor } from 'app/_components/loader/loader.interceptor';
 
 // DatePicker
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { DetalhesDoArquivoComponent } from './layout/content/arquivos/detalhes/detalhes-do-arquivo.component';
 
 // Angular Ladda
 import { LaddaModule } from 'angular2-ladda';
-
-// Cessao
-import { ListaCessaoComponent } from './layout/content/registros/lista-cessao/lista-cessao.component';
-import { CancelaCessaoComponent } from './layout/content/registros/cancela-cessao/cancela-cessao.component';
-import { CancelaContratoComponent } from './layout/content/registros/cancela-contrato/cancela-contrato.component';
-import { DetalhesCessaoComponent } from './layout/content/registros/detalhes-da-cessao/detalhes-da-cessao.component';
 
 // Alerts
 import { ToastrModule } from 'ngx-toastr';
@@ -129,7 +96,6 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 // Currency, Moeda, R$
 import { NgxCurrencyModule } from 'ngx-currency';
-import {BillingComponent} from './layout/content/faturamento/billing.component';
 
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
@@ -140,25 +106,16 @@ registerLocaleData(ptBr)
 import {TableModule} from 'primeng/table';
 import {DropdownModule} from 'primeng/dropdown';
 
-// TEMPORARIOS
-import { ListaTitulosBancariosComponent } from './layout/content/cedulas/consultar-titulos-bancarios/lista/lista.component'
-
 @NgModule({
   declarations: [
     // Loader
     LoaderComponent,
 
     // Pipes
-    CpfCnpj,
-    TipoPessoa,
     FormatCurrencyPipe,
-    StatusParcelaPipe,
-    StatusCessaoPipe,
-    IndexacaoPipe,
 
     // App
     AppComponent,
-    BillingComponent,
 
     // Atividades de Controle
     AtividadesComponent,
@@ -168,7 +125,7 @@ import { ListaTitulosBancariosComponent } from './layout/content/cedulas/consult
     // Usuarios
     UsuariosComponent,
     CriarUsuarioComponent,
-    DetalhesDoUsuarioComponent,
+    DetalhesUsuarioComponent,
     EditarUsuarioComponent,
 
     // Usuario
@@ -185,40 +142,11 @@ import { ListaTitulosBancariosComponent } from './layout/content/cedulas/consult
     HeaderComponent,
     SidebarComponent,
 
-    // Conciliacao
-    ConciliacaoComponent,
-
-    // Atualizacao
-    AtualizacaoComponent,
-
-    // Registros
-    RegistrosComponent,
-    DetalhesDoRegistroComponent,
-    DetalhesDaSolicitacaoComponent,
-    IncluirSolicitacaoRegistroComponent,
-    ConsultarComponent,
-    RetificacaoRegistroComponent,
-
-    // Cessao
-    DisponibilizarRegistroComponent,
-    ListaCessaoComponent,
-    DetalhesCessaoComponent,
-    CancelaCessaoComponent,
-    CancelaContratoComponent,
-
-    // Arquivos
-    ArquivosComponent,
-    ImportarComponent,
-    DetalhesDoArquivoComponent,
-
     // Botoes
     BotaoNovoComponent,
     BotaoVoltarComponent,
     BotaoNotificacoesComponent,
-    BotaoEditarComponent,
-
-    // TEMPORARIOS
-    ListaTitulosBancariosComponent
+    BotaoEditarComponent
   ],
   imports: [
     CommonModule,
@@ -259,11 +187,9 @@ import { ListaTitulosBancariosComponent } from './layout/content/cedulas/consult
   providers: [
     LoaderService,
     HttpClientModule,
-    LocalService,
     AtividadeService,
     UsuarioService,
     AuthenticationService,
-    FaturamentoService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

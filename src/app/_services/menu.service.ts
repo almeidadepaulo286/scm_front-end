@@ -1,10 +1,8 @@
-import './local.service';
 import { Injectable } from '@angular/core';
 import {Menu} from "../_models/menu";
 import {Observable} from "rxjs/index";
 import {ApiResponse} from "../_models/api.response";
 import { HttpClient } from '@angular/common/http';
-import { LocalService } from '../_services/local.service';
 import { environment } from '../../environments/environment';
 
 @Injectable()
@@ -12,7 +10,7 @@ export class MenuService {
 
     baseMenuUrl: string = environment.baseUrl+'menus';
 
-    constructor(private http: HttpClient, private localService: LocalService){ }
+    constructor(private http: HttpClient) {}
 
     getMenus() : Observable<ApiResponse> {
         return this.http.get<ApiResponse>(this.baseMenuUrl);

@@ -1,10 +1,8 @@
-import './local.service';
 import { Injectable } from '@angular/core';
 import {Usuario} from "../_models/usuario";
 import {Observable, of} from "rxjs/index";
 import {ApiResponse} from "../_models/api.response";
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { LocalService } from '../_services/local.service';
 import { ResponseEntity } from 'app/_models/ResponseEntity';
 import { environment } from '../../environments/environment';
 //FIXME Mock da API
@@ -14,30 +12,28 @@ import * as dadosPerfis from 'app/data/perfil.json';
 @Injectable()
 export class UsuarioService {
 
-    baseUsuarioUrl: string = environment.baseUrlUser+'usuarios';
-    baseUrl: string = environment.baseUrl+'cerc/usuario/'
-    baseNewUser: string = environment.baseNewUser+'cerc/usuario/'
+    baseUrl: string = environment.baseUrl + 'scm/usuario/'
     
-    constructor(private http: HttpClient, private localService: LocalService){ }
+    constructor(private http: HttpClient) {}
 
     getUsuarios() : Observable<ApiResponse> {
-      return this.http.get<ApiResponse>(this.baseUsuarioUrl);
+      return this.http.get<ApiResponse>(this.baseUrl);
     }
     getUsuarioById(usuarioId: number): Observable<ApiResponse> {
-      return this.http.get<ApiResponse>(this.baseUsuarioUrl + "/getById/" + String(usuarioId));
+      return this.http.get<ApiResponse>(this.baseUrl + "/getById/" + String(usuarioId));
     }
     //TODO:
     getUsuarioByDocumento(documento:number): Observable<ResponseEntity> {
-      return this.http.get<ResponseEntity>(this.baseUsuarioUrl + "/" + documento);
+      return this.http.get<ResponseEntity>(this.baseUrl + "/" + documento);
     }
     createUsuario(user: Usuario): Observable<ApiResponse> {
-      return this.http.post<ApiResponse>(this.baseUsuarioUrl, user);
+      return this.http.post<ApiResponse>(this.baseUrl, user);
     }
     updateUsuario(usuarioId:number, user: Usuario): Observable<ApiResponse> {
-      return this.http.put<ApiResponse>(this.baseUsuarioUrl + "/" + String(usuarioId), user); 
+      return this.http.put<ApiResponse>(this.baseUrl + "/" + String(usuarioId), user); 
     }
     deletarUsuario(usuarioId: number): Observable<ApiResponse> {
-      return this.http.delete<ApiResponse>(this.baseUsuarioUrl + "/" + String(usuarioId));
+      return this.http.delete<ApiResponse>(this.baseUrl + "/" + String(usuarioId));
     }
 
     getUsuariosFiltered(login, email, idPerfil, nome, page, pageSize, ativo) : Observable<any>{
@@ -54,7 +50,7 @@ export class UsuarioService {
 
       //FIXME Mock da API
       // return this.http.get<any>(
-      //   `${this.baseNewUser}listar-por-filtro/`, { params: params }
+      //   `${this.baseUrl}listar-por-filtro/`, { params: params }
       // )
       return of((dados as any).default);
     }
@@ -62,14 +58,14 @@ export class UsuarioService {
     listarPerfis():Observable<any>{
       //FIXME Mock da API
       // return this.http.get<any>(
-      //   `${this.baseNewUser}listar-perfis`
+      //   `${this.baseUrl}listar-perfis`
       // )
       return of((dadosPerfis as any).default);
     }
 
     criarUsuario(formUsuario): Observable<any>{
       return this.http.post<any>(
-        this.baseNewUser,
+        this.baseUrl,
         formUsuario
       )
     }
@@ -77,7 +73,7 @@ export class UsuarioService {
     getUserById(userId): Observable<any>{
       //FIXME Mock da API
       // return this.http.get<any>(
-      //   this.baseNewUser + userId
+      //   this.baseUrl + userId
       // )
 
       return of((dados as any).default.content[userId-1]);
@@ -85,7 +81,7 @@ export class UsuarioService {
 
     updateUser(user): Observable<any>{
       return this.http.put<any>(
-        this.baseNewUser, user
+        this.baseUrl, user
       )
     }
 }

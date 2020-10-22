@@ -14,8 +14,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-6 col-lg-3 m-auto form-signin text-center">
-				<img src="assets/images/scm-logo.png" class="img-logo" alt="SCM Logo">
-				<form class="m-auto form-bg" action="https://api.cerc.inf.br/portal/login" method="POST">
+				<img src="assets/img/scm-logo.png" class="img-logo" alt="SCM Logo">
+				<form class="m-auto form-bg" action="" method="POST">
 					<input type="text" id="agent_user_name" class="form-control" [(ngModel)]="name" value="xxx" name="agent_user[name]" placeholder="Usuário" maxlength="14" autocomplete="off">
 					<input type="password" id="agent_user_password" class="form-control password optional" [(ngModel)]="password" value="" name="agent_user[password]" placeholder="Senha">
 		
@@ -28,12 +28,12 @@
 							<div class="dropdown btn-traducao mb-2">
 								<a id="dropdownMenuButton" data-title="Gerenciar Traduções" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
 								   class="btn pull-left gerenciar-traducoes ng-scope dropdown-toggle">
-								    <img src="assets/images/idiomas.png" class="idiomas">
+								    <img src="assets/img/idiomas.png" class="idiomas">
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
-                					<li class="dropdown-item" [ngClass]="{'ativo': currentLanguage == 'en'}"><img src="assets/images/icons/en.png" width="24" height="24"> &nbsp; English</li> 
-                					<li class="dropdown-item" [ngClass]="{'ativo': currentLanguage == 'es'}"><img src="assets/images/icons/es.png" width="24" height="24"> &nbsp; Español</li> 
-                					<li class="dropdown-item" [ngClass]="{'ativo': currentLanguage == 'pt'}"><img src="assets/images/icons/pt.png" width="24" height="24"> &nbsp; Português</li> 
+                					<li class="dropdown-item" [ngClass]="{'ativo': currentLanguage == 'en'}"><img src="assets/img/en.png" width="24" height="24"> &nbsp; English</li> 
+                					<li class="dropdown-item" [ngClass]="{'ativo': currentLanguage == 'es'}"><img src="assets/img/es.png" width="24" height="24"> &nbsp; Español</li> 
+                					<li class="dropdown-item" [ngClass]="{'ativo': currentLanguage == 'pt'}"><img src="assets/img/pt.png" width="24" height="24"> &nbsp; Português</li> 
 					            </ul> 
 							</div>
 					</div>

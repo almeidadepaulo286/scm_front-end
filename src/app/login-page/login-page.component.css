@@ -13,7 +13,7 @@ body {
   padding-bottom: 40px;
   background-image: linear-gradient(to right top, #eee, #d5d5d5, #dedede, #e8e8e8, #f1f1f1);
   font-family: 'Open Sans', sans-serif;
-  background-image: url('../../assets/images/login-background.png');
+  background-image: url('../../assets/img/login-background.png');
   background-position: center center;
   background-size: cover;
 }
@@ -114,7 +114,7 @@ body {
 
 @media (max-width: 992px) {
   body{
-    background-image: url('../../assets/images/login-background.png');
+    background-image: url('../../assets/img/login-background.png');
     background-position: top left;
     background-size: contain;
   } 

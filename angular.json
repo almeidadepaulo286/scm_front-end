@@ -65,7 +65,7 @@
               "./node_modules/fontsource-hind/400-normal.css",
               "./node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css",
               "./node_modules/ladda/dist/ladda.min.css",
-              "src/styles.css"
+              "src/assets/css/main.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.slim.min.js",
@@ -73,7 +73,7 @@
               "./node_modules/@popperjs/core/dist/umd/popper.min.js",
               "./node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js",
               "./node_modules/vanilla-masker/build/vanilla-masker.min.js",
-              "src/assets/js/menu-sidebar.js"
+              "src/assets/js/main.js"
             ]
           },
           "configurations": {

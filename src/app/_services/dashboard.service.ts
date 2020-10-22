@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 export class DashboardService {
 	
 	// URLs EndPoints
-    baseDashboardUrl: string = environment.baseUrl+'cerc/dashboard/contagem';
+    baseDashboardUrl: string = environment.baseUrl + '/dashboard/contagem';
 	// Construtor
     constructor(
 		private http: HttpClient,

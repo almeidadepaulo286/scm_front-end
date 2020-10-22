@@ -3,7 +3,6 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { AtividadeService } from 'app/_services/atividade.service';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
-import { ValidaDocumentoHelper } from 'app/_helpers/validaDocumento';
 
 @Component({
 	selector: 'editar-atividade',

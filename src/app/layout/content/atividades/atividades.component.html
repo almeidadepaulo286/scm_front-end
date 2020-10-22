@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-between mb-3">
     <h1 class="page-heading">{{title}}</h1>
     <div class="text-right">
-        <botao-novo routerLink="/atividades/criar-atividade"></botao-novo>
+        <botao-novo routerLink="/atividades/criar"></botao-novo>
     </div>
 </div>
 
@@ -57,7 +57,7 @@
             </tr>
         </thead>
         <tbody class="">
-            <tr *ngFor="let atividade of data" routerLink="/atividades/editar-atividade/{{atividade.id}}">
+            <tr *ngFor="let atividade of data" routerLink="/atividades/detalhes/{{atividade.id}}">
                 <td>{{atividade.codigo}}</td>
                 <td>{{atividade.prefixo}}</td>
                 <td>{{atividade.descricao}}</td>
@@ -78,14 +78,14 @@
     <div class="panel-actions">
         <button id="btn-show-legenda" class="btn btn-default pull-right btn-opcoes-tela" tabindex="0" title="Exibir Legenda"
            ng-click="exportExcel('/Ctb/Linha/ExportacaoExcelConsultaLinhas')">
-            <img src="assets/images/icons/legenda.png">
+            <img src="assets/img/legenda.png">
         </button>
         <a id="btn-export-excel" class="btn btn-default pull-right btn-opcoes-tela" tabindex="0" title="Exportar para Excel"
            ng-click="exportExcel('/Ctb/Linha/ExportacaoExcelConsultaLinhas')">
-            <img src="assets/images/icons/excel.png">
+            <img src="assets/img/excel.png">
         </a>
         <a id="btn-show-hide-columns" class="btn btn-default pull-right btn-opcoes-tela" tabindex="0" title="Exibir/Ocultar Colunas">
-            <img src="assets/images/icons/colunas.png">
+            <img src="assets/img/colunas.png">
         </a>
     </div>
 </div>
