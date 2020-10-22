@@ -80,8 +80,22 @@
         </tbody>
     </table>
 </div>
-<div class="row">
-    <nav class="p-3">
+<div class="row panel-rodape">
+    <nav class="panel-pagination">
         <pagination [boundaryLinks]="true" [totalItems]="totalRegistros" [(ngModel)]="page" [itemsPerPage]="20" [maxSize]="10" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;" (pageChanged)="pageChanged($event)"></pagination>
     </nav>
+
+    <div class="panel-actions">
+        <button id="btn-show-legenda" class="btn btn-default pull-right btn-opcoes-tela" tabindex="0" title="Exibir Legenda"
+           ng-click="exportExcel('/Ctb/Linha/ExportacaoExcelConsultaLinhas')">
+            <img src="assets/images/icons/legenda.png">
+        </button>
+        <a id="btn-export-excel" class="btn btn-default pull-right btn-opcoes-tela" tabindex="0" title="Exportar para Excel"
+           ng-click="exportExcel('/Ctb/Linha/ExportacaoExcelConsultaLinhas')">
+            <img src="assets/images/icons/excel.png">
+        </a>
+        <a id="btn-show-hide-columns" class="btn btn-default pull-right btn-opcoes-tela" tabindex="0" title="Exibir/Ocultar Colunas">
+            <img src="assets/images/icons/colunas.png">
+        </a>
+    </div>
 </div>
