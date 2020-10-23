@@ -6,11 +6,13 @@ export class Usuario {
     nome: string;
     login: string;
     email: string;
-    password?: string;
+    senha?: string;
+    ativo:number;
     perfis?: Perfil[];
     menus?: Menu[];
     token?: string;
-    ativo:number;
     isEditable?:boolean;
     isVisible?:boolean;
+    data_atualizacao: string;
+    data_criacao: string;
 }

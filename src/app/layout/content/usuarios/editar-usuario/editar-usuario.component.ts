@@ -19,14 +19,13 @@ export class EditarUsuarioComponent implements OnInit {
 		nome: ['', Validators.required],
 		login: ['', Validators.required],
 		email: ['', Validators.required],
-		perfis: ['', Validators.required],
 		ativo: ['', Validators.required],
-		data_atualizacao: [''],
-		data_criacao: [''],
-		role: [''],
 		senha: [''],
+		perfilId: ['', Validators.required],
+		data_atualizacao: [''],
+		data_criacao: ['']
 	});
-	usuarioInfo;
+	usuarioSubmit;
 
 	// Select Perfis
 	listaPerfis;
@@ -40,27 +39,33 @@ export class EditarUsuarioComponent implements OnInit {
 
 	ngOnInit() {
 		this.listarPerfis()
-		this.getUserById();
-	}
-
-	// Cadastra Usuário
-	onSubmit() {
-		this.updateUser();
-	}
-
-	// Reseta Formulário
-	limpaForm() {
-		this.usuarioForm.reset();
+		this.getUsuarioById();
 	}
 
 	// Lista Perfis
 	listarPerfis() {
 		this.usuarioService.listarPerfis().subscribe(
 			res => {
-				this.listaPerfis = res.content
+				if (res.length > 0) {
+					this.listaPerfis = res
+				}
 			},
-			err => this.toastr.error('Erro inesperado ao listar Perfis, tente novamente mais tarde')
+			err => {
+				this.toastr.error('Erro inesperado ao listar Perfis, tente novamente mais tarde.')
+			}
 		)
+	}
+
+	// Recupera dados do usuário por Id
+	getUsuarioById() {
+		const id = +this.route.snapshot.paramMap.get('id');
+		this.usuarioService.getUsuarioById(id).subscribe(res => {
+				this.montaUsuarioForm(res)
+			},
+			err => {
+				console.log(err)
+			}
+		);
 	}
 
 	// Cria form preenchido
@@ -70,36 +75,34 @@ export class EditarUsuarioComponent implements OnInit {
 			nome: [usuario.nome, Validators.required],
 			login: [usuario.login, Validators.required],
 			email: [usuario.email, Validators.required],
-			perfis: [usuario.perfis[0].perfilId],
-			ativo: [usuario.ativo, Validators.required]
-			// data_atualizacao: [usuario.data_atualizacao],
-			// data_criacao: [usuario.data_criacao],
-			// role: [usuario.role],
-			// senha: [usuario.senha],
+			senha: [''],
+			ativo: [usuario.ativo, Validators.required],
+			perfilId: [usuario.perfis[0].perfilId],
+			data_atualizacao: [''],
+			data_criacao: ['']
 		});
-		// console.log(this.usuarioForm.value)
 	}
 
-	// Recupera dados do usuário por Id
-	getUserById() {
-		const id = +this.route.snapshot.paramMap.get('id');
-		this.usuarioService.getUserById(id).subscribe(
-			res => {
-				this.usuarioInfo = res;
-				this.montaUsuarioForm(this.usuarioInfo)
-			},
-			err => {
-				// console.log(err)
-			}
-		);
+	// Cadastra Usuário
+	onSubmit() {
+		this.updateUser();
 	}
 
 	// Atualiza informações do usuário
 	updateUser(){
-		const perfil = this.usuarioForm.value.perfis
-		this.usuarioForm.value.perfis = [{perfilId: perfil}]
-		// console.log(this.usuarioForm.value)
-		this.usuarioService.updateUser(this.usuarioForm.value).subscribe(
+		this.usuarioSubmit = {
+			id: this.usuarioForm.value.id,
+			nome: this.usuarioForm.value.nome,
+			login: this.usuarioForm.value.login,
+			email: this.usuarioForm.value.email,
+			senha: "1234",
+			ativo: this.usuarioForm.value.ativo,
+			perfis: [{
+				perfilId: this.usuarioForm.value.perfilId,
+			}]
+		}		
+		console.table(this.usuarioSubmit)
+		this.usuarioService.updateUser(this.usuarioSubmit).subscribe(
 			res => {
 				this.toastr.success('Usuário atualizado com sucesso')
 			},

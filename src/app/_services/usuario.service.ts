@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Usuario} from "../_models/usuario";
+import {Perfil} from "../_models/perfil";
 import {Observable, of} from "rxjs/index";
 import {ApiResponse} from "../_models/api.response";
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -12,19 +13,22 @@ import * as dadosPerfis from 'app/data/perfil.json';
 @Injectable()
 export class UsuarioService {
 
-    baseUrl: string = environment.baseUrl + 'scm/usuario/'
-    
+  baseUrl: string = environment.baseUrl + '/usuarios/'
+     
     constructor(private http: HttpClient) {}
 
     getUsuarios() : Observable<ApiResponse> {
       return this.http.get<ApiResponse>(this.baseUrl);
     }
-    getUsuarioById(usuarioId: number): Observable<ApiResponse> {
-      return this.http.get<ApiResponse>(this.baseUrl + "/getById/" + String(usuarioId));
+    
+    getUsuarioById(usuarioId: number): Observable<Usuario> {
+      //FIXME return this.http.get<ApiResponse>(this.baseUrl + "/getById/" + String(usuarioId));
+      //console.log("vai chamar a api: " + this.baseUrl + usuarioId);
+      return this.http.get<Usuario>(this.baseUrl + usuarioId);
     }
-    //TODO:
-    getUsuarioByDocumento(documento:number): Observable<ResponseEntity> {
-      return this.http.get<ResponseEntity>(this.baseUrl + "/" + documento);
+
+    getUsuarioByLogin(login : string): Observable<ResponseEntity> {
+      return this.http.get<ResponseEntity>(this.baseUrl + "?login=" + login);
     }
     createUsuario(user: Usuario): Observable<ApiResponse> {
       return this.http.post<ApiResponse>(this.baseUrl, user);
@@ -55,17 +59,21 @@ export class UsuarioService {
       return of((dados as any).default);
     }
 
-    listarPerfis():Observable<any>{
-      //FIXME Mock da API
-      // return this.http.get<any>(
-      //   `${this.baseUrl}listar-perfis`
-      // )
-      return of((dadosPerfis as any).default);
+    listarPerfis():Observable<Perfil[]>{
+      //FIXME 
+      return this.http.get<Perfil[]>( environment.baseUrl + '/perfis/');
     }
 
-    criarUsuario(formUsuario): Observable<any>{
-      return this.http.post<any>(
-        this.baseUrl,
+    criarUsuario(formUsuario): Observable<Usuario>{
+      return this.http.post<Usuario>(
+        this.baseUrl, 
+        formUsuario
+      )
+    }
+
+    updateUser(formUsuario): Observable<Usuario>{
+      return this.http.put<Usuario>(
+        this.baseUrl + formUsuario.id, 
         formUsuario
       )
     }
@@ -77,11 +85,5 @@ export class UsuarioService {
       // )
 
       return of((dados as any).default.content[userId-1]);
-    }
-
-    updateUser(user): Observable<any>{
-      return this.http.put<any>(
-        this.baseUrl, user
-      )
     }
 }

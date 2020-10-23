@@ -44,7 +44,7 @@ export class InicioComponent implements OnInit {
 		// Permissao para usuario visualizar o filtro
 		permission.map((perfil) => {
 			// Operação
-			if(perfil.perfilId == 5){
+			if(perfil.id == perfil.id){  // FIXME
 				this.userPermissionOperacao = true
 			}
 		})

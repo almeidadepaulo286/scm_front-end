@@ -14,19 +14,17 @@ export class CriarUsuarioComponent implements OnInit {
 
 	// Form
 	usuarioForm = this.fb.group({
-		login: ['', Validators.required],
-		data_atualizacao: [''],
-		data_criacao: [''],
-		email: ['', Validators.required],
 		id: [''],
 		nome: ['', Validators.required],
-		perfilId: ['', Validators.required],
-		role: [''],
+		login: ['', Validators.required],
+		email: ['', Validators.required],
 		senha: [''],
-		ativo: [1, Validators.required]
+		ativo: [1, Validators.required],
+		perfilId: ['', Validators.required],
+		data_atualizacao: [''],
+		data_criacao: ['']
 	});
-
-	usuarioFormNew;
+	usuarioSubmit;
 
 	// Select Perfis
 	listaPerfis;
@@ -34,12 +32,25 @@ export class CriarUsuarioComponent implements OnInit {
 	constructor(
 		private fb: FormBuilder,
 		private usuarioService: UsuarioService,
-		private toastr: ToastrService,
-	){}
+		private toastr: ToastrService) {}
 
 	ngOnInit() {
 		// console.log(this.usuarioForm);
 		this.listarPerfis()
+	}
+
+	// Lista Perfis
+	listarPerfis(){
+		this.usuarioService.listarPerfis().subscribe(
+			res => {
+				if (res.length > 0) {
+					this.listaPerfis = res
+				}
+			},
+			err => {
+				this.toastr.error('Erro inesperado ao listar Perfis, tente novamente mais tarde.')
+			}
+		)
 	}
 
 	// Cadastra Usuário
@@ -47,38 +58,34 @@ export class CriarUsuarioComponent implements OnInit {
 		this.criarUsuario();
 	}
 
+	// Cria usuario
+	criarUsuario(){
+		this.usuarioSubmit = {
+			id: 10,
+			nome: this.usuarioForm.value.nome,
+			login: this.usuarioForm.value.login,
+			email: this.usuarioForm.value.email,
+			senha: "1234",
+			ativo: this.usuarioForm.value.ativo,
+			perfis: [{
+				perfilId: this.usuarioForm.value.perfilId,
+			}]
+		}
+		console.table(this.usuarioSubmit)
+		this.usuarioService.criarUsuario(this.usuarioSubmit).subscribe(
+			res => {
+				this.toastr.success('Usuário Cadastrado com Sucesso')
+				this.limpaForm()
+			},
+			err => {
+				this.toastr.error('Não foi possível cadastrar o usuário, tente novamente mais tarde')
+			}
+		)
+	}
+	
 	// Reseta Formulário
 	limpaForm() {
 		this.usuarioForm.reset();
 	}
 
-	// Lista Perfis
-	listarPerfis(){
-		this.usuarioService.listarPerfis().subscribe(
-			res => {
-				this.listaPerfis = res
-			},
-			err => this.toastr.error('Erro inesperado ao listar Perfis, tente novamente mais tarde')
-		)
-	}
-
-	// Cria usuario
-	criarUsuario(){
-		this.usuarioFormNew = {
-			nome: this.usuarioForm.value.nome,
-			login: this.usuarioForm.value.login,
-			email: this.usuarioForm.value.email,
-			perfis: [{
-				perfilId: this.usuarioForm.value.perfilId,
-			}],
-			ativo: this.usuarioForm.value.ativo,
-		}
-		this.usuarioService.criarUsuario(this.usuarioFormNew).subscribe(
-			res => {
-				this.toastr.success('Usuário Cadastrado com Sucesso')
-				this.limpaForm()
-			},
-			err => this.toastr.error('Não foi possível cadastrar o usuário, tente novamente mais tarde')
-		)
-	}
 }

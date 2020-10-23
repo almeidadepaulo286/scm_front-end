@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
     templateUrl: './login-page.component.html',
     styleUrls: ['./login-page.component.css'],
 })
-export class LoginPageComponent implements OnInit, AfterContentInit {
+export class LoginPageComponent implements OnInit {
 
     name:string;
     password:string;
@@ -17,17 +17,14 @@ export class LoginPageComponent implements OnInit, AfterContentInit {
     // trigger-variable for Ladda
     isLoggingIn: boolean = false;
 
-    public displayAlert:boolean = false;
-    public mensagemAlert:string;
-
-    constructor(public router: Router, public authenticationService: AuthenticationService, private toastr: ToastrService){}
+    constructor(public router: Router, 
+                public authenticationService: AuthenticationService, 
+                private toastr: ToastrService) {}
 
     ngOnInit() {
         // inicializacao qualquer...
-    }
-
-    ngAfterContentInit() {
-        // VMasker(document.querySelector("#agent_user_cpf")).maskPattern("999.999.999-99");
+        this.isLoggingIn = false;
+        this.currentLanguage = 'pt';
     }
 
     onLoggingIn() {
@@ -36,12 +33,11 @@ export class LoginPageComponent implements OnInit, AfterContentInit {
 
         // obrigatorio fornecer usuario e senha:
         if (this.name && this.password) {
-            //FIXME this.authenticationService.login(this.documento,this.senha, this);
-            //DELME this.authenticationService.login("71425166237","123456789", this);
             setTimeout(() => {
                 this.isLoggingIn = false;
+                //FIXME this.authenticationService.login(this.name, this.password, this);
                 this.authenticationService.loginMock(this.name, this.password, this);
-            }, 2000);
+            }, 1000);
 
         } else {
             this.isLoggingIn = false;

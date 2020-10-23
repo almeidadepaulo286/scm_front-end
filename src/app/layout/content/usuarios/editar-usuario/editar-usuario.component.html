@@ -10,30 +10,30 @@
 		<div class="card">
 			<div class="card-body">
 				<h6 class="">Dados</h6>
-				<p class="mini-text">Para cadastrar um novo usuário, preencha todos os campos abaixo</p>
+				<p class="mini-text">Para alterar um usuário existente, preencha todos os campos abaixo:</p>
 				<hr>
 				<div class="form-row">
 					<div class="form-group col-12">
 						<label for="nome">Nome</label>
-						<input type="text" class="form-control form-control-sm" id="nome" formControlName="nome">
+						<input type="text" class="form-control form-control-sm" id="nome" formControlName="nome" required>
 					</div>
 					<div class="form-group col-12">
 						<label for="login">Login</label>
-						<input type="text" class="form-control form-control-sm" id="login" formControlName="login">
+						<input type="text" class="form-control form-control-sm" id="login" formControlName="login" required>
 					</div>
 					<div class="form-group col-12">
 						<label for="email">Email</label>
-						<input type="text" class="form-control form-control-sm" id="email" formControlName="email">
+						<input type="text" class="form-control form-control-sm" id="email" formControlName="email" required>
 					</div>
 
 					<div class="form-group col-12">
 						<label>Situação do usuário</label><br>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="ativo" value="1" formControlName="ativo" [checked]="usuarioForm.value.ativo === 1">
+							<input class="form-check-input" type="radio" name="ativo" value="1" formControlName="ativo" [checked]="usuarioForm.value.ativo == 1">
 							<label class="form-check-label" for="ativo">Ativo</label>
 						</div>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="ativo" value="0" formControlName="ativo" [checked]="usuarioForm.value.ativo === 0">
+							<input class="form-check-input" type="radio" name="ativo" value="0" formControlName="ativo" [checked]="usuarioForm.value.ativo == 0">
 							<label class="form-check-label" for="ativo">Inativo</label>
 						</div>
 					</div>
@@ -47,9 +47,9 @@
 				<h6>Perfil</h6>
 				<p class="mini-text">Defina um perfil para o usuário</p>
 				<hr>
-				<select class="form-control form-control-sm" name="perfilId" id="perfilId" formControlName="perfis">
+				<select class="form-control form-control-sm" name="perfilId" id="perfilId" formControlName="perfilId">
 					<ng-container *ngFor="let item of listaPerfis">
-						<option value="{{item.perfil_id}}">{{item.nome}}</option>
+						<option value="{{item.id}}">{{item.nome}}</option>
 					</ng-container>
 				</select>
 			</div>
@@ -57,6 +57,5 @@
 	</div>
 	<div class="col-12">
 		<button class="btn btn-primary btn-acao mr-2" type="submit" [disabled]="!usuarioForm.valid">Atualizar</button>
-		<!-- <button class="btn btn-light text-secondary" (click)="limpaForm(); $event.preventDefault()">Limpar</button> -->
 	</div>
 </form>

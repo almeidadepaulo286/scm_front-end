@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-
+import { faPen, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 import { Usuario } from 'app/_models/usuario';
 import { UsuarioService } from 'app/_services/usuario.service';
-
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
 	selector: 'detalhes-usuario',
@@ -14,12 +14,16 @@ import { ActivatedRoute } from '@angular/router';
 
 export class DetalhesUsuarioComponent implements OnInit {
 
+	faPen = faPen;
+	faMinusCircle = faMinusCircle;
+
 	title = 'Detalhes do Usuário';
-	usuario: Usuario;
+	usuario: Usuario = new Usuario();
 
 	constructor(
 		private route: ActivatedRoute,
 		private usuarioService: UsuarioService,
+		private toastr: ToastrService,
 		private location: Location
 	  ){}
 
@@ -29,14 +33,18 @@ export class DetalhesUsuarioComponent implements OnInit {
 	 
 	  getUsuarioById(): void {
 		const id = +this.route.snapshot.paramMap.get('id');
-		this.usuarioService.getUsuarioById(id)
-		  .subscribe((usuario) => {
-			this.usuario = usuario.result;
-		  });
-	  }
-	 
-	  goBack(): void {
+		this.usuarioService.getUsuarioById(id) .subscribe( res => {
+			  this.usuario = res;
+		  },
+		  err => {
+			  console.log(err)
+		  }
+		);
+	}
+
+	cancelarUsuario() : void {
 		this.location.back();
-	  }
+		this.toastr.success('Usuário Cancelado com Sucesso')
+	}
 
 }

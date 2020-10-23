@@ -1,8 +1,7 @@
 export class Perfil {
-    perfilId:number;
+    id:number;
     nome:string;
+    ativo: number;
     isEditable?:boolean;
     isVisible?:boolean;
-    constructor(){
-    }
 }

@@ -17,11 +17,12 @@ export class AuthGuard implements CanActivate{
             // check if route is restricted by role
             // console.log('perfis');
             // console.log(currentUser.perfis);
-            if (route.data.perfis.length > 0 && this.arraysExisteAlgumItemComum(route.data.perfis, currentUser.perfis)==false){
-                // role not authorised so redirect to home page
-                this.router.navigate(['login']);
-                return false;
-            }
+            //FIXME
+            // if (route.data.perfis.length > 0 && this.arraysExisteAlgumItemComum(route.data.perfis, currentUser.perfis)==false){
+            //     // role not authorised so redirect to home page
+            //     this.router.navigate(['login']);
+            //     return false;
+            // }
             // authorised so return true
             return true;
         }
@@ -35,7 +36,7 @@ export class AuthGuard implements CanActivate{
         encontrouUm:
         for (let route = 0; route < routePerfis.length; route++) {
             for (let user = 0; user < userPerfis.length; user++) {
-                if (routePerfis[route] == userPerfis[user].perfilId) {
+                if (routePerfis[route] == userPerfis[user].id) {
                     existeUmItemEmComum = true;
                     break encontrouUm;
                 }

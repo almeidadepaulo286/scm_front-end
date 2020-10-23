@@ -1,13 +1,69 @@
 {
-
-  "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Paulo Almeida",
+      "login": "paulo",
+      "email": "paulo.almeida@elo.inf.br",
+      "senha": "1234",
+      "ativo": 1,
+      "perfis": [
+        {
+          "id": 1,
+          "nome": "Administração",
+          "ativo": 1
+        }
+      ],
+      "data_atualizacao": "2020-08-28T13:01:41.947",
+      "data_criacao": "2020-08-28T13:01:41.753"
+    },
+    {
+      "id": 2,
+      "nome": "José Silva",
+      "login": "jose",
+      "email": "jose.silva@gmail.com",
+      "senha": "1234",
+      "ativo": 1,
+      "perfis": [
+        {
+          "perfilId": "3"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nome": "teste",
+      "login": "teste",
+      "email": "teste",
+      "senha": "1234",
+      "ativo": "1",
+      "perfis": [
+        {
+          "id": "2",
+          "nome": "Gerência",
+          "ativo": 1
+        }
+      ]
+    }
   ],
-  
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
+  "perfis": [
+    {
+      "id": 1,
+      "nome": "Administração",
+      "ativo": 1
+    },
+    {
+      "id": 2,
+      "nome": "Gerência",
+      "ativo": 1
+    },
+    {
+      "id": 3,
+      "nome": "Operação",
+      "ativo": 1
+    }
   ],
-  
-  "profile": { "name": "typicode" }
-
+  "profile": {
+    "name": "typicode"
+  }
 }

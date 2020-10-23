@@ -2,5 +2,5 @@
 export const environment = {
   name: 'dev',
   production: false,
-  baseUrl: 'http://localhost:8080/'
+  baseUrl: 'http://localhost:3000'
 };
