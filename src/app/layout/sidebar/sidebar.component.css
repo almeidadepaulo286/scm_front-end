@@ -117,7 +117,7 @@
     width: 20px;
     font-size: 18px;
     margin-right: 10px;
-    vertical-align: baseline;
+    vertical-align: middle;
     -webkit-transition: color 200ms ease;
     -moz-transition: color 200ms ease;
     -ms-transition: color 200ms ease;
