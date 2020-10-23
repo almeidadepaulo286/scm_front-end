@@ -58,3 +58,6 @@ testedb.trace.db
 /src/app/layout/sidebar/sidebar.component - Copia.css
 /src/app/layout/sidebar/sidebar.component - Copia.html
 /src/app/layout/sidebar/sidebar.component - Copia.ts
+
+# JSON Server
+db-*.json
