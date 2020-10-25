@@ -36,15 +36,6 @@ export class UsuariosComponent implements OnInit {
 	// Select Perfis
 	listaPerfis;
 
-	// Tabela Cabeçalho
-	headElements = [
-		'Nome',
-		'Login',
-		'E-mail',
-		'Perfis',
-		'Situacao'
-	];
-
 	// Parametros de Paginacao
 	page = 0;
 	pageSize = 20;
@@ -97,7 +88,7 @@ export class UsuariosComponent implements OnInit {
 		this.page = 0
 		this.getUsuarios()
 	}
-
+ 
 	// Recupera lista de usuários
 	getUsuarios() {
 		this.filtroValues = this.usuarioFiltro.value
