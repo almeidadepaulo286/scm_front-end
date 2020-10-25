@@ -17,7 +17,7 @@ export class AuthGuard implements CanActivate{
             // check if route is restricted by role
             // console.log('perfis');
             // console.log(currentUser.perfis);
-            //FIXME
+            // FIXME
             // if (route.data.perfis.length > 0 && this.arraysExisteAlgumItemComum(route.data.perfis, currentUser.perfis)==false){
             //     // role not authorised so redirect to home page
             //     this.router.navigate(['login']);
@@ -34,9 +34,9 @@ export class AuthGuard implements CanActivate{
     arraysExisteAlgumItemComum(routePerfis:number[], userPerfis:Perfil[]) {
         let existeUmItemEmComum = false;
         encontrouUm:
-        for (let route = 0; route < routePerfis.length; route++) {
-            for (let user = 0; user < userPerfis.length; user++) {
-                if (routePerfis[route] == userPerfis[user].id) {
+        for (let routePerfil of routePerfis) {
+            for (let userPerfil of userPerfis) {
+                if (routePerfil === userPerfil.id) {
                     existeUmItemEmComum = true;
                     break encontrouUm;
                 }

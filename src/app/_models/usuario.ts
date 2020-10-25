@@ -1,5 +1,5 @@
-import { Perfil } from "./perfil";
-import { Menu } from "./menu";
+import { Perfil } from './perfil';
+import { Menu } from './menu';
 
 export class Usuario {
     id: number;
@@ -7,12 +7,12 @@ export class Usuario {
     login: string;
     email: string;
     senha?: string;
-    ativo:number;
-    perfis?: Perfil[];
-    menus?: Menu[];
-    token?: string;
-    isEditable?:boolean;
-    isVisible?:boolean;
-    data_atualizacao: string;
-    data_criacao: string;
+    situacao?: number;
+    listaPerfil?: Perfil[];
+    dataInclusao?: Date;
+    dataAlteracao?: Date;
+    //
+    alterarSenhaLogin?: boolean;
+    usuarioInclusaoId?: number;
+    usuarioAlteracaoId?: number;
 }

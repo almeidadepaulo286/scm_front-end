@@ -21,8 +21,8 @@ import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 
 // Service
-import { TokenInterceptor } from "./_helpers/interceptor";
-import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { TokenInterceptor } from './_helpers/interceptor';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Bootstrap
@@ -60,6 +60,9 @@ import { CriarUsuarioComponent } from './layout/content/usuarios/criar-usuario/c
 import { DetalhesUsuarioComponent } from './layout/content/usuarios/detalhes-usuario/detalhes-usuario.component';
 import { EditarUsuarioComponent } from './layout/content/usuarios/editar-usuario/editar-usuario.component';
 import { UsuarioService } from './_services/usuario.service';
+
+// Perfils
+import { PerfilService } from './_services/perfil.service';
 
 // Usuario
 import { AlterarSenhaComponent } from './layout/content/alterar-senha/alterar-senha.component';
@@ -177,9 +180,9 @@ import {DropdownModule} from 'primeng/dropdown';
     DropdownModule,
     // Angular Ladda
     LaddaModule.forRoot({
-      style: "zoom-in",
+      style: 'zoom-in',
       spinnerSize: 40,
-      //spinnerColor: "red",
+      spinnerColor: 'white',
       spinnerLines: 12
   })
   ],
@@ -189,6 +192,7 @@ import {DropdownModule} from 'primeng/dropdown';
     HttpClientModule,
     AtividadeService,
     UsuarioService,
+    PerfilService,
     AuthenticationService,
     {
       provide: HTTP_INTERCEPTORS,

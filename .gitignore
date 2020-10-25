@@ -61,3 +61,4 @@ testedb.trace.db
 
 # JSON Server
 db-*.json
+/*.code-workspace

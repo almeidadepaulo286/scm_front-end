@@ -1,8 +1,8 @@
 export class ResponseEntity {
-  data: any;  
-  error:any; 
-  content:[];
-  totalPages:number;
-  errors:[]; 
-	totalElements?: any;
+  status: number;
+  mensagem: string;
+  retorno: any;
+
+  totalPages?: number;
+  totalElements?: number;
 }

@@ -29,12 +29,12 @@
 					<div class="form-group col-12">
 						<label>Situação do usuário</label><br>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="ativo" value="1" formControlName="ativo" [checked]="usuarioForm.value.ativo == 1">
-							<label class="form-check-label" for="ativo">Ativo</label>
+							<input class="form-check-input" type="radio" name="situacao" value="1" formControlName="situacao" [checked]="usuarioForm.value.situacao == 1">
+							<label class="form-check-label" for="situacao">Ativo</label>
 						</div>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="ativo" value="0" formControlName="ativo" [checked]="usuarioForm.value.ativo == 0">
-							<label class="form-check-label" for="ativo">Inativo</label>
+							<input class="form-check-input" type="radio" name="situacao" value="0" formControlName="situacao" [checked]="usuarioForm.value.situacao == 0">
+							<label class="form-check-label" for="situacao">Inativo</label>
 						</div>
 					</div>
 				</div>
@@ -47,7 +47,7 @@
 				<h6>Perfil</h6>
 				<p class="mini-text">Defina um perfil para o usuário</p>
 				<hr>
-				<select class="form-control form-control-sm" name="perfilId" id="perfilId" formControlName="perfilId">
+				<select class="form-control form-control-sm" name="idPerfil" id="idPerfil" formControlName="idPerfil">
 					<ng-container *ngFor="let item of listaPerfis">
 						<option value="{{item.id}}">{{item.nome}}</option>
 					</ng-container>

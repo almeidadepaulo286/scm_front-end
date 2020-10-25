@@ -11,60 +11,56 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class InicioComponent implements OnInit {
 
-	title = 'Meu Dashboard';
-	userPermissionOperacao: boolean = false;
-	values;
-	valuesIfError: any = {
-		"contratosRecebidosDia": '-',
-        "contratosRecebidosMes": '-',
-        "totalContratosRecebidos": '-',
-        "parcelasRecebidosDia": '-',
-        "parcelasRecebidosMes": '-',
-        "totalParcelasRecebidos": '-',
-        "cessoesProcessadosDia": '-',
-        "cessoesProcessadosMes": '-',
-        "cessoesCanceladasMes": '-'
-	};
-	checkedValues: boolean = false
-
 	// Icone
 	faLongArrowAltRight = faLongArrowAltRight;
 
+	title = 'Meu Dashboard';
+	userPermissionOperacao = false;
+	values;
+	valuesIfError: any = {
+		contratosRecebidosDia: '-',
+        contratosRecebidosMes: '-',
+        totalContratosRecebidos: '-'
+	};
+	checkedValues = false
+
 	painelFiltro = this.fb.group({
-		cnpjDetentor: [""]
+		cnpjDetentor: ['']
 	});
 
-	constructor(private dashboardService: DashboardService, private fb: FormBuilder, private toastr: ToastrService) { }
+	constructor(private dashboardService: DashboardService,
+				private fb: FormBuilder,
+				private toastr: ToastrService) { }
 
 	ngOnInit() {
 		// GET LOCALSTORAGE PERFIL
-		const user = localStorage.getItem('currentUser');
-		const permission = JSON.parse(user).perfis;
-		
+		const user = JSON.parse(localStorage.getItem('currentUser'));
+		const permission = user.listaPerfil;
+
 		// Permissao para usuario visualizar o filtro
 		permission.map((perfil) => {
 			// Operação
-			if(perfil.id == perfil.id){  // FIXME
+			if(perfil.id === perfil.id){  // FIXME
 				this.userPermissionOperacao = true
 			}
 		})
-		//FIXME this.getValues();
+		// FIXME this.getValues();
 		this.getValuesMock();
 	}
 
 	getValues(){
 		this.dashboardService.getValues().subscribe(
-			res => {
-				if(res.status == 200){
-					if(res.result == null){
+			ret => {
+				if (ret.Status === 200) {
+					if(ret.result == null){
 						this.values = this.valuesIfError
-						this.toastr.error(`${res.message}`)
+						this.toastr.error(`${ret.message}`)
 						return
 					}
-					this.values = res.result
-				}else{
+					this.values = ret.result
+				} else {
 					this.values = this.valuesIfError
-					this.toastr.error(`${res.message}`)
+					this.toastr.error(`${ret.message}`)
 				}
 			},
 			err => {
@@ -76,7 +72,7 @@ export class InicioComponent implements OnInit {
 	getFilteredValues(cnpjDetentor){
 		this.dashboardService.getFilteredValues(cnpjDetentor).subscribe(
 			res => {
-				if(res.status == 200){
+				if(res.Status === 200){
 					if(res.result == null){
 						this.values = this.valuesIfError
 						this.toastr.error(`${res.message}`)
@@ -95,7 +91,7 @@ export class InicioComponent implements OnInit {
 	}
 
 	filtrar(){
-		let { cnpjDetentor } = this.painelFiltro.value;
+		const { cnpjDetentor } = this.painelFiltro.value;
 		this.getFilteredValues(cnpjDetentor);
 	}
 
@@ -106,29 +102,9 @@ export class InicioComponent implements OnInit {
 
 	getValuesMock(){
 		this.values = {
-			"contratosRecebidosDia": 0,
-			"contratosRecebidosMes": 0,
-			"totalContratosRecebidos": 5,
-			"parcelasRecebidosDia": 0,
-			"parcelasRecebidosMes": 0,
-			"totalParcelasRecebidos": 27,
-			"valorParcelasRecebidasDia": 0,
-			"valorParcelasRecebidasMes": 0,
-			"valorParcelasRecebidasTotal": 13058,
-			"cessoesProcessadosDia": 0,
-			"cessoesProcessadosMes": 0,
-			"valorCessoesProcessadasDia": 0,
-			"valorCessoesProcessadasMes": 0,
-			"cessoesCanceladasMes": 4,
-			"parcelasOfertadasDia": 0,
-			"parcelasOfertadasMes": 0,
-			"parcelasLiberadasDia": 0,
-			"parcelasLiberadasMes": 0,
-			"qtdeParcelasAtualizadasDia": 0,
-			"qtdeParcelasAtualizadasMes": 0,
-			"valorParcelasAtualizadasDia": 0,
-			"valorParcelasAtualizadasMes": 0,
-			"qtdeDiasUltimaConciliacao": 192
+			contratosRecebidosDia: 0,
+			contratosRecebidosMes: 0,
+			totalContratosRecebidos: 5
 		};
 	}
 

@@ -99,7 +99,6 @@ export class AtividadesComponent implements OnInit {
 				this.totalRegistros = res.totalElements;
 			},
 			err => {
-				
 			}
 		)
 	}

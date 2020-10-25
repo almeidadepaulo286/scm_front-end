@@ -10,15 +10,8 @@ export class TokenInterceptor implements HttpInterceptor {
     let reClone;
     if (token) {
       reClone = request.clone({
-        //withCredentials: true,
-       // 'Access-Control-Expose-Headers' : 'Authorization'
-        setHeaders:  {
-          'Access-Control-Expose-Headers' : 'Authorization',
-       
+        setHeaders: {
           'Accept':  'application/json, text/plain, */*',
-          'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
-          'Authorization': 'Bearer ' + token
-
         }
       });
 

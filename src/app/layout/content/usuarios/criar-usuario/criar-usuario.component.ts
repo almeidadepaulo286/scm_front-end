@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { UsuarioService } from 'app/_services/usuario.service';
+import { PerfilService } from 'app/_services/perfil.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-	selector: 'criar-usuario',
+	selector: 'app-criar-usuario',
 	templateUrl: './criar-usuario.component.html',
 	styleUrls: ['./criar-usuario.component.css']
 })
@@ -14,37 +15,32 @@ export class CriarUsuarioComponent implements OnInit {
 
 	// Form
 	usuarioForm = this.fb.group({
-		id: [''],
 		nome: ['', Validators.required],
 		login: ['', Validators.required],
 		email: ['', Validators.required],
-		senha: [''],
-		ativo: [1, Validators.required],
-		perfilId: ['', Validators.required],
-		data_atualizacao: [''],
-		data_criacao: ['']
+		situacao: [1, Validators.required],
+		idPerfil: ['', Validators.required]
 	});
 	usuarioSubmit;
 
 	// Select Perfis
 	listaPerfis;
 
-	constructor(
-		private fb: FormBuilder,
-		private usuarioService: UsuarioService,
-		private toastr: ToastrService) {}
+	constructor(private fb: FormBuilder,
+				private usuarioService: UsuarioService,
+				private perfilService: PerfilService,
+				private toastr: ToastrService) {}
 
 	ngOnInit() {
-		// console.log(this.usuarioForm);
 		this.listarPerfis()
 	}
 
 	// Lista Perfis
 	listarPerfis(){
-		this.usuarioService.listarPerfis().subscribe(
-			res => {
-				if (res.length > 0) {
-					this.listaPerfis = res
+		this.perfilService.listarPerfis().subscribe(
+			ret => {
+				if (Array.isArray(ret) && ret.length > 0) {
+					this.listaPerfis = ret
 				}
 			},
 			err => {
@@ -58,22 +54,24 @@ export class CriarUsuarioComponent implements OnInit {
 		this.criarUsuario();
 	}
 
+	// Reseta Formulário
+	limpaForm() {
+		this.usuarioForm.reset();
+	}
+
 	// Cria usuario
 	criarUsuario(){
 		this.usuarioSubmit = {
-			id: 10,
 			nome: this.usuarioForm.value.nome,
 			login: this.usuarioForm.value.login,
 			email: this.usuarioForm.value.email,
-			senha: "1234",
-			ativo: this.usuarioForm.value.ativo,
-			perfis: [{
-				perfilId: this.usuarioForm.value.perfilId,
-			}]
+			situacao: this.usuarioForm.value.situacao,
+			senha: '1234',
+			listaPerfil: [this.usuarioForm.value.idPerfil],
+			dataInclusao: new Date()
 		}
-		console.table(this.usuarioSubmit)
-		this.usuarioService.criarUsuario(this.usuarioSubmit).subscribe(
-			res => {
+		this.usuarioService.cadastrarUsuario(this.usuarioSubmit).subscribe(
+			ret => {
 				this.toastr.success('Usuário Cadastrado com Sucesso')
 				this.limpaForm()
 			},
@@ -81,11 +79,6 @@ export class CriarUsuarioComponent implements OnInit {
 				this.toastr.error('Não foi possível cadastrar o usuário, tente novamente mais tarde')
 			}
 		)
-	}
-	
-	// Reseta Formulário
-	limpaForm() {
-		this.usuarioForm.reset();
 	}
 
 }

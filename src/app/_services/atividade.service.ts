@@ -5,9 +5,6 @@ import {ApiResponse} from "../_models/api.response";
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { ResponseEntity } from 'app/_models/ResponseEntity';
 import { environment } from '../../environments/environment';
-//FIXME Mock da API
-import * as dados from 'app/data/atividade.json';
-import * as dadosDisciplinas from 'app/data/disciplina.json';
 
 @Injectable()
 export class AtividadeService {
@@ -50,6 +47,7 @@ export class AtividadeService {
       // return this.http.get<any>(
       //   `${this.baseUrl}listar-por-filtro/`, { params: params }
       // )
+      let dados = "";
       return of((dados as any).default);
     }
 
@@ -58,6 +56,7 @@ export class AtividadeService {
       // return this.http.get<any>(
       //   `${this.baseUrl}listar-disciplinas`
       // )
+      let dadosDisciplinas = "";
       return of((dadosDisciplinas as any).default);
     }
 
@@ -74,6 +73,7 @@ export class AtividadeService {
       //   this.baseUrl + activityId
       // )
 
+      let dados = "";
       return of((dados as any).default.content[activityId-1]);
     }
 

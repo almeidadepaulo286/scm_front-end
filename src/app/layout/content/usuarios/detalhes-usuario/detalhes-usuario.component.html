@@ -7,9 +7,13 @@
 			<fa-icon [icon]="faPen"></fa-icon>
 			Alterar
 		</a>
-		<a class="btn btn-sm btn-danger btn-acao ml-2" (click)="cancelarUsuario()">
+		<a class="btn btn-sm btn-success btn-acao ml-2" (click)="resetarSenha()">
+			<fa-icon [icon]="faUnlock"></fa-icon>
+			Resetar Senha
+		</a>
+		<a class="btn btn-sm btn-danger btn-acao ml-2" *ngIf="usuario.situacao == 1" (click)="showModalDesativar(templateDesativar)">
 			<fa-icon [icon]="faMinusCircle"></fa-icon>
-			Cancelar
+			Desativar
 		</a>
 	</div>
 </div>
@@ -23,7 +27,7 @@
 					<div class="mb-2 mr-lg-5"><small class="text-secondary">Nome:</small><br>{{usuario.nome}}</div>
 					<div class="mb-2 mr-lg-5"><small class="text-secondary">Login:</small><br>{{usuario.login}}</div>
 					<div class="mb-2 mr-lg-5"><small class="text-secondary">E-mail:</small><br>{{usuario.email}}</div>
-					<div class="mb-2 mr-lg-5"><small class="text-secondary">Situação do Usuário:</small><br>{{usuario.ativo == 1 ? 'Ativo' : 'Inativo'}}</div>
+					<div class="mb-2 mr-lg-5"><small class="text-secondary">Situação do Usuário:</small><br>{{usuario.situacao == 1 ? 'Ativo' : 'Inativo'}}</div>
 				</div>
 			</div>
 		</div>
@@ -33,11 +37,25 @@
 			<div class="card-body">
 				<h6>Perfil</h6>
 				<div class="mb-2 mr-lg-5"><br>
-					<ng-container *ngFor="let perfil of usuario.perfis">
-						<span>{{perfil.nome}}</span> &nbsp; &nbsp;
+					<ng-container *ngFor="let perfil of usuario.listaPerfil">
+						<span>{{perfil.nome}}</span> &nbsp; 
 					</ng-container>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<ng-template #templateDesativar>
+    <div class="modal-header">
+        <small class="text-secondary">Deseja realmente desativar este usuário?</small>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body text-right">
+		<button class="btn btn-sm btn-light text-secondary mr-1 px-3" (click)="modalRef.hide()">Não</button>
+		&nbsp;
+        <button class="btn btn-sm btn-warning px-3" (click)="desativarUsuario()">Sim</button>
+    </div>
+</ng-template>

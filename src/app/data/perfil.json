@@ -1,19 +1,24 @@
 {
-    "content":[
+  "status": 0,
+  "mensagem": null,
+  "retorno":[
     {
-       "perfil_id":1,
-       "nome":"Administração",
-       "ativo":1
+       "id":1,
+       "codigo":"ADM",
+       "nome":"Administrador",
+       "descricao": "Administrador do Sistema"
     },
     {
-       "perfil_id":2,
-       "nome":"Gerência",
-       "ativo":1
+       "id":2,
+       "codigo":"PCP",
+       "nome":"PCP",
+       "descricao": "Planejamento e Controle de Produção"
     },
     {
-       "perfil_id":3,
-       "nome":"Operação",
-       "ativo":1
+       "id":3,
+       "codigo":"CQ",
+       "nome":"CQ",
+       "descricao": "Controle de Qualidade"
     }
  ]
 } 

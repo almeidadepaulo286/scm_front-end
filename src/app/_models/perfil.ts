@@ -1,7 +1,6 @@
 export class Perfil {
-    id:number;
-    nome:string;
-    ativo: number;
-    isEditable?:boolean;
-    isVisible?:boolean;
+    id: number;
+    codigo: string;
+    nome: string;
+    descricao: string;
 }

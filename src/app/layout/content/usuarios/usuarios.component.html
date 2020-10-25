@@ -6,7 +6,7 @@
 </div>
 
 <!-- Form -->
-<form class="row" [formGroup]="usuarioFiltro" (ngSubmit)="onSubmit()">
+<form class="row" [formGroup]="usuarioFiltro" (ngSubmit)="aplicarFiltros()">
     <div class="col-12 mb-3">
         <div class="card">
             <div class="card-body">
@@ -24,15 +24,16 @@
                     </div>
                     <div class="col-12 col-sm-4 col-md-2 mb-2 mb-md-0">
                         <label for="perfil">Perfil:</label>
-                        <select class="form-control form-control-sm" name="perfil" id="perfil" formControlName="perfil">
-                            <option value="5">Administração</option>
-                            <option value="8">Gerência</option>
-                            <option value="9">Operação</option>
+                        <select class="form-control form-control-sm" name="idPerfil" id="idPerfil" formControlName="idPerfil">
+                            <option value=""></option>
+                            <ng-container *ngFor="let perfil of listaPerfis">
+                                <option value="{{perfil.id}}">{{perfil.nome}}</option>
+                            </ng-container>
                         </select>
                     </div>
                     <div class="col-12 col-sm-4 col-md-2 mb-2 mb-md-0">
-                        <label for="ativo">Status:</label>
-                        <select class="form-control form-control-sm" name="ativo" id="ativo" formControlName="ativo">
+                        <label for="ativo">Situacao:</label>
+                        <select class="form-control form-control-sm" name="situacao" id="situacao" formControlName="situacao">
                             <option value=""></option>
                             <option value="1">Ativo</option>
                             <option value="0">Inativo</option>
@@ -41,10 +42,10 @@
                     <div class="col text-right">
                         <label>&nbsp;</label>
                         <div class="">
-                            <button type="button" class="btn btn-sm btn-light mr-2" type="submit" (click)="limpaForm(); $event.preventDefault()">
+                            <button type="button" class="btn btn-sm btn-light mr-2" (click)="limparFiltros(); $event.preventDefault()">
                                 Limpar Filtros
                             </button>
-                            <button type="button" class="btn btn-sm btn-info" (click)="filtrar()">
+                            <button type="button" class="btn btn-sm btn-info" type="submit">
                                 Aplicar Filtros
                             </button>
                         </div>
@@ -65,17 +66,17 @@
             </tr>
         </thead>
         <tbody class="">
-            <tr *ngFor="let usuario of data" routerLink="/usuarios/detalhes/{{usuario.id}}">
+            <tr *ngFor="let usuario of usuarios" routerLink="/usuarios/detalhes/{{usuario.id}}">
                 <td>{{usuario.nome}}</td>
                 <td>{{usuario.login}}</td>
                 <td>{{usuario.email}}</td>
                 <td>
-                    <span *ngFor="let perfil of usuario.perfis">
-                        {{perfil.nome}}
+                    <span *ngFor="let perfil of usuario.listaPerfil">
+                        {{perfil.nome}} &nbsp; 
                     </span>
                 </td>
-                <td *ngIf="usuario.ativo == 1">Ativo</td>
-                <td *ngIf="usuario.ativo == 0" class="text-secondary">Inativo</td>
+                <td *ngIf="usuario.situacao == 1">Ativo</td>
+                <td *ngIf="usuario.situacao == 0" class="text-secondary">Inativo</td>
             </tr>
         </tbody>
     </table>

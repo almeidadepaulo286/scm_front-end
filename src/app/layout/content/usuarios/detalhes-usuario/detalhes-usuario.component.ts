@@ -1,50 +1,98 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Location } from '@angular/common';
-import { faPen, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPen, faUnlock, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 import { Usuario } from 'app/_models/usuario';
 import { UsuarioService } from 'app/_services/usuario.service';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
-	selector: 'detalhes-usuario',
+	selector: 'app-detalhes-usuario',
 	templateUrl: './detalhes-usuario.component.html',
 	styleUrls: ['./detalhes-usuario.component.css']
 })
 
 export class DetalhesUsuarioComponent implements OnInit {
 
+	title = 'Detalhes do Usuário';
+
+	// Icons
 	faPen = faPen;
+	faUnlock = faUnlock;
 	faMinusCircle = faMinusCircle;
 
-	title = 'Detalhes do Usuário';
-	usuario: Usuario = new Usuario();
+	// Modal
+    modalRef: BsModalRef;
 
-	constructor(
-		private route: ActivatedRoute,
-		private usuarioService: UsuarioService,
-		private toastr: ToastrService,
-		private location: Location
-	  ){}
+	// Data
+	idUsuario : number;
+	usuario: Usuario;
 
-	  ngOnInit(): void {
+	constructor(private route: ActivatedRoute,
+				private usuarioService: UsuarioService,
+				private modalService: BsModalService,
+				private toastr: ToastrService,
+				private location: Location) {}
+
+    ngOnInit(): void {
+		this.idUsuario = +this.route.snapshot.paramMap.get('id');
+
 		this.getUsuarioById();
-	  }
-	 
-	  getUsuarioById(): void {
-		const id = +this.route.snapshot.paramMap.get('id');
-		this.usuarioService.getUsuarioById(id) .subscribe( res => {
-			  this.usuario = res;
-		  },
-		  err => {
-			  console.log(err)
-		  }
+	}
+
+	// Recupera dados do usuário por Id
+    getUsuarioById(): void {
+		this.usuarioService.getUsuarioById(this.idUsuario).subscribe(
+			(ret) => {
+				if (ret) {
+					this.usuario = ret;
+				} else {
+					this.toastr.error('Não foi possível localizar o usuário selecionado')
+				}
+			},
+			(err) => {
+				console.log(err)
+			}
 		);
 	}
 
-	cancelarUsuario() : void {
-		this.location.back();
-		this.toastr.success('Usuário Cancelado com Sucesso')
+	resetarSenha() : void {
+		this.usuarioService.resetPassUsuarioById(this.idUsuario).subscribe(
+			(ret) => {
+				if (ret) {
+					this.usuario = ret;
+					this.toastr.success('Senha do Usuário Resetada com Sucesso')
+				} else {
+					this.toastr.error('Não foi possível resetar a senha do usuário selecionado')
+				}
+			},
+			(err) => {
+				console.log(err)
+			}
+		);
 	}
 
+	desativarUsuario() : void {
+		this.modalRef.hide()
+
+		this.usuarioService.cancelUsuarioById(this.idUsuario).subscribe(
+			(ret) => {
+				if (ret) {
+					this.usuario = ret;
+					this.toastr.success('Usuário Desativado com Sucesso')
+				} else {
+					this.toastr.error('Não foi possível cancelar o usuário selecionado')
+				}
+			},
+			(err) => {
+				console.log(err)
+			}
+		);
+	}
+
+	// Modal
+	showModalDesativar(template: TemplateRef<any>) {
+		this.modalRef = this.modalService.show(template);
+	}
 }
