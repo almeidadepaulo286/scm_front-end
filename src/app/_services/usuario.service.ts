@@ -36,9 +36,10 @@ export class UsuarioService {
       newUser.email = stUsuario.email
       newUser.senha = stUsuario.senha
       newUser.situacao = stUsuario.situacao
+      newUser.listaPerfil = stUsuario.listaPerfil
       newUser.dataInclusao = new Date()
 
-      // associa perfis:
+      /* associa perfis:
       if (Array.isArray(stUsuario.listaPerfil) && stUsuario.listaPerfil.length > 0) {
         const idPerfil: number = stUsuario.listaPerfil[0]
         this.perfilService.getPerfilById(idPerfil).subscribe(
@@ -48,7 +49,7 @@ export class UsuarioService {
                 newUser.listaPerfil = [ perfil ]
               }
           })
-      }
+      }*/
 
       this.usuarios.push(newUser)
 
@@ -62,9 +63,10 @@ export class UsuarioService {
           usuario.login = stUsuario.login
           usuario.email = stUsuario.email
           usuario.situacao = stUsuario.situacao
+          usuario.listaPerfil = stUsuario.listaPerfil
           usuario.dataAlteracao = new Date()
 
-          // associa perfis:
+          /* associa perfis:
           if (Array.isArray(stUsuario.listaPerfil) && stUsuario.listaPerfil.length > 0) {
             const idPerfil: number = stUsuario.listaPerfil[0]
             this.perfilService.getPerfilById(idPerfil).subscribe(
@@ -74,8 +76,8 @@ export class UsuarioService {
                       usuario.listaPerfil = [ perfil ]
                   }
               })
-          }
-        }
+          }*/
+      }
 
       return of(usuario);
     }

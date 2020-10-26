@@ -9,7 +9,7 @@ rem Light Yellow
 cls
 echo.
 echo  *****************************************************************
-echo  ***    B U I L D   P A R A   D E S E N V O L V I M E N T O    ***
+echo  ***    T A R E F A S   D E   D E S E N V O L V I M E N T O    ***
 echo  *****************************************************************
 echo.
 echo  [ 1 ]  Executar o projeto em localhost [4200]
@@ -22,11 +22,11 @@ echo  [ 4 ]  Compilar para Desenvolvimento
 echo.
 echo  [ 5 ]  Compilar para Producao
 echo.
-echo  [ 0 ]  Finalizar Build
+echo  [ 0 ]  Finalizar ^& Sair
 echo.
 echo.
 
-set /p op=Digite sua opcao: _
+set /p op=Digite a opcao: _
 if "%op%"=="1" goto op1
 if "%op%"=="2" goto op2
 if "%op%"=="3" goto op3

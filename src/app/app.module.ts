@@ -32,6 +32,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {MaterialModule} from './material.module';
 import {MatIconRegistry} from '@angular/material/icon';
 
+// PrimeNG
+import { MultiSelectModule } from 'primeng/multiselect';
+
 // FontAwesome
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -163,6 +166,7 @@ import {DropdownModule} from 'primeng/dropdown';
     NgbModule,
     FormsModule,
     MaterialModule,
+    MultiSelectModule,
     NgxDropzoneModule,
     DataTablesModule,
     FontAwesomeModule,

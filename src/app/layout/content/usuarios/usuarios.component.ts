@@ -88,7 +88,7 @@ export class UsuariosComponent implements OnInit {
 		this.page = 0
 		this.getUsuarios()
 	}
- 
+
 	// Recupera lista de usuários
 	getUsuarios() {
 		this.filtroValues = this.usuarioFiltro.value

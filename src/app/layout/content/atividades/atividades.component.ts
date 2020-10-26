@@ -28,12 +28,6 @@ export class AtividadesComponent implements OnInit {
 	faUnlockAlt = faUnlockAlt;
 	faTrashAlt = faTrashAlt;
 
-	// Filtro
-	filterShow = true;
-	toggleFilter() {
-		this.filterShow = !this.filterShow;
-	}
-
 	// Tabela Cabeçalho
 	headElements = [
 		'Código',

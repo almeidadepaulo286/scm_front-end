@@ -47,11 +47,7 @@
 				<h6>Perfil</h6>
 				<p class="mini-text">Defina um perfil para o usuário</p>
 				<hr>
-				<select class="form-control form-control-sm" name="idPerfil" id="idPerfil" formControlName="idPerfil">
-					<ng-container *ngFor="let item of listaPerfis">
-						<option value="{{item.id}}">{{item.nome}}</option>
-					</ng-container>
-				</select>
+				<p-multiSelect [options]="listaPerfis" formControlName="listaPerfil" optionLabel="codigo"></p-multiSelect>
 			</div>
 		</div>
 	</div>

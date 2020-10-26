@@ -25,7 +25,7 @@ export class EditarUsuarioComponent implements OnInit {
 		login: ['', Validators.required],
 		email: ['', Validators.required],
 		situacao: [1, Validators.required],
-		idPerfil: ['', Validators.required]
+		listaPerfil: [[], Validators.required]
 	});
 
 	// Select Perfis
@@ -81,7 +81,7 @@ export class EditarUsuarioComponent implements OnInit {
 			login: [usuario.login, Validators.required],
 			email: [usuario.email, Validators.required],
 			situacao: [usuario.situacao, Validators.required],
-			idPerfil: [usuario.listaPerfil[0].id]
+			listaPerfil: [usuario.listaPerfil, Validators.required]
 		});
 	}
 
@@ -97,9 +97,7 @@ export class EditarUsuarioComponent implements OnInit {
 			login: this.usuarioForm.value.login,
 			email: this.usuarioForm.value.email,
 			situacao: this.usuarioForm.value.situacao,
-			listaPerfil: [
-				this.usuarioForm.value.idPerfil
-			]
+			listaPerfil: this.usuarioForm.value.listaPerfil
 		}
 		this.usuarioService.updateUsuarioById(this.idUsuario, stUsuario).subscribe(
 			(ret) => {

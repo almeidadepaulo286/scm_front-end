@@ -5,6 +5,9 @@ import {ApiResponse} from "../_models/api.response";
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { ResponseEntity } from 'app/_models/ResponseEntity';
 import { environment } from '../../environments/environment';
+// FIXME Mock da API
+import * as dados from 'app/data/atividade.json';
+import * as dadosDisciplinas from 'app/data/disciplina.json';
 
 @Injectable()
 export class AtividadeService {
@@ -19,7 +22,7 @@ export class AtividadeService {
     getAtividadeById(atividadeId: number): Observable<ApiResponse> {
       return this.http.get<ApiResponse>(this.baseUrl + "/getById/" + String(atividadeId));
     }
-    //TODO:
+    // TODO:
     getAtividadeByDocumento(documento:number): Observable<ResponseEntity> {
       return this.http.get<ResponseEntity>(this.baseUrl + "/" + documento);
     }
@@ -43,11 +46,10 @@ export class AtividadeService {
       params = params.append('page', page)
       params = params.append('pageSize', pageSize)
 
-      //FIXME Mock da API
+      // FIXME Mock da API
       // return this.http.get<any>(
       //   `${this.baseUrl}listar-por-filtro/`, { params: params }
       // )
-      let dados = "";
       return of((dados as any).default);
     }
 
@@ -56,7 +58,6 @@ export class AtividadeService {
       // return this.http.get<any>(
       //   `${this.baseUrl}listar-disciplinas`
       // )
-      let dadosDisciplinas = "";
       return of((dadosDisciplinas as any).default);
     }
 
@@ -73,7 +74,6 @@ export class AtividadeService {
       //   this.baseUrl + activityId
       // )
 
-      let dados = "";
       return of((dados as any).default.content[activityId-1]);
     }
 

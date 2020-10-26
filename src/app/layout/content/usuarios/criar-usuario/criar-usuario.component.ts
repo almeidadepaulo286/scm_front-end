@@ -4,6 +4,8 @@ import { UsuarioService } from 'app/_services/usuario.service';
 import { PerfilService } from 'app/_services/perfil.service';
 import { ToastrService } from 'ngx-toastr';
 
+import {SelectItem} from 'primeng/api';
+
 @Component({
 	selector: 'app-criar-usuario',
 	templateUrl: './criar-usuario.component.html',
@@ -19,7 +21,7 @@ export class CriarUsuarioComponent implements OnInit {
 		login: ['', Validators.required],
 		email: ['', Validators.required],
 		situacao: [1, Validators.required],
-		idPerfil: ['', Validators.required]
+		listaPerfil: [[], Validators.required]
 	});
 	usuarioSubmit;
 
@@ -67,7 +69,7 @@ export class CriarUsuarioComponent implements OnInit {
 			email: this.usuarioForm.value.email,
 			situacao: this.usuarioForm.value.situacao,
 			senha: '1234',
-			listaPerfil: [this.usuarioForm.value.idPerfil],
+			listaPerfil: this.usuarioForm.value.listaPerfil,
 			dataInclusao: new Date()
 		}
 		this.usuarioService.cadastrarUsuario(this.usuarioSubmit).subscribe(
