@@ -5,26 +5,24 @@ import { ApiResponse } from '../_models/api.response';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { ResponseEntity } from 'app/_models/ResponseEntity';
 import { environment } from '../../environments/environment';
-// FIXME Mock da API
-import * as dataPerfil from 'app/data/perfil.json';
+import { DataService } from 'app/_services/data.service';
 
 @Injectable()
 export class PerfilService {
 
-    perfis : Perfil[] = (dataPerfil as any).default.retorno;
+    baseUrl: string = environment.baseUrl + '/api/perfis/'
 
-    baseUrl: string = environment.baseUrl + '/api/Perfis/'
-
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient,
+                private dataService: DataService) {}
 
     getPerfilById(id: number): Observable<Perfil> {
-      const perfil : Perfil = this.perfis.find(perf => perf.id == id);
+      const perfil : Perfil = this.dataService.getTablePerfil().find(perf => perf.id == id);
 
       return of(perfil);
     }
 
     listarPerfis():Observable<Perfil[]>{
-      const perfis = (dataPerfil as any).default.retorno;
+      const perfis: Perfil[] = this.dataService.getTablePerfil()
 
       return of(perfis);
     }

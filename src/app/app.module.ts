@@ -1,12 +1,13 @@
 import { SharedModule } from './shared/shared.module';
 
-// App
+// Angular
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 // Pipes
 import { FormatCurrencyPipe } from 'app/pipes/formatCurrency.pipe';
@@ -20,7 +21,7 @@ import { LayoutRoutingModule } from './layout/layout.routing.module';
 import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 
-// Service
+// Services
 import { TokenInterceptor } from './_helpers/interceptor';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -40,6 +41,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // Home
 import { InicioComponent } from './layout/content/inicio/inicio.component';
+
+// Data Service
+import { DataService } from './_services/data.service';
 
 // Login
 import { LoginPageComponent } from './login-page/login-page.component';
@@ -172,6 +176,7 @@ import {DropdownModule} from 'primeng/dropdown';
     FontAwesomeModule,
     Ng2SmartTableModule,
     SharedModule,
+    NgxWebstorageModule.forRoot(),
     NgxMaskModule.forRoot(),
     BsDatepickerModule.forRoot(),
     ToastrModule.forRoot({
@@ -196,6 +201,7 @@ import {DropdownModule} from 'primeng/dropdown';
     HttpClientModule,
     AtividadeService,
     UsuarioService,
+    DataService,
     PerfilService,
     AuthenticationService,
     {
@@ -208,8 +214,9 @@ import {DropdownModule} from 'primeng/dropdown';
       multi : true
     },
     { provide: LOCALE_ID, useValue: 'pt' }
-  ],
+  ]
 })
+
 export class AppModule {
   constructor(matIconRegistry: MatIconRegistry) {
     matIconRegistry.registerFontClassAlias('fontawesome', 'fa');

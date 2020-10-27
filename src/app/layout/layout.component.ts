@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../_services/authentication.service';
 
 @Component({
   selector: 'app-layout',
@@ -11,18 +12,15 @@ export class LayoutComponent implements OnInit {
   // trigger-variable for Ladda
   isLoggingOut: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private authenticationService: AuthenticationService) {}
 
   ngOnInit() {
   }
 
   onLoggingOut() {
     this.isLoggingOut = true;
-    
-    localStorage.removeItem('currentUser');
-    localStorage.removeItem('token');
-    localStorage.removeItem('isLoggedin');
 
-    this.router.navigate(['/login']);
+    this.authenticationService.logout()
   }
 }

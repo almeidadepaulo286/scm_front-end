@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 import { DashboardService } from '../../../_services/dashboard.service';
 import { FormBuilder } from '@angular/forms';
+import { Usuario } from 'app/_models/usuario';
 import { ToastrService } from 'ngx-toastr';
+import { AuthenticationService } from 'app/_services';
 
 @Component({
 	selector: 'inicio',
@@ -11,10 +13,11 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class InicioComponent implements OnInit {
 
+	title = 'Meu Dashboard';
+
 	// Icone
 	faLongArrowAltRight = faLongArrowAltRight;
 
-	title = 'Meu Dashboard';
 	userPermissionOperacao = false;
 	values;
 	valuesIfError: any = {
@@ -28,14 +31,18 @@ export class InicioComponent implements OnInit {
 		cnpjDetentor: ['']
 	});
 
-	constructor(private dashboardService: DashboardService,
-				private fb: FormBuilder,
-				private toastr: ToastrService) { }
+	// Usuário logado
+	usuario: Usuario;
+
+	constructor(private fb: FormBuilder,
+				private dashboardService: DashboardService,
+				private authenticationService: AuthenticationService,
+				private toastr: ToastrService) {}
 
 	ngOnInit() {
-		// GET LOCALSTORAGE PERFIL
-		const user = JSON.parse(localStorage.getItem('currentUser'));
-		const permission = user.listaPerfil;
+		// Verifica as permissoes do usuario logado:
+		this.usuario = this.authenticationService.CurrentUsuario
+		const permission = this.usuario.listaPerfil
 
 		// Permissao para usuario visualizar o filtro
 		permission.map((perfil) => {

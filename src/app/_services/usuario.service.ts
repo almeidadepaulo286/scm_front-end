@@ -7,27 +7,25 @@ import { ResponseEntity } from 'app/_models/ResponseEntity';
 import { environment } from '../../environments/environment';
 import { Perfil } from '../_models/perfil';
 import { PerfilService } from 'app/_services/perfil.service';
-// FIXME Mock da API
-import * as dataUsuario from 'app/data/usuario.json';
+import { DataService } from 'app/_services/data.service';
 
 @Injectable()
 export class UsuarioService {
 
-    usuarios : Usuario[] = (dataUsuario as any).default.retorno;
-
-    baseUrl: string = environment.baseUrl + '/api/Usuarios/'
+    baseUrl: string = environment.baseUrl + '/api/usuarios/'
 
     constructor(private http: HttpClient,
-                private perfilService: PerfilService) {}
+                private perfilService: PerfilService,
+                private dataService: DataService) {}
 
     getUsuarioById(id: number): Observable<Usuario> {
-      const usuario : Usuario = this.usuarios.find(user => user.id == id);
+      const usuario : Usuario = this.dataService.getUsuario(id);
 
       return of(usuario);
     }
 
     cadastrarUsuario(stUsuario : any): Observable<Usuario>{
-      const maxId = this.usuarios.reduce((a, b) => a.id > b.id ? a : b).id;
+      const maxId = this.dataService.getTableUsuario().reduce((a, b) => a.id > b.id ? a : b).id;
 
       const newUser = new Usuario()
       newUser.id = (maxId) ? (maxId + 1) : 1
@@ -39,25 +37,13 @@ export class UsuarioService {
       newUser.listaPerfil = stUsuario.listaPerfil
       newUser.dataInclusao = new Date()
 
-      /* associa perfis:
-      if (Array.isArray(stUsuario.listaPerfil) && stUsuario.listaPerfil.length > 0) {
-        const idPerfil: number = stUsuario.listaPerfil[0]
-        this.perfilService.getPerfilById(idPerfil).subscribe(
-          (ret) => {
-              const perfil: Perfil = ret
-              if (ret) {
-                newUser.listaPerfil = [ perfil ]
-              }
-          })
-      }*/
-
-      this.usuarios.push(newUser)
+      this.dataService.addUsuario(newUser)
 
       return of(newUser)
     }
 
     updateUsuarioById(id: number, stUsuario: any): Observable<Usuario> {
-      const usuario : Usuario = this.usuarios.find(user => user.id == id);
+      const usuario : Usuario = this.dataService.getUsuario(id);
       if (usuario) {
           usuario.nome = stUsuario.nome
           usuario.login = stUsuario.login
@@ -66,35 +52,40 @@ export class UsuarioService {
           usuario.listaPerfil = stUsuario.listaPerfil
           usuario.dataAlteracao = new Date()
 
-          /* associa perfis:
-          if (Array.isArray(stUsuario.listaPerfil) && stUsuario.listaPerfil.length > 0) {
-            const idPerfil: number = stUsuario.listaPerfil[0]
-            this.perfilService.getPerfilById(idPerfil).subscribe(
-              (ret) => {
-                  const perfil: Perfil = ret
-                  if (ret) {
-                      usuario.listaPerfil = [ perfil ]
-                  }
-              })
-          }*/
-      }
+          this.dataService.setUsuario(usuario);
+        }
 
       return of(usuario);
     }
 
     resetPassUsuarioById(id: number): Observable<Usuario> {
-      const usuario : Usuario = this.usuarios.find(user => user.id == id);
+      const usuario : Usuario = this.dataService.getUsuario(id);
       if (usuario) {
         usuario.senha = '1234'
+
+        this.dataService.setUsuario(usuario);
       }
 
       return of(usuario);
     }
 
-    cancelUsuarioById(id: number): Observable<Usuario> {
-      const usuario : Usuario = this.usuarios.find(user => user.id == id);
+    disableUsuarioById(id: number): Observable<Usuario> {
+      const usuario : Usuario = this.dataService.getUsuario(id);
       if (usuario) {
         usuario.situacao = 0
+
+        this.dataService.setUsuario(usuario);
+      }
+
+      return of(usuario);
+    }
+
+    enableUsuarioById(id: number): Observable<Usuario> {
+      const usuario : Usuario = this.dataService.getUsuario(id);
+      if (usuario) {
+        usuario.situacao = 1
+
+        this.dataService.setUsuario(usuario);
       }
 
       return of(usuario);
@@ -110,11 +101,12 @@ export class UsuarioService {
                          sort: string,
                          sortDirection: string) : Observable<ResponseEntity>{
 
-        const listUsuarios : Usuario[] = this.usuarios.filter(user => (!nome || user.nome.toUpperCase().includes(nome.toUpperCase()))
-                                                                   && (!login || user.login.toUpperCase().includes(login.toUpperCase()))
-                                                                   && (!email || user.email.toUpperCase().includes(email.toUpperCase()))
-                                                                   && (!situacao || user.situacao == situacao)
-                                                                   && (!idPerfil || user.listaPerfil.find(role => role.id == idPerfil)));
+        const listUsuarios : Usuario[] = this.dataService.getTableUsuario()
+                                                         .filter(user => (!nome || user.nome.toUpperCase().includes(nome.toUpperCase()))
+                                                                      && (!login || user.login.toUpperCase().includes(login.toUpperCase()))
+                                                                      && (!email || user.email.toUpperCase().includes(email.toUpperCase()))
+                                                                      && (!situacao || user.situacao == situacao)
+                                                                      && (!idPerfil || user.listaPerfil.find(role => role.id == idPerfil)));
         const respUsuarios : ResponseEntity = new ResponseEntity()
         respUsuarios.status = 0
         respUsuarios.mensagem = null
@@ -125,62 +117,4 @@ export class UsuarioService {
         return of(respUsuarios);
     }
 
-    getUsuarios() : Observable<ApiResponse> {
-      return this.http.get<ApiResponse>(this.baseUrl);
-    }
-
-    getUsuarioByLogin(login : string): Observable<ResponseEntity> {
-      return this.http.get<ResponseEntity>(this.baseUrl + '?login=' + login);
-    }
-    createUsuario(user: Usuario): Observable<ApiResponse> {
-      return this.http.post<ApiResponse>(this.baseUrl, user);
-    }
-    deletarUsuario(usuarioId: number): Observable<ApiResponse> {
-      return this.http.delete<ApiResponse>(this.baseUrl + '/' + String(usuarioId));
-    }
-
-    getUsuariosFiltered(nome: string,
-                        login: string,
-                        email: string,
-                        idPerfil: string,
-                        situacao: string,
-                        page: string,
-                        pageSize: string,
-                        sort: string,
-                        sortDirection: string) : Observable<ResponseEntity>{
-      let params = new HttpParams();
-
-      if (nome) { params = params.append('nome', nome) }
-      if (login) { params = params.append('login', login) }
-      if (email) { params = params.append('email', email) }
-      if (idPerfil) { params = params.append('idPerfil', idPerfil) }
-      if (situacao) { params = params.append('situacao', situacao) }
-
-      // params = params.append('page', page)
-      // params = params.append('pageSize', pageSize)
-      if (sort) { params = params.append('sort', sort) }
-      if (sortDirection) { params = params.append('sortDirection', sortDirection) }
-
-      return this.http.get<ResponseEntity>(this.baseUrl, { params });
-
-      // DELME Mock da API
-      // return this.http.get<any>(
-      //   `${this.baseUrl}listar-por-filtro/`, { params: params }
-      // )
-      // return of((dados as any).default);
-    }
-
-    criarUsuario(formUsuario): Observable<Usuario>{
-      return this.http.post<Usuario>(
-        this.baseUrl,
-        formUsuario
-      )
-    }
-
-    updateUser(formUsuario): Observable<Usuario>{
-      return this.http.patch<Usuario>(
-        this.baseUrl + formUsuario.id, 
-        formUsuario
-      )
-    }
 }

@@ -30,8 +30,6 @@ export class SidebarComponent implements OnInit {
     constructor() {}
 
     ngOnInit() {
-        // GET LOCALSTORAGE PERFIL
-        const user = localStorage.getItem('currentUser');
-        const permission = JSON.parse(user).perfis;
     }
+    
 }

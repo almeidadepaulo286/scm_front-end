@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Usuario } from 'app/_models/usuario';
 import { AlterarSenhaService } from 'app/_services/alterar-senha.service';
 import { ToastrService } from 'ngx-toastr';
+import { AuthenticationService } from 'app/_services';
 
-// Icones 
+// Icones
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { ApiResponse } from 'app/_models';
@@ -13,7 +15,6 @@ import { ApiResponse } from 'app/_models';
 	selector: 'app-alterar-senha',
 	templateUrl: './alterar-senha.component.html',
 })
-
 export class AlterarSenhaComponent implements OnInit {
 
 	title = 'Alterar Senha';
@@ -24,30 +25,31 @@ export class AlterarSenhaComponent implements OnInit {
 	// Alerta Validação
 	validaSenha: boolean = true;
 	validaForm: boolean = true;
-	
-	// CPF Usuário logado
-	cpfUser;
+
+	// Usuário logado
+	usuario: Usuario;
 
 	// Icone
 	faAddressCard = faSearch;
 
-	constructor(
-		private location: Location,
-		private formBuilder: FormBuilder,
-		private alterarSenhaService: AlterarSenhaService,
-		private toastr: ToastrService
-	){}
+	constructor(private location: Location,
+				private formBuilder: FormBuilder,
+				private alterarSenhaService: AlterarSenhaService,
+				private authenticationService: AuthenticationService,
+				private toastr: ToastrService) {}
 
 	ngOnInit() {
+		this.usuario = this.authenticationService.CurrentUsuario
+
 		this.formAlterarSenha = this.formBuilder.group({
-			novaSenha: ["", Validators.required],
-			novaSenhaConfirmacao: ["", Validators.required]
+			novaSenha: ['', Validators.required],
+			novaSenhaConfirmacao: ['', Validators.required]
 		})
 	}
 
 	valida(){
-		let senha = this.formAlterarSenha.value.novaSenha;
-		let senhaConfirm = this.formAlterarSenha.value.novaSenhaConfirmacao;
+		const senha = this.formAlterarSenha.value.novaSenha;
+		const senhaConfirm = this.formAlterarSenha.value.novaSenhaConfirmacao;
 
 		if(senha != senhaConfirm){
 			this.validaSenha = false;
@@ -58,29 +60,19 @@ export class AlterarSenhaComponent implements OnInit {
 			this.validaForm = false
 			return
 		}
-		
+
 		this.validaForm = true;
 		this.validaSenha = true;
 	}
 
-	getCpf(){
-		const user = localStorage.getItem('currentUser');
-		const cpfUser = JSON.parse(user).cpf;
-        // this.userPerfil = perfis[0].perfilId;
-		this.cpfUser = cpfUser;
-	}
-	
 	onSubmit(){
 		this.valida();
-		this.getCpf();
-		this.alterarSenhaService.atualizarSenha(this.formAlterarSenha.value.novaSenha, this.cpfUser).subscribe(
+		this.alterarSenhaService.atualizarSenha(this.formAlterarSenha.value.novaSenha, this.usuario.id).subscribe(
 			(res) => {
-				// console.log(res);
 				this.formAlterarSenha.reset();
 				this.toastr.success('Senha alterada com sucesso!');
 			},
 			(err) => {
-				// console.log('error');
 				this.toastr.warning('Não foi possível alterar sua senha!');
 			})
 	}
@@ -89,5 +81,3 @@ export class AlterarSenhaComponent implements OnInit {
 		this.location.back();
 	}
 }
-
-64777303080

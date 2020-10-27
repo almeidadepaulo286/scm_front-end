@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { Usuario } from '../../_models';
 import { faOutdent, faIndent, faBars, faUser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -15,51 +14,46 @@ export class HeaderComponent implements OnInit {
     faBars = faBars;
     faUser = faUser;
 
-    usuario: string;
     sidebarIsMinimized = false;
 
-    constructor(public router: Router) {
-    }
+    constructor(public router: Router) {}
 
     ngOnInit() {
-        this.sidebarIsMinimized = jQuery(".page-sidebar .x-navigation").hasClass("x-navigation-minimized");
-
-        let user:string = localStorage.getItem('currentUser');
-        this.usuario = JSON.parse(user).nome;
+        this.sidebarIsMinimized = jQuery('.page-sidebar .x-navigation').hasClass('x-navigation-minimized');
     }
 
     toggleIcon() {
-        jQuery("#sidebar-wrapper").toggleClass("page-sidebar-minimized");
+        jQuery('#sidebar-wrapper').toggleClass('page-sidebar-minimized');
 
-        if (jQuery(".page-sidebar .x-navigation").hasClass("x-navigation-minimized")) {
-            this.x_navigation_minimize("open");
+        if (jQuery('.page-sidebar .x-navigation').hasClass('x-navigation-minimized')) {
+            this.x_navigation_minimize('open');
          } else {
-            this.x_navigation_minimize("close");
+            this.x_navigation_minimize('close');
          }
 
-        console.log("toggleIcon no header.component.ts");
+        console.log('toggleIcon no header.component.ts');
     }
 
     x_navigation_minimize(n : string) {
-        if (n == "open") {
+        if (n == 'open') {
             this.sidebarIsMinimized = false;
-            jQuery(".page-container").removeClass("page-navigation-minimized");
-            jQuery(".page-sidebar").removeClass("page-sidebar-minimized");
-            jQuery(".page-sidebar .x-navigation").removeClass("x-navigation-minimized");
-            jQuery(".x-navigation-minimize").find(".fa").removeClass("fa-indent").addClass("fa-dedent");
-            //jQuery(".page-sidebar.scroll").mCustomScrollbar("update");
-            //setCookie("sidebar_minimized", "false", 365);
-        
-        } else if (n == "close") {
+            jQuery('.page-container').removeClass('page-navigation-minimized');
+            jQuery('.page-sidebar').removeClass('page-sidebar-minimized');
+            jQuery('.page-sidebar .x-navigation').removeClass('x-navigation-minimized');
+            jQuery('.x-navigation-minimize').find('.fa').removeClass('fa-indent').addClass('fa-dedent');
+            // jQuery('.page-sidebar.scroll').mCustomScrollbar('update');
+            // setCookie('sidebar_minimized', 'false', 365);
+
+        } else if (n == 'close') {
             this.sidebarIsMinimized = true;
-            jQuery(".page-container").addClass("page-navigation-minimized");
-            jQuery(".page-sidebar").addClass("page-sidebar-minimized");
-            jQuery(".page-sidebar .x-navigation").addClass("x-navigation-minimized");
-            jQuery(".x-navigation-minimize").find(".fa").removeClass("fa-dedent").addClass("fa-indent");
-            //jQuery(".page-sidebar.scroll").mCustomScrollbar("disable", !0);
-            //setCookie("sidebar_minimized", "true", 365);
+            jQuery('.page-container').addClass('page-navigation-minimized');
+            jQuery('.page-sidebar').addClass('page-sidebar-minimized');
+            jQuery('.page-sidebar .x-navigation').addClass('x-navigation-minimized');
+            jQuery('.x-navigation-minimize').find('.fa').removeClass('fa-dedent').addClass('fa-indent');
+            // jQuery('.page-sidebar.scroll').mCustomScrollbar('disable', !0);
+            // setCookie('sidebar_minimized', 'true', 365);
         }
 
-        jQuery(".x-navigation li.active").removeClass("active")
+        jQuery('.x-navigation li.active').removeClass('active')
     }
 }

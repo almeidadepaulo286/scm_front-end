@@ -1,7 +1,5 @@
 {
-  "status": 0,
-  "mensagem": null,
-  "retorno":[
+  "table":[
     {
        "id":1,
        "codigo":"ADM",

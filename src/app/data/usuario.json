@@ -1,7 +1,5 @@
 {
-  "status": 0,
-  "mensagem": null,
-  "retorno":[
+  "table":[
       {
          "id":1,
          "nome":"Paulo Almeida",
@@ -9,6 +7,7 @@
          "email":"paulo.almeida@elo.inf.br",
          "senha":"1234",
          "situacao":1,
+         "idioma": { "id":3, "codigo":"pt", "nome":"Português" },
          "listaPerfil":[
             {
                "id":1,
@@ -27,6 +26,26 @@
          "email":"jose.silva@hotmail.com",
          "senha":"1234",
          "situacao":1,
+         "idioma": { "id":3, "codigo":"pt", "nome":"Português" },
+         "listaPerfil":[
+            {
+               "id":2,
+               "codigo":"PCP",
+               "nome":"PCP",
+               "descricao": "Planejamento e Controle de Produção"
+            }
+         ],
+         "data_atualizacao":"2019-10-15T16:51:18",
+         "data_criacao":"2019-08-07T17:00:25"
+      },
+      {
+         "id":3,
+         "nome":"Maria Penha",
+         "login":"maria",
+         "email":"maria.penha@yahoo.com",
+         "senha":"1234",
+         "situacao":1,
+         "idioma": { "id":3, "codigo":"pt", "nome":"Português" },
          "listaPerfil":[
             {
                "id":2,
@@ -38,18 +57,5 @@
          "data_atualizacao":"2019-10-15T16:51:18",
          "data_criacao":"2019-08-07T17:00:25"
       }
-   ],
-   "totalPages":1,
-   "totalElements":2,
-   "last":true,
-   "number":0,
-   "sort":{
-      "sorted":false,
-      "unsorted":true,
-      "empty":true
-   },
-   "size":20,
-   "numberOfElements":2,
-   "first":true,
-   "empty":false
+   ]
 }

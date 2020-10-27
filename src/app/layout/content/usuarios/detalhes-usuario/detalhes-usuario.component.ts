@@ -76,13 +76,13 @@ export class DetalhesUsuarioComponent implements OnInit {
 	desativarUsuario() : void {
 		this.modalRef.hide()
 
-		this.usuarioService.cancelUsuarioById(this.idUsuario).subscribe(
+		this.usuarioService.disableUsuarioById(this.idUsuario).subscribe(
 			(ret) => {
 				if (ret) {
 					this.usuario = ret;
 					this.toastr.success('Usuário Desativado com Sucesso')
 				} else {
-					this.toastr.error('Não foi possível cancelar o usuário selecionado')
+					this.toastr.error('Não foi possível desativar o usuário selecionado')
 				}
 			},
 			(err) => {

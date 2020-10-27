@@ -22,7 +22,7 @@
 					<div class="row form-options">
 						<div class="checkbox mb-2">
 							<label>
-								<input type="checkbox" value="remember-me"><small> Manter conectado</small>
+								<input type="checkbox" id="agent_user_remember" [(ngModel)]="remember" name="agent_user[remember]" value=""><small> Manter conectado</small>
 							</label>
 						</div>
 							<div class="dropdown btn-traducao mb-2">
@@ -43,7 +43,7 @@
 						Acessar
 					</button>
 
-					<p><a href="#" class="btn-forget-pass text-info">Esqueci minha senha</a></p>
+					<p><a href="#" class="btn-forget-pass text-info" (click)="resetData()">Esqueci minha senha</a></p>
 				</form>
 			</div>
 		</div>

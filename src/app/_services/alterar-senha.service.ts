@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpResponse } from "@angular/common/http";
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 import { ResponseEntity } from 'app/_models/ResponseEntity';
-import { ApiResponse } from "../_models/api.response";
+import { ApiResponse } from '../_models/api.response';
 import { environment } from '../../environments/environment';
 
-
-@Injectable({ providedIn: 'root' }) 
+@Injectable({ providedIn: 'root' })
 export class AlterarSenhaService {
-	
+
 	// URLs EndPoints
     baseUrlTrocarSenha: string = environment.baseUrl + 'scm/usuarios';
 
@@ -17,11 +16,11 @@ export class AlterarSenhaService {
     constructor(private router: Router, private http: HttpClient) {}
 
 	// Cancelar Cessão
-	atualizarSenha(nova_senha, cpf): Observable<ApiResponse>{
+	atualizarSenha(novaSenha, cpf): Observable<ApiResponse>{
 		return this.http.put<ApiResponse>(
-            this.baseUrlTrocarSenha, 
+            this.baseUrlTrocarSenha,
             {
-                nova_senha,
+                novaSenha,
                 cpf
             }
 		)

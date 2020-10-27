@@ -1,0 +1,19 @@
+{
+  "table":[
+    {
+       "id":1,
+       "codigo":"en",
+       "nome":"English"
+    },
+    {
+       "id":2,
+       "codigo":"es",
+       "nome":"Español"
+    },
+    {
+       "id":3,
+       "codigo":"pt",
+       "nome":"Português"
+    }
+ ]
+} 

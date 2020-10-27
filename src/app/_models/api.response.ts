@@ -1,5 +1,9 @@
 export class ApiResponse {
   status?: number;
-  message?: string;
-  result?: any;
+  mensagem?: string;
+  retorno?: any;
+
+  totalPages?: number;
+  totalElements?: number;
+  numberOfElements?: number;
 }
