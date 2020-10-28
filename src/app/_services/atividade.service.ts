@@ -1,85 +1,76 @@
 import { Injectable } from '@angular/core';
-import {Atividade} from "../_models/atividade";
-import {Observable, of} from "rxjs/index";
-import {ApiResponse} from "../_models/api.response";
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable, of } from 'rxjs/index';
+import { HttpClient } from '@angular/common/http';
 import { ResponseEntity } from 'app/_models/ResponseEntity';
 import { environment } from '../../environments/environment';
-// FIXME Mock da API
-import * as dados from 'app/data/atividade.json';
-import * as dadosDisciplinas from 'app/data/disciplina.json';
+import { Atividade } from '../_models/atividade';
+import { DataService } from 'app/_services/data.service';
 
 @Injectable()
 export class AtividadeService {
 
-    baseUrl: string = environment.baseUrl + 'scm/atividade/'
-    
-    constructor(private http: HttpClient){ }
+    baseUrl: string = environment.baseUrl + '/api/atividades/'
 
-    getAtividades() : Observable<ApiResponse> {
-      return this.http.get<ApiResponse>(this.baseUrl);
-    }
-    getAtividadeById(atividadeId: number): Observable<ApiResponse> {
-      return this.http.get<ApiResponse>(this.baseUrl + "/getById/" + String(atividadeId));
-    }
-    // TODO:
-    getAtividadeByDocumento(documento:number): Observable<ResponseEntity> {
-      return this.http.get<ResponseEntity>(this.baseUrl + "/" + documento);
-    }
-    createAtividade(atividade: Atividade): Observable<ApiResponse> {
-      return this.http.post<ApiResponse>(this.baseUrl, atividade);
-    }
-    updateAtividade(atividadeId:number, atividade: Atividade): Observable<ApiResponse> {
-      return this.http.put<ApiResponse>(this.baseUrl + "/" + String(atividadeId), atividade); 
-    }
-    deletarAtividade(atividadeId: number): Observable<ApiResponse> {
-      return this.http.delete<ApiResponse>(this.baseUrl + "/" + String(atividadeId));
+    constructor(private http: HttpClient,
+                private dataService: DataService) {}
+
+    addAtividade(stAtividade : any): Observable<Atividade>{
+      const maxId = this.dataService.getTableAtividade().reduce((a, b) => a.id > b.id ? a : b).id;
+
+      const newItem = new Atividade()
+      newItem.id = (maxId) ? (maxId + 1) : 1
+      newItem.codigo = stAtividade.codigo
+      newItem.prefixo = stAtividade.prefixo
+      newItem.descricao = stAtividade.descricao
+      newItem.disciplinas = stAtividade.disciplinas
+      newItem.dataInclusao = new Date()
+
+      this.dataService.addAtividade(newItem)
+
+      return of(newItem)
     }
 
-    getAtividadesFiltered(codigo, prefixo, idDisciplina, page, pageSize) : Observable<any>{
-      let params = new HttpParams();
+    getAtividadeById(id: number): Observable<Atividade> {
+      const atividade : Atividade = this.dataService.getAtividade(id);
 
-      if(codigo){ params = params.append('codigo', codigo) }
-      if(prefixo){ params = params.append('prefixo', prefixo) }
-      if(idDisciplina){ params = params.append('idDisciplina', idDisciplina) }
-
-      params = params.append('page', page)
-      params = params.append('pageSize', pageSize)
-
-      // FIXME Mock da API
-      // return this.http.get<any>(
-      //   `${this.baseUrl}listar-por-filtro/`, { params: params }
-      // )
-      return of((dados as any).default);
+      return of(atividade);
     }
 
-    listarDisciplinas():Observable<any>{
-      //FIXME Mock da API
-      // return this.http.get<any>(
-      //   `${this.baseUrl}listar-disciplinas`
-      // )
-      return of((dadosDisciplinas as any).default);
+    setAtividadeById(id: number, stAtividade: any): Observable<Atividade> {
+      const atividade : Atividade = this.dataService.getAtividade(id);
+      if (atividade) {
+          atividade.codigo = stAtividade.codigo
+          atividade.prefixo = stAtividade.prefixo
+          atividade.descricao = stAtividade.descricao
+          atividade.disciplinas = stAtividade.disciplinas
+          atividade.dataAlteracao = new Date()
+
+          this.dataService.setAtividade(atividade);
+        }
+
+      return of(atividade);
     }
 
-    criarAtividade(formAtividade): Observable<any>{
-      return this.http.post<any>(
-        this.baseUrl,
-        formAtividade
-      )
+    findAtividadesByFilter(codigo: string,
+                           prefixo: string,
+                           idDisciplina: number,
+                           page: string,
+                           pageSize: string,
+                           sort: string,
+                           sortDirection: string) : Observable<ResponseEntity>{
+
+        const listAtividades : Atividade[] = this.dataService.getTableAtividade()
+                                                             .filter(item => (!codigo || item.codigo.toUpperCase().includes(codigo.toUpperCase()))
+                                                                          && (!prefixo || item.prefixo.toUpperCase().includes(prefixo.toUpperCase()))
+                                                                          && (!idDisciplina || item.disciplinas.find(subitem => subitem.id == idDisciplina)));
+        const respAtividades : ResponseEntity = new ResponseEntity()
+        respAtividades.status = 0
+        respAtividades.mensagem = null
+        respAtividades.retorno = listAtividades
+        respAtividades.totalPages = 1
+        respAtividades.totalElements = 2
+
+        return of(respAtividades);
     }
 
-    getActivityById(activityId): Observable<any>{
-      //FIXME Mock da API
-      // return this.http.get<any>(
-      //   this.baseUrl + activityId
-      // )
-
-      return of((dados as any).default.content[activityId-1]);
-    }
-
-    updateActivity(activity): Observable<any>{
-      return this.http.put<any>(
-        this.baseUrl, activity
-      )
-    }
 }

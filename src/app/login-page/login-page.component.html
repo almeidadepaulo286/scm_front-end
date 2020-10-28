@@ -28,12 +28,14 @@
 							<div class="dropdown btn-traducao mb-2">
 								<a id="dropdownMenuButton" data-title="Gerenciar Traduções" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
 								   class="btn pull-left gerenciar-traducoes ng-scope dropdown-toggle">
-								    <img src="assets/img/idiomas.png" class="idiomas">
+								   <img src="assets/img/en.png" class="idiomas" *ngIf="language == 'en'">
+								   <img src="assets/img/es.png" class="idiomas" *ngIf="language == 'es'">
+								   <img src="assets/img/pt.png" class="idiomas" *ngIf="language == 'pt'">
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
-                					<li class="dropdown-item" [ngClass]="{'ativo': currentLanguage == 'en'}"><img src="assets/img/en.png" width="24" height="24"> &nbsp; English</li> 
-                					<li class="dropdown-item" [ngClass]="{'ativo': currentLanguage == 'es'}"><img src="assets/img/es.png" width="24" height="24"> &nbsp; Español</li> 
-                					<li class="dropdown-item" [ngClass]="{'ativo': currentLanguage == 'pt'}"><img src="assets/img/pt.png" width="24" height="24"> &nbsp; Português</li> 
+                					<li class="dropdown-item" [ngClass]="{'ativo': language == 'en'}" (click)="changeLanguage('en')"><img src="assets/img/en.png" width="24" height="24"> &nbsp; English</li> 
+                					<li class="dropdown-item" [ngClass]="{'ativo': language == 'es'}" (click)="changeLanguage('es')"><img src="assets/img/es.png" width="24" height="24"> &nbsp; Español</li> 
+                					<li class="dropdown-item" [ngClass]="{'ativo': language == 'pt'}" (click)="changeLanguage('pt')"><img src="assets/img/pt.png" width="24" height="24"> &nbsp; Português</li> 
 					            </ul> 
 							</div>
 					</div>

@@ -19,6 +19,7 @@ import { EditarUsuarioComponent } from './content/usuarios/editar-usuario/editar
 // Atividades de Controle
 import { AtividadesComponent } from './content/atividades/atividades.component';
 import { CriarAtividadeComponent } from './content/atividades/criar-atividade/criar-atividade.component';
+import { DetalhesAtividadeComponent } from './content/atividades/detalhes-atividade/detalhes-atividade.component';
 import { EditarAtividadeComponent } from './content/atividades/editar-atividade/editar-atividade.component';
 
 // Usuário
@@ -43,6 +44,12 @@ const routes: Routes = [
         path : '',
         component: LayoutComponent,
         children : [
+            // Atividades de Controle
+            {path : 'atividades',  component: AtividadesComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
+            {path : 'atividades/criar',  component: CriarAtividadeComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
+            {path : 'atividades/detalhes/:id',  component: DetalhesAtividadeComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
+            {path : 'atividades/editar/:id',  component: EditarAtividadeComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
+
             // Usuários
             {path : 'usuarios',  component: UsuariosComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
             {path : 'usuarios/criar',  component: CriarUsuarioComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
@@ -51,12 +58,6 @@ const routes: Routes = [
 
             // Usuário
             {path : 'alterar-senha',  component: AlterarSenhaComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
-
-            // Atividades de Controle
-            {path : 'atividades',  component: AtividadesComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
-            {path : 'atividades/criar',  component: CriarAtividadeComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
-            {path : 'atividades/detalhes/:id',  component: EditarAtividadeComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
-            {path : 'atividades/editar/:id',  component: EditarAtividadeComponent, canActivate: [AuthGuard], data: { perfis: [1, 2, 3] }},
 
             {
                 path: '**',

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 
@@ -58,6 +58,7 @@ import { BotaoEditarComponent } from './_components/botao-editar/botao-editar.co
 // Atividades de Controle
 import { AtividadesComponent } from './layout/content/atividades/atividades.component';
 import { CriarAtividadeComponent } from './layout/content/atividades/criar-atividade/criar-atividade.component';
+import { DetalhesAtividadeComponent } from './layout/content/atividades/detalhes-atividade/detalhes-atividade.component';
 import { EditarAtividadeComponent } from './layout/content/atividades/editar-atividade/editar-atividade.component';
 import { AtividadeService } from './_services/atividade.service';
 
@@ -70,6 +71,9 @@ import { UsuarioService } from './_services/usuario.service';
 
 // Perfils
 import { PerfilService } from './_services/perfil.service';
+
+// Disciplinas
+import { DisciplinaService } from './_services/disciplina.service';
 
 // Usuario
 import { AlterarSenhaComponent } from './layout/content/alterar-senha/alterar-senha.component';
@@ -130,6 +134,7 @@ import {DropdownModule} from 'primeng/dropdown';
     // Atividades de Controle
     AtividadesComponent,
     CriarAtividadeComponent,
+    DetalhesAtividadeComponent,
     EditarAtividadeComponent,
 
     // Usuarios
@@ -203,6 +208,7 @@ import {DropdownModule} from 'primeng/dropdown';
     UsuarioService,
     DataService,
     PerfilService,
+    DisciplinaService,
     AuthenticationService,
     {
       provide: HTTP_INTERCEPTORS,
@@ -213,7 +219,12 @@ import {DropdownModule} from 'primeng/dropdown';
       useClass: LoaderInterceptor,
       multi : true
     },
-    { provide: LOCALE_ID, useValue: 'pt' }
+    { provide: LOCALE_ID, useValue: 'pt' },
+    { 
+      provide: APP_INITIALIZER,
+      useFactory : onInitApp,
+      deps: [DataService],
+      multi : true}
   ]
 })
 
@@ -221,4 +232,8 @@ export class AppModule {
   constructor(matIconRegistry: MatIconRegistry) {
     matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
   }
+}
+
+export function onInitApp(dataService: DataService) {
+  return ()=> dataService.init();
 }

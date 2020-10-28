@@ -1,51 +1,39 @@
 {
-"content":[
+"table":[
       {
          "id":1,
          "codigo":"70",
          "prefixo":"IPLI",
          "descricao":"Inspeção de Ligação Ponto 1",
-         "data_atualizacao":"2020-08-28T13:01:41.947",
-         "data_criacao":"2020-08-28T13:01:41.753",
-         "disciplina":"CIV",
          "disciplinas":[
             {
                "id":1,
-               "nome":"CIV - Civil",
-               "ativo":1
+               "codigo": "CIV",
+               "nome":"Civil"
             }
          ],
-         "ativo":1
+         "dataInclusao":"2020-08-28T13:01:41.753",
+         "dataAlteracao":"2020-08-28T13:01:41.947"
       },
       {
          "id":2,
          "codigo":"72",
          "prefixo":"IPLII",
          "descricao":"Inspeção de Ligação Ponto 1",
-         "data_atualizacao":"2019-10-15T16:51:18",
-         "data_criacao":"2019-08-07T17:00:25",
-         "disciplina":"ELE",
          "disciplinas":[
             {
                "id":2,
-               "nome":"ELE - Elétrica",
-               "ativo":1
+               "codigo": "ELE",
+               "nome":"Elétrica"
+            },
+            {
+               "id":3,
+               "codigo": "INS",
+               "nome":"Instrumentação"
             }
          ],
-         "ativo":1
+         "dataInclusao":"2020-08-28T13:01:41.753",
+         "dataAlteracao":"2020-08-28T13:01:41.947"
       }
-   ],
-   "totalPages":1,
-   "totalElements":2,
-   "last":true,
-   "number":0,
-   "sort":{
-      "sorted":false,
-      "unsorted":true,
-      "empty":true
-   },
-   "size":20,
-   "numberOfElements":2,
-   "first":true,
-   "empty":false
+   ]
 }

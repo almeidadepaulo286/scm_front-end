@@ -29,7 +29,8 @@ export class AuthenticationService {
     }
 
     auth(name : string, password : string): Observable<Usuario> {
-        const usuario : Usuario = this.dataService.getTableUsuario().find(user => user.login === name && user.senha === password);
+        const usuario : Usuario = this.dataService.getTableUsuario().find(user => user.login == name && user.senha == password);
+
         return of(usuario);
     }
 
@@ -37,11 +38,11 @@ export class AuthenticationService {
         this.auth(name, password).subscribe(
             (usuario: Usuario) => {
                 if (usuario) {  // verifica se retornou um usuario valido:
-                    // apenas salva no local-storage se o usuario assim permitir:
-                    if (remember) {
-                        this.dataService.setCurrentUsuario(usuario)
-                        this.dataService.setTokenUsuario('1234567890')
-                    }
+                    this.dataService.setCurrentUsuario(usuario)
+                    this.dataService.setTokenUsuario('1234567890')
+                    // apenas salva como cookie se o usuario assim permitir:
+                    if (remember) {}
+
                     this.router.navigate(['inicio'])
 
                 } else {
@@ -60,4 +61,5 @@ export class AuthenticationService {
 
     this.router.navigate(['login'])
   }
+
 }

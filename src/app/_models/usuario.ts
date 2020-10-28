@@ -1,3 +1,4 @@
+import { Idioma } from './idioma';
 import { Perfil } from './perfil';
 import { Menu } from './menu';
 
@@ -8,7 +9,9 @@ export class Usuario {
     email: string;
     senha?: string;
     situacao?: number;
+    idioma?: Idioma;
     listaPerfil?: Perfil[];
+    //
     dataInclusao?: Date;
     dataAlteracao?: Date;
     //

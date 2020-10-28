@@ -1,5 +1,4 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { Location } from '@angular/common';
 import { faPen, faUnlock, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 import { Usuario } from 'app/_models/usuario';
 import { UsuarioService } from 'app/_services/usuario.service';
@@ -32,12 +31,10 @@ export class DetalhesUsuarioComponent implements OnInit {
 	constructor(private route: ActivatedRoute,
 				private usuarioService: UsuarioService,
 				private modalService: BsModalService,
-				private toastr: ToastrService,
-				private location: Location) {}
+				private toastr: ToastrService) {}
 
     ngOnInit(): void {
 		this.idUsuario = +this.route.snapshot.paramMap.get('id');
-
 		this.getUsuarioById();
 	}
 
@@ -75,7 +72,6 @@ export class DetalhesUsuarioComponent implements OnInit {
 
 	desativarUsuario() : void {
 		this.modalRef.hide()
-
 		this.usuarioService.disableUsuarioById(this.idUsuario).subscribe(
 			(ret) => {
 				if (ret) {
@@ -95,4 +91,5 @@ export class DetalhesUsuarioComponent implements OnInit {
 	showModalDesativar(template: TemplateRef<any>) {
 		this.modalRef = this.modalService.show(template);
 	}
+
 }

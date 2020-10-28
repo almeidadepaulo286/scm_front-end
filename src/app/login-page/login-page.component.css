@@ -72,6 +72,11 @@ body {
   margin-right: 0;
 }
 
+.form-signin .form-options .btn-traducao .idiomas {
+  width: 32px;
+  height: 32px;
+}
+
 .form-signin .form-options .btn-traducao .dropdown-menu li.ativo {
   background-color: #BFE3FF;
 }

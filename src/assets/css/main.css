@@ -120,6 +120,17 @@ form label{
   font-size: .8em;
 }
 
+/* Formularios para tela de detalhes */
+.panel-detalhe .card .card-body div {
+  font-weight: bold;
+}
+.panel-detalhe .card .card-body div small {
+  font-weight: normal;
+}
+.panel-detalhe .card .card-body div fa-icon {
+  font-weight: normal;
+}
+
 /* Badges e Status */
 .badge-pill{
   padding: .5em .4em;

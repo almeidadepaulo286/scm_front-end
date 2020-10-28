@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { UsuarioService } from 'app/_services/usuario.service';
 import { PerfilService } from 'app/_services/perfil.service';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
-import { Usuario } from 'app/_models/usuario';
 
 @Component({
 	selector: 'app-editar-usuario',
@@ -46,7 +45,7 @@ export class EditarUsuarioComponent implements OnInit {
 
 	// Lista Perfis
 	listarPerfis(){
-		this.perfilService.listarPerfis().subscribe(
+		this.perfilService.getPerfis().subscribe(
 			ret => {
 				if (Array.isArray(ret) && ret.length > 0) {
 					this.listaPerfis = ret
@@ -61,9 +60,16 @@ export class EditarUsuarioComponent implements OnInit {
 	// Recupera dados do usuário por Id
 	getUsuarioById(): void {
 		this.usuarioService.getUsuarioById(this.idUsuario).subscribe(
-			(ret) => {
-				if (ret) {
-					this.montaUsuarioForm(ret)
+			(user) => {
+				if (user) {
+					// Cria form preenchido
+					this.usuarioForm = this.fb.group({
+						nome: [user.nome, Validators.required],
+						login: [user.login, Validators.required],
+						email: [user.email, Validators.required],
+						situacao: [user.situacao, Validators.required],
+						listaPerfil: [user.listaPerfil, Validators.required]
+					});
 				} else {
 					this.toastr.error('Não foi possível localizar o usuário selecionado')
 				}
@@ -74,32 +80,17 @@ export class EditarUsuarioComponent implements OnInit {
 		);
 	}
 
-	// Cria form preenchido
-	montaUsuarioForm(usuario) {
-		this.usuarioForm = this.fb.group({
-			nome: [usuario.nome, Validators.required],
-			login: [usuario.login, Validators.required],
-			email: [usuario.email, Validators.required],
-			situacao: [usuario.situacao, Validators.required],
-			listaPerfil: [usuario.listaPerfil, Validators.required]
-		});
-	}
-
-	// Cadastra Usuário
-	onSubmit() {
-		this.alteraUsuario();
-	}
-
 	// Atualiza informações do usuário
-	alteraUsuario(){
+	onSubmit() {
 		const stUsuario = {
 			nome: this.usuarioForm.value.nome,
 			login: this.usuarioForm.value.login,
 			email: this.usuarioForm.value.email,
 			situacao: this.usuarioForm.value.situacao,
+			idioma: {},
 			listaPerfil: this.usuarioForm.value.listaPerfil
 		}
-		this.usuarioService.updateUsuarioById(this.idUsuario, stUsuario).subscribe(
+		this.usuarioService.setUsuarioById(this.idUsuario, stUsuario).subscribe(
 			(ret) => {
 				this.toastr.success('Usuário atualizado com sucesso')
 			},

@@ -1,19 +1,19 @@
 {
-    "content":[
+    "table":[
     {
        "id":1,
-       "nome":"CIV - Civil",
-       "ativo":1
+       "codigo": "CIV",
+       "nome":"Civil"
     },
     {
        "id":2,
-       "nome":"ELE - Elétrica",
-       "ativo":1
+       "codigo": "ELE",
+       "nome":"Elétrica"
     },
     {
        "id":3,
-       "nome":"INS - Instrumentação",
-       "ativo":1
+       "codigo": "INS",
+       "nome":"Instrumentação"
     }
  ]
 } 

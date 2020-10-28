@@ -1,8 +1,8 @@
 export class Disciplina {
-    id:number;
-    nome:string;
-    isEditable?:boolean;
-    isVisible?:boolean;
-    constructor(){
-    }
+    id: number;
+    codigo: string;
+    nome: string;
+    //
+    dataInclusao?: Date;
+    dataAlteracao?: Date;
 }

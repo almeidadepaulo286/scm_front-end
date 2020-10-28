@@ -4,11 +4,15 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { Usuario } from 'app/_models/usuario';
 import { Perfil } from 'app/_models/perfil';
 import { Idioma } from 'app/_models/idioma';
+import { Atividade } from 'app/_models/atividade';
+import { Disciplina } from 'app/_models/disciplina';
 
 // Dados Mock da API: ja efetua parsing dos dados nas tabelas (json) para os respectivos registros (classe).
 import * as dataUsuario from 'app/data/usuario.json';
 import * as dataPerfil from 'app/data/perfil.json';
 import * as dataIdioma from 'app/data/idioma.json';
+import * as dataAtividade from 'app/data/atividade.json';
+import * as dataDisciplina from 'app/data/disciplina.json';
 
 @Injectable()
 export class DataService {
@@ -17,18 +21,49 @@ export class DataService {
 
     // Funcao executada na inicializacao da aplicacao:
     init() {
+        // carrega as tabelas originais a partir dos arquivos /data/*.json:
+        const tableUsuario: Usuario[] = (dataUsuario as any).default.table
+        const tablePerfil: Perfil[] = (dataPerfil as any).default.table
+        const tableIdioma: Idioma[] = (dataIdioma as any).default.table
+        const tableAtividade: Atividade[] = (dataAtividade as any).default.table
+        const tableDisciplina: Disciplina[] = (dataDisciplina as any).default.table
+
+        // salva qualquer das tabelas no local-storage se nao existir:
+        if (! this.storage.retrieve('tableUsuario')) {
+            this.storage.store('tableUsuario', tableUsuario)
+        }
+        if (! this.storage.retrieve('tablePerfil')) {
+            this.storage.store('tablePerfil', tablePerfil)
+        }
+        if (! this.storage.retrieve('tableIdioma')) {
+            this.storage.store('tableIdioma', tableIdioma)
+        }
+        if (! this.storage.retrieve('tableAtividade')) {
+            this.storage.store('tableAtividade', tableAtividade)
+        }
+        if (! this.storage.retrieve('tableDisciplina')) {
+            this.storage.store('tableDisciplina', tableDisciplina)
+        }
+    }
+
+    // Limpa a base de dados do local-storage e recarrega as tabelas dos arquivos data*.json:
+    clear() {
         // remove quaisquer dados anteriores no local-storage:
         this.storage.clear()
 
         // carrega as tabelas a partir dos arquivos /data/*.json, desconsiderando quaisquer alteracoes feitas:
-        const tableIdioma: Usuario[] = (dataIdioma as any).default.table
+        const tableUsuario: Usuario[] = (dataUsuario as any).default.table
         const tablePerfil: Perfil[] = (dataPerfil as any).default.table
-        const tableUsuario: Idioma[] = (dataUsuario as any).default.table
+        const tableIdioma: Idioma[] = (dataIdioma as any).default.table
+        const tableAtividade: Atividade[] = (dataAtividade as any).default.table
+        const tableDisciplina: Disciplina[] = (dataDisciplina as any).default.table
 
         // salva as tabelas no local-storage:
         this.storage.store('tableUsuario', tableUsuario)
         this.storage.store('tablePerfil', tablePerfil)
         this.storage.store('tableIdioma', tableIdioma)
+        this.storage.store('tableAtividade', tableAtividade)
+        this.storage.store('tableDisciplina', tableDisciplina)
     }
 
     /*** USUARIO CORRENTEMENTE LOGADO */
@@ -191,4 +226,97 @@ export class DataService {
             }
         }
     }
+
+    /*** TABELA DE ATIVIDADES */
+
+    getTableAtividade(): Atividade[] {
+        return this.storage.retrieve('tableAtividade')
+    }
+
+    setTableAtividade(tableAtividade: Atividade[]): void {
+        this.storage.store('tableAtividade', tableAtividade)
+    }
+
+    addAtividade(atividade: Atividade): void {
+        const tableAtividade: Atividade[] = this.storage.retrieve('tableAtividade')
+        if (Array.isArray(tableAtividade)) {
+            tableAtividade.push(atividade)
+            this.setTableAtividade(tableAtividade)
+        }
+    }
+
+    getAtividade(id: number): Atividade {
+        const tableAtividade: Atividade[] = this.storage.retrieve('tableAtividade')
+        return (Array.isArray(tableAtividade)) ? tableAtividade.find(item => item.id == id)
+                                             : null
+    }
+
+    setAtividade(atividade: Atividade): void {
+        const tableAtividade: Atividade[] = this.storage.retrieve('tableAtividade')
+        if (Array.isArray(tableAtividade)) {
+            const idx = tableAtividade.findIndex(item => item.id == atividade.id)
+            if (idx > -1) {
+                tableAtividade[idx] = atividade
+                this.setTableAtividade(tableAtividade)
+            }
+        }
+    }
+
+    delAtividade(id: number): void {
+        const tableAtividade: Atividade[] = this.storage.retrieve('tableAtividade')
+        if (Array.isArray(tableAtividade)) {
+            const idx = tableAtividade.findIndex(item => item.id == id)
+            if (idx > -1) {
+                tableAtividade.splice(idx, 1)
+                this.setTableAtividade(tableAtividade)
+            }
+        }
+    }
+
+    /*** TABELA DE DISCIPLINAS */
+
+    getTableDisciplina(): Disciplina[] {
+        return this.storage.retrieve('tableDisciplina')
+    }
+
+    setTableDisciplina(tableDisciplina: Disciplina[]): void {
+        this.storage.store('tableDisciplina', tableDisciplina)
+    }
+
+    addDisciplina(disciplina: Disciplina): void {
+        const tableDisciplina: Disciplina[] = this.storage.retrieve('tableDisciplina')
+        if (Array.isArray(tableDisciplina)) {
+            tableDisciplina.push(disciplina)
+            this.setTableDisciplina(tableDisciplina)
+        }
+    }
+
+    getDisciplina(id: number): Disciplina {
+        const tableDisciplina: Disciplina[] = this.storage.retrieve('tableDisciplina')
+        return (Array.isArray(tableDisciplina)) ? tableDisciplina.find(item => item.id == id)
+                                            : null
+    }
+
+    setDisciplina(disciplina: Disciplina): void {
+        const tableDisciplina: Disciplina[] = this.storage.retrieve('tableDisciplina')
+        if (Array.isArray(tableDisciplina)) {
+            const idx = tableDisciplina.findIndex(item => item.id == disciplina.id)
+            if (idx > -1) {
+                tableDisciplina[idx] = disciplina
+                this.setTableDisciplina(tableDisciplina)
+            }
+        }
+    }
+
+    delDisciplina(id: number): void {
+        const tableDisciplina: Disciplina[] = this.storage.retrieve('tableDisciplina')
+        if (Array.isArray(tableDisciplina)) {
+            const idx = tableDisciplina.findIndex(item => item.id == id)
+            if (idx > -1) {
+                tableDisciplina.splice(idx, 1)
+                this.setTableDisciplina(tableDisciplina)
+            }
+        }
+    }
+
 }

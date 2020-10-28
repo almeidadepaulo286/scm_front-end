@@ -1,4 +1,4 @@
-import { Disciplina } from "./disciplina";
+import { Disciplina } from './disciplina';
 
 export class Atividade {
     id: number;
@@ -6,6 +6,7 @@ export class Atividade {
     prefixo: string;
     descricao: string;
     disciplinas?: Disciplina[];
-    isEditable?:boolean;
-    isVisible?:boolean;
+    //
+    dataInclusao?: Date;
+    dataAlteracao?: Date;
 }

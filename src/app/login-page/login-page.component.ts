@@ -13,8 +13,8 @@ export class LoginPageComponent implements OnInit {
 
     name: string;
     password: string;
-    remember: boolean = true;
-    currentLanguage = 'pt';
+    remember: boolean;
+    language: string;
 
     // trigger-variable for Ladda
     isLoggingIn = false;
@@ -28,7 +28,8 @@ export class LoginPageComponent implements OnInit {
         // inicializacao qualquer...
         this.toastr.clear();
         this.isLoggingIn = false;
-        this.currentLanguage = 'pt';
+        this.remember = true;
+        this.language = 'pt';
     }
 
     onLogIn() {
@@ -48,10 +49,14 @@ export class LoginPageComponent implements OnInit {
         }
     }
 
+    changeLanguage(idLanguage: string) {
+        this.language = idLanguage
+    }
+
     resetData() {
         const resp = confirm('Deseja restabelecer a base de dados local?')
         if (resp) {
-            this.dataService.init()
+            this.dataService.clear()
             this.toastr.warning('ATENÇÃO: A base de dados local foi restabelecida. Todos os dados incluídos/alterados anteriormente foram desconsiderados.');
         }
     }

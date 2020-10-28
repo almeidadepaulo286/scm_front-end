@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Perfil } from '../_models/perfil';
 import { Observable, of } from 'rxjs/index';
-import { ApiResponse } from '../_models/api.response';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { ResponseEntity } from 'app/_models/ResponseEntity';
+import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { Perfil } from '../_models/perfil';
 import { DataService } from 'app/_services/data.service';
 
 @Injectable()
@@ -16,12 +14,12 @@ export class PerfilService {
                 private dataService: DataService) {}
 
     getPerfilById(id: number): Observable<Perfil> {
-      const perfil : Perfil = this.dataService.getTablePerfil().find(perf => perf.id == id);
+      const perfil : Perfil = this.dataService.getPerfil(id);
 
       return of(perfil);
     }
 
-    listarPerfis():Observable<Perfil[]>{
+    getPerfis(): Observable<Perfil[]> {
       const perfis: Perfil[] = this.dataService.getTablePerfil()
 
       return of(perfis);

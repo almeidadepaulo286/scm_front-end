@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { UsuarioService } from 'app/_services/usuario.service';
 import { PerfilService } from 'app/_services/perfil.service';
 import { ToastrService } from 'ngx-toastr';
-
-import {SelectItem} from 'primeng/api';
 
 @Component({
 	selector: 'app-criar-usuario',
@@ -23,7 +21,6 @@ export class CriarUsuarioComponent implements OnInit {
 		situacao: [1, Validators.required],
 		listaPerfil: [[], Validators.required]
 	});
-	usuarioSubmit;
 
 	// Select Perfis
 	listaPerfis;
@@ -39,7 +36,7 @@ export class CriarUsuarioComponent implements OnInit {
 
 	// Lista Perfis
 	listarPerfis(){
-		this.perfilService.listarPerfis().subscribe(
+		this.perfilService.getPerfis().subscribe(
 			ret => {
 				if (Array.isArray(ret) && ret.length > 0) {
 					this.listaPerfis = ret
@@ -51,28 +48,24 @@ export class CriarUsuarioComponent implements OnInit {
 		)
 	}
 
-	// Cadastra Usuário
-	onSubmit() {
-		this.criarUsuario();
-	}
-
 	// Reseta Formulário
 	limpaForm() {
 		this.usuarioForm.reset();
 	}
 
-	// Cria usuario
-	criarUsuario(){
-		this.usuarioSubmit = {
+	// Cadastra Usuário
+	onSubmit() {
+		const usuarioSubmit = {
 			nome: this.usuarioForm.value.nome,
 			login: this.usuarioForm.value.login,
 			email: this.usuarioForm.value.email,
 			situacao: this.usuarioForm.value.situacao,
 			senha: '1234',
+			idioma: {},
 			listaPerfil: this.usuarioForm.value.listaPerfil,
 			dataInclusao: new Date()
 		}
-		this.usuarioService.cadastrarUsuario(this.usuarioSubmit).subscribe(
+		this.usuarioService.addUsuario(usuarioSubmit).subscribe(
 			ret => {
 				this.toastr.success('Usuário Cadastrado com Sucesso')
 				this.limpaForm()

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faPencilAlt, faUnlockAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
@@ -15,23 +15,22 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class UsuariosComponent implements OnInit {
 
+	title = 'Usuários';
+
 	// Icones
 	faFilter = faFilter;
 	faPencilAlt = faPencilAlt;
 	faUnlockAlt = faUnlockAlt;
 	faTrashAlt = faTrashAlt;
 
-	title = 'Usuários';
-
 	// Form Filtro
 	usuarioFiltro = this.fb.group({
 		nome: [''],
 		login: [''],
 		email: [''],
-		idPerfil: [''],
-		situacao: ['']
+		situacao: [''],
+		idPerfil: ['']
 	});
-	filtroValues;
 
 	// Select Perfis
 	listaPerfis;
@@ -48,14 +47,15 @@ export class UsuariosComponent implements OnInit {
 	totalPages: number;
 	totalRegistros: number;
 
+	// Resultado encontrado
 	usuarios : Usuario[];
 
 	// Resultado não encontrado
 	resultadoVazio: boolean;
 
-	constructor(private usuarioService: UsuarioService,
+	constructor(private router: Router,
+				private usuarioService: UsuarioService,
 				private perfilService: PerfilService,
-				public router: Router,
 				private fb: FormBuilder,
 				private toastr: ToastrService) {}
 
@@ -66,7 +66,7 @@ export class UsuariosComponent implements OnInit {
 
 	// Lista Perfis
 	listarPerfis(){
-		this.perfilService.listarPerfis().subscribe(
+		this.perfilService.getPerfis().subscribe(
 			ret => {
 				if (Array.isArray(ret) && ret.length > 0) {
 					this.listaPerfis = ret
@@ -81,22 +81,30 @@ export class UsuariosComponent implements OnInit {
 	// Reseta formulário do filtro
 	limparFiltros() {
 		this.usuarioFiltro.reset();
-		this.usuarioFiltro.value.situacao = null;
 	}
 
+	// Recupera lista de usuários
 	aplicarFiltros() {
 		this.page = 0
 		this.getUsuarios()
 	}
 
-	// Recupera lista de usuários
+	setPage(i: number, event: any) {
+		this.page = i - 1;
+		this.getUsuarios();
+	}
+
+	pageChanged(event: any): void {
+		this.page = event.page - 1;
+		this.getUsuarios();
+	}
+
 	getUsuarios() {
-		this.filtroValues = this.usuarioFiltro.value
-		this.usuarioService.findUsuariosFiltered(this.filtroValues.nome,
-					 							 this.filtroValues.login,
-					 							 this.filtroValues.email,
-												 this.filtroValues.idPerfil,
-												 this.filtroValues.situacao,
+		this.usuarioService.findUsuariosByFilter(this.usuarioFiltro.value.nome,
+					 							 this.usuarioFiltro.value.login,
+					 							 this.usuarioFiltro.value.email,
+												 this.usuarioFiltro.value.situacao,
+												 this.usuarioFiltro.value.idPerfil,
 												 String(this.page),
 												 String(this.pageSize),
 												 this.sort,
@@ -115,14 +123,4 @@ export class UsuariosComponent implements OnInit {
 			)
 	}
 
-	setPage(i: number, event: any) {
-		// event.preventDefault();
-		this.page = i - 1;
-		this.getUsuarios();
-	}
-
-	pageChanged(event: any): void {
-		this.page = event.page - 1;
-		this.getUsuarios();
-	}
 }

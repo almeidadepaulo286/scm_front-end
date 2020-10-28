@@ -3,4 +3,7 @@ export class Perfil {
     codigo: string;
     nome: string;
     descricao: string;
+    //
+    dataInclusao?: Date;
+    dataAlteracao?: Date;
 }
