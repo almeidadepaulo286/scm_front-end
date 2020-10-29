@@ -1,0 +1,19 @@
+{
+    "table":[
+    {
+       "id":1,
+       "codigo": "un",
+       "descricao":"Unitário"
+    },
+    {
+       "id":2,
+       "codigo": "m²",
+       "descricao":"Metro Quadrado"
+    },
+    {
+       "id":3,
+       "codigo": "m³",
+       "descricao":"Metro Cúbico"
+    }
+ ]
+} 

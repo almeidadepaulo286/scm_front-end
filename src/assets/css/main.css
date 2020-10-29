@@ -131,6 +131,38 @@ form label{
   font-weight: normal;
 }
 
+/* Componente Dropdown do PrimeNG */
+.panel-edicao .card .card-body .p-dropdown {
+  min-width: 100% !important;
+
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.5;
+
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .2rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+/* Componente MultiSelect do PrimeNG */
+.panel-edicao .card .card-body .p-multiselect {
+  min-width: 100% !important;
+
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.5;
+
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .2rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
 /* Badges e Status */
 .badge-pill{
   padding: .5em .4em;
@@ -179,8 +211,6 @@ hr{
   margin: 0 0 0 10px;
 }
 
-
-
 /* Placeholder */
 
 /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -216,20 +246,4 @@ hr{
 
 .badge.critical {
   background-color: #d51c2f;
-}
-
-/* Componente MultiSelect do PrimeNG */
-.p-multiselect {
-  min-width: 100% !important;
-
-  font-size: .875rem;
-  font-weight: 400;
-  line-height: 1.5;
-
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: .2rem;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }

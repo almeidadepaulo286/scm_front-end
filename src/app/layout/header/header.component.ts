@@ -30,8 +30,6 @@ export class HeaderComponent implements OnInit {
          } else {
             this.x_navigation_minimize('close');
          }
-
-        console.log('toggleIcon no header.component.ts');
     }
 
     x_navigation_minimize(n : string) {

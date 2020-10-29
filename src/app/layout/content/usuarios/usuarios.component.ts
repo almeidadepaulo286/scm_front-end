@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { faPencilAlt, faUnlockAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { faFilter } from '@fortawesome/free-solid-svg-icons';
+import { faFilter, faPencilAlt, faUnlockAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { UsuarioService } from 'app/_services/usuario.service';
 import { PerfilService } from 'app/_services/perfil.service';
 import { Usuario } from 'app/_models/usuario';
@@ -118,7 +117,7 @@ export class UsuariosComponent implements OnInit {
 					this.totalRegistros = ret.totalElements;
 				},
 				err => {
-					console.table(err);
+					this.toastr.warning('Não foi possível localizar os Usuários, tente novamente mais tarde')
 				}
 			)
 	}

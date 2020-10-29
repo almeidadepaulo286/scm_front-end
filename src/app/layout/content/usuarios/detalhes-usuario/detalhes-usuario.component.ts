@@ -45,11 +45,11 @@ export class DetalhesUsuarioComponent implements OnInit {
 				if (ret) {
 					this.usuario = ret;
 				} else {
-					this.toastr.error('Não foi possível localizar o usuário selecionado')
+					this.toastr.error('Não foi possível localizar o Usuário selecionado')
 				}
 			},
 			(err) => {
-				console.log(err)
+				this.toastr.warning('Não foi possível localizar o Usuário, tente novamente mais tarde')
 			}
 		);
 	}
@@ -65,7 +65,7 @@ export class DetalhesUsuarioComponent implements OnInit {
 				}
 			},
 			(err) => {
-				console.log(err)
+				this.toastr.warning('Não foi possível resetar a senha do Usuário, tente novamente mais tarde')
 			}
 		);
 	}
@@ -82,7 +82,7 @@ export class DetalhesUsuarioComponent implements OnInit {
 				}
 			},
 			(err) => {
-				console.log(err)
+				this.toastr.warning('Não foi possível desativar o Usuário, tente novamente mais tarde')
 			}
 		);
 	}

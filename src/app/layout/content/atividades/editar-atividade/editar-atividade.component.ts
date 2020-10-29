@@ -73,7 +73,7 @@ export class EditarAtividadeComponent implements OnInit {
 				}
 			},
 			(err) => {
-				console.log(err)
+				this.toastr.warning('Não foi possível localizar a Atividade de Controle, tente novamente mais tarde')
 			}
 		);
 	}

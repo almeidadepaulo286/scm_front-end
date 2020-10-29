@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+	<h1 class="page-heading">{{title}}</h1>
+
+	<div class="text-right">
+		<botao-voltar></botao-voltar>
+		<a class="btn btn-sm btn-primary btn-acao ml-2" routerLink="/fatores-produtividade/editar/{{fatorProdutividade.id}}">
+			<fa-icon [icon]="faPen"></fa-icon>
+			Alterar
+		</a>
+	</div>
+</div>
+
+<div *ngIf="fatorProdutividade" class="registro row">
+	<div class="col-12 col-md-6 mb-3 panel-detalhe">
+		<div class="card">
+			<div class="card-body">
+				<h6>Fator de Produtividade</h6>
+				<div class="">
+					<div class="mb-2 mr-lg-5"><small class="text-secondary">Código:</small><br>{{fatorProdutividade.codigo}}</div>
+					<div class="mb-2 mr-lg-5"><small class="text-secondary">Índice (HH/un):</small><br>{{fatorProdutividade.indice}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12 col-md-6 mb-3 panel-detalhe">
+		<div class="card">
+			<div class="card-body">
+				<h6>Atividade de Controle</h6>
+				<div class="mb-2 mr-lg-5"><small class="text-secondary">Atividade:</small><br>{{fatorProdutividade.atividadeControle.descricao}}</div>
+				<div class="mb-2 mr-lg-5"><small class="text-secondary">Característica:</small><br>{{fatorProdutividade.caracteristica.nome}}</div>
+				<div class="mb-2 mr-lg-5"><small class="text-secondary">Unidade de Medida:</small><br>{{fatorProdutividade.unidadeMedida.descricao}}</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-between mb-3">
+	<h1 class="page-heading">{{title}}</h1>
+	<div class="text-right">
+		<botao-voltar></botao-voltar>
+	</div>
+</div>
+
+<form [formGroup]="formRegistro" (ngSubmit)="onSubmit()" class="row">
+	<div class="col-12 col-md-6 mb-3">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="">Dados</h6>
+				<p class="mini-text">Para alterar um Fator de Produtividade existente, preencha todos os campos:</p>
+				<hr>
+				<div class="form-row">
+					<div class="form-group col-12">
+						<label for="codigo">Código</label>
+						<input type="text" class="form-control form-control-sm" id="codigo" formControlName="codigo" required>
+					</div>
+					<div class="form-group col-12">
+						<label for="indice">Índice (HH/un)</label>
+						<input type="text" class="form-control form-control-sm" id="indice" formControlName="indice" required
+						       currencyMask [options]="{ prefix: '', suffix : '', precision: 4, align: 'left', allowZero: true }">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12 col-md-6 mb-3 panel-edicao">
+		<div class="card">
+			<div class="card-body">
+				<h6>Atividade de Controle</h6>
+				<p class="mini-text">Selecione uma Atividade de Controle:</p>
+				<hr>
+				<div class="form-row">
+					<div class="form-group col-12">
+						<label for="idAtividadeControle">Atividade</label>
+                        <select class="form-control form-control-sm" name="idAtividadeControle" id="idAtividadeControle" formControlName="idAtividadeControle" required>
+                            <option value=""></option>
+                            <ng-container *ngFor="let item of listaAtividadesControle">
+                                <option value="{{item.id}}">{{item.descricao}}</option>
+                            </ng-container>
+                        </select>
+					</div>
+					<div class="form-group col-12">
+						<label for="idCaracteristica">Característica</label>
+                        <select class="form-control form-control-sm" name="idCaracteristica" id="idCaracteristica" formControlName="idCaracteristica" required>
+                            <option value=""></option>
+                            <ng-container *ngFor="let item of listaCaracteristicas">
+                                <option value="{{item.id}}">{{item.nome}}</option>
+                            </ng-container>
+                        </select>
+					</div>
+					<div class="form-group col-12">
+						<label for="idUnidadeMedida">Unidade de Medida</label>
+                        <select class="form-control form-control-sm" name="idUnidadeMedida" id="idUnidadeMedida" formControlName="idUnidadeMedida" required>
+                            <option value=""></option>
+                            <ng-container *ngFor="let item of listaUnidadesMedida">
+                                <option value="{{item.id}}">{{item.descricao}}</option>
+                            </ng-container>
+                        </select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12">
+		<button class="btn btn-primary btn-acao mr-2" type="submit" [disabled]="!formRegistro.valid">Atualizar</button>
+	</div>
+</form>

@@ -75,7 +75,7 @@ export class EditarUsuarioComponent implements OnInit {
 				}
 			},
 			(err) => {
-				console.log(err)
+				this.toastr.warning('Não foi possível localizar o usuário, tente novamente mais tarde')
 			}
 		);
 	}

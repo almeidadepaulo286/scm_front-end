@@ -41,13 +41,13 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-12 col-md-6 mb-3">
+	<div class="col-12 col-md-6 mb-3 panel-edicao">
 		<div class="card">
 			<div class="card-body">
 				<h6>Perfil</h6>
 				<p class="mini-text">Defina um ou mais perfis para o usuário</p>
 				<hr>
-				<p-multiSelect [options]="listaPerfis" formControlName="listaPerfil" optionLabel="codigo"></p-multiSelect>
+				<p-multiSelect [options]="listaPerfis" optionLabel="codigo" formControlName="listaPerfil" required></p-multiSelect>
 			</div>
 		</div>
 	</div>

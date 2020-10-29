@@ -62,6 +62,13 @@ import { DetalhesAtividadeComponent } from './layout/content/atividades/detalhes
 import { EditarAtividadeComponent } from './layout/content/atividades/editar-atividade/editar-atividade.component';
 import { AtividadeService } from './_services/atividade.service';
 
+// Fatores de Produtividade
+import { FatoresProdutividadeComponent } from './layout/content/fatores-produtividade/fatores-produtividade.component';
+import { CriarFatorProdutividadeComponent } from './layout/content/fatores-produtividade/criar-fator-produtividade/criar-fator-produtividade.component';
+import { DetalhesFatorProdutividadeComponent } from './layout/content/fatores-produtividade/detalhes-fator-produtividade/detalhes-fator-produtividade.component';
+import { EditarFatorProdutividadeComponent } from './layout/content/fatores-produtividade/editar-fator-produtividade/editar-fator-produtividade.component';
+import { FatorProdutividadeService } from './_services/fator-produtividade.service';
+
 // Usuarios
 import { UsuariosComponent } from './layout/content/usuarios/usuarios.component';
 import { CriarUsuarioComponent } from './layout/content/usuarios/criar-usuario/criar-usuario.component';
@@ -74,6 +81,12 @@ import { PerfilService } from './_services/perfil.service';
 
 // Disciplinas
 import { DisciplinaService } from './_services/disciplina.service';
+
+// Caracteristicas
+import { CaracteristicaService } from './_services/caracteristica.service';
+
+// Unidades de Medida
+import { UnidadeMedidaService } from './_services/unidade-medida.service';
 
 // Usuario
 import { AlterarSenhaComponent } from './layout/content/alterar-senha/alterar-senha.component';
@@ -136,6 +149,12 @@ import {DropdownModule} from 'primeng/dropdown';
     CriarAtividadeComponent,
     DetalhesAtividadeComponent,
     EditarAtividadeComponent,
+
+    // Fatores de Produtividade
+    FatoresProdutividadeComponent,
+    CriarFatorProdutividadeComponent,
+    DetalhesFatorProdutividadeComponent,
+    EditarFatorProdutividadeComponent,
 
     // Usuarios
     UsuariosComponent,
@@ -209,6 +228,9 @@ import {DropdownModule} from 'primeng/dropdown';
     DataService,
     PerfilService,
     DisciplinaService,
+    FatorProdutividadeService,
+    CaracteristicaService,
+    UnidadeMedidaService,
     AuthenticationService,
     {
       provide: HTTP_INTERCEPTORS,

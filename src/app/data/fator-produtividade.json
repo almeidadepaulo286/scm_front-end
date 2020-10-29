@@ -1,0 +1,76 @@
+{
+  "table":[
+      {
+         "id":1,
+         "codigo":"CONEX-DE-CAB-001",
+         "indice": 0.4534,
+         "atividadeControle":{
+             "id":1,
+             "codigo":"70",
+             "prefixo":"IPLI",
+             "descricao":"Inspeção de Ligação Ponto 1"
+         },
+         "caracteristica":{
+               "id":2,
+               "nome":"Potência",
+               "tipo":1,
+               "tipoDado": 2
+         },
+         "unidadeMedida":{
+               "id":1,
+               "codigo": "un",
+               "descricao":"Unitário"
+         },
+         "dataInclusao":"2020-08-28T13:01:41.753",
+         "dataAlteracao":"2020-08-28T13:01:41.947"
+      },
+      {
+         "id":2,
+         "codigo":"NUM-CAST-002",
+         "indice":0.1547,
+         "atividadeControle":{
+             "id":2,
+             "codigo":"72",
+             "prefixo":"IPLII",
+             "descricao":"Inspeção de Ligação Ponto 2"
+         },
+         "caracteristica":{
+               "id":1,
+               "nome":"Altura",
+               "tipo":1,
+               "tipoDado": 1
+         },
+         "unidadeMedida":{
+               "id":2,
+               "codigo": "m²",
+               "descricao":"Metro Quadrado"
+         },
+         "data_atualizacao":"2019-10-15T16:51:18",
+         "data_criacao":"2019-08-07T17:00:25"
+      },
+      {
+         "id":3,
+         "codigo":"SIG-COD-009",
+         "indice":0.9560,
+         "atividadeControle":{
+             "id":1,
+             "codigo":"70",
+             "prefixo":"IPLI",
+             "descricao":"Inspeção de Ligação Ponto 1"
+         },
+         "caracteristica":{
+               "id":3,
+               "nome":"Quantidade",
+               "tipo":2,
+               "tipoDado": 2
+         },
+         "unidadeMedida":{
+               "id":3,
+               "codigo": "m³",
+               "descricao":"Metro Cúbico"
+         },
+         "data_atualizacao":"2019-10-15T16:51:18",
+         "data_criacao":"2019-08-07T17:00:25"
+      }
+   ]
+}

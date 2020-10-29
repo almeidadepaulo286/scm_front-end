@@ -6,6 +6,9 @@ import { Perfil } from 'app/_models/perfil';
 import { Idioma } from 'app/_models/idioma';
 import { Atividade } from 'app/_models/atividade';
 import { Disciplina } from 'app/_models/disciplina';
+import { FatorProdutividade } from 'app/_models/fator-produtividade';
+import { Caracteristica } from 'app/_models/caracteristica';
+import { UnidadeMedida } from 'app/_models/unidade-medida';
 
 // Dados Mock da API: ja efetua parsing dos dados nas tabelas (json) para os respectivos registros (classe).
 import * as dataUsuario from 'app/data/usuario.json';
@@ -13,6 +16,9 @@ import * as dataPerfil from 'app/data/perfil.json';
 import * as dataIdioma from 'app/data/idioma.json';
 import * as dataAtividade from 'app/data/atividade.json';
 import * as dataDisciplina from 'app/data/disciplina.json';
+import * as dataFatorProdutividade from 'app/data/fator-produtividade.json';
+import * as dataCaracteristica from 'app/data/caracteristica.json';
+import * as dataUnidadeMedida from 'app/data/unidade-medida.json';
 
 @Injectable()
 export class DataService {
@@ -27,6 +33,9 @@ export class DataService {
         const tableIdioma: Idioma[] = (dataIdioma as any).default.table
         const tableAtividade: Atividade[] = (dataAtividade as any).default.table
         const tableDisciplina: Disciplina[] = (dataDisciplina as any).default.table
+        const tableFatorProdutividade: FatorProdutividade[] = (dataFatorProdutividade as any).default.table
+        const tableCaracteristica: Caracteristica[] = (dataCaracteristica as any).default.table
+        const tableUnidadeMedida: UnidadeMedida[] = (dataUnidadeMedida as any).default.table
 
         // salva qualquer das tabelas no local-storage se nao existir:
         if (! this.storage.retrieve('tableUsuario')) {
@@ -44,6 +53,15 @@ export class DataService {
         if (! this.storage.retrieve('tableDisciplina')) {
             this.storage.store('tableDisciplina', tableDisciplina)
         }
+        if (! this.storage.retrieve('tableFatorProdutividade')) {
+            this.storage.store('tableFatorProdutividade', tableFatorProdutividade)
+        }
+        if (! this.storage.retrieve('tableCaracteristica')) {
+            this.storage.store('tableCaracteristica', tableCaracteristica)
+        }
+        if (! this.storage.retrieve('tableUnidadeMedida')) {
+            this.storage.store('tableUnidadeMedida', tableUnidadeMedida)
+        }
     }
 
     // Limpa a base de dados do local-storage e recarrega as tabelas dos arquivos data*.json:
@@ -57,6 +75,9 @@ export class DataService {
         const tableIdioma: Idioma[] = (dataIdioma as any).default.table
         const tableAtividade: Atividade[] = (dataAtividade as any).default.table
         const tableDisciplina: Disciplina[] = (dataDisciplina as any).default.table
+        const tableFatorProdutividade: FatorProdutividade[] = (dataFatorProdutividade as any).default.table
+        const tableCaracteristica: Caracteristica[] = (dataCaracteristica as any).default.table
+        const tableUnidadeMedida: UnidadeMedida[] = (dataUnidadeMedida as any).default.table
 
         // salva as tabelas no local-storage:
         this.storage.store('tableUsuario', tableUsuario)
@@ -64,6 +85,9 @@ export class DataService {
         this.storage.store('tableIdioma', tableIdioma)
         this.storage.store('tableAtividade', tableAtividade)
         this.storage.store('tableDisciplina', tableDisciplina)
+        this.storage.store('tableFatorProdutividade', tableFatorProdutividade)
+        this.storage.store('tableCaracteristica', tableCaracteristica)
+        this.storage.store('tableUnidadeMedida', tableUnidadeMedida)
     }
 
     /*** USUARIO CORRENTEMENTE LOGADO */
@@ -315,6 +339,144 @@ export class DataService {
             if (idx > -1) {
                 tableDisciplina.splice(idx, 1)
                 this.setTableDisciplina(tableDisciplina)
+            }
+        }
+    }
+
+    /*** TABELA DE FATOR-PRODUTIVIDADE */
+
+    getTableFatorProdutividade(): FatorProdutividade[] {
+        return this.storage.retrieve('tableFatorProdutividade')
+    }
+
+    setTableFatorProdutividade(tableFatorProdutividade: FatorProdutividade[]): void {
+        this.storage.store('tableFatorProdutividade', tableFatorProdutividade)
+    }
+
+    addFatorProdutividade(fatorProdutividade: FatorProdutividade): void {
+        const tableFatorProdutividade: FatorProdutividade[] = this.storage.retrieve('tableFatorProdutividade')
+        if (Array.isArray(tableFatorProdutividade)) {
+            tableFatorProdutividade.push(fatorProdutividade)
+            this.setTableFatorProdutividade(tableFatorProdutividade)
+        }
+    }
+
+    getFatorProdutividade(id: number): FatorProdutividade {
+        const tableFatorProdutividade: FatorProdutividade[] = this.storage.retrieve('tableFatorProdutividade')
+        return (Array.isArray(tableFatorProdutividade)) ? tableFatorProdutividade.find(item => item.id == id)
+                                             : null
+    }
+
+    setFatorProdutividade(fatorProdutividade: FatorProdutividade): void {
+        const tableFatorProdutividade: FatorProdutividade[] = this.storage.retrieve('tableFatorProdutividade')
+        if (Array.isArray(tableFatorProdutividade)) {
+            const idx = tableFatorProdutividade.findIndex(item => item.id == fatorProdutividade.id)
+            if (idx > -1) {
+                tableFatorProdutividade[idx] = fatorProdutividade
+                this.setTableFatorProdutividade(tableFatorProdutividade)
+            }
+        }
+    }
+
+    delFatorProdutividade(id: number): void {
+        const tableFatorProdutividade: FatorProdutividade[] = this.storage.retrieve('tableFatorProdutividade')
+        if (Array.isArray(tableFatorProdutividade)) {
+            const idx = tableFatorProdutividade.findIndex(item => item.id == id)
+            if (idx > -1) {
+                tableFatorProdutividade.splice(idx, 1)
+                this.setTableFatorProdutividade(tableFatorProdutividade)
+            }
+        }
+    }
+
+    /*** TABELA DE CARACTERISTICAS */
+
+    getTableCaracteristica(): Caracteristica[] {
+        return this.storage.retrieve('tableCaracteristica')
+    }
+
+    setTableCaracteristica(tableCaracteristica: Caracteristica[]): void {
+        this.storage.store('tableCaracteristica', tableCaracteristica)
+    }
+
+    addCaracteristica(caracteristica: Caracteristica): void {
+        const tableCaracteristica: Caracteristica[] = this.storage.retrieve('tableCaracteristica')
+        if (Array.isArray(tableCaracteristica)) {
+            tableCaracteristica.push(caracteristica)
+            this.setTableCaracteristica(tableCaracteristica)
+        }
+    }
+
+    getCaracteristica(id: number): Caracteristica {
+        const tableCaracteristica: Caracteristica[] = this.storage.retrieve('tableCaracteristica')
+        return (Array.isArray(tableCaracteristica)) ? tableCaracteristica.find(item => item.id == id)
+                                            : null
+    }
+
+    setCaracteristica(caracteristica: Caracteristica): void {
+        const tableCaracteristica: Caracteristica[] = this.storage.retrieve('tableCaracteristica')
+        if (Array.isArray(tableCaracteristica)) {
+            const idx = tableCaracteristica.findIndex(item => item.id == caracteristica.id)
+            if (idx > -1) {
+                tableCaracteristica[idx] = caracteristica
+                this.setTableCaracteristica(tableCaracteristica)
+            }
+        }
+    }
+
+    delCaracteristica(id: number): void {
+        const tableCaracteristica: Caracteristica[] = this.storage.retrieve('tableCaracteristica')
+        if (Array.isArray(tableCaracteristica)) {
+            const idx = tableCaracteristica.findIndex(item => item.id == id)
+            if (idx > -1) {
+                tableCaracteristica.splice(idx, 1)
+                this.setTableCaracteristica(tableCaracteristica)
+            }
+        }
+    }
+
+    /*** TABELA DE UNIDADES-MEDIDA */
+
+    getTableUnidadeMedida(): UnidadeMedida[] {
+        return this.storage.retrieve('tableUnidadeMedida')
+    }
+
+    setTableUnidadeMedida(tableUnidadeMedida: UnidadeMedida[]): void {
+        this.storage.store('tableUnidadeMedida', tableUnidadeMedida)
+    }
+
+    addUnidadeMedida(unidadeMedida: UnidadeMedida): void {
+        const tableUnidadeMedida: UnidadeMedida[] = this.storage.retrieve('tableUnidadeMedida')
+        if (Array.isArray(tableUnidadeMedida)) {
+            tableUnidadeMedida.push(unidadeMedida)
+            this.setTableUnidadeMedida(tableUnidadeMedida)
+        }
+    }
+
+    getUnidadeMedida(id: number): UnidadeMedida {
+        const tableUnidadeMedida: UnidadeMedida[] = this.storage.retrieve('tableUnidadeMedida')
+        return (Array.isArray(tableUnidadeMedida)) ? tableUnidadeMedida.find(item => item.id == id)
+                                            : null
+    }
+
+    setUnidadeMedida(unidadeMedida: UnidadeMedida): void {
+        const tableUnidadeMedida: UnidadeMedida[] = this.storage.retrieve('tableUnidadeMedida')
+        if (Array.isArray(tableUnidadeMedida)) {
+            const idx = tableUnidadeMedida.findIndex(item => item.id == unidadeMedida.id)
+            if (idx > -1) {
+                tableUnidadeMedida[idx] = unidadeMedida
+                this.setTableUnidadeMedida(tableUnidadeMedida)
+            }
+        }
+    }
+
+    delUnidadeMedida(id: number): void {
+        const tableUnidadeMedida: UnidadeMedida[] = this.storage.retrieve('tableUnidadeMedida')
+        if (Array.isArray(tableUnidadeMedida)) {
+            const idx = tableUnidadeMedida.findIndex(item => item.id == id)
+            if (idx > -1) {
+                tableUnidadeMedida.splice(idx, 1)
+                this.setTableUnidadeMedida(tableUnidadeMedida)
             }
         }
     }

@@ -51,6 +51,12 @@ export class AtividadeService {
       return of(atividade);
     }
 
+    getAtividades(): Observable<Atividade[]> {
+      const atividades: Atividade[] = this.dataService.getTableAtividade()
+
+      return of(atividades);
+    }
+
     findAtividadesByFilter(codigo: string,
                            prefixo: string,
                            idDisciplina: number,

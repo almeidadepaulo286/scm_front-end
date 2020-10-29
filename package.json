@@ -30,7 +30,6 @@
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
     "@popperjs/core": "^2.5.3",
     "angular-datatables": "^9.0.2",
-    "angular-money-mask": "^1.0.0",
     "angular2-ladda": "^3.1.0",
     "bootstrap": "^4.5.2",
     "core-js": "^3.6.5",
@@ -60,7 +59,6 @@
     "rxjs": "^6.6.3",
     "rxjs-compat": "^6.6.3",
     "tslib": "^2.0.0",
-    "vanilla-masker": "^1.2.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { faPencilAlt, faUnlockAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { faFilter } from '@fortawesome/free-solid-svg-icons';
+import { faFilter, faPencilAlt, faUnlockAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { AtividadeService } from 'app/_services/atividade.service';
 import { DisciplinaService } from 'app/_services/disciplina.service';
 import { Atividade } from 'app/_models/atividade';
@@ -114,7 +113,7 @@ export class AtividadesComponent implements OnInit {
 					this.totalRegistros = ret.totalElements;
 				},
 				err => {
-					console.table(err);
+					this.toastr.warning('Não foi possível localizar as Atividades de Controle, tente novamente mais tarde')
 				}
 			)
 	}
