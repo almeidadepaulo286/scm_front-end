@@ -8,5 +8,7 @@ export class Atividade {
     disciplinas?: Disciplina[];
     //
     dataInclusao?: Date;
+    idUsuarioInclusao?: number;
     dataAlteracao?: Date;
+    idUsuarioAlteracao?: number;
 }

@@ -55,19 +55,8 @@ import { BotaoVoltarComponent } from './_components/botao-voltar/botao-voltar.co
 import { BotaoNotificacoesComponent } from './_components/botao-notificacoes/botao-notificacoes.component';
 import { BotaoEditarComponent } from './_components/botao-editar/botao-editar.component';
 
-// Atividades de Controle
-import { AtividadesComponent } from './layout/content/atividades/atividades.component';
-import { CriarAtividadeComponent } from './layout/content/atividades/criar-atividade/criar-atividade.component';
-import { DetalhesAtividadeComponent } from './layout/content/atividades/detalhes-atividade/detalhes-atividade.component';
-import { EditarAtividadeComponent } from './layout/content/atividades/editar-atividade/editar-atividade.component';
-import { AtividadeService } from './_services/atividade.service';
-
-// Fatores de Produtividade
-import { FatoresProdutividadeComponent } from './layout/content/fatores-produtividade/fatores-produtividade.component';
-import { CriarFatorProdutividadeComponent } from './layout/content/fatores-produtividade/criar-fator-produtividade/criar-fator-produtividade.component';
-import { DetalhesFatorProdutividadeComponent } from './layout/content/fatores-produtividade/detalhes-fator-produtividade/detalhes-fator-produtividade.component';
-import { EditarFatorProdutividadeComponent } from './layout/content/fatores-produtividade/editar-fator-produtividade/editar-fator-produtividade.component';
-import { FatorProdutividadeService } from './_services/fator-produtividade.service';
+// Usuario
+import { AlterarSenhaComponent } from './layout/content/alterar-senha/alterar-senha.component';
 
 // Usuarios
 import { UsuariosComponent } from './layout/content/usuarios/usuarios.component';
@@ -79,17 +68,35 @@ import { UsuarioService } from './_services/usuario.service';
 // Perfils
 import { PerfilService } from './_services/perfil.service';
 
+// Contratos
+import { ContratosComponent } from './layout/content/contratos/contratos.component';
+import { CriarContratoComponent } from './layout/content/contratos/criar-contrato/criar-contrato.component';
+import { DetalhesContratoComponent } from './layout/content/contratos/detalhes-contrato/detalhes-contrato.component';
+import { EditarContratoComponent } from './layout/content/contratos/editar-contrato/editar-contrato.component';
+import { ContratoService } from './_services/contrato.service';
+
+// Atividades de Controle
+import { AtividadesComponent } from './layout/content/atividades/atividades.component';
+import { CriarAtividadeComponent } from './layout/content/atividades/criar-atividade/criar-atividade.component';
+import { DetalhesAtividadeComponent } from './layout/content/atividades/detalhes-atividade/detalhes-atividade.component';
+import { EditarAtividadeComponent } from './layout/content/atividades/editar-atividade/editar-atividade.component';
+import { AtividadeService } from './_services/atividade.service';
+
 // Disciplinas
 import { DisciplinaService } from './_services/disciplina.service';
+
+// Fatores de Produtividade
+import { FatoresProdutividadeComponent } from './layout/content/fatores-produtividade/fatores-produtividade.component';
+import { CriarFatorProdutividadeComponent } from './layout/content/fatores-produtividade/criar-fator-produtividade/criar-fator-produtividade.component';
+import { DetalhesFatorProdutividadeComponent } from './layout/content/fatores-produtividade/detalhes-fator-produtividade/detalhes-fator-produtividade.component';
+import { EditarFatorProdutividadeComponent } from './layout/content/fatores-produtividade/editar-fator-produtividade/editar-fator-produtividade.component';
+import { FatorProdutividadeService } from './_services/fator-produtividade.service';
 
 // Caracteristicas
 import { CaracteristicaService } from './_services/caracteristica.service';
 
 // Unidades de Medida
 import { UnidadeMedidaService } from './_services/unidade-medida.service';
-
-// Usuario
-import { AlterarSenhaComponent } from './layout/content/alterar-senha/alterar-senha.component';
 
 // Mascara de formulario
 import { NgxMaskModule } from 'ngx-mask';
@@ -144,6 +151,32 @@ import {DropdownModule} from 'primeng/dropdown';
     // App
     AppComponent,
 
+    // Home
+    InicioComponent,
+
+    // Layout
+    LayoutComponent,
+    HeaderComponent,
+    SidebarComponent,
+
+    // Login
+    LoginPageComponent,
+
+    // Usuario
+    AlterarSenhaComponent,
+
+    // Usuarios
+    UsuariosComponent,
+    CriarUsuarioComponent,
+    DetalhesUsuarioComponent,
+    EditarUsuarioComponent,
+
+    // Contratos
+    ContratosComponent,
+    CriarContratoComponent,
+    DetalhesContratoComponent,
+    EditarContratoComponent,
+
     // Atividades de Controle
     AtividadesComponent,
     CriarAtividadeComponent,
@@ -155,26 +188,6 @@ import {DropdownModule} from 'primeng/dropdown';
     CriarFatorProdutividadeComponent,
     DetalhesFatorProdutividadeComponent,
     EditarFatorProdutividadeComponent,
-
-    // Usuarios
-    UsuariosComponent,
-    CriarUsuarioComponent,
-    DetalhesUsuarioComponent,
-    EditarUsuarioComponent,
-
-    // Usuario
-    AlterarSenhaComponent,
-
-    // Login
-    LoginPageComponent,
-
-    // Home
-    InicioComponent,
-
-    // Layout
-    LayoutComponent,
-    HeaderComponent,
-    SidebarComponent,
 
     // Botoes
     BotaoNovoComponent,
@@ -222,16 +235,17 @@ import {DropdownModule} from 'primeng/dropdown';
   bootstrap: [AppComponent],
   providers: [
     LoaderService,
-    HttpClientModule,
-    AtividadeService,
-    UsuarioService,
     DataService,
+    HttpClientModule,
+    AuthenticationService,
+    UsuarioService,
     PerfilService,
+    ContratoService,
+    AtividadeService,
     DisciplinaService,
     FatorProdutividadeService,
     CaracteristicaService,
     UnidadeMedidaService,
-    AuthenticationService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

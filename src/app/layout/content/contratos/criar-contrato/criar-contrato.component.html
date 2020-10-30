@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-between mb-3">
+	<h1 class="page-heading">{{title}}</h1>
+	<div class="text-right">
+		<botao-voltar></botao-voltar>
+	</div>
+</div>
+
+<form [formGroup]="contratoForm" (ngSubmit)="onSubmit()" class="row">
+	<div class="col-12 col-md-6 mb-3">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="">Dados</h6>
+				<p class="mini-text">Para cadastrar um novo Contrato, preencha todos os campos abaixo:</p>
+				<hr>
+				<div class="form-row">
+					<div class="form-group col-12">
+						<label for="codigo">Código</label>
+						<input type="text" class="form-control form-control-sm" id="codigo" formControlName="codigo" required>
+					</div>
+					<div class="form-group col-12">
+						<label for="descricao">Descrição</label>
+						<input type="text" class="form-control form-control-sm" id="descricao" formControlName="descricao" required>
+					</div>
+					<div class="form-group col-12">
+						<label for="codigoProjeto">Código do Projeto</label>
+						<input type="codigoProjeto" class="form-control form-control-sm" id="codigoProjeto" formControlName="codigoProjeto" required>
+					</div>
+					<div class="form-group col-12">
+						<label for="valor">Valor</label>
+						<input type="codigoProjeto" class="form-control form-control-sm" id="valor" formControlName="valor" required>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12 col-md-6 mb-3 panel-edicao">
+		<div class="card">
+			<div class="card-body">
+				<h6>Arranjo Físico</h6>
+				<p class="mini-text">Defina uma ou mais Unidades para o Contrato</p>
+				<hr>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-12">
+		<button class="btn btn-primary btn-acao mr-2" type="submit" [disabled]="!contratoForm.valid">Cadastrar</button>
+		<button class="btn btn-light text-secondary" (click)="limpaForm(); $event.preventDefault()">Limpar</button>
+	</div>
+</form>

@@ -4,6 +4,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { Usuario } from 'app/_models/usuario';
 import { Perfil } from 'app/_models/perfil';
 import { Idioma } from 'app/_models/idioma';
+import { Contrato } from 'app/_models/contrato';
 import { Atividade } from 'app/_models/atividade';
 import { Disciplina } from 'app/_models/disciplina';
 import { FatorProdutividade } from 'app/_models/fator-produtividade';
@@ -14,6 +15,7 @@ import { UnidadeMedida } from 'app/_models/unidade-medida';
 import * as dataUsuario from 'app/data/usuario.json';
 import * as dataPerfil from 'app/data/perfil.json';
 import * as dataIdioma from 'app/data/idioma.json';
+import * as dataContrato from 'app/data/contrato.json';
 import * as dataAtividade from 'app/data/atividade.json';
 import * as dataDisciplina from 'app/data/disciplina.json';
 import * as dataFatorProdutividade from 'app/data/fator-produtividade.json';
@@ -31,6 +33,7 @@ export class DataService {
         const tableUsuario: Usuario[] = (dataUsuario as any).default.table
         const tablePerfil: Perfil[] = (dataPerfil as any).default.table
         const tableIdioma: Idioma[] = (dataIdioma as any).default.table
+        const tableContrato: Contrato[] = (dataContrato as any).default.table
         const tableAtividade: Atividade[] = (dataAtividade as any).default.table
         const tableDisciplina: Disciplina[] = (dataDisciplina as any).default.table
         const tableFatorProdutividade: FatorProdutividade[] = (dataFatorProdutividade as any).default.table
@@ -46,6 +49,9 @@ export class DataService {
         }
         if (! this.storage.retrieve('tableIdioma')) {
             this.storage.store('tableIdioma', tableIdioma)
+        }
+        if (! this.storage.retrieve('tableContrato')) {
+            this.storage.store('tableContrato', tableContrato)
         }
         if (! this.storage.retrieve('tableAtividade')) {
             this.storage.store('tableAtividade', tableAtividade)
@@ -73,6 +79,7 @@ export class DataService {
         const tableUsuario: Usuario[] = (dataUsuario as any).default.table
         const tablePerfil: Perfil[] = (dataPerfil as any).default.table
         const tableIdioma: Idioma[] = (dataIdioma as any).default.table
+        const tableContrato: Contrato[] = (dataContrato as any).default.table
         const tableAtividade: Atividade[] = (dataAtividade as any).default.table
         const tableDisciplina: Disciplina[] = (dataDisciplina as any).default.table
         const tableFatorProdutividade: FatorProdutividade[] = (dataFatorProdutividade as any).default.table
@@ -83,6 +90,7 @@ export class DataService {
         this.storage.store('tableUsuario', tableUsuario)
         this.storage.store('tablePerfil', tablePerfil)
         this.storage.store('tableIdioma', tableIdioma)
+        this.storage.store('tableContrato', tableContrato)
         this.storage.store('tableAtividade', tableAtividade)
         this.storage.store('tableDisciplina', tableDisciplina)
         this.storage.store('tableFatorProdutividade', tableFatorProdutividade)
@@ -247,6 +255,52 @@ export class DataService {
             if (idx > -1) {
                 tableIdioma.splice(idx, 1)
                 this.setTableIdioma(tableIdioma)
+            }
+        }
+    }
+
+    /*** TABELA DE CONTRATOS */
+
+    getTableContrato(): Contrato[] {
+        return this.storage.retrieve('tableContrato')
+    }
+
+    setTableContrato(tableContrato: Contrato[]): void {
+        this.storage.store('tableContrato', tableContrato)
+    }
+
+    addContrato(contrato: Contrato): void {
+        const tableContrato: Contrato[] = this.storage.retrieve('tableContrato')
+        if (Array.isArray(tableContrato)) {
+            tableContrato.push(contrato)
+            this.setTableContrato(tableContrato)
+        }
+    }
+
+    getContrato(id: number): Contrato {
+        const tableContrato: Contrato[] = this.storage.retrieve('tableContrato')
+        return (Array.isArray(tableContrato)) ? tableContrato.find(item => item.id == id)
+                                             : null
+    }
+
+    setContrato(contrato: Contrato): void {
+        const tableContrato: Contrato[] = this.storage.retrieve('tableContrato')
+        if (Array.isArray(tableContrato)) {
+            const idx = tableContrato.findIndex(item => item.id == contrato.id)
+            if (idx > -1) {
+                tableContrato[idx] = contrato
+                this.setTableContrato(tableContrato)
+            }
+        }
+    }
+
+    delContrato(id: number): void {
+        const tableContrato: Contrato[] = this.storage.retrieve('tableContrato')
+        if (Array.isArray(tableContrato)) {
+            const idx = tableContrato.findIndex(item => item.id == id)
+            if (idx > -1) {
+                tableContrato.splice(idx, 1)
+                this.setTableContrato(tableContrato)
             }
         }
     }

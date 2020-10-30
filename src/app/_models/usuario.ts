@@ -12,10 +12,9 @@ export class Usuario {
     idioma?: Idioma;
     listaPerfil?: Perfil[];
     //
-    dataInclusao?: Date;
-    dataAlteracao?: Date;
-    //
     alterarSenhaLogin?: boolean;
-    usuarioInclusaoId?: number;
-    usuarioAlteracaoId?: number;
+    dataInclusao?: Date;
+    idUsuarioInclusao?: number;
+    dataAlteracao?: Date;
+    idUsuarioAlteracao?: number;
 }

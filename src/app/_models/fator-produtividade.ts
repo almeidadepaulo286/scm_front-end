@@ -11,5 +11,7 @@ export class FatorProdutividade {
     unidadeMedida: UnidadeMedida;
     //
     dataInclusao?: Date;
+    idUsuarioInclusao?: number;
     dataAlteracao?: Date;
+    idUsuarioAlteracao?: number;
 }

@@ -4,5 +4,7 @@ export class Disciplina {
     nome: string;
     //
     dataInclusao?: Date;
+    idUsuarioInclusao?: number;
     dataAlteracao?: Date;
+    idUsuarioAlteracao?: number;
 }

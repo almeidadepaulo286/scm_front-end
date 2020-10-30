@@ -4,5 +4,7 @@ export class UnidadeMedida {
     descricao: string;
     //
     dataInclusao?: Date;
+    idUsuarioInclusao?: number;
     dataAlteracao?: Date;
+    idUsuarioAlteracao?: number;
 }

@@ -1,0 +1,37 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+	<h1 class="page-heading">{{title}}</h1>
+
+	<div class="text-right">
+		<botao-voltar></botao-voltar>
+		<a class="btn btn-sm btn-primary btn-acao ml-2" routerLink="/contratos/editar/{{contrato.id}}">
+			<fa-icon [icon]="faPen"></fa-icon>
+			Alterar
+		</a>
+	</div>
+</div>
+
+<div *ngIf="contrato" class="registro row">
+	<div class="col-12 col-md-6 mb-3 panel-detalhe">
+		<div class="card">
+			<div class="card-body">
+				<h6>Contrato</h6>
+				<div class="">
+					<div class="mb-2 mr-lg-5"><small class="text-secondary">Código:</small><br>{{contrato.codigo}}</div>
+					<div class="mb-2 mr-lg-5"><small class="text-secondary">Descrição:</small><br>{{contrato.descricao}}</div>
+					<div class="mb-2 mr-lg-5"><small class="text-secondary">Código do Projeto:</small><br>{{contrato.codigoProjeto}}</div>
+					<div class="mb-2 mr-lg-5"><small class="text-secondary">Valor:</small><br>{{contrato.valor}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12 col-md-6 mb-3 panel-detalhe">
+		<div class="card">
+			<div class="card-body">
+				<h6>Arranjo Físico</h6>
+				<div class="mb-2 mr-lg-5">
+                    <br>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
