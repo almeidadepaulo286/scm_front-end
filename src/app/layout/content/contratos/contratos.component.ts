@@ -53,6 +53,7 @@ export class ContratosComponent implements OnInit {
                 private contratoService: ContratoService) {}
 
 	ngOnInit() {
+		this.limparFiltros() // limpa o 0.0000 do indice
 		this.getContratos()
 	}
 

@@ -26,7 +26,7 @@ export class LoginPageComponent implements OnInit {
 
     ngOnInit() {
         // inicializacao qualquer...
-        this.toastr.clear();
+        //this.toastr.clear();
         this.isLoggingIn = false;
         this.remember = true;
         this.language = 'pt';

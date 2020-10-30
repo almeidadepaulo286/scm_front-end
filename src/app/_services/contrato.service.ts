@@ -25,7 +25,6 @@ export class ContratoService {
       newItem.valor = stContrato.valor
       newItem.dataInicial = stContrato.dataInicial
       newItem.dataFinal = stContrato.dataFinal
-      newItem.arranjoFisico = stContrato.arranjoFisico
       newItem.dataInclusao = new Date()
 
       this.dataService.addContrato(newItem)
@@ -49,6 +48,18 @@ export class ContratoService {
           contrato.dataInicial = stContrato.dataInicial
           contrato.dataFinal = stContrato.dataFinal
           contrato.arranjoFisico = stContrato.arranjoFisico
+          contrato.dataAlteracao = new Date()
+
+          this.dataService.setContrato(contrato);
+        }
+
+      return of(contrato);
+    }
+
+    setArranjoFisicoById(id: number, stArranjoFisico: any): Observable<Contrato> {
+      const contrato : Contrato = this.dataService.getContrato(id);
+      if (contrato) {
+          contrato.arranjoFisico = stArranjoFisico
           contrato.dataAlteracao = new Date()
 
           this.dataService.setContrato(contrato);

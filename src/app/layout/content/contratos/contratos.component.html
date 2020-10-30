@@ -28,7 +28,8 @@
                     </div>
                     <div class="col-12 col-sm-4 col-md-2 mb-2 mb-md-0">
                         <label for="valor">Valor:</label>
-                        <input type="text" class="form-control form-control-sm" formControlName="valor">
+                        <input type="text" class="form-control form-control-sm" formControlName="valor"
+                               currencyMask [options]="{ prefix: 'R$ ', thousands: '.', align: 'left', decimal: ',', allowZero: true, nullable: true }">
                     </div>
                     <div class="col text-right">
                         <label>&nbsp;</label>
@@ -56,7 +57,7 @@
                 <th pSortableColumn="codigo">Código <p-sortIcon field="codigo"></p-sortIcon></th>
                 <th pSortableColumn="descricao">Descrição <p-sortIcon field="descricao"></p-sortIcon></th>
                 <th pSortableColumn="codigoProjeto">Código do Projeto <p-sortIcon field="codigoProjeto"></p-sortIcon></th>
-                <th pSortableColumn="valor">Valor <p-sortIcon field="valor"></p-sortIcon></th>
+                <th pSortableColumn="valor">Valor (R$)<p-sortIcon field="valor"></p-sortIcon></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-contrato>
@@ -64,7 +65,7 @@
                 <td>{{contrato.codigo}}</td>
                 <td>{{contrato.descricao}}</td>
                 <td>{{contrato.codigoProjeto}}</td>
-                <td>{{contrato.valor}}</td>
+                <td>{{contrato.valor | formatCurrency}}</td>
             </tr>
         </ng-template>
     </p-table>

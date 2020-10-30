@@ -11,7 +11,7 @@
 </div>
 
 <div *ngIf="contrato" class="registro row">
-	<div class="col-12 col-md-6 mb-3 panel-detalhe">
+	<div class="col-12 col-md-4 mb-3 panel-detalhe">
 		<div class="card">
 			<div class="card-body">
 				<h6>Contrato</h6>
@@ -19,12 +19,14 @@
 					<div class="mb-2 mr-lg-5"><small class="text-secondary">Código:</small><br>{{contrato.codigo}}</div>
 					<div class="mb-2 mr-lg-5"><small class="text-secondary">Descrição:</small><br>{{contrato.descricao}}</div>
 					<div class="mb-2 mr-lg-5"><small class="text-secondary">Código do Projeto:</small><br>{{contrato.codigoProjeto}}</div>
-					<div class="mb-2 mr-lg-5"><small class="text-secondary">Valor:</small><br>{{contrato.valor}}</div>
+					<div class="mb-2 mr-lg-5"><small class="text-secondary">Valor:</small><br>{{contrato.valor | formatCurrency}}</div>
+					<div class="mb-2 mr-lg-5"><small class="text-secondary">Data Inicial:</small><br>{{contrato.dataInicial | date:'dd/MM/yyyy'}}</div>
+					<div class="mb-2 mr-lg-5"><small class="text-secondary">Data Final:</small><br>{{contrato.dataFinal | date:'dd/MM/yyyy'}}</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="col-12 col-md-6 mb-3 panel-detalhe">
+	<div class="col-12 col-md-8 mb-3 panel-detalhe">
 		<div class="card">
 			<div class="card-body">
 				<h6>Arranjo Físico</h6>
