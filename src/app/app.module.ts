@@ -39,6 +39,53 @@ import { MultiSelectModule } from 'primeng/multiselect';
 // FontAwesome
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+// Mascara de formulario
+import { NgxMaskModule } from 'ngx-mask';
+
+// Dropzone File Upload
+import { NgxDropzoneModule } from 'ngx-dropzone';
+
+// Tables
+import { DataTablesModule } from 'angular-datatables';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+
+// Loader
+import { LoaderService } from 'app/_components/loader/loader.service';
+import { LoaderComponent } from 'app/_components/loader/loader.component';
+import { LoaderInterceptor } from 'app/_components/loader/loader.interceptor';
+
+// DatePicker
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
+// Angular Ladda
+import { LaddaModule } from 'angular2-ladda';
+
+// Alerts
+import { ToastrModule } from 'ngx-toastr';
+
+// Modals
+import { ModalModule } from 'ngx-bootstrap/modal';
+
+// Pagination
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+
+// Currency, Moeda, R$
+import { NgxCurrencyModule } from 'ngx-currency';
+
+// Table Edit
+import {TableModule} from 'primeng/table';
+import {DropdownModule} from 'primeng/dropdown';
+
+// Tree-View
+// import { TreeviewModule } from 'ngx-treeview';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import ptBr from '@angular/common/locales/pt';
+registerLocaleData(ptBr)
+
 // Home
 import { InicioComponent } from './layout/content/inicio/inicio.component';
 
@@ -97,48 +144,6 @@ import { CaracteristicaService } from './_services/caracteristica.service';
 
 // Unidades de Medida
 import { UnidadeMedidaService } from './_services/unidade-medida.service';
-
-// Mascara de formulario
-import { NgxMaskModule } from 'ngx-mask';
-
-// Dropzone File Upload
-import { NgxDropzoneModule } from 'ngx-dropzone';
-
-// Tables
-import { DataTablesModule } from 'angular-datatables';
-import { Ng2SmartTableModule } from 'ng2-smart-table';
-
-// Loader
-import { LoaderService } from 'app/_components/loader/loader.service';
-import { LoaderComponent } from 'app/_components/loader/loader.component';
-import { LoaderInterceptor } from 'app/_components/loader/loader.interceptor';
-
-// DatePicker
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-
-// Angular Ladda
-import { LaddaModule } from 'angular2-ladda';
-
-// Alerts
-import { ToastrModule } from 'ngx-toastr';
-
-// Modals
-import { ModalModule } from 'ngx-bootstrap/modal';
-
-// Pagination
-import { PaginationModule } from 'ngx-bootstrap/pagination';
-
-// Currency, Moeda, R$
-import { NgxCurrencyModule } from 'ngx-currency';
-
-import { LOCALE_ID } from '@angular/core';
-import { registerLocaleData } from '@angular/common';
-import ptBr from '@angular/common/locales/pt';
-registerLocaleData(ptBr)
-
-// Table Edit
-import {TableModule} from 'primeng/table';
-import {DropdownModule} from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -224,6 +229,10 @@ import {DropdownModule} from 'primeng/dropdown';
     NgxCurrencyModule,
     TableModule,
     DropdownModule,
+    // Tree-view
+    // TreeviewModule.forRoot(),
+    MatTreeModule,
+    MatProgressBarModule,
     // Angular Ladda
     LaddaModule.forRoot({
       style: 'zoom-in',

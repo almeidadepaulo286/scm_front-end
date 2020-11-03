@@ -10,6 +10,9 @@ import { Disciplina } from 'app/_models/disciplina';
 import { FatorProdutividade } from 'app/_models/fator-produtividade';
 import { Caracteristica } from 'app/_models/caracteristica';
 import { UnidadeMedida } from 'app/_models/unidade-medida';
+import { Unidade } from 'app/_models/unidade';
+import { Area } from 'app/_models/area';
+import { Sop } from 'app/_models/sop';
 
 // Dados Mock da API: ja efetua parsing dos dados nas tabelas (json) para os respectivos registros (classe).
 import * as dataUsuario from 'app/data/usuario.json';
@@ -21,6 +24,9 @@ import * as dataDisciplina from 'app/data/disciplina.json';
 import * as dataFatorProdutividade from 'app/data/fator-produtividade.json';
 import * as dataCaracteristica from 'app/data/caracteristica.json';
 import * as dataUnidadeMedida from 'app/data/unidade-medida.json';
+import * as dataUnidade from 'app/data/unidade.json';
+import * as dataArea from 'app/data/area.json';
+import * as dataSop from 'app/data/sop.json';
 
 @Injectable()
 export class DataService {
@@ -39,6 +45,9 @@ export class DataService {
         const tableFatorProdutividade: FatorProdutividade[] = (dataFatorProdutividade as any).default.table
         const tableCaracteristica: Caracteristica[] = (dataCaracteristica as any).default.table
         const tableUnidadeMedida: UnidadeMedida[] = (dataUnidadeMedida as any).default.table
+        const tableUnidade: Unidade[] = (dataUnidade as any).default.table
+        const tableArea: Area[] = (dataArea as any).default.table
+        const tableSop: Sop[] = (dataSop as any).default.table
 
         // salva qualquer das tabelas no local-storage se nao existir:
         if (! this.storage.retrieve('tableUsuario')) {
@@ -68,6 +77,15 @@ export class DataService {
         if (! this.storage.retrieve('tableUnidadeMedida')) {
             this.storage.store('tableUnidadeMedida', tableUnidadeMedida)
         }
+        if (! this.storage.retrieve('tableUnidade')) {
+            this.storage.store('tableUnidade', tableUnidade)
+        }
+        if (! this.storage.retrieve('tableArea')) {
+            this.storage.store('tableArea', tableArea)
+        }
+        if (! this.storage.retrieve('tableSop')) {
+            this.storage.store('tableSop', tableSop)
+        }
     }
 
     // Limpa a base de dados do local-storage e recarrega as tabelas dos arquivos data*.json:
@@ -85,6 +103,9 @@ export class DataService {
         const tableFatorProdutividade: FatorProdutividade[] = (dataFatorProdutividade as any).default.table
         const tableCaracteristica: Caracteristica[] = (dataCaracteristica as any).default.table
         const tableUnidadeMedida: UnidadeMedida[] = (dataUnidadeMedida as any).default.table
+        const tableUnidade: Unidade[] = (dataUnidade as any).default.table
+        const tableArea: Area[] = (dataArea as any).default.table
+        const tableSop: Sop[] = (dataSop as any).default.table
 
         // salva as tabelas no local-storage:
         this.storage.store('tableUsuario', tableUsuario)
@@ -96,6 +117,9 @@ export class DataService {
         this.storage.store('tableFatorProdutividade', tableFatorProdutividade)
         this.storage.store('tableCaracteristica', tableCaracteristica)
         this.storage.store('tableUnidadeMedida', tableUnidadeMedida)
+        this.storage.store('tableUnidade', tableUnidade)
+        this.storage.store('tableArea', tableArea)
+        this.storage.store('tableSop', tableSop)
     }
 
     /*** USUARIO CORRENTEMENTE LOGADO */
@@ -531,6 +555,144 @@ export class DataService {
             if (idx > -1) {
                 tableUnidadeMedida.splice(idx, 1)
                 this.setTableUnidadeMedida(tableUnidadeMedida)
+            }
+        }
+    }
+
+    /*** TABELA DE UNIDADES */
+
+    getTableUnidade(): Unidade[] {
+        return this.storage.retrieve('tableUnidade')
+    }
+
+    setTableUnidade(tableUnidade: Unidade[]): void {
+        this.storage.store('tableUnidade', tableUnidade)
+    }
+
+    addUnidade(unidade: Unidade): void {
+        const tableUnidade: Unidade[] = this.storage.retrieve('tableUnidade')
+        if (Array.isArray(tableUnidade)) {
+            tableUnidade.push(unidade)
+            this.setTableUnidade(tableUnidade)
+        }
+    }
+
+    getUnidade(id: number): Unidade {
+        const tableUnidade: Unidade[] = this.storage.retrieve('tableUnidade')
+        return (Array.isArray(tableUnidade)) ? tableUnidade.find(item => item.id == id)
+                                             : null
+    }
+
+    setUnidade(unidade: Unidade): void {
+        const tableUnidade: Unidade[] = this.storage.retrieve('tableUnidade')
+        if (Array.isArray(tableUnidade)) {
+            const idx = tableUnidade.findIndex(item => item.id == unidade.id)
+            if (idx > -1) {
+                tableUnidade[idx] = unidade
+                this.setTableUnidade(tableUnidade)
+            }
+        }
+    }
+
+    delUnidade(id: number): void {
+        const tableUnidade: Unidade[] = this.storage.retrieve('tableUnidade')
+        if (Array.isArray(tableUnidade)) {
+            const idx = tableUnidade.findIndex(item => item.id == id)
+            if (idx > -1) {
+                tableUnidade.splice(idx, 1)
+                this.setTableUnidade(tableUnidade)
+            }
+        }
+    }
+
+    /*** TABELA DE AREAS */
+
+    getTableArea(): Area[] {
+        return this.storage.retrieve('tableArea')
+    }
+
+    setTableArea(tableArea: Area[]): void {
+        this.storage.store('tableArea', tableArea)
+    }
+
+    addArea(area: Area): void {
+        const tableArea: Area[] = this.storage.retrieve('tableArea')
+        if (Array.isArray(tableArea)) {
+            tableArea.push(area)
+            this.setTableArea(tableArea)
+        }
+    }
+
+    getArea(id: number): Area {
+        const tableArea: Area[] = this.storage.retrieve('tableArea')
+        return (Array.isArray(tableArea)) ? tableArea.find(item => item.id == id)
+                                            : null
+    }
+
+    setArea(area: Area): void {
+        const tableArea: Area[] = this.storage.retrieve('tableArea')
+        if (Array.isArray(tableArea)) {
+            const idx = tableArea.findIndex(item => item.id == area.id)
+            if (idx > -1) {
+                tableArea[idx] = area
+                this.setTableArea(tableArea)
+            }
+        }
+    }
+
+    delArea(id: number): void {
+        const tableArea: Area[] = this.storage.retrieve('tableArea')
+        if (Array.isArray(tableArea)) {
+            const idx = tableArea.findIndex(item => item.id == id)
+            if (idx > -1) {
+                tableArea.splice(idx, 1)
+                this.setTableArea(tableArea)
+            }
+        }
+    }
+
+    /*** TABELA DE SOPs */
+
+    getTableSop(): Sop[] {
+        return this.storage.retrieve('tableSop')
+    }
+
+    setTableSop(tableSop: Sop[]): void {
+        this.storage.store('tableSop', tableSop)
+    }
+
+    addSop(sop: Sop): void {
+        const tableSop: Sop[] = this.storage.retrieve('tableSop')
+        if (Array.isArray(tableSop)) {
+            tableSop.push(sop)
+            this.setTableSop(tableSop)
+        }
+    }
+
+    getSop(id: number): Sop {
+        const tableSop: Sop[] = this.storage.retrieve('tableSop')
+        return (Array.isArray(tableSop)) ? tableSop.find(item => item.id == id)
+                                            : null
+    }
+
+    setSop(sop: Sop): void {
+        const tableSop: Sop[] = this.storage.retrieve('tableSop')
+        if (Array.isArray(tableSop)) {
+            const idx = tableSop.findIndex(item => item.id == sop.id)
+            if (idx > -1) {
+                tableSop[idx] = sop
+                this.setTableSop(tableSop)
+            }
+        }
+    }
+
+    delSop(id: number): void {
+        const tableSop: Sop[] = this.storage.retrieve('tableSop')
+        if (Array.isArray(tableSop)) {
+            const idx = tableSop.findIndex(item => item.id == id)
+            if (idx > -1) {
+                tableSop.splice(idx, 1)
+                this.setTableSop(tableSop)
             }
         }
     }

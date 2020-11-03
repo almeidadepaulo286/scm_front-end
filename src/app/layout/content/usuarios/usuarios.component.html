@@ -14,7 +14,7 @@
                     <small><strong>Filtros:</strong></small>
                 </div>
                 <div class="form-row">
-                    <div class="col-12 col-sm-4 col-md-3 mb-2 mb-md-0">
+                    <div class="col-12 col-sm-4 col-md-2 mb-2 mb-md-0">
                         <label for="nome">Nome:</label>
                         <input type="text" class="form-control form-control-sm" formControlName="nome">
                     </div>
@@ -22,12 +22,12 @@
                         <label for="documento">Login:</label>
                         <input type="text" class="form-control form-control-sm" formControlName="login">
                     </div>
-                    <div class="col-12 col-sm-4 col-md-2 mb-2 mb-md-0">
+                    <div class="col-12 col-sm-4 col-md-3 mb-2 mb-md-0">
                         <label for="perfil">Perfil:</label>
                         <select class="form-control form-control-sm" name="idPerfil" id="idPerfil" formControlName="idPerfil">
                             <option value=""></option>
                             <ng-container *ngFor="let perfil of listaPerfis">
-                                <option value="{{perfil.id}}">{{perfil.nome}}</option>
+                                <option value="{{perfil.id}}">{{perfil.codigo}} - {{perfil.nome}}</option>
                             </ng-container>
                         </select>
                     </div>

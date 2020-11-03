@@ -1,0 +1,28 @@
+{
+    "table": [
+    {
+       "id": 1,
+       "codigo": "",
+       "descricao": "",
+       "idUnidade": 0,
+       "idAreaPai": 0,
+       "subAreas": []
+    },
+    {
+       "id": 2,
+       "codigo": "",
+       "descricao": "",
+       "idUnidade": 0,
+       "idAreaPai": 0,
+       "subAreas": []
+    },
+    {
+       "id": 3,
+       "codigo": "",
+       "descricao": "",
+       "idUnidade": 0,
+       "idAreaPai": 0,
+       "subAreas": []
+    }
+ ]
+}

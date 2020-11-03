@@ -30,10 +30,34 @@
 		<div class="card">
 			<div class="card-body">
 				<h6>Arranjo Físico</h6>
-				<div class="mb-2 mr-lg-5">
-                    <br>
+				<p class="mini-text">Defina as Unidades, Áreas e SOPs do Contrato</p>
+				<hr>
+				<div class="form-row">
+					<div class="form-group panel-tree">
+
+						<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+							<mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+							  <button mat-icon-button disabled></button>
+							  {{node.item}}
+							</mat-tree-node>
+							<mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+							  <button mat-icon-button
+									  [attr.aria-label]="'Toggle ' + node.item" matTreeNodeToggle>
+								<mat-icon class="mat-icon-rtl-mirror">
+								  {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+								</mat-icon>
+							  </button>
+							  {{node.item}}
+							  <mat-progress-bar *ngIf="node.isLoading"
+												mode="indeterminate"
+												class="example-tree-progress-bar"></mat-progress-bar>
+							</mat-tree-node>
+						  </mat-tree>
+
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+

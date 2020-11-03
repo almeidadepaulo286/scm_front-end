@@ -18,16 +18,16 @@
                         <label for="codigo">Código:</label>
                         <input type="text" class="form-control form-control-sm" formControlName="codigo">
                     </div>
-                    <div class="col-12 col-sm-4 col-md-2 mb-2 mb-md-0">
+                    <div class="col-12 col-sm-4 col-md-3 mb-2 mb-md-0">
                         <label for="documento">Prefixo:</label>
                         <input type="text" class="form-control form-control-sm" formControlName="prefixo">
                     </div>
-                    <div class="col-12 col-sm-4 col-md-2 mb-2 mb-md-0">
+                    <div class="col-12 col-sm-4 col-md-3 mb-2 mb-md-0">
                         <label for="disciplina">Disciplina:</label>
                         <select class="form-control form-control-sm" name="idDisciplina" id="idDisciplina" formControlName="idDisciplina">
                             <option value=""></option>
                             <ng-container *ngFor="let disciplina of listaDisciplinas">
-                                <option value="{{disciplina.id}}">{{disciplina.codigo}}</option>
+                                <option value="{{disciplina.id}}">{{disciplina.codigo}} - {{disciplina.nome}}</option>
                             </ng-container>
                         </select>
                     </div>

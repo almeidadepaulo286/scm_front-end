@@ -1,0 +1,35 @@
+{
+    "table": [
+    {
+       "id": 1,
+       "codigo": "",
+       "descricao": "",
+       "prefixo": "",
+       "idContrato": 0,
+       "idUnidadePai": 0,
+       "areas": [],
+       "sops": []
+       
+    },
+    {
+       "id": 2,
+       "codigo": "",
+       "descricao": "",
+       "prefixo": "",
+       "idContrato": 0,
+       "idUnidadePai": 0,
+       "areas": [],
+       "sops": []
+    },
+    {
+       "id": 3,
+       "codigo": "",
+       "descricao": "",
+       "prefixo": "",
+       "idContrato": 0,
+       "idUnidadePai": 0,
+       "areas": [],
+       "sops": []
+    }
+ ]
+}
